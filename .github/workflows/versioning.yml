@@ -1,0 +1,50 @@
+name: Automated versioning
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  bump-version:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Calculate version
+        run: |
+          DATE=$(date -u +'%y%m%d')
+          VERSION="1.0.${DATE}.${{ github.run_number }}"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "Computed version: $VERSION"
+
+      - name: Update package versions
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const version = process.env.VERSION;
+          const files = ['package.json', 'package-lock.json'];
+          for (const path of files) {
+            const data = JSON.parse(fs.readFileSync(path, 'utf8'));
+            data.version = version;
+            if (path === 'package-lock.json' && data.packages && data.packages['']) {
+              data.packages[''].version = version;
+            }
+            fs.writeFileSync(path, JSON.stringify(data, null, 2) + '\n');
+          }
+          NODE
+
+      - name: Commit version bump
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: auto-bump version to ${{ env.VERSION }}"
+          branch: ${{ github.ref_name }}
+          file_pattern: package.json package-lock.json
