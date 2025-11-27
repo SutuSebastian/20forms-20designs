@@ -62,6 +62,13 @@ const styles = {
   combosSection: {
     marginTop: '32px',
   },
+  comboHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    gap: '16px',
+    alignItems: 'flex-start',
+    flexWrap: 'wrap',
+  },
   placeholderText: {
     margin: '12px 0',
   },
@@ -69,6 +76,48 @@ const styles = {
     display: 'flex',
     flexWrap: 'wrap',
     gap: '10px',
+  },
+  comboGroupGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gap: '16px',
+  },
+  comboGroupCard: {
+    border: '1px solid #c1c7cd',
+    borderRadius: '10px',
+    backgroundColor: '#ffffff',
+    padding: '14px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '12px',
+  },
+  comboGroupHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: '10px',
+  },
+  comboGroupTitle: {
+    margin: 0,
+    fontWeight: 700,
+    fontSize: '1rem',
+  },
+  comboGroupCount: {
+    padding: '2px 10px',
+    borderRadius: '999px',
+    backgroundColor: '#e5e8ed',
+    fontWeight: 600,
+    fontSize: '0.85rem',
+    color: '#1f2933',
+  },
+  groupToggle: {
+    display: 'flex',
+    gap: '12px',
+    alignItems: 'center',
+    padding: '8px 12px',
+    border: '1px solid #c1c7cd',
+    borderRadius: '10px',
+    backgroundColor: '#f6f7fb',
   },
   comboCard: {
     border: '1px solid #c1c7cd',
@@ -120,6 +169,7 @@ const styles = {
     width: '100%',
     maxWidth: '380px',
     minHeight: '380px',
+
   },
   previewFormWrapper: {
     border: '1px solid #e0e4ea',
