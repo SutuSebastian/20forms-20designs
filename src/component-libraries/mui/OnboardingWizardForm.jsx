@@ -10,9 +10,9 @@ function OnboardingWizardForm() {
     <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
       <Box component="section" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
         <Typography variant="h6">Step 1: Account</Typography>
-        <TextField id="onboarding-email" name="email" label="Work email" type="email" required />
+        <TextField id="mui-onboarding-email" name="email" label="Work email" type="email" required />
         <TextField
-          id="onboarding-password"
+          id="mui-onboarding-password"
           name="password"
           label="Password"
           type="password"
@@ -23,8 +23,8 @@ function OnboardingWizardForm() {
 
       <Box component="section" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
         <Typography variant="h6">Step 2: Team</Typography>
-        <TextField id="onboarding-team-name" name="teamName" label="Team name" type="text" required />
-        <TextField id="onboarding-size" name="teamSize" label="Team size" select required defaultValue="">
+        <TextField id="mui-onboarding-team-name" name="teamName" label="Team name" type="text" required />
+        <TextField id="mui-onboarding-size" name="teamSize" label="Team size" select required defaultValue="">
           <MenuItem value="">Select size</MenuItem>
           <MenuItem value="1-5">1-5</MenuItem>
           <MenuItem value="6-20">6-20</MenuItem>
@@ -36,7 +36,7 @@ function OnboardingWizardForm() {
       <Box component="section" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
         <Typography variant="h6">Step 3: Preferences</Typography>
         <TextField
-          id="onboarding-goal"
+          id="mui-onboarding-goal"
           name="goal"
           label="Primary goal"
           multiline

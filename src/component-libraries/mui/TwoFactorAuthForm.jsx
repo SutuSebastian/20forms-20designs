@@ -10,7 +10,7 @@ function TwoFactorAuthForm() {
     <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
       <Typography>Enter the code from your authenticator app or SMS.</Typography>
       <TextField
-        id="two-factor-code"
+        id="mui-two-factor-code"
         name="code"
         label="Verification code"
         type="text"
@@ -18,7 +18,7 @@ function TwoFactorAuthForm() {
         inputProps={{ inputMode: 'numeric', pattern: '\\d{6}', maxLength: 6 }}
       />
       <TextField
-        id="two-factor-backup"
+        id="mui-two-factor-backup"
         name="backupCode"
         label="Backup code (optional)"
         type="text"

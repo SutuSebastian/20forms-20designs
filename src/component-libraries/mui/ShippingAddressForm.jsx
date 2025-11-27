@@ -15,13 +15,13 @@ function ShippingAddressForm() {
 
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-      <TextField id="shipping-full-name" name="fullName" label="Recipient name" type="text" required />
-      <TextField id="shipping-street" name="street" label="Street address" type="text" required />
-      <TextField id="shipping-street-2" name="street2" label="Apartment, suite, etc." type="text" />
-      <TextField id="shipping-city" name="city" label="City" type="text" required />
+      <TextField id="mui-shipping-full-name" name="fullName" label="Recipient name" type="text" required />
+      <TextField id="mui-shipping-street" name="street" label="Street address" type="text" required />
+      <TextField id="mui-shipping-street-2" name="street2" label="Apartment, suite, etc." type="text" />
+      <TextField id="mui-shipping-city" name="city" label="City" type="text" required />
 
       <TextField
-        id="shipping-country"
+        id="mui-shipping-country"
         name="country"
         label="Country"
         select
@@ -36,7 +36,7 @@ function ShippingAddressForm() {
         ))}
       </TextField>
 
-      <TextField id="shipping-region" name="region" label="State / Province / Territory" select required defaultValue="">
+      <TextField id="mui-shipping-region" name="region" label="State / Province / Territory" select required defaultValue="">
         <MenuItem value="">Select an option</MenuItem>
         {regionOptions.map((region) => (
           <MenuItem key={region} value={region}>
@@ -46,7 +46,7 @@ function ShippingAddressForm() {
       </TextField>
 
       <TextField
-        id="shipping-postal"
+        id="mui-shipping-postal"
         name="postalCode"
         label="Postal code"
         type="text"

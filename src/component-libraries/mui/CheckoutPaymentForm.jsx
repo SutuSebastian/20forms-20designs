@@ -8,10 +8,10 @@ function CheckoutPaymentForm() {
 
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-      <TextField id="checkout-email" name="email" label="Email for receipt" type="email" required />
+      <TextField id="mui-checkout-email" name="email" label="Email for receipt" type="email" required />
 
       <TextField
-        id="checkout-shipping-method"
+        id="mui-checkout-shipping-method"
         name="shippingMethod"
         label="Shipping method"
         select
@@ -25,7 +25,7 @@ function CheckoutPaymentForm() {
       </TextField>
 
       <TextField
-        id="checkout-card-number"
+        id="mui-checkout-card-number"
         name="cardNumber"
         label="Card number"
         type="text"
@@ -34,7 +34,7 @@ function CheckoutPaymentForm() {
       />
 
       <TextField
-        id="checkout-expiration"
+        id="mui-checkout-expiration"
         name="expiration"
         label="Expiration"
         type="text"
@@ -44,7 +44,7 @@ function CheckoutPaymentForm() {
       />
 
       <TextField
-        id="checkout-cvc"
+        id="mui-checkout-cvc"
         name="cvc"
         label="CVC"
         type="text"
@@ -53,7 +53,7 @@ function CheckoutPaymentForm() {
       />
 
       <TextField
-        id="checkout-promo"
+        id="mui-checkout-promo"
         name="promoCode"
         label="Promo code"
         type="text"

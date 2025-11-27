@@ -8,8 +8,8 @@ function PrivacyConsentForm() {
 
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-      <TextField id="privacy-name" name="fullName" label="Full name" type="text" required />
-      <TextField id="privacy-email" name="email" label="Email address" type="email" required />
+      <TextField id="mui-privacy-name" name="fullName" label="Full name" type="text" required />
+      <TextField id="mui-privacy-email" name="email" label="Email address" type="email" required />
 
       <Box component="fieldset" sx={{ border: '1px solid', borderColor: 'divider', borderRadius: 1, p: 2 }}>
         <Typography component="legend" sx={{ mb: 1, fontWeight: 600 }}>
@@ -35,7 +35,7 @@ function PrivacyConsentForm() {
         </FormGroup>
       </Box>
 
-      <TextField id="privacy-notes" name="notes" label="Additional notes" multiline rows={3} />
+      <TextField id="mui-privacy-notes" name="notes" label="Additional notes" multiline rows={3} />
 
       <Button type="submit" variant="contained">
         Save preferences

@@ -8,10 +8,10 @@ function AdvancedSearchForm() {
 
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-      <TextField id="search-query" name="query" label="Search query" type="text" required />
+      <TextField id="mui-search-query" name="query" label="Search query" type="text" required />
 
       <TextField
-        id="search-category"
+        id="mui-search-category"
         name="category"
         label="Category"
         select
@@ -24,11 +24,11 @@ function AdvancedSearchForm() {
         <MenuItem value="people">People</MenuItem>
       </TextField>
 
-      <TextField id="search-date-from" name="dateFrom" label="Date from" type="date" InputLabelProps={{ shrink: true }} />
+      <TextField id="mui-search-date-from" name="dateFrom" label="Date from" type="date" InputLabelProps={{ shrink: true }} />
 
-      <TextField id="search-date-to" name="dateTo" label="Date to" type="date" InputLabelProps={{ shrink: true }} />
+      <TextField id="mui-search-date-to" name="dateTo" label="Date to" type="date" InputLabelProps={{ shrink: true }} />
 
-      <TextField id="search-sort" name="sort" label="Sort by" select defaultValue="relevance" required>
+      <TextField id="mui-search-sort" name="sort" label="Sort by" select defaultValue="relevance" required>
         <MenuItem value="relevance">Relevance</MenuItem>
         <MenuItem value="newest">Newest</MenuItem>
         <MenuItem value="oldest">Oldest</MenuItem>

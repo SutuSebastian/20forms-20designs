@@ -8,9 +8,9 @@ function NewsletterSubscriptionForm() {
 
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-      <TextField id="newsletter-email" name="email" label="Email address" type="email" required />
+      <TextField id="mui-newsletter-email" name="email" label="Email address" type="email" required />
       <TextField
-        id="newsletter-frequency"
+        id="mui-newsletter-frequency"
         name="frequency"
         label="Frequency"
         select

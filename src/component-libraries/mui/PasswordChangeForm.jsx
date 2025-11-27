@@ -9,14 +9,14 @@ function PasswordChangeForm() {
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
       <TextField
-        id="password-change-current"
+        id="mui-password-change-current"
         name="currentPassword"
         label="Current password"
         type="password"
         required
       />
       <TextField
-        id="password-change-new"
+        id="mui-password-change-new"
         name="newPassword"
         label="New password"
         type="password"
@@ -24,7 +24,7 @@ function PasswordChangeForm() {
         inputProps={{ minLength: 8 }}
       />
       <TextField
-        id="password-change-confirm"
+        id="mui-password-change-confirm"
         name="confirmPassword"
         label="Confirm new password"
         type="password"

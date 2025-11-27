@@ -8,10 +8,10 @@ function AppointmentRequestForm() {
 
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-      <TextField id="appointment-name" name="fullName" label="Full name" type="text" required />
-      <TextField id="appointment-email" name="email" label="Email address" type="email" required />
+      <TextField id="mui-appointment-name" name="fullName" label="Full name" type="text" required />
+      <TextField id="mui-appointment-email" name="email" label="Email address" type="email" required />
       <TextField
-        id="appointment-date"
+        id="mui-appointment-date"
         name="date"
         label="Preferred date"
         type="date"
@@ -19,7 +19,7 @@ function AppointmentRequestForm() {
         InputLabelProps={{ shrink: true }}
       />
       <TextField
-        id="appointment-time"
+        id="mui-appointment-time"
         name="time"
         label="Preferred time"
         type="time"
@@ -27,7 +27,7 @@ function AppointmentRequestForm() {
         InputLabelProps={{ shrink: true }}
       />
       <TextField
-        id="appointment-reason"
+        id="mui-appointment-reason"
         name="reason"
         label="Reason for visit"
         multiline

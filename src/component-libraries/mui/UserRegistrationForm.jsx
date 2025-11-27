@@ -8,10 +8,10 @@ function UserRegistrationForm() {
 
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-      <TextField id="user-registration-name" name="fullName" label="Full name" type="text" required />
-      <TextField id="user-registration-email" name="email" label="Email address" type="email" required />
+      <TextField id="mui-user-registration-name" name="fullName" label="Full name" type="text" required />
+      <TextField id="mui-user-registration-email" name="email" label="Email address" type="email" required />
       <TextField
-        id="user-registration-username"
+        id="mui-user-registration-username"
         name="username"
         label="Username"
         type="text"
@@ -19,7 +19,7 @@ function UserRegistrationForm() {
         inputProps={{ minLength: 3 }}
       />
       <TextField
-        id="user-registration-password"
+        id="mui-user-registration-password"
         name="password"
         label="Password"
         type="password"
@@ -27,7 +27,7 @@ function UserRegistrationForm() {
         inputProps={{ minLength: 8 }}
       />
       <TextField
-        id="user-registration-confirm"
+        id="mui-user-registration-confirm"
         name="confirmPassword"
         label="Confirm password"
         type="password"

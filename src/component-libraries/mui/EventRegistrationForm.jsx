@@ -8,16 +8,16 @@ function EventRegistrationForm() {
 
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-      <TextField id="event-name" name="fullName" label="Full name" type="text" required />
-      <TextField id="event-email" name="email" label="Email address" type="email" required />
-      <TextField id="event-ticket" name="ticketType" label="Ticket type" select required defaultValue="">
+      <TextField id="mui-event-name" name="fullName" label="Full name" type="text" required />
+      <TextField id="mui-event-email" name="email" label="Email address" type="email" required />
+      <TextField id="mui-event-ticket" name="ticketType" label="Ticket type" select required defaultValue="">
         <MenuItem value="">Select ticket</MenuItem>
         <MenuItem value="general">General admission</MenuItem>
         <MenuItem value="vip">VIP</MenuItem>
         <MenuItem value="student">Student</MenuItem>
       </TextField>
       <TextField
-        id="event-guests"
+        id="mui-event-guests"
         name="guestCount"
         label="Number of guests"
         type="number"

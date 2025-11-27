@@ -27,9 +27,9 @@ function SupportTicketForm() {
 
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-      <TextField id="ticket-subject" name="subject" label="Subject" type="text" required />
+      <TextField id="mui-ticket-subject" name="subject" label="Subject" type="text" required />
       <FormControl required>
-        <FormLabel id="ticket-priority-label">Priority</FormLabel>
+        <FormLabel id="mui-ticket-priority-label">Priority</FormLabel>
         <RadioGroup
           aria-labelledby="ticket-priority-label"
           name="priority"
@@ -41,9 +41,9 @@ function SupportTicketForm() {
           <FormControlLabel value="high" control={<Radio />} label="High" />
         </RadioGroup>
       </FormControl>
-      <TextField id="ticket-description" name="description" label="Issue description" multiline rows={4} required />
+      <TextField id="mui-ticket-description" name="description" label="Issue description" multiline rows={4} required />
       <FormControl>
-        <FormLabel htmlFor="ticket-attachments">Attachments</FormLabel>
+        <FormLabel htmlFor="mui-ticket-attachments">Attachments</FormLabel>
         <Stack
           direction={{ xs: 'column', sm: 'row' }}
           spacing={1.5}
@@ -53,7 +53,7 @@ function SupportTicketForm() {
           <Button variant="outlined" component="label">
             Choose files
             <input
-              id="ticket-attachments"
+              id="mui-ticket-attachments"
               name="attachments"
               type="file"
               multiple
