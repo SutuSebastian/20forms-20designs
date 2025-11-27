@@ -5,12 +5,47 @@ const styles = {
   sectionTitle: { margin: 0, fontSize: '1.1rem' },
   previewHelper: { margin: 0, color: '#5b6675' },
   placeholderText: { margin: '12px 0' },
-  previewStrip: { display: 'flex', flexWrap: 'wrap', gap: '16px', padding: '6px 2px 12px' },
-  previewCard: { border: '1px solid #c1c7cd', borderRadius: '10px', padding: '10px', display: 'flex', flexDirection: 'column', gap: '10px', width: '420px', maxWidth: '100%', boxSizing: 'border-box' },
-  frameHeaderRow: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' },
+  previewStrip: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '16px',
+    padding: '6px 2px 12px',
+  },
+  previewCard: {
+    border: '1px solid #c1c7cd',
+    borderRadius: '10px',
+    padding: '10px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '10px',
+    width: '420px',
+    maxWidth: '100%',
+    boxSizing: 'border-box',
+  },
+  frameHeaderRow: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: '10px',
+  },
   comboLabel: { fontWeight: 600, marginBottom: '2px', fontSize: '0.95rem' },
-  libraryChip: { display: 'inline-flex', alignItems: 'center', padding: '4px 10px', borderRadius: '999px', backgroundColor: '#f1f3f8', color: '#1f2933', fontWeight: 600, fontSize: '0.9rem', width: 'fit-content' },
-  previewFormWrapper: { padding: '10px', display: 'block' },
+  libraryChip: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    padding: '4px 10px',
+    borderRadius: '999px',
+    backgroundColor: '#f1f3f8',
+    color: '#1f2933',
+    fontWeight: 600,
+    fontSize: '0.9rem',
+    width: 'fit-content',
+  },
+  previewFormWrapper: {
+    padding: '10px',
+    display: 'block',
+    background: undefined, // will be set dynamically
+    color: undefined, // will be set dynamically
+  },
 }
 import { LibraryThemeWrapper } from './LibraryThemeWrapper'
 import FormErrorBoundary from './FormErrorBoundary'
@@ -44,23 +79,29 @@ function MuiPreview({
             const FormComponent = formComponents[form]
             if (!FormComponent) return null
 
+            // Dynamic style for theme
+            const previewFormWrapperStyle = {
+              ...styles.previewFormWrapper,
+              background: themeMode === 'dark' ? '#23272f' : '#fff',
+              color: themeMode === 'dark' ? '#f1f3f8' : '#23272f',
+            }
             return (
               <div key={`mui-${form}`} style={styles.previewCard}>
                 <div style={styles.frameHeaderRow}>
                   <div style={styles.comboLabel}>{form}</div>
                   <div style={styles.libraryChip}>MUI</div>
                 </div>
-                <FormErrorBoundary
-                  formName={form}
-                  libraryName="MUI"
-                  resetKey={`mui-${form}`}
-                >
-                  <LibraryThemeWrapper library="MUI" themeMode={themeMode}>
-                    <div style={styles.previewFormWrapper}>
+                <div style={previewFormWrapperStyle}>
+                  <FormErrorBoundary
+                    formName={form}
+                    libraryName="MUI"
+                    resetKey={`mui-${form}`}
+                  >
+                    <LibraryThemeWrapper library="MUI" themeMode={themeMode}>
                       <FormComponent />
-                    </div>
-                  </LibraryThemeWrapper>
-                </FormErrorBoundary>
+                    </LibraryThemeWrapper>
+                  </FormErrorBoundary>
+                </div>
               </div>
             )
           })}

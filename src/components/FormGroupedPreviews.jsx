@@ -70,7 +70,10 @@ const styles = {
     display: 'block',
   },
 }
-import { LibraryThemeWrapper, librarySupportsTheme } from './LibraryThemeWrapper'
+import {
+  LibraryThemeWrapper,
+  librarySupportsTheme,
+} from './LibraryThemeWrapper'
 import FormErrorBoundary from './FormErrorBoundary'
 
 function FormGroupedPreviews({
