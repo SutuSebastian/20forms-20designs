@@ -146,10 +146,22 @@ const componentLibraries = [
     repo: 'https://github.com/primefaces/primereact',
   },
   {
+    name: 'KendoReact',
+    directory: 'kendo-react',
+    website: 'https://www.telerik.com/kendo-react-ui',
+    repo: 'https://github.com/telerik/kendo-react',
+  },
+  {
     name: 'HeroUI',
     directory: 'heroui',
     website: 'https://heroui.com',
     repo: 'https://github.com/heroui-inc/heroui',
+  },
+  {
+    name: 'NextUI',
+    directory: 'nextui',
+    website: 'https://nextui.org',
+    repo: 'https://github.com/nextui-org/nextui',
   },
   {
     name: 'Gravity UI',
@@ -233,6 +245,12 @@ const componentLibraries = [
     name: 'React Spectrum',
     directory: 'react-spectrum',
     website: 'https://react-spectrum.adobe.com',
+    repo: 'https://github.com/adobe/react-spectrum',
+  },
+  {
+    name: 'React Aria / React Stately',
+    directory: 'react-aria',
+    website: 'https://react-spectrum.adobe.com/react-aria',
     repo: 'https://github.com/adobe/react-spectrum',
   },
   {
