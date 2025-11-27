@@ -318,6 +318,30 @@ const componentLibraries = [
     website: 'https://react.dev',
     repo: 'https://github.com/facebook/react',
   },
+  {
+    name: 'Flowbite React',
+    directory: 'flowbite-react',
+    website: 'https://flowbite-react.com',
+    repo: 'https://github.com/themesberg/flowbite-react',
+  },
+  {
+    name: 'Material Tailwind',
+    directory: 'material-tailwind',
+    website: 'https://www.material-tailwind.com',
+    repo: 'https://github.com/creativetimofficial/material-tailwind',
+  },
+  {
+    name: 'Tamagui',
+    directory: 'tamagui',
+    website: 'https://tamagui.dev',
+    repo: 'https://github.com/tamagui/tamagui',
+  },
+  {
+    name: 'Refine',
+    directory: 'refine',
+    website: 'https://refine.dev',
+    repo: 'https://github.com/refinedev/refine',
+  },
 ]
 
 function App() {

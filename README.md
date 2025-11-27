@@ -99,6 +99,10 @@ This is how this project was born. It represents 20 extremely common forms that 
 66. [VisX](https://airbnb.io/visx/) ([Repository](https://github.com/airbnb/visx))
 67. [VMware Clarity](https://clarity.design/) ([Repository](https://github.com/vmware/clarity))
 68. [Zendesk Garden](https://garden.zendesk.com/) ([Repository](https://github.com/zendeskgarden/react-components))
+69. [Flowbite React](https://flowbite-react.com/) ([Repository](https://github.com/themesberg/flowbite-react))
+70. [Material Tailwind](https://www.material-tailwind.com/) ([Repository](https://github.com/creativetimofficial/material-tailwind))
+71. [Tamagui](https://tamagui.dev/) ([Repository](https://github.com/tamagui/tamagui))
+72. [Refine](https://refine.dev/) ([Repository](https://github.com/refinedev/refine))
 
 ## Tech Stack
 
