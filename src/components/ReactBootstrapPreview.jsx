@@ -1,7 +1,8 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
 import styles from '../styles'
 import FormErrorBoundary from './FormErrorBoundary'
 
-function EvergreenPreview({
+function ReactBootstrapPreview({
   selectedForms,
   isLibrarySelected,
   formComponents,
@@ -13,15 +14,16 @@ function EvergreenPreview({
   return (
     <section style={styles.previewSection}>
       <div style={styles.sectionHeader}>
-        <h2 style={styles.sectionTitle}>Evergreen previews</h2>
+        <h2 style={styles.sectionTitle}>React Bootstrap previews</h2>
         <p style={styles.previewHelper}>
-          Evergreen UI form implementations rendered when Evergreen is selected.
+          React Bootstrap form implementations rendered when React Bootstrap is
+          selected.
         </p>
       </div>
 
       {!hasSelections ? (
         <p style={styles.placeholderText}>
-          Select one or more forms to see their Evergreen UI implementations.
+          Select one or more forms to see their React Bootstrap implementations.
         </p>
       ) : (
         <div style={styles.previewStrip}>
@@ -30,16 +32,16 @@ function EvergreenPreview({
             if (!FormComponent) return null
 
             return (
-              <div key={`evergreen-${form}`} style={styles.previewCard}>
+              <div key={`react-bootstrap-${form}`} style={styles.previewCard}>
                 <div style={styles.frameHeaderRow}>
                   <div style={styles.comboLabel}>{form}</div>
-                  <div style={styles.libraryChip}>Evergreen</div>
+                  <div style={styles.libraryChip}>React Bootstrap</div>
                 </div>
                 <div style={styles.previewFormWrapper}>
                   <FormErrorBoundary
                     formName={form}
-                    libraryName="Evergreen"
-                    resetKey={`evergreen-${form}`}
+                    libraryName="React Bootstrap"
+                    resetKey={`react-bootstrap-${form}`}
                   >
                     <FormComponent />
                   </FormErrorBoundary>
@@ -53,4 +55,4 @@ function EvergreenPreview({
   )
 }
 
-export default EvergreenPreview
+export default ReactBootstrapPreview

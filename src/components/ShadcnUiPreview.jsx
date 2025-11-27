@@ -1,5 +1,6 @@
 import styles from '../styles'
 import '../tailwind-no-preflight.css'
+import FormErrorBoundary from './FormErrorBoundary'
 
 function ShadcnUiPreview({ selectedForms, isLibrarySelected, formComponents }) {
   if (!isLibrarySelected) return null
@@ -32,7 +33,13 @@ function ShadcnUiPreview({ selectedForms, isLibrarySelected, formComponents }) {
                   <div style={styles.libraryChip}>shadcn/ui</div>
                 </div>
                 <div style={styles.previewFormWrapper}>
-                  <FormComponent />
+                  <FormErrorBoundary
+                    formName={form}
+                    libraryName="shadcn/ui"
+                    resetKey={`shadcn-ui-${form}`}
+                  >
+                    <FormComponent />
+                  </FormErrorBoundary>
                 </div>
               </div>
             )

@@ -1,7 +1,10 @@
+import '@blueprintjs/core/lib/css/blueprint.css'
+import '@blueprintjs/icons/lib/css/blueprint-icons.css'
+
 import styles from '../styles'
 import FormErrorBoundary from './FormErrorBoundary'
 
-function EvergreenPreview({
+function BlueprintPreview({
   selectedForms,
   isLibrarySelected,
   formComponents,
@@ -13,15 +16,15 @@ function EvergreenPreview({
   return (
     <section style={styles.previewSection}>
       <div style={styles.sectionHeader}>
-        <h2 style={styles.sectionTitle}>Evergreen previews</h2>
+        <h2 style={styles.sectionTitle}>Blueprint previews</h2>
         <p style={styles.previewHelper}>
-          Evergreen UI form implementations rendered when Evergreen is selected.
+          Blueprint UI form implementations rendered when Blueprint is selected.
         </p>
       </div>
 
       {!hasSelections ? (
         <p style={styles.placeholderText}>
-          Select one or more forms to see their Evergreen UI implementations.
+          Select one or more forms to see their Blueprint implementations.
         </p>
       ) : (
         <div style={styles.previewStrip}>
@@ -30,16 +33,16 @@ function EvergreenPreview({
             if (!FormComponent) return null
 
             return (
-              <div key={`evergreen-${form}`} style={styles.previewCard}>
+              <div key={`blueprint-${form}`} style={styles.previewCard}>
                 <div style={styles.frameHeaderRow}>
                   <div style={styles.comboLabel}>{form}</div>
-                  <div style={styles.libraryChip}>Evergreen</div>
+                  <div style={styles.libraryChip}>Blueprint</div>
                 </div>
                 <div style={styles.previewFormWrapper}>
                   <FormErrorBoundary
                     formName={form}
-                    libraryName="Evergreen"
-                    resetKey={`evergreen-${form}`}
+                    libraryName="Blueprint"
+                    resetKey={`blueprint-${form}`}
                   >
                     <FormComponent />
                   </FormErrorBoundary>
@@ -53,4 +56,4 @@ function EvergreenPreview({
   )
 }
 
-export default EvergreenPreview
+export default BlueprintPreview

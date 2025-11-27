@@ -1,7 +1,14 @@
 import styles from '../styles'
 import '../tailwind-no-preflight.css'
+import { LibraryThemeWrapper } from './LibraryThemeWrapper'
+import FormErrorBoundary from './FormErrorBoundary'
 
-function RadixUiPreview({ selectedForms, isLibrarySelected, formComponents }) {
+function RadixUiPreview({
+  selectedForms,
+  isLibrarySelected,
+  formComponents,
+  themeMode,
+}) {
   if (!isLibrarySelected) return null
 
   const hasSelections = selectedForms.length > 0
@@ -32,7 +39,18 @@ function RadixUiPreview({ selectedForms, isLibrarySelected, formComponents }) {
                   <div style={styles.libraryChip}>Radix UI</div>
                 </div>
                 <div style={styles.previewFormWrapper}>
-                  <FormComponent />
+                  <FormErrorBoundary
+                    formName={form}
+                    libraryName="Radix UI"
+                    resetKey={`radix-ui-${form}`}
+                  >
+                    <LibraryThemeWrapper
+                      library="Radix UI"
+                      themeMode={themeMode}
+                    >
+                      <FormComponent />
+                    </LibraryThemeWrapper>
+                  </FormErrorBoundary>
                 </div>
               </div>
             )

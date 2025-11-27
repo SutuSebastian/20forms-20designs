@@ -1,4 +1,5 @@
 import styles from '../styles'
+import FormErrorBoundary from './FormErrorBoundary'
 
 function ReactNoCssPreview({
   selectedForms,
@@ -35,7 +36,13 @@ function ReactNoCssPreview({
                   <div style={styles.libraryChip}>React + No CSS</div>
                 </div>
                 <div style={styles.previewFormWrapper}>
-                  <FormComponent />
+                  <FormErrorBoundary
+                    formName={form}
+                    libraryName="React + No CSS"
+                    resetKey={`react-no-css-${form}`}
+                  >
+                    <FormComponent />
+                  </FormErrorBoundary>
                 </div>
               </div>
             )

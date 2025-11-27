@@ -1,11 +1,7 @@
 import styles from '../styles'
 import FormErrorBoundary from './FormErrorBoundary'
 
-function EvergreenPreview({
-  selectedForms,
-  isLibrarySelected,
-  formComponents,
-}) {
+function ChakraUiPreview({ selectedForms, isLibrarySelected, formComponents }) {
   if (!isLibrarySelected) return null
 
   const hasSelections = selectedForms.length > 0
@@ -13,15 +9,15 @@ function EvergreenPreview({
   return (
     <section style={styles.previewSection}>
       <div style={styles.sectionHeader}>
-        <h2 style={styles.sectionTitle}>Evergreen previews</h2>
+        <h2 style={styles.sectionTitle}>Chakra UI previews</h2>
         <p style={styles.previewHelper}>
-          Evergreen UI form implementations rendered when Evergreen is selected.
+          Chakra UI form implementations rendered when Chakra UI is selected.
         </p>
       </div>
 
       {!hasSelections ? (
         <p style={styles.placeholderText}>
-          Select one or more forms to see their Evergreen UI implementations.
+          Select one or more forms to see their Chakra UI implementations.
         </p>
       ) : (
         <div style={styles.previewStrip}>
@@ -30,16 +26,16 @@ function EvergreenPreview({
             if (!FormComponent) return null
 
             return (
-              <div key={`evergreen-${form}`} style={styles.previewCard}>
+              <div key={`chakra-ui-${form}`} style={styles.previewCard}>
                 <div style={styles.frameHeaderRow}>
                   <div style={styles.comboLabel}>{form}</div>
-                  <div style={styles.libraryChip}>Evergreen</div>
+                  <div style={styles.libraryChip}>Chakra UI</div>
                 </div>
                 <div style={styles.previewFormWrapper}>
                   <FormErrorBoundary
                     formName={form}
-                    libraryName="Evergreen"
-                    resetKey={`evergreen-${form}`}
+                    libraryName="Chakra UI"
+                    resetKey={`chakra-ui-${form}`}
                   >
                     <FormComponent />
                   </FormErrorBoundary>
@@ -53,4 +49,4 @@ function EvergreenPreview({
   )
 }
 
-export default EvergreenPreview
+export default ChakraUiPreview

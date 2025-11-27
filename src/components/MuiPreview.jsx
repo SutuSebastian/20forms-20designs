@@ -1,6 +1,13 @@
 import styles from '../styles'
+import { LibraryThemeWrapper } from './LibraryThemeWrapper'
+import FormErrorBoundary from './FormErrorBoundary'
 
-function MuiPreview({ selectedForms, isLibrarySelected, formComponents }) {
+function MuiPreview({
+  selectedForms,
+  isLibrarySelected,
+  formComponents,
+  themeMode,
+}) {
   if (!isLibrarySelected) return null
 
   const hasSelections = selectedForms.length > 0
@@ -31,7 +38,15 @@ function MuiPreview({ selectedForms, isLibrarySelected, formComponents }) {
                   <div style={styles.libraryChip}>MUI</div>
                 </div>
                 <div style={styles.previewFormWrapper}>
-                  <FormComponent />
+                  <FormErrorBoundary
+                    formName={form}
+                    libraryName="MUI"
+                    resetKey={`mui-${form}`}
+                  >
+                    <LibraryThemeWrapper library="MUI" themeMode={themeMode}>
+                      <FormComponent />
+                    </LibraryThemeWrapper>
+                  </FormErrorBoundary>
                 </div>
               </div>
             )

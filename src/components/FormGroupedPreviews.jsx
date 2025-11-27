@@ -1,9 +1,12 @@
 import styles from '../styles'
+import { LibraryThemeWrapper } from './LibraryThemeWrapper'
+import FormErrorBoundary from './FormErrorBoundary'
 
 function FormGroupedPreviews({
   selectedForms,
   selectedLibraries,
   implementations,
+  themeMode,
 }) {
   const activeLibraries = selectedLibraries.filter(
     (library) => implementations[library]
@@ -55,13 +58,24 @@ function FormGroupedPreviews({
                         <div style={styles.comboLabel}>{library}</div>
                       </div>
                       <div style={styles.previewFormWrapper}>
-                        {Wrapper ? (
-                          <Wrapper>
-                            <FormComponent />
-                          </Wrapper>
-                        ) : (
-                          <FormComponent />
-                        )}
+                        <FormErrorBoundary
+                          formName={form}
+                          libraryName={library}
+                          resetKey={`${library}-${form}`}
+                        >
+                          <LibraryThemeWrapper
+                            library={library}
+                            themeMode={themeMode}
+                          >
+                            {Wrapper ? (
+                              <Wrapper>
+                                <FormComponent />
+                              </Wrapper>
+                            ) : (
+                              <FormComponent />
+                            )}
+                          </LibraryThemeWrapper>
+                        </FormErrorBoundary>
                       </div>
                     </div>
                   )

@@ -7,11 +7,13 @@ export const useAppStore = create(
       selectedForms: [],
       selectedLibraries: [],
       previewGroupBy: 'library',
+      themeMode: 'light',
 
       setSelectedForms: (forms) => set({ selectedForms: forms }),
       setSelectedLibraries: (libraries) =>
         set({ selectedLibraries: libraries }),
       setPreviewGroupBy: (groupBy) => set({ previewGroupBy: groupBy }),
+      setThemeMode: (mode) => set({ themeMode: mode }),
 
       toggleFormSelection: (form) =>
         set((state) => {

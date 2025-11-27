@@ -1,10 +1,12 @@
 import styles from '../styles'
-import { GravityUiWrapper } from '../component-libraries/gravity-ui/GravityUiWrapper'
+import { LibraryThemeWrapper } from './LibraryThemeWrapper'
+import FormErrorBoundary from './FormErrorBoundary'
 
 function GravityUiPreview({
   selectedForms,
   isLibrarySelected,
   formComponents,
+  themeMode,
 }) {
   if (!isLibrarySelected) return null
 
@@ -36,9 +38,18 @@ function GravityUiPreview({
                   <div style={styles.libraryChip}>Gravity UI</div>
                 </div>
                 <div style={styles.previewFormWrapper}>
-                  <GravityUiWrapper>
-                    <FormComponent />
-                  </GravityUiWrapper>
+                  <FormErrorBoundary
+                    formName={form}
+                    libraryName="Gravity UI"
+                    resetKey={`gravity-ui-${form}`}
+                  >
+                    <LibraryThemeWrapper
+                      library="Gravity UI"
+                      themeMode={themeMode}
+                    >
+                      <FormComponent />
+                    </LibraryThemeWrapper>
+                  </FormErrorBoundary>
                 </div>
               </div>
             )

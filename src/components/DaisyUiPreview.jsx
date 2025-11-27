@@ -1,7 +1,14 @@
 import styles from '../styles'
 import '../tailwind-no-preflight.css'
+import { LibraryThemeWrapper } from './LibraryThemeWrapper'
+import FormErrorBoundary from './FormErrorBoundary'
 
-function DaisyUiPreview({ selectedForms, isLibrarySelected, formComponents }) {
+function DaisyUiPreview({
+  selectedForms,
+  isLibrarySelected,
+  formComponents,
+  themeMode,
+}) {
   if (!isLibrarySelected) return null
 
   const hasSelections = selectedForms.length > 0
@@ -33,7 +40,18 @@ function DaisyUiPreview({ selectedForms, isLibrarySelected, formComponents }) {
                   <div style={styles.libraryChip}>DaisyUI</div>
                 </div>
                 <div style={styles.previewFormWrapper}>
-                  <FormComponent />
+                  <FormErrorBoundary
+                    formName={form}
+                    libraryName="DaisyUI"
+                    resetKey={`daisyui-${form}`}
+                  >
+                    <LibraryThemeWrapper
+                      library="daisyUI"
+                      themeMode={themeMode}
+                    >
+                      <FormComponent />
+                    </LibraryThemeWrapper>
+                  </FormErrorBoundary>
                 </div>
               </div>
             )

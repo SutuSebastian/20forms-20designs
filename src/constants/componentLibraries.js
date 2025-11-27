@@ -11,7 +11,7 @@ export const componentLibraries = [
     directory: 'chakra-ui',
     website: 'https://chakra-ui.com',
     repo: 'https://github.com/chakra-ui/chakra-ui',
-    implemented: false,
+    implemented: true,
   },
   {
     name: 'Ant Design',
@@ -32,7 +32,7 @@ export const componentLibraries = [
     directory: 'react-bootstrap',
     website: 'https://react-bootstrap.github.io',
     repo: 'https://github.com/react-bootstrap/react-bootstrap',
-    implemented: false,
+    implemented: true,
   },
   {
     name: 'Semantic UI React',
@@ -53,7 +53,7 @@ export const componentLibraries = [
     directory: 'blueprint',
     website: 'https://blueprintjs.com',
     repo: 'https://github.com/palantir/blueprint',
-    implemented: false,
+    implemented: true,
   },
   {
     name: 'Grommet',
