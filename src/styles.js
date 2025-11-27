@@ -142,11 +142,18 @@ const styles = {
   previewSection: {
     marginTop: '32px',
   },
-  previewToggleRow: {
+  themeToggleRow: {
     display: 'flex',
     gap: '12px',
     alignItems: 'center',
     marginTop: '24px',
+    marginBottom: '4px',
+  },
+  previewToggleRow: {
+    display: 'flex',
+    gap: '12px',
+    alignItems: 'center',
+    marginTop: '8px',
     marginBottom: '-12px',
   },
   previewToggleLabel: {
@@ -184,10 +191,9 @@ const styles = {
     padding: '6px 2px 12px',
   },
   previewCard: {
-    backgroundColor: '#ffffff',
     border: '1px solid #c1c7cd',
     borderRadius: '10px',
-    padding: '14px',
+    padding: '10px',
     display: 'flex',
     flexDirection: 'column',
     gap: '10px',
@@ -196,11 +202,24 @@ const styles = {
     boxSizing: 'border-box',
   },
   previewFormWrapper: {
-    border: '1px solid #e0e4ea',
-    borderRadius: '8px',
-    padding: '14px',
-    backgroundColor: '#ffffff',
+    padding: '10px',
     display: 'block',
+  },
+  formErrorFallback: {
+    border: '1px dashed #f5b5b5',
+    borderRadius: '8px',
+    padding: '12px',
+    backgroundColor: '#fff7f7',
+    color: '#9b1c1c',
+  },
+  formErrorTitle: {
+    margin: '0 0 4px',
+    fontWeight: 700,
+    fontSize: '0.95rem',
+  },
+  formErrorDetails: {
+    margin: 0,
+    fontSize: '0.9rem',
   },
   frameHeaderRow: {
     display: 'flex',
