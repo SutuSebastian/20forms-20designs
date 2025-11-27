@@ -1,12 +1,6 @@
-import {
-  Button,
-  ChakraProvider,
-  FormControl,
-  FormLabel,
-  Input,
-  Select,
-  VStack,
-} from '@chakra-ui/react'
+import { Button, FieldRoot, FieldLabel, Input, VStack } from '@chakra-ui/react'
+import { Select } from './form-controls'
+import ChakraUiProvider from './ChakraUiProvider'
 
 function CheckoutPaymentForm() {
   const handleSubmit = (event) => {
@@ -15,53 +9,53 @@ function CheckoutPaymentForm() {
   }
 
   return (
-    <ChakraProvider>
+    <ChakraUiProvider>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} align="stretch">
-          <FormControl isRequired>
-            <FormLabel>Email for receipt</FormLabel>
+          <FieldRoot isRequired>
+            <FieldLabel>Email for receipt</FieldLabel>
             <Input name="email" type="email" placeholder="your@email.com" />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Shipping method</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Shipping method</FieldLabel>
             <Select name="shippingMethod" placeholder="Select shipping">
               <option value="standard">Standard</option>
               <option value="express">Express</option>
               <option value="overnight">Overnight</option>
             </Select>
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Card number</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Card number</FieldLabel>
             <Input
               name="cardNumber"
               type="text"
               placeholder="1234 5678 9012 3456"
               inputMode="numeric"
             />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Expiration</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Expiration</FieldLabel>
             <Input
               name="expiration"
               type="text"
               placeholder="MM/YY"
               inputMode="numeric"
             />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>CVC</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>CVC</FieldLabel>
             <Input name="cvc" type="text" placeholder="123" inputMode="numeric" />
-          </FormControl>
-          <FormControl>
-            <FormLabel>Promo code</FormLabel>
+          </FieldRoot>
+          <FieldRoot>
+            <FieldLabel>Promo code</FieldLabel>
             <Input name="promoCode" type="text" placeholder="Enter code" />
-          </FormControl>
+          </FieldRoot>
           <Button type="submit" colorScheme="blue">
             Place order
           </Button>
         </VStack>
       </form>
-    </ChakraProvider>
+    </ChakraUiProvider>
   )
 }
 

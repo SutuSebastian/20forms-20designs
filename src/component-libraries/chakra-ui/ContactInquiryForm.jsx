@@ -1,14 +1,13 @@
 import {
   Button,
-  Checkbox,
-  ChakraProvider,
-  FormControl,
-  FormLabel,
+  FieldRoot,
+  FieldLabel,
   Input,
-  Select,
   Textarea,
   VStack,
 } from '@chakra-ui/react'
+import { Checkbox, Select } from './form-controls'
+import ChakraUiProvider from './ChakraUiProvider'
 
 function ContactInquiryForm() {
   const handleSubmit = (event) => {
@@ -17,45 +16,45 @@ function ContactInquiryForm() {
   }
 
   return (
-    <ChakraProvider>
+    <ChakraUiProvider>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} align="stretch">
-          <FormControl isRequired>
-            <FormLabel>Full name</FormLabel>
+          <FieldRoot isRequired>
+            <FieldLabel>Full name</FieldLabel>
             <Input
               name="fullName"
               type="text"
               placeholder="Enter your full name"
             />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Email address</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Email address</FieldLabel>
             <Input name="email" type="email" placeholder="Enter your email" />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Topic</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Topic</FieldLabel>
             <Select name="topic" placeholder="Select topic">
               <option value="support">Support</option>
               <option value="sales">Sales</option>
               <option value="feedback">Feedback</option>
               <option value="other">Other</option>
             </Select>
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Message</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Message</FieldLabel>
             <Textarea
               name="message"
               placeholder="Enter your message"
               rows={4}
             />
-          </FormControl>
+          </FieldRoot>
           <Checkbox name="consent">Allow follow-up communication</Checkbox>
           <Button type="submit" colorScheme="blue">
             Submit inquiry
           </Button>
         </VStack>
       </form>
-    </ChakraProvider>
+    </ChakraUiProvider>
   )
 }
 

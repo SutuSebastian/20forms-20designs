@@ -1,12 +1,6 @@
-import {
-  Button,
-  Checkbox,
-  ChakraProvider,
-  FormControl,
-  FormLabel,
-  Input,
-  VStack,
-} from '@chakra-ui/react'
+import { Button, FieldRoot, FieldLabel, Input, VStack } from '@chakra-ui/react'
+import { Checkbox } from './form-controls'
+import ChakraUiProvider from './ChakraUiProvider'
 
 function UserRegistrationForm() {
   const handleSubmit = (event) => {
@@ -15,45 +9,45 @@ function UserRegistrationForm() {
   }
 
   return (
-    <ChakraProvider>
+    <ChakraUiProvider>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} align="stretch">
-          <FormControl isRequired>
-            <FormLabel>Full name</FormLabel>
+          <FieldRoot isRequired>
+            <FieldLabel>Full name</FieldLabel>
             <Input
               name="fullName"
               type="text"
               placeholder="Enter your full name"
             />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Email address</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Email address</FieldLabel>
             <Input name="email" type="email" placeholder="Enter your email" />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Username</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Username</FieldLabel>
             <Input
               name="username"
               type="text"
               placeholder="Choose a username"
             />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Password</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Password</FieldLabel>
             <Input
               name="password"
               type="password"
               placeholder="Enter password"
             />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Confirm password</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Confirm password</FieldLabel>
             <Input
               name="confirmPassword"
               type="password"
               placeholder="Confirm password"
             />
-          </FormControl>
+          </FieldRoot>
           <Checkbox name="terms" isRequired>
             I agree to the terms and conditions
           </Checkbox>
@@ -62,7 +56,7 @@ function UserRegistrationForm() {
           </Button>
         </VStack>
       </form>
-    </ChakraProvider>
+    </ChakraUiProvider>
   )
 }
 

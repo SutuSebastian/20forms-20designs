@@ -1,12 +1,6 @@
-import {
-  Button,
-  Checkbox,
-  ChakraProvider,
-  FormControl,
-  FormLabel,
-  Input,
-  VStack,
-} from '@chakra-ui/react'
+import { Button, FieldRoot, FieldLabel, Input, VStack } from '@chakra-ui/react'
+import { Checkbox } from './form-controls'
+import ChakraUiProvider from './ChakraUiProvider'
 
 function PasswordChangeForm() {
   const handleSubmit = (event) => {
@@ -15,40 +9,40 @@ function PasswordChangeForm() {
   }
 
   return (
-    <ChakraProvider>
+    <ChakraUiProvider>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} align="stretch">
-          <FormControl isRequired>
-            <FormLabel>Current password</FormLabel>
+          <FieldRoot isRequired>
+            <FieldLabel>Current password</FieldLabel>
             <Input
               name="currentPassword"
               type="password"
               placeholder="Enter current password"
             />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>New password</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>New password</FieldLabel>
             <Input
               name="newPassword"
               type="password"
               placeholder="Enter new password"
             />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Confirm new password</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Confirm new password</FieldLabel>
             <Input
               name="confirmPassword"
               type="password"
               placeholder="Confirm new password"
             />
-          </FormControl>
+          </FieldRoot>
           <Checkbox name="logoutOthers">Sign out of other devices</Checkbox>
           <Button type="submit" colorScheme="blue">
             Update password
           </Button>
         </VStack>
       </form>
-    </ChakraProvider>
+    </ChakraUiProvider>
   )
 }
 

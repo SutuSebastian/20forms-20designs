@@ -1,17 +1,16 @@
 import {
   Button,
-  Checkbox,
-  ChakraProvider,
-  FormControl,
-  FormLabel,
+  FieldRoot,
+  FieldLabel,
   Heading,
   Input,
-  Select,
   Textarea,
   VStack,
   Box,
   HStack,
 } from '@chakra-ui/react'
+import { Checkbox, Select } from './form-controls'
+import ChakraUiProvider from './ChakraUiProvider'
 
 function OnboardingWizardForm() {
   const handleSubmit = (event) => {
@@ -20,7 +19,7 @@ function OnboardingWizardForm() {
   }
 
   return (
-    <ChakraProvider>
+    <ChakraUiProvider>
       <form onSubmit={handleSubmit}>
         <VStack spacing={8} align="stretch">
           <Box>
@@ -28,22 +27,22 @@ function OnboardingWizardForm() {
               Step 1: Account
             </Heading>
             <VStack spacing={4}>
-              <FormControl isRequired>
-                <FormLabel>Work email</FormLabel>
+              <FieldRoot isRequired>
+                <FieldLabel>Work email</FieldLabel>
                 <Input
                   name="email"
                   type="email"
                   placeholder="email@company.com"
                 />
-              </FormControl>
-              <FormControl isRequired>
-                <FormLabel>Password</FormLabel>
+              </FieldRoot>
+              <FieldRoot isRequired>
+                <FieldLabel>Password</FieldLabel>
                 <Input
                   name="password"
                   type="password"
                   placeholder="Create a password"
                 />
-              </FormControl>
+              </FieldRoot>
             </VStack>
           </Box>
 
@@ -52,19 +51,19 @@ function OnboardingWizardForm() {
               Step 2: Team
             </Heading>
             <VStack spacing={4}>
-              <FormControl isRequired>
-                <FormLabel>Team name</FormLabel>
+              <FieldRoot isRequired>
+                <FieldLabel>Team name</FieldLabel>
                 <Input name="teamName" type="text" placeholder="Your team name" />
-              </FormControl>
-              <FormControl isRequired>
-                <FormLabel>Team size</FormLabel>
+              </FieldRoot>
+              <FieldRoot isRequired>
+                <FieldLabel>Team size</FieldLabel>
                 <Select name="teamSize" placeholder="Select size">
                   <option value="1-5">1-5</option>
                   <option value="6-20">6-20</option>
                   <option value="21-50">21-50</option>
                   <option value="50+">50+</option>
                 </Select>
-              </FormControl>
+              </FieldRoot>
             </VStack>
           </Box>
 
@@ -73,14 +72,14 @@ function OnboardingWizardForm() {
               Step 3: Preferences
             </Heading>
             <VStack spacing={4}>
-              <FormControl isRequired>
-                <FormLabel>Primary goal</FormLabel>
+              <FieldRoot isRequired>
+                <FieldLabel>Primary goal</FieldLabel>
                 <Textarea
                   name="goal"
                   placeholder="What do you want to achieve?"
                   rows={3}
                 />
-              </FormControl>
+              </FieldRoot>
               <Checkbox name="updates">Send me product tips</Checkbox>
             </VStack>
           </Box>
@@ -93,7 +92,7 @@ function OnboardingWizardForm() {
           </HStack>
         </VStack>
       </form>
-    </ChakraProvider>
+    </ChakraUiProvider>
   )
 }
 

@@ -1,12 +1,12 @@
 import {
   Button,
-  ChakraProvider,
-  FormControl,
-  FormLabel,
+  FieldRoot,
+  FieldLabel,
   Input,
   Textarea,
   VStack,
 } from '@chakra-ui/react'
+import ChakraUiProvider from './ChakraUiProvider'
 
 function ProfileUpdateForm() {
   const handleSubmit = (event) => {
@@ -15,35 +15,35 @@ function ProfileUpdateForm() {
   }
 
   return (
-    <ChakraProvider>
+    <ChakraUiProvider>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} align="stretch">
-          <FormControl isRequired>
-            <FormLabel>First name</FormLabel>
+          <FieldRoot isRequired>
+            <FieldLabel>First name</FieldLabel>
             <Input name="firstName" type="text" placeholder="Enter first name" />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Last name</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Last name</FieldLabel>
             <Input name="lastName" type="text" placeholder="Enter last name" />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Email address</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Email address</FieldLabel>
             <Input name="email" type="email" placeholder="Enter your email" />
-          </FormControl>
-          <FormControl>
-            <FormLabel>Phone number</FormLabel>
+          </FieldRoot>
+          <FieldRoot>
+            <FieldLabel>Phone number</FieldLabel>
             <Input name="phone" type="tel" placeholder="Enter phone number" />
-          </FormControl>
-          <FormControl>
-            <FormLabel>Short bio</FormLabel>
+          </FieldRoot>
+          <FieldRoot>
+            <FieldLabel>Short bio</FieldLabel>
             <Textarea name="bio" placeholder="Tell us about yourself" rows={3} />
-          </FormControl>
+          </FieldRoot>
           <Button type="submit" colorScheme="blue">
             Save changes
           </Button>
         </VStack>
       </form>
-    </ChakraProvider>
+    </ChakraUiProvider>
   )
 }
 

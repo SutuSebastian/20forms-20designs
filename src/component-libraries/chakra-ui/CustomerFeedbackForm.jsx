@@ -1,14 +1,13 @@
 import {
   Button,
-  Checkbox,
-  ChakraProvider,
-  FormControl,
-  FormLabel,
+  FieldRoot,
+  FieldLabel,
   Input,
-  Select,
   Textarea,
   VStack,
 } from '@chakra-ui/react'
+import { Checkbox, Select } from './form-controls'
+import ChakraUiProvider from './ChakraUiProvider'
 
 function CustomerFeedbackForm() {
   const handleSubmit = (event) => {
@@ -17,37 +16,37 @@ function CustomerFeedbackForm() {
   }
 
   return (
-    <ChakraProvider>
+    <ChakraUiProvider>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} align="stretch">
-          <FormControl isRequired>
-            <FormLabel>Name</FormLabel>
+          <FieldRoot isRequired>
+            <FieldLabel>Name</FieldLabel>
             <Input name="name" type="text" placeholder="Your name" />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Email address</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Email address</FieldLabel>
             <Input name="email" type="email" placeholder="your@email.com" />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Overall rating</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Overall rating</FieldLabel>
             <Select name="rating" placeholder="Select rating">
               <option value="excellent">Excellent</option>
               <option value="good">Good</option>
               <option value="average">Average</option>
               <option value="poor">Poor</option>
             </Select>
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Comments</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Comments</FieldLabel>
             <Textarea name="comments" placeholder="Share your feedback" rows={4} />
-          </FormControl>
+          </FieldRoot>
           <Checkbox name="followUp">I would like a follow-up</Checkbox>
           <Button type="submit" colorScheme="blue">
             Send feedback
           </Button>
         </VStack>
       </form>
-    </ChakraProvider>
+    </ChakraUiProvider>
   )
 }
 

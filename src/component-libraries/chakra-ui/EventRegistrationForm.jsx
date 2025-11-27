@@ -1,13 +1,6 @@
-import {
-  Button,
-  Checkbox,
-  ChakraProvider,
-  FormControl,
-  FormLabel,
-  Input,
-  Select,
-  VStack,
-} from '@chakra-ui/react'
+import { Button, FieldRoot, FieldLabel, Input, VStack } from '@chakra-ui/react'
+import { Checkbox, Select } from './form-controls'
+import ChakraUiProvider from './ChakraUiProvider'
 
 function EventRegistrationForm() {
   const handleSubmit = (event) => {
@@ -16,41 +9,41 @@ function EventRegistrationForm() {
   }
 
   return (
-    <ChakraProvider>
+    <ChakraUiProvider>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} align="stretch">
-          <FormControl isRequired>
-            <FormLabel>Full name</FormLabel>
+          <FieldRoot isRequired>
+            <FieldLabel>Full name</FieldLabel>
             <Input name="fullName" type="text" placeholder="Enter your full name" />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Email address</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Email address</FieldLabel>
             <Input name="email" type="email" placeholder="your@email.com" />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Ticket type</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Ticket type</FieldLabel>
             <Select name="ticketType" placeholder="Select ticket">
               <option value="general">General admission</option>
               <option value="vip">VIP</option>
               <option value="student">Student</option>
             </Select>
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Number of guests</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Number of guests</FieldLabel>
             <Input
               name="guestCount"
               type="number"
               inputMode="numeric"
               placeholder="0"
             />
-          </FormControl>
+          </FieldRoot>
           <Checkbox name="newsletter">Notify me about future events</Checkbox>
           <Button type="submit" colorScheme="blue">
             Register
           </Button>
         </VStack>
       </form>
-    </ChakraProvider>
+    </ChakraUiProvider>
   )
 }
 

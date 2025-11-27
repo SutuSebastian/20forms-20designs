@@ -1,11 +1,11 @@
 import {
   Button,
-  ChakraProvider,
-  FormControl,
-  FormLabel,
+  FieldRoot,
+  FieldLabel,
   Input,
   VStack,
 } from '@chakra-ui/react'
+import ChakraUiProvider from './ChakraUiProvider'
 
 function OrderTrackingForm() {
   const handleSubmit = (event) => {
@@ -14,27 +14,27 @@ function OrderTrackingForm() {
   }
 
   return (
-    <ChakraProvider>
+    <ChakraUiProvider>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} align="stretch">
-          <FormControl isRequired>
-            <FormLabel>Order number</FormLabel>
+          <FieldRoot isRequired>
+            <FieldLabel>Order number</FieldLabel>
             <Input name="orderNumber" type="text" placeholder="ORD-123456" />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Email address</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Email address</FieldLabel>
             <Input name="email" type="email" placeholder="your@email.com" />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Postal code</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Postal code</FieldLabel>
             <Input name="postalCode" type="text" placeholder="Postal code" />
-          </FormControl>
+          </FieldRoot>
           <Button type="submit" colorScheme="blue">
             Find order
           </Button>
         </VStack>
       </form>
-    </ChakraProvider>
+    </ChakraUiProvider>
   )
 }
 

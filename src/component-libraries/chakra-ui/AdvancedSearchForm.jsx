@@ -1,13 +1,6 @@
-import {
-  Button,
-  Checkbox,
-  ChakraProvider,
-  FormControl,
-  FormLabel,
-  Input,
-  Select,
-  VStack,
-} from '@chakra-ui/react'
+import { Button, FieldRoot, FieldLabel, Input, VStack } from '@chakra-ui/react'
+import { Checkbox, Select } from './form-controls'
+import ChakraUiProvider from './ChakraUiProvider'
 
 function AdvancedSearchForm() {
   const handleSubmit = (event) => {
@@ -16,45 +9,45 @@ function AdvancedSearchForm() {
   }
 
   return (
-    <ChakraProvider>
+    <ChakraUiProvider>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} align="stretch">
-          <FormControl isRequired>
-            <FormLabel>Search query</FormLabel>
+          <FieldRoot isRequired>
+            <FieldLabel>Search query</FieldLabel>
             <Input name="query" type="text" placeholder="Enter search terms" />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Category</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Category</FieldLabel>
             <Select name="category">
               <option value="all">All</option>
               <option value="articles">Articles</option>
               <option value="products">Products</option>
               <option value="people">People</option>
             </Select>
-          </FormControl>
-          <FormControl>
-            <FormLabel>Date from</FormLabel>
+          </FieldRoot>
+          <FieldRoot>
+            <FieldLabel>Date from</FieldLabel>
             <Input name="dateFrom" type="date" />
-          </FormControl>
-          <FormControl>
-            <FormLabel>Date to</FormLabel>
+          </FieldRoot>
+          <FieldRoot>
+            <FieldLabel>Date to</FieldLabel>
             <Input name="dateTo" type="date" />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Sort by</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Sort by</FieldLabel>
             <Select name="sort">
               <option value="relevance">Relevance</option>
               <option value="newest">Newest</option>
               <option value="oldest">Oldest</option>
             </Select>
-          </FormControl>
+          </FieldRoot>
           <Checkbox name="includeArchived">Include archived</Checkbox>
           <Button type="submit" colorScheme="blue">
             Search
           </Button>
         </VStack>
       </form>
-    </ChakraProvider>
+    </ChakraUiProvider>
   )
 }
 

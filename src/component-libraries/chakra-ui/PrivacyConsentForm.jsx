@@ -1,15 +1,15 @@
 import {
   Button,
-  Checkbox,
-  ChakraProvider,
-  FormControl,
-  FormLabel,
+  FieldRoot,
+  FieldLabel,
   Heading,
   Input,
   Textarea,
   VStack,
   Box,
 } from '@chakra-ui/react'
+import { Checkbox } from './form-controls'
+import ChakraUiProvider from './ChakraUiProvider'
 
 function PrivacyConsentForm() {
   const handleSubmit = (event) => {
@@ -18,22 +18,22 @@ function PrivacyConsentForm() {
   }
 
   return (
-    <ChakraProvider>
+    <ChakraUiProvider>
       <form onSubmit={handleSubmit}>
         <VStack spacing={6} align="stretch">
           <VStack spacing={4}>
-            <FormControl isRequired>
-              <FormLabel>Full name</FormLabel>
+            <FieldRoot isRequired>
+              <FieldLabel>Full name</FieldLabel>
               <Input
                 name="fullName"
                 type="text"
                 placeholder="Enter your full name"
               />
-            </FormControl>
-            <FormControl isRequired>
-              <FormLabel>Email address</FormLabel>
+            </FieldRoot>
+            <FieldRoot isRequired>
+              <FieldLabel>Email address</FieldLabel>
               <Input name="email" type="email" placeholder="your@email.com" />
-            </FormControl>
+            </FieldRoot>
           </VStack>
 
           <Box>
@@ -59,21 +59,21 @@ function PrivacyConsentForm() {
             </VStack>
           </Box>
 
-          <FormControl>
-            <FormLabel>Additional notes</FormLabel>
+          <FieldRoot>
+            <FieldLabel>Additional notes</FieldLabel>
             <Textarea
               name="notes"
               placeholder="Any additional preferences"
               rows={3}
             />
-          </FormControl>
+          </FieldRoot>
 
           <Button type="submit" colorScheme="blue">
             Save preferences
           </Button>
         </VStack>
       </form>
-    </ChakraProvider>
+    </ChakraUiProvider>
   )
 }
 

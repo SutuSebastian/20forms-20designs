@@ -1,14 +1,7 @@
 import { useState } from 'react'
-import {
-  Button,
-  Checkbox,
-  ChakraProvider,
-  FormControl,
-  FormLabel,
-  Input,
-  Select,
-  VStack,
-} from '@chakra-ui/react'
+import { Button, FieldRoot, FieldLabel, Input, VStack } from '@chakra-ui/react'
+import { Checkbox, Select } from './form-controls'
+import ChakraUiProvider from './ChakraUiProvider'
 import {
   CANADIAN_PROVINCES,
   COUNTRIES,
@@ -26,27 +19,27 @@ function ShippingAddressForm() {
   const regionOptions = country === 'CA' ? CANADIAN_PROVINCES : US_STATES
 
   return (
-    <ChakraProvider>
+    <ChakraUiProvider>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} align="stretch">
-          <FormControl isRequired>
-            <FormLabel>Recipient name</FormLabel>
+          <FieldRoot isRequired>
+            <FieldLabel>Recipient name</FieldLabel>
             <Input name="fullName" type="text" placeholder="Full name" />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Street address</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Street address</FieldLabel>
             <Input name="street" type="text" placeholder="Street address" />
-          </FormControl>
-          <FormControl>
-            <FormLabel>Apartment, suite, etc.</FormLabel>
+          </FieldRoot>
+          <FieldRoot>
+            <FieldLabel>Apartment, suite, etc.</FieldLabel>
             <Input name="street2" type="text" placeholder="Apt, suite, etc." />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>City</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>City</FieldLabel>
             <Input name="city" type="text" placeholder="City" />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Country</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Country</FieldLabel>
             <Select
               name="country"
               value={country}
@@ -58,9 +51,9 @@ function ShippingAddressForm() {
                 </option>
               ))}
             </Select>
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>State / Province / Territory</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>State / Province / Territory</FieldLabel>
             <Select name="region" placeholder="Select an option">
               {regionOptions.map((region) => (
                 <option key={region} value={region}>
@@ -68,18 +61,18 @@ function ShippingAddressForm() {
                 </option>
               ))}
             </Select>
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Postal code</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Postal code</FieldLabel>
             <Input name="postalCode" type="text" placeholder="Postal code" />
-          </FormControl>
+          </FieldRoot>
           <Checkbox name="default">Use as default shipping address</Checkbox>
           <Button type="submit" colorScheme="blue">
             Save address
           </Button>
         </VStack>
       </form>
-    </ChakraProvider>
+    </ChakraUiProvider>
   )
 }
 

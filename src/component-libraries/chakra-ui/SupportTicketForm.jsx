@@ -1,9 +1,10 @@
 import {
   Button,
-  ChakraProvider,
-  FormControl,
-  FormHelperText,
-  FormLabel,
+  FieldRoot,
+  FieldHelperText,
+  FieldLabel,
+  FieldsetLegend,
+  FieldsetRoot,
   Input,
   Radio,
   RadioGroup,
@@ -11,6 +12,7 @@ import {
   Textarea,
   VStack,
 } from '@chakra-ui/react'
+import ChakraUiProvider from './ChakraUiProvider'
 
 function SupportTicketForm() {
   const handleSubmit = (event) => {
@@ -19,15 +21,15 @@ function SupportTicketForm() {
   }
 
   return (
-    <ChakraProvider>
+    <ChakraUiProvider>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} align="stretch">
-          <FormControl isRequired>
-            <FormLabel>Subject</FormLabel>
+          <FieldRoot isRequired>
+            <FieldLabel>Subject</FieldLabel>
             <Input name="subject" type="text" placeholder="Brief description" />
-          </FormControl>
-          <FormControl as="fieldset" isRequired>
-            <FormLabel as="legend">Priority</FormLabel>
+          </FieldRoot>
+          <FieldsetRoot isRequired>
+            <FieldsetLegend>Priority</FieldsetLegend>
             <RadioGroup name="priority">
               <Stack direction="row">
                 <Radio value="low">Low</Radio>
@@ -35,17 +37,17 @@ function SupportTicketForm() {
                 <Radio value="high">High</Radio>
               </Stack>
             </RadioGroup>
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Issue description</FormLabel>
+          </FieldsetRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Issue description</FieldLabel>
             <Textarea
               name="description"
               placeholder="Describe your issue"
               rows={4}
             />
-          </FormControl>
-          <FormControl>
-            <FormLabel>Attachments</FormLabel>
+          </FieldRoot>
+          <FieldRoot>
+            <FieldLabel>Attachments</FieldLabel>
             <Input
               name="attachments"
               type="file"
@@ -58,14 +60,14 @@ function SupportTicketForm() {
                 },
               }}
             />
-            <FormHelperText>Optional file attachments</FormHelperText>
-          </FormControl>
+            <FieldHelperText>Optional file attachments</FieldHelperText>
+          </FieldRoot>
           <Button type="submit" colorScheme="blue">
             Submit ticket
           </Button>
         </VStack>
       </form>
-    </ChakraProvider>
+    </ChakraUiProvider>
   )
 }
 

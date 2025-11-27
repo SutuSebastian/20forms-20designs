@@ -1,12 +1,6 @@
-import {
-  Button,
-  Checkbox,
-  ChakraProvider,
-  FormControl,
-  FormLabel,
-  Input,
-  VStack,
-} from '@chakra-ui/react'
+import { Button, FieldRoot, FieldLabel, Input, VStack } from '@chakra-ui/react'
+import { Checkbox } from './form-controls'
+import ChakraUiProvider from './ChakraUiProvider'
 
 function UserLoginForm() {
   const handleSubmit = (event) => {
@@ -15,28 +9,28 @@ function UserLoginForm() {
   }
 
   return (
-    <ChakraProvider>
+    <ChakraUiProvider>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} align="stretch">
-          <FormControl isRequired>
-            <FormLabel>Email address</FormLabel>
+          <FieldRoot isRequired>
+            <FieldLabel>Email address</FieldLabel>
             <Input name="email" type="email" placeholder="Enter your email" />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Password</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Password</FieldLabel>
             <Input
               name="password"
               type="password"
               placeholder="Enter your password"
             />
-          </FormControl>
+          </FieldRoot>
           <Checkbox name="rememberMe">Remember me</Checkbox>
           <Button type="submit" colorScheme="blue">
             Sign in
           </Button>
         </VStack>
       </form>
-    </ChakraProvider>
+    </ChakraUiProvider>
   )
 }
 

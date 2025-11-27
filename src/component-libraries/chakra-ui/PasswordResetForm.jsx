@@ -1,12 +1,12 @@
 import {
   Button,
-  ChakraProvider,
-  FormControl,
-  FormHelperText,
-  FormLabel,
+  FieldRoot,
+  FieldHelperText,
+  FieldLabel,
   Input,
   VStack,
 } from '@chakra-ui/react'
+import ChakraUiProvider from './ChakraUiProvider'
 
 function PasswordResetForm() {
   const handleSubmit = (event) => {
@@ -15,22 +15,22 @@ function PasswordResetForm() {
   }
 
   return (
-    <ChakraProvider>
+    <ChakraUiProvider>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} align="stretch">
-          <FormControl isRequired>
-            <FormLabel>Email address</FormLabel>
+          <FieldRoot isRequired>
+            <FieldLabel>Email address</FieldLabel>
             <Input name="email" type="email" placeholder="Enter your email" />
-            <FormHelperText>
+            <FieldHelperText>
               Enter the email address associated with your account
-            </FormHelperText>
-          </FormControl>
+            </FieldHelperText>
+          </FieldRoot>
           <Button type="submit" colorScheme="blue">
             Send reset link
           </Button>
         </VStack>
       </form>
-    </ChakraProvider>
+    </ChakraUiProvider>
   )
 }
 

@@ -1,13 +1,13 @@
 import {
   Button,
-  ChakraProvider,
-  FormControl,
-  FormLabel,
+  FieldRoot,
+  FieldLabel,
   Input,
   Textarea,
   VStack,
   HStack,
 } from '@chakra-ui/react'
+import ChakraUiProvider from './ChakraUiProvider'
 
 function AppointmentRequestForm() {
   const handleSubmit = (event) => {
@@ -16,37 +16,37 @@ function AppointmentRequestForm() {
   }
 
   return (
-    <ChakraProvider>
+    <ChakraUiProvider>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} align="stretch">
-          <FormControl isRequired>
-            <FormLabel>Full name</FormLabel>
+          <FieldRoot isRequired>
+            <FieldLabel>Full name</FieldLabel>
             <Input name="fullName" type="text" placeholder="Enter your full name" />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Email address</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Email address</FieldLabel>
             <Input name="email" type="email" placeholder="your@email.com" />
-          </FormControl>
+          </FieldRoot>
           <HStack spacing={4}>
-            <FormControl isRequired>
-              <FormLabel>Preferred date</FormLabel>
+            <FieldRoot isRequired>
+              <FieldLabel>Preferred date</FieldLabel>
               <Input name="date" type="date" />
-            </FormControl>
-            <FormControl isRequired>
-              <FormLabel>Preferred time</FormLabel>
+            </FieldRoot>
+            <FieldRoot isRequired>
+              <FieldLabel>Preferred time</FieldLabel>
               <Input name="time" type="time" />
-            </FormControl>
+            </FieldRoot>
           </HStack>
-          <FormControl isRequired>
-            <FormLabel>Reason for visit</FormLabel>
+          <FieldRoot isRequired>
+            <FieldLabel>Reason for visit</FieldLabel>
             <Textarea name="reason" placeholder="Describe your reason" rows={3} />
-          </FormControl>
+          </FieldRoot>
           <Button type="submit" colorScheme="blue">
             Request appointment
           </Button>
         </VStack>
       </form>
-    </ChakraProvider>
+    </ChakraUiProvider>
   )
 }
 

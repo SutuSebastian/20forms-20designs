@@ -1,12 +1,12 @@
 import {
   Button,
-  ChakraProvider,
-  FormControl,
-  FormHelperText,
-  FormLabel,
+  FieldRoot,
+  FieldHelperText,
+  FieldLabel,
   Input,
   VStack,
 } from '@chakra-ui/react'
+import ChakraUiProvider from './ChakraUiProvider'
 
 function TwoFactorAuthForm() {
   const handleSubmit = (event) => {
@@ -15,27 +15,27 @@ function TwoFactorAuthForm() {
   }
 
   return (
-    <ChakraProvider>
+    <ChakraUiProvider>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} align="stretch">
-          <FormControl isRequired>
-            <FormLabel>Verification code</FormLabel>
+          <FieldRoot isRequired>
+            <FieldLabel>Verification code</FieldLabel>
             <Input
               name="code"
               type="text"
               placeholder="000000"
               inputMode="numeric"
             />
-            <FormHelperText>
+            <FieldHelperText>
               Enter the 6-digit code from your authenticator app
-            </FormHelperText>
-          </FormControl>
+            </FieldHelperText>
+          </FieldRoot>
           <Button type="submit" colorScheme="blue">
             Verify code
           </Button>
         </VStack>
       </form>
-    </ChakraProvider>
+    </ChakraUiProvider>
   )
 }
 

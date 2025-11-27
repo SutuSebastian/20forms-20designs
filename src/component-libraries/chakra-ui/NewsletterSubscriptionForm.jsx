@@ -1,13 +1,6 @@
-import {
-  Button,
-  Checkbox,
-  ChakraProvider,
-  FormControl,
-  FormLabel,
-  Input,
-  Select,
-  VStack,
-} from '@chakra-ui/react'
+import { Button, FieldRoot, FieldLabel, Input, VStack } from '@chakra-ui/react'
+import { Checkbox, Select } from './form-controls'
+import ChakraUiProvider from './ChakraUiProvider'
 
 function NewsletterSubscriptionForm() {
   const handleSubmit = (event) => {
@@ -16,28 +9,28 @@ function NewsletterSubscriptionForm() {
   }
 
   return (
-    <ChakraProvider>
+    <ChakraUiProvider>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} align="stretch">
-          <FormControl isRequired>
-            <FormLabel>Email address</FormLabel>
+          <FieldRoot isRequired>
+            <FieldLabel>Email address</FieldLabel>
             <Input name="email" type="email" placeholder="Enter your email" />
-          </FormControl>
-          <FormControl isRequired>
-            <FormLabel>Frequency</FormLabel>
+          </FieldRoot>
+          <FieldRoot isRequired>
+            <FieldLabel>Frequency</FieldLabel>
             <Select name="frequency" placeholder="Select frequency">
               <option value="weekly">Weekly</option>
               <option value="monthly">Monthly</option>
               <option value="quarterly">Quarterly</option>
             </Select>
-          </FormControl>
+          </FieldRoot>
           <Checkbox name="agree">Receive product updates</Checkbox>
           <Button type="submit" colorScheme="blue">
             Subscribe
           </Button>
         </VStack>
       </form>
-    </ChakraProvider>
+    </ChakraUiProvider>
   )
 }
 
