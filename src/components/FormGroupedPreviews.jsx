@@ -34,7 +34,6 @@ function FormGroupedPreviews({ selectedForms, selectedLibraries, implementations
             <div key={form} style={styles.stripGroup}>
               <div style={styles.stripHeader}>
                 <h3 style={styles.stripTitle}>{form}</h3>
-                <p style={styles.stripCaption}>Component libraries</p>
               </div>
               <div style={styles.previewStrip}>
                 {librariesWithForm.map((library) => {
