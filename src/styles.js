@@ -43,6 +43,12 @@ const styles = {
     gap: '8px',
     fontSize: '0.95rem',
   },
+  radioRow: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+    fontSize: '0.95rem',
+  },
   singleColumnList: {
     display: 'flex',
     flexDirection: 'column',
@@ -87,10 +93,21 @@ const styles = {
   previewSection: {
     marginTop: '32px',
   },
+  previewToggleRow: {
+    display: 'flex',
+    gap: '12px',
+    alignItems: 'center',
+    marginTop: '24px',
+    marginBottom: '-12px',
+  },
+  previewToggleLabel: {
+    fontWeight: 600,
+  },
   previewGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
     gap: '20px',
+    justifyItems: 'center',
   },
   previewCard: {
     backgroundColor: '#ffffff',
@@ -100,6 +117,8 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     gap: '14px',
+    width: '100%',
+    maxWidth: '420px',
     minHeight: '420px',
   },
   previewFormWrapper: {
@@ -109,6 +128,21 @@ const styles = {
     backgroundColor: '#ffffff',
     display: 'grid',
     gap: '10px',
+  },
+  libraryPreviewBlock: {
+    display: 'grid',
+    gap: '8px',
+  },
+  libraryChip: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    padding: '4px 10px',
+    borderRadius: '999px',
+    backgroundColor: '#f1f3f8',
+    color: '#1f2933',
+    fontWeight: 600,
+    fontSize: '0.9rem',
+    width: 'fit-content',
   },
   previewHelper: {
     margin: 0,

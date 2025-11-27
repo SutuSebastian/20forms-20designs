@@ -5,6 +5,7 @@ import PairingGrid from './components/PairingGrid'
 import MuiPreview from './components/MuiPreview'
 import ReactNoCssPreview from './components/ReactNoCssPreview'
 import SelectionColumn from './components/SelectionColumn'
+import FormGroupedPreviews from './components/FormGroupedPreviews'
 import styles from './styles'
 
 import AdvancedSearchForm from './component-libraries/react-no-css/AdvancedSearchForm.jsx'
@@ -381,6 +382,23 @@ const muiFormComponents = {
 function App() {
   const [selectedForms, setSelectedForms] = useState([])
   const [selectedLibraries, setSelectedLibraries] = useState([])
+  const [previewGroupBy, setPreviewGroupBy] = useState('library')
+
+  const previewImplementations = useMemo(
+    () => ({
+      MUI: {
+        title: 'MUI previews',
+        description: 'MUI form implementations rendered when MUI is selected.',
+        components: muiFormComponents,
+      },
+      'React + No CSS': {
+        title: 'React + No CSS previews',
+        description: 'Plain HTML forms rendered when React + No CSS is selected.',
+        components: reactNoCssFormComponents,
+      },
+    }),
+    [],
+  )
 
   const formItems = useMemo(
     () => plannedForms.map((form) => ({ value: form, label: form })),
@@ -463,19 +481,55 @@ function App() {
         />
       </div>
 
-      <PairingGrid combinations={combinations} />
-
-      <MuiPreview
-        selectedForms={selectedMuiForms}
-        isLibrarySelected={muiSelected}
-        formComponents={muiFormComponents}
+      <PairingGrid
+        combinations={combinations}
       />
 
-      <ReactNoCssPreview
-        selectedForms={selectedReactNoCssForms}
-        isLibrarySelected={reactNoCssSelected}
-        formComponents={reactNoCssFormComponents}
-      />
+      <div style={styles.previewToggleRow}>
+        <span style={styles.previewToggleLabel}>Group previews by:</span>
+        <label style={styles.radioRow}>
+          <input
+            type="radio"
+            name="preview-group-by"
+            value="library"
+            checked={previewGroupBy === 'library'}
+            onChange={() => setPreviewGroupBy('library')}
+          />
+          <span>Design system</span>
+        </label>
+        <label style={styles.radioRow}>
+          <input
+            type="radio"
+            name="preview-group-by"
+            value="form"
+            checked={previewGroupBy === 'form'}
+            onChange={() => setPreviewGroupBy('form')}
+          />
+          <span>Form name</span>
+        </label>
+      </div>
+
+      {previewGroupBy === 'library' ? (
+        <>
+          <MuiPreview
+            selectedForms={selectedMuiForms}
+            isLibrarySelected={muiSelected}
+            formComponents={muiFormComponents}
+          />
+
+          <ReactNoCssPreview
+            selectedForms={selectedReactNoCssForms}
+            isLibrarySelected={reactNoCssSelected}
+            formComponents={reactNoCssFormComponents}
+          />
+        </>
+      ) : (
+        <FormGroupedPreviews
+          selectedForms={selectedForms}
+          selectedLibraries={selectedLibraries}
+          implementations={previewImplementations}
+        />
+      )}
     </Layout>
   )
 }
