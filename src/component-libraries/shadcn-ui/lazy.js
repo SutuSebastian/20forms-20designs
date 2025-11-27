@@ -1,6 +1,6 @@
 import { lazy } from 'react'
 
-export const formComponents = {
+export const shadcnUiFormComponents = {
   'User registration / sign up': lazy(() => import('./UserRegistrationForm.jsx')),
   'User login / sign in': lazy(() => import('./UserLoginForm.jsx')),
   'Password reset / forgot password request': lazy(() => import('./PasswordResetForm.jsx')),
@@ -22,5 +22,3 @@ export const formComponents = {
   'Advanced search with filters': lazy(() => import('./AdvancedSearchForm.jsx')),
   'Privacy, consent, and communication preferences': lazy(() => import('./PrivacyConsentForm.jsx')),
 }
-
-export default formComponents
