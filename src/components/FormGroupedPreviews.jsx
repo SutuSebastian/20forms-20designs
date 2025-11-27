@@ -1,5 +1,5 @@
 import styles from '../styles'
-import { LibraryThemeWrapper } from './LibraryThemeWrapper'
+import { LibraryThemeWrapper, librarySupportsTheme } from './LibraryThemeWrapper'
 import FormErrorBoundary from './FormErrorBoundary'
 
 function FormGroupedPreviews({
@@ -63,18 +63,26 @@ function FormGroupedPreviews({
                           libraryName={library}
                           resetKey={`${library}-${form}`}
                         >
-                          <LibraryThemeWrapper
-                            library={library}
-                            themeMode={themeMode}
-                          >
-                            {Wrapper ? (
-                              <Wrapper>
+                          {librarySupportsTheme(library) ? (
+                            <LibraryThemeWrapper
+                              library={library}
+                              themeMode={themeMode}
+                            >
+                              {Wrapper ? (
+                                <Wrapper>
+                                  <FormComponent />
+                                </Wrapper>
+                              ) : (
                                 <FormComponent />
-                              </Wrapper>
-                            ) : (
+                              )}
+                            </LibraryThemeWrapper>
+                          ) : Wrapper ? (
+                            <Wrapper>
                               <FormComponent />
-                            )}
-                          </LibraryThemeWrapper>
+                            </Wrapper>
+                          ) : (
+                            <FormComponent />
+                          )}
                         </FormErrorBoundary>
                       </div>
                     </div>

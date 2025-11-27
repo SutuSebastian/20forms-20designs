@@ -344,6 +344,7 @@ function App() {
             selectedForms={selectedBlueprintForms}
             isLibrarySelected={blueprintSelected}
             formComponents={blueprintFormComponents}
+            themeMode={themeMode}
           />
 
           <ReactNoCssPreview

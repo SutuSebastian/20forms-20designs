@@ -3,11 +3,13 @@ import '@blueprintjs/icons/lib/css/blueprint-icons.css'
 
 import styles from '../styles'
 import FormErrorBoundary from './FormErrorBoundary'
+import { LibraryThemeWrapper } from './LibraryThemeWrapper'
 
 function BlueprintPreview({
   selectedForms,
   isLibrarySelected,
   formComponents,
+  themeMode,
 }) {
   if (!isLibrarySelected) return null
 
@@ -44,7 +46,12 @@ function BlueprintPreview({
                     libraryName="Blueprint"
                     resetKey={`blueprint-${form}`}
                   >
-                    <FormComponent />
+                    <LibraryThemeWrapper
+                      library="Blueprint"
+                      themeMode={themeMode}
+                    >
+                      <FormComponent />
+                    </LibraryThemeWrapper>
                   </FormErrorBoundary>
                 </div>
               </div>
