@@ -1,4 +1,5 @@
 import styles from '../styles'
+import { GravityUiWrapper } from '../component-libraries/gravity-ui/GravityUiWrapper'
 
 function GravityUiPreview({
   selectedForms,
@@ -35,7 +36,9 @@ function GravityUiPreview({
                   <div style={styles.libraryChip}>Gravity UI</div>
                 </div>
                 <div style={styles.previewFormWrapper}>
-                  <FormComponent />
+                  <GravityUiWrapper>
+                    <FormComponent />
+                  </GravityUiWrapper>
                 </div>
               </div>
             )

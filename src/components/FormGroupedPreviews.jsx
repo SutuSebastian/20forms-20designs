@@ -45,8 +45,8 @@ function FormGroupedPreviews({
               </div>
               <div style={styles.previewStrip}>
                 {librariesWithForm.map((library) => {
-                  const FormComponent =
-                    implementations[library].components[form]
+                  const { components, Wrapper } = implementations[library]
+                  const FormComponent = components[form]
                   if (!FormComponent) return null
 
                   return (
@@ -55,7 +55,13 @@ function FormGroupedPreviews({
                         <div style={styles.comboLabel}>{library}</div>
                       </div>
                       <div style={styles.previewFormWrapper}>
-                        <FormComponent />
+                        {Wrapper ? (
+                          <Wrapper>
+                            <FormComponent />
+                          </Wrapper>
+                        ) : (
+                          <FormComponent />
+                        )}
                       </div>
                     </div>
                   )
