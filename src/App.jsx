@@ -1,5 +1,11 @@
 import { useMemo, useState } from 'react'
 
+import Layout from './components/Layout'
+import PairingGrid from './components/PairingGrid'
+import ReactNoCssPreview from './components/ReactNoCssPreview'
+import SelectionColumn from './components/SelectionColumn'
+import styles from './styles'
+
 import AdvancedSearchForm from './component-libraries/react-no-css/AdvancedSearchForm.jsx'
 import AppointmentRequestForm from './component-libraries/react-no-css/AppointmentRequestForm.jsx'
 import BillingInfoForm from './component-libraries/react-no-css/BillingInfoForm.jsx'
@@ -116,67 +122,6 @@ const reactNoCssFormComponents = {
   'Privacy, consent, and communication preferences': PrivacyConsentForm,
 }
 
-function CheckboxRow({ label, checked, onChange }) {
-  return (
-    <label style={styles.checkboxRow}>
-      <input type="checkbox" checked={checked} onChange={onChange} />
-      <span>{label}</span>
-    </label>
-  )
-}
-
-function SelectionColumn({
-  title,
-  items,
-  selectedItems,
-  onToggleItem,
-  onSelectAll,
-  onSelectNone,
-  twoColumnLayout = false,
-}) {
-  const allSelected = selectedItems.length === items.length
-  const noneSelected = selectedItems.length === 0
-
-  const listStyle = twoColumnLayout ? styles.twoColumnList : styles.singleColumnList
-
-  return (
-    <section>
-      <div style={styles.sectionHeader}>
-        <h2 style={styles.sectionTitle}>{title}</h2>
-      </div>
-      <div style={styles.selectionActions}>
-        <CheckboxRow label="Select all" checked={allSelected} onChange={onSelectAll} />
-        <CheckboxRow label="Select none" checked={noneSelected} onChange={onSelectNone} />
-      </div>
-      <div style={listStyle}>
-        {items.map((item) => (
-          <CheckboxRow
-            key={item}
-            label={item}
-            checked={selectedItems.includes(item)}
-            onChange={() => onToggleItem(item)}
-          />
-        ))}
-      </div>
-    </section>
-  )
-}
-
-function Layout({ children }) {
-  return (
-    <div style={styles.page}>
-      <header style={styles.header}>
-        <h1 style={styles.title}>20 Forms, 20 Designs</h1>
-        <p style={styles.subtitle}>
-          Choose a form and a component library to see the pairing. Direct links to each design
-          system sit inside the project folders for future builds.
-        </p>
-      </header>
-      <main>{children}</main>
-    </div>
-  )
-}
-
 function App() {
   const [selectedForms, setSelectedForms] = useState([])
   const [selectedLibraries, setSelectedLibraries] = useState([])
@@ -228,172 +173,15 @@ function App() {
         />
       </div>
 
-      <section style={styles.combosSection}>
-        <h2 style={styles.sectionTitle}>Selected pairings</h2>
-        {combinations.length === 0 ? (
-          <p style={styles.placeholderText}>
-            Choose at least one form and one component library to see the grid of implementations.
-          </p>
-        ) : (
-          <div style={styles.comboGrid}>
-            {combinations.map((combo) => (
-              <div key={`${combo.form}-${combo.library}`} style={styles.comboCard}>
-                <div style={styles.comboLabel}>{combo.form}</div>
-                <div style={styles.comboSubLabel}>{combo.library}</div>
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
+      <PairingGrid combinations={combinations} />
 
-      {reactNoCssSelected && (
-        <section style={styles.previewSection}>
-          <div style={styles.sectionHeader}>
-            <h2 style={styles.sectionTitle}>React + No CSS previews</h2>
-            <p style={styles.previewHelper}>Plain HTML forms rendered when React + No CSS is selected.</p>
-          </div>
-
-          {selectedReactNoCssForms.length === 0 ? (
-            <p style={styles.placeholderText}>
-              Select one or more forms to see their React + No CSS implementations.
-            </p>
-          ) : (
-            <div style={styles.previewGrid}>
-              {selectedReactNoCssForms.map((form) => {
-                const FormComponent = reactNoCssFormComponents[form]
-
-                return (
-                  <div key={`react-no-css-${form}`} style={styles.previewCard}>
-                    <div style={styles.comboLabel}>{form}</div>
-                    <div style={styles.previewFormWrapper}>
-                      <FormComponent />
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          )}
-        </section>
-      )}
+      <ReactNoCssPreview
+        selectedForms={selectedReactNoCssForms}
+        isLibrarySelected={reactNoCssSelected}
+        formComponents={reactNoCssFormComponents}
+      />
     </Layout>
   )
-}
-
-const styles = {
-  page: {
-    padding: '24px',
-    fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-    color: '#1f2933',
-  },
-  header: {
-    marginBottom: '24px',
-  },
-  title: {
-    margin: '0 0 8px',
-  },
-  subtitle: {
-    margin: 0,
-    maxWidth: '760px',
-    lineHeight: 1.4,
-  },
-  selectorRow: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-    columnGap: '64px',
-    rowGap: '24px',
-    alignItems: 'start',
-  },
-  sectionHeader: {
-    marginBottom: '6px',
-  },
-  sectionTitle: {
-    margin: 0,
-    fontSize: '1.1rem',
-  },
-  selectionActions: {
-    display: 'flex',
-    gap: '12px',
-    flexWrap: 'wrap',
-    marginBottom: '12px',
-    alignItems: 'center',
-  },
-  checkboxRow: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    fontSize: '0.95rem',
-  },
-  singleColumnList: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '8px',
-  },
-  twoColumnList: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-    gap: '8px 12px',
-  },
-  combosSection: {
-    marginTop: '32px',
-  },
-  placeholderText: {
-    margin: '12px 0',
-  },
-  comboGrid: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    gap: '10px',
-  },
-  comboCard: {
-    border: '1px solid #c1c7cd',
-    padding: '6px 12px',
-    borderRadius: '8px',
-    backgroundColor: '#ffffff',
-    width: '200px',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    gap: '4px',
-  },
-  comboLabel: {
-    fontWeight: 600,
-    marginBottom: '2px',
-    fontSize: '0.95rem',
-  },
-  comboSubLabel: {
-    color: '#4a5565',
-    fontSize: '0.9rem',
-  },
-  previewSection: {
-    marginTop: '32px',
-  },
-  previewGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))',
-    gap: '20px',
-  },
-  previewCard: {
-    backgroundColor: '#ffffff',
-    border: '1px solid #c1c7cd',
-    borderRadius: '10px',
-    padding: '20px',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '14px',
-    minHeight: '420px',
-  },
-  previewFormWrapper: {
-    border: '1px solid #e0e4ea',
-    borderRadius: '8px',
-    padding: '14px',
-    backgroundColor: '#ffffff',
-    display: 'grid',
-    gap: '10px',
-  },
-  previewHelper: {
-    margin: 0,
-    color: '#5b6675',
-  },
 }
 
 export default App
