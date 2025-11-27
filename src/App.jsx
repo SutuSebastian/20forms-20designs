@@ -69,6 +69,7 @@ const componentLibraries = [
   { name: 'Ariakit', directory: 'ariakit' },
   { name: 'Tremor', directory: 'tremor' },
   { name: 'Rebass', directory: 'rebass' },
+  { name: 'Vanilla JS', directory: 'vanilla-js' },
 ]
 
 function CheckboxRow({ label, checked, onChange }) {

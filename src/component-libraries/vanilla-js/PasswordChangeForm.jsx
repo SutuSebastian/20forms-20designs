@@ -1,0 +1,27 @@
+function PasswordChangeForm() {
+  return (
+    <form>
+      <h2>Account Security</h2>
+      <div>
+        <label htmlFor="password-change-current">Current password</label>
+        <input id="password-change-current" name="currentPassword" type="password" />
+      </div>
+      <div>
+        <label htmlFor="password-change-new">New password</label>
+        <input id="password-change-new" name="newPassword" type="password" />
+      </div>
+      <div>
+        <label htmlFor="password-change-confirm">Confirm new password</label>
+        <input id="password-change-confirm" name="confirmPassword" type="password" />
+      </div>
+      <div>
+        <label>
+          <input name="logoutOthers" type="checkbox" />Sign out of other devices
+        </label>
+      </div>
+      <button type="submit">Update password</button>
+    </form>
+  )
+}
+
+export default PasswordChangeForm
