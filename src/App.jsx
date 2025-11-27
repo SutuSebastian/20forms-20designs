@@ -299,7 +299,8 @@ const styles = {
   selectorRow: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-    gap: '24px',
+    columnGap: '64px',
+    rowGap: '24px',
     alignItems: 'start',
   },
   sectionHeader: {
@@ -347,11 +348,10 @@ const styles = {
   },
   comboCard: {
     border: '1px solid #c1c7cd',
-    padding: '10px',
+    padding: '6px 12px',
     borderRadius: '8px',
     backgroundColor: '#ffffff',
     width: '200px',
-    height: '88px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
