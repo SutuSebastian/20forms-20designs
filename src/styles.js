@@ -179,10 +179,9 @@ const styles = {
   },
   previewStrip: {
     display: 'flex',
+    flexWrap: 'wrap',
     gap: '16px',
-    overflowX: 'auto',
     padding: '6px 2px 12px',
-    scrollSnapType: 'x mandatory',
   },
   previewCard: {
     backgroundColor: '#ffffff',
@@ -194,10 +193,7 @@ const styles = {
     gap: '10px',
     width: '420px',
     maxWidth: '100%',
-    flex: '0 0 420px',
-    height: '560px',
     boxSizing: 'border-box',
-    scrollSnapAlign: 'start',
   },
   previewFormWrapper: {
     border: '1px solid #e0e4ea',
@@ -205,8 +201,6 @@ const styles = {
     padding: '14px',
     backgroundColor: '#ffffff',
     display: 'block',
-    flex: 1,
-    overflow: 'auto',
   },
   frameHeaderRow: {
     display: 'flex',

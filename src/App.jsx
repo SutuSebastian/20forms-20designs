@@ -10,7 +10,9 @@ import styles from './styles'
 import { reactNoCssFormComponents } from './component-libraries/react-no-css/lazy.js'
 import { muiFormComponents } from './component-libraries/mui/lazy.js'
 import { radixUiFormComponents } from './component-libraries/radix-ui/lazy.js'
+import { daisyUiFormComponents } from './component-libraries/daisyui/lazy.js'
 import RadixUiPreview from './components/RadixUiPreview'
+import DaisyUiPreview from './components/DaisyUiPreview'
 
 const plannedForms = [
   'User registration / sign up',
@@ -369,6 +371,12 @@ function App() {
           'Radix UI form implementations rendered when Radix UI is selected.',
         components: radixUiFormComponents,
       },
+      daisyUI: {
+        title: 'DaisyUI previews',
+        description:
+          'DaisyUI form implementations rendered when DaisyUI is selected.',
+        components: daisyUiFormComponents,
+      },
     }),
     []
   )
@@ -418,6 +426,13 @@ function App() {
   )
 
   const radixUiSelected = selectedLibraries.includes('Radix UI')
+
+  const selectedDaisyUiForms = useMemo(
+    () => selectedForms.filter((form) => daisyUiFormComponents[form]),
+    [selectedForms]
+  )
+
+  const daisyUiSelected = selectedLibraries.includes('daisyUI')
 
   const toggleSelection = (value, selected, setter) => {
     const exists = selected.includes(value)
@@ -501,6 +516,12 @@ function App() {
             selectedForms={selectedRadixUiForms}
             isLibrarySelected={radixUiSelected}
             formComponents={radixUiFormComponents}
+          />
+
+          <DaisyUiPreview
+            selectedForms={selectedDaisyUiForms}
+            isLibrarySelected={daisyUiSelected}
+            formComponents={daisyUiFormComponents}
           />
         </Suspense>
       ) : (

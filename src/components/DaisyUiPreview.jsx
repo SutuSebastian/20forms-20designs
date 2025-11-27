@@ -1,6 +1,6 @@
 import styles from '../styles'
 
-function RadixUiPreview({ selectedForms, isLibrarySelected, formComponents }) {
+function DaisyUiPreview({ selectedForms, isLibrarySelected, formComponents }) {
   if (!isLibrarySelected) return null
 
   const hasSelections = selectedForms.length > 0
@@ -8,15 +8,13 @@ function RadixUiPreview({ selectedForms, isLibrarySelected, formComponents }) {
   return (
     <section style={styles.previewSection}>
       <div style={styles.sectionHeader}>
-        <h2 style={styles.sectionTitle}>Radix UI previews</h2>
-        <p style={styles.previewHelper}>
-          Radix UI form implementations rendered when Radix UI is selected.
-        </p>
+        <h2 style={styles.sectionTitle}>DaisyUI previews</h2>
+        <p style={styles.previewHelper}>DaisyUI form implementations rendered when DaisyUI is selected.</p>
       </div>
 
       {!hasSelections ? (
         <p style={styles.placeholderText}>
-          Select one or more forms to see their Radix UI implementations.
+          Select one or more forms to see their DaisyUI implementations.
         </p>
       ) : (
         <div style={styles.previewStrip}>
@@ -25,10 +23,10 @@ function RadixUiPreview({ selectedForms, isLibrarySelected, formComponents }) {
             if (!FormComponent) return null
 
             return (
-              <div key={`radix-ui-${form}`} style={styles.previewCard}>
+              <div key={`daisyui-${form}`} style={styles.previewCard}>
                 <div style={styles.frameHeaderRow}>
                   <div style={styles.comboLabel}>{form}</div>
-                  <div style={styles.libraryChip}>Radix UI</div>
+                  <div style={styles.libraryChip}>DaisyUI</div>
                 </div>
                 <div style={styles.previewFormWrapper}>
                   <FormComponent />
@@ -42,4 +40,4 @@ function RadixUiPreview({ selectedForms, isLibrarySelected, formComponents }) {
   )
 }
 
-export default RadixUiPreview
+export default DaisyUiPreview

@@ -1,9 +1,15 @@
 import styles from '../styles'
 
-function FormGroupedPreviews({ selectedForms, selectedLibraries, implementations }) {
-  const activeLibraries = selectedLibraries.filter((library) => implementations[library])
+function FormGroupedPreviews({
+  selectedForms,
+  selectedLibraries,
+  implementations,
+}) {
+  const activeLibraries = selectedLibraries.filter(
+    (library) => implementations[library]
+  )
   const formsWithImplementations = selectedForms.filter((form) =>
-    activeLibraries.some((library) => implementations[library].components[form]),
+    activeLibraries.some((library) => implementations[library].components[form])
   )
 
   if (activeLibraries.length === 0) {
@@ -15,18 +21,20 @@ function FormGroupedPreviews({ selectedForms, selectedLibraries, implementations
       <div style={styles.sectionHeader}>
         <h2 style={styles.sectionTitle}>Form previews</h2>
         <p style={styles.previewHelper}>
-          See each selected form with implementations from the chosen component libraries.
+          See each selected form with implementations from the chosen component
+          libraries.
         </p>
       </div>
 
       {formsWithImplementations.length === 0 ? (
         <p style={styles.placeholderText}>
-          Select one or more forms that are implemented by the selected component libraries.
+          Select one or more forms that are implemented by the selected
+          component libraries.
         </p>
       ) : (
         formsWithImplementations.map((form) => {
           const librariesWithForm = activeLibraries.filter(
-            (library) => implementations[library].components[form],
+            (library) => implementations[library].components[form]
           )
           if (librariesWithForm.length === 0) return null
 
@@ -37,7 +45,8 @@ function FormGroupedPreviews({ selectedForms, selectedLibraries, implementations
               </div>
               <div style={styles.previewStrip}>
                 {librariesWithForm.map((library) => {
-                  const FormComponent = implementations[library].components[form]
+                  const FormComponent =
+                    implementations[library].components[form]
                   if (!FormComponent) return null
 
                   return (
