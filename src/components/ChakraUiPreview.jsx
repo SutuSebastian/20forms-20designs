@@ -87,6 +87,12 @@ function ChakraUiPreview({ selectedForms, isLibrarySelected, formComponents }) {
             const FormComponent = formComponents[form]
             if (!FormComponent) return null
 
+            const previewFormWrapperStyle = {
+              ...styles.previewFormWrapper,
+              background: themeMode === 'dark' ? '#23272f' : '#fff',
+              color: themeMode === 'dark' ? '#f1f3f8' : '#23272f',
+            }
+
             return (
               <div key={`chakra-ui-${form}`} style={styles.previewCard}>
                 <div style={styles.frameHeaderRow}>
@@ -98,7 +104,7 @@ function ChakraUiPreview({ selectedForms, isLibrarySelected, formComponents }) {
                   libraryName="Chakra UI"
                   resetKey={`chakra-ui-${form}`}
                 >
-                  <div style={styles.previewFormWrapper}>
+                  <div style={previewFormWrapperStyle}>
                     <FormComponent />
                   </div>
                 </FormErrorBoundary>

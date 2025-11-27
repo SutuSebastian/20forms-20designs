@@ -76,6 +76,12 @@ function DaisyUiPreview({
             const FormComponent = formComponents[form]
             if (!FormComponent) return null
 
+            const previewFormWrapperStyle = {
+              ...styles.previewFormWrapper,
+              background: themeMode === 'dark' ? '#23272f' : '#fff',
+              color: themeMode === 'dark' ? '#f1f3f8' : '#23272f',
+            }
+
             return (
               <div key={`daisyui-${form}`} style={styles.previewCard}>
                 <div style={styles.frameHeaderRow}>
@@ -88,7 +94,7 @@ function DaisyUiPreview({
                   resetKey={`daisyui-${form}`}
                 >
                   <LibraryThemeWrapper library="daisyUI" themeMode={themeMode}>
-                    <div style={styles.previewFormWrapper}>
+                    <div style={previewFormWrapperStyle}>
                       <FormComponent />
                     </div>
                   </LibraryThemeWrapper>

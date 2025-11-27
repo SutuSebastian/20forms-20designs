@@ -53,6 +53,17 @@ function ReactNoCssPreview({
 
   const hasSelections = selectedForms.length > 0
 
+  // Use prefers-color-scheme as fallback if no themeMode prop
+  const getThemeMode = () => {
+    if (typeof window !== 'undefined' && !themeMode) {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light'
+    }
+    return themeMode || 'light'
+  }
+  const currentTheme = getThemeMode()
+
   return (
     <section style={styles.previewSection}>
       <div style={styles.sectionHeader}>
@@ -72,13 +83,19 @@ function ReactNoCssPreview({
             const FormComponent = formComponents[form]
             if (!FormComponent) return null
 
+            const previewFormWrapperStyle = {
+              ...styles.previewFormWrapper,
+              background: currentTheme === 'dark' ? '#23272f' : '#fff',
+              color: currentTheme === 'dark' ? '#f1f3f8' : '#23272f',
+            }
+
             return (
               <div key={`react-no-css-${form}`} style={styles.previewCard}>
                 <div style={styles.frameHeaderRow}>
                   <div style={styles.comboLabel}>{form}</div>
                   <div style={styles.libraryChip}>React + No CSS</div>
                 </div>
-                <div style={styles.previewFormWrapper}>
+                <div style={previewFormWrapperStyle}>
                   <FormErrorBoundary
                     formName={form}
                     libraryName="React + No CSS"

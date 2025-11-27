@@ -74,13 +74,19 @@ function ReactBootstrapPreview({
             const FormComponent = formComponents[form]
             if (!FormComponent) return null
 
+            const previewFormWrapperStyle = {
+              ...styles.previewFormWrapper,
+              background: 'var(--preview-bg, #fff)',
+              color: 'var(--preview-color, #23272f)',
+            }
+
             return (
               <div key={`react-bootstrap-${form}`} style={styles.previewCard}>
                 <div style={styles.frameHeaderRow}>
                   <div style={styles.comboLabel}>{form}</div>
                   <div style={styles.libraryChip}>React Bootstrap</div>
                 </div>
-                <div style={styles.previewFormWrapper}>
+                <div style={previewFormWrapperStyle}>
                   <FormErrorBoundary
                     formName={form}
                     libraryName="React Bootstrap"
