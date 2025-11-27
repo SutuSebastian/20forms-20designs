@@ -7,13 +7,13 @@ function PasswordChangeForm() {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="password-change-current">Current password</label>
-        <input id="password-change-current" name="currentPassword" type="password" required />
+        <label htmlFor="nocss-password-change-current">Current password</label>
+        <input id="nocss-password-change-current" name="currentPassword" type="password" required />
       </div>
       <div>
-        <label htmlFor="password-change-new">New password</label>
+        <label htmlFor="nocss-password-change-new">New password</label>
         <input
-          id="password-change-new"
+          id="nocss-password-change-new"
           name="newPassword"
           type="password"
           minLength="8"
@@ -21,9 +21,9 @@ function PasswordChangeForm() {
         />
       </div>
       <div>
-        <label htmlFor="password-change-confirm">Confirm new password</label>
+        <label htmlFor="nocss-password-change-confirm">Confirm new password</label>
         <input
-          id="password-change-confirm"
+          id="nocss-password-change-confirm"
           name="confirmPassword"
           type="password"
           minLength="8"

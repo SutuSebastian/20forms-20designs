@@ -7,12 +7,12 @@ function CheckoutPaymentForm() {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="checkout-email">Email for receipt</label>
-        <input id="checkout-email" name="email" type="email" required />
+        <label htmlFor="nocss-checkout-email">Email for receipt</label>
+        <input id="nocss-checkout-email" name="email" type="email" required />
       </div>
       <div>
-        <label htmlFor="checkout-shipping-method">Shipping method</label>
-        <select id="checkout-shipping-method" name="shippingMethod" required>
+        <label htmlFor="nocss-checkout-shipping-method">Shipping method</label>
+        <select id="nocss-checkout-shipping-method" name="shippingMethod" required>
           <option value="">Select shipping</option>
           <option value="standard">Standard</option>
           <option value="express">Express</option>
@@ -20,9 +20,9 @@ function CheckoutPaymentForm() {
         </select>
       </div>
       <div>
-        <label htmlFor="checkout-card-number">Card number</label>
+        <label htmlFor="nocss-checkout-card-number">Card number</label>
         <input
-          id="checkout-card-number"
+          id="nocss-checkout-card-number"
           name="cardNumber"
           type="text"
           inputMode="numeric"
@@ -32,9 +32,9 @@ function CheckoutPaymentForm() {
         />
       </div>
       <div>
-        <label htmlFor="checkout-expiration">Expiration</label>
+        <label htmlFor="nocss-checkout-expiration">Expiration</label>
         <input
-          id="checkout-expiration"
+          id="nocss-checkout-expiration"
           name="expiration"
           type="text"
           placeholder="MM/YY"
@@ -44,9 +44,9 @@ function CheckoutPaymentForm() {
         />
       </div>
       <div>
-        <label htmlFor="checkout-cvc">CVC</label>
+        <label htmlFor="nocss-checkout-cvc">CVC</label>
         <input
-          id="checkout-cvc"
+          id="nocss-checkout-cvc"
           name="cvc"
           type="text"
           inputMode="numeric"
@@ -56,8 +56,8 @@ function CheckoutPaymentForm() {
         />
       </div>
       <div>
-        <label htmlFor="checkout-promo">Promo code</label>
-        <input id="checkout-promo" name="promoCode" type="text" pattern="[A-Za-z0-9]{3,15}" />
+        <label htmlFor="nocss-checkout-promo">Promo code</label>
+        <input id="nocss-checkout-promo" name="promoCode" type="text" pattern="[A-Za-z0-9]{3,15}" />
       </div>
       <button type="submit">Place order</button>
     </form>

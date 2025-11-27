@@ -7,16 +7,16 @@ function ContactInquiryForm() {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="contact-name">Full name</label>
-        <input id="contact-name" name="fullName" type="text" required />
+        <label htmlFor="nocss-contact-name">Full name</label>
+        <input id="nocss-contact-name" name="fullName" type="text" required />
       </div>
       <div>
-        <label htmlFor="contact-email">Email address</label>
-        <input id="contact-email" name="email" type="email" required />
+        <label htmlFor="nocss-contact-email">Email address</label>
+        <input id="nocss-contact-email" name="email" type="email" required />
       </div>
       <div>
-        <label htmlFor="contact-topic">Topic</label>
-        <select id="contact-topic" name="topic" required>
+        <label htmlFor="nocss-contact-topic">Topic</label>
+        <select id="nocss-contact-topic" name="topic" required>
           <option value="">Select topic</option>
           <option value="support">Support</option>
           <option value="sales">Sales</option>
@@ -25,8 +25,8 @@ function ContactInquiryForm() {
         </select>
       </div>
       <div>
-        <label htmlFor="contact-message">Message</label>
-        <textarea id="contact-message" name="message" rows="4" required />
+        <label htmlFor="nocss-contact-message">Message</label>
+        <textarea id="nocss-contact-message" name="message" rows="4" required />
       </div>
       <div>
         <label>

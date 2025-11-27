@@ -7,16 +7,16 @@ function CustomerFeedbackForm() {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="feedback-name">Name</label>
-        <input id="feedback-name" name="name" type="text" required />
+        <label htmlFor="nocss-feedback-name">Name</label>
+        <input id="nocss-feedback-name" name="name" type="text" required />
       </div>
       <div>
-        <label htmlFor="feedback-email">Email address</label>
-        <input id="feedback-email" name="email" type="email" required />
+        <label htmlFor="nocss-feedback-email">Email address</label>
+        <input id="nocss-feedback-email" name="email" type="email" required />
       </div>
       <div>
-        <label htmlFor="feedback-rating">Overall rating</label>
-        <select id="feedback-rating" name="rating" required>
+        <label htmlFor="nocss-feedback-rating">Overall rating</label>
+        <select id="nocss-feedback-rating" name="rating" required>
           <option value="">Select rating</option>
           <option value="excellent">Excellent</option>
           <option value="good">Good</option>
@@ -25,8 +25,8 @@ function CustomerFeedbackForm() {
         </select>
       </div>
       <div>
-        <label htmlFor="feedback-comments">Comments</label>
-        <textarea id="feedback-comments" name="comments" rows="4" required />
+        <label htmlFor="nocss-feedback-comments">Comments</label>
+        <textarea id="nocss-feedback-comments" name="comments" rows="4" required />
       </div>
       <div>
         <label>

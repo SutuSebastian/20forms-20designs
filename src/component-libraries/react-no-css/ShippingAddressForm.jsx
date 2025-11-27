@@ -15,25 +15,25 @@ function ShippingAddressForm() {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="shipping-full-name">Recipient name</label>
-        <input id="shipping-full-name" name="fullName" type="text" required />
+        <label htmlFor="nocss-shipping-full-name">Recipient name</label>
+        <input id="nocss-shipping-full-name" name="fullName" type="text" required />
       </div>
       <div>
-        <label htmlFor="shipping-street">Street address</label>
-        <input id="shipping-street" name="street" type="text" required />
+        <label htmlFor="nocss-shipping-street">Street address</label>
+        <input id="nocss-shipping-street" name="street" type="text" required />
       </div>
       <div>
-        <label htmlFor="shipping-street-2">Apartment, suite, etc.</label>
-        <input id="shipping-street-2" name="street2" type="text" />
+        <label htmlFor="nocss-shipping-street-2">Apartment, suite, etc.</label>
+        <input id="nocss-shipping-street-2" name="street2" type="text" />
       </div>
       <div>
-        <label htmlFor="shipping-city">City</label>
-        <input id="shipping-city" name="city" type="text" required />
+        <label htmlFor="nocss-shipping-city">City</label>
+        <input id="nocss-shipping-city" name="city" type="text" required />
       </div>
       <div>
-        <label htmlFor="shipping-country">Country</label>
+        <label htmlFor="nocss-shipping-country">Country</label>
         <select
-          id="shipping-country"
+          id="nocss-shipping-country"
           name="country"
           value={country}
           onChange={(event) => setCountry(event.target.value)}
@@ -47,8 +47,8 @@ function ShippingAddressForm() {
         </select>
       </div>
       <div>
-        <label htmlFor="shipping-region">State / Province / Territory</label>
-        <select id="shipping-region" name="region" required>
+        <label htmlFor="nocss-shipping-region">State / Province / Territory</label>
+        <select id="nocss-shipping-region" name="region" required>
           <option value="">Select an option</option>
           {regionOptions.map((region) => (
             <option key={region} value={region}>
@@ -58,9 +58,9 @@ function ShippingAddressForm() {
         </select>
       </div>
       <div>
-        <label htmlFor="shipping-postal">Postal code</label>
+        <label htmlFor="nocss-shipping-postal">Postal code</label>
         <input
-          id="shipping-postal"
+          id="nocss-shipping-postal"
           name="postalCode"
           type="text"
           pattern={postalPattern}

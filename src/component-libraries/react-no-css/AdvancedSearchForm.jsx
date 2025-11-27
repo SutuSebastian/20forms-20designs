@@ -7,12 +7,12 @@ function AdvancedSearchForm() {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="search-query">Search query</label>
-        <input id="search-query" name="query" type="text" required />
+        <label htmlFor="nocss-search-query">Search query</label>
+        <input id="nocss-search-query" name="query" type="text" required />
       </div>
       <div>
-        <label htmlFor="search-category">Category</label>
-        <select id="search-category" name="category" required>
+        <label htmlFor="nocss-search-category">Category</label>
+        <select id="nocss-search-category" name="category" required>
           <option value="all">All</option>
           <option value="articles">Articles</option>
           <option value="products">Products</option>
@@ -20,16 +20,16 @@ function AdvancedSearchForm() {
         </select>
       </div>
       <div>
-        <label htmlFor="search-date-from">Date from</label>
-        <input id="search-date-from" name="dateFrom" type="date" />
+        <label htmlFor="nocss-search-date-from">Date from</label>
+        <input id="nocss-search-date-from" name="dateFrom" type="date" />
       </div>
       <div>
-        <label htmlFor="search-date-to">Date to</label>
-        <input id="search-date-to" name="dateTo" type="date" />
+        <label htmlFor="nocss-search-date-to">Date to</label>
+        <input id="nocss-search-date-to" name="dateTo" type="date" />
       </div>
       <div>
-        <label htmlFor="search-sort">Sort by</label>
-        <select id="search-sort" name="sort" required>
+        <label htmlFor="nocss-search-sort">Sort by</label>
+        <select id="nocss-search-sort" name="sort" required>
           <option value="relevance">Relevance</option>
           <option value="newest">Newest</option>
           <option value="oldest">Oldest</option>

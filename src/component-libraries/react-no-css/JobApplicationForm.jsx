@@ -7,17 +7,17 @@ function JobApplicationForm() {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="job-full-name">Full name</label>
-        <input id="job-full-name" name="fullName" type="text" required />
+        <label htmlFor="nocss-job-full-name">Full name</label>
+        <input id="nocss-job-full-name" name="fullName" type="text" required />
       </div>
       <div>
-        <label htmlFor="job-email">Email address</label>
-        <input id="job-email" name="email" type="email" required />
+        <label htmlFor="nocss-job-email">Email address</label>
+        <input id="nocss-job-email" name="email" type="email" required />
       </div>
       <div>
-        <label htmlFor="job-phone">Phone number</label>
+        <label htmlFor="nocss-job-phone">Phone number</label>
         <input
-          id="job-phone"
+          id="nocss-job-phone"
           name="phone"
           type="tel"
           pattern="[+0-9\s-]{7,20}"
@@ -26,16 +26,16 @@ function JobApplicationForm() {
         />
       </div>
       <div>
-        <label htmlFor="job-role">Role applied for</label>
-        <input id="job-role" name="role" type="text" required />
+        <label htmlFor="nocss-job-role">Role applied for</label>
+        <input id="nocss-job-role" name="role" type="text" required />
       </div>
       <div>
-        <label htmlFor="job-resume">Resume link</label>
-        <input id="job-resume" name="resume" type="url" required />
+        <label htmlFor="nocss-job-resume">Resume link</label>
+        <input id="nocss-job-resume" name="resume" type="url" required />
       </div>
       <div>
-        <label htmlFor="job-cover-letter">Cover letter</label>
-        <textarea id="job-cover-letter" name="coverLetter" rows="4" required />
+        <label htmlFor="nocss-job-cover-letter">Cover letter</label>
+        <textarea id="nocss-job-cover-letter" name="coverLetter" rows="4" required />
       </div>
       <div>
         <label>

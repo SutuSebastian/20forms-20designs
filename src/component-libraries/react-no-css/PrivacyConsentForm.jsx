@@ -7,12 +7,12 @@ function PrivacyConsentForm() {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="privacy-name">Full name</label>
-        <input id="privacy-name" name="fullName" type="text" required />
+        <label htmlFor="nocss-privacy-name">Full name</label>
+        <input id="nocss-privacy-name" name="fullName" type="text" required />
       </div>
       <div>
-        <label htmlFor="privacy-email">Email address</label>
-        <input id="privacy-email" name="email" type="email" required />
+        <label htmlFor="nocss-privacy-email">Email address</label>
+        <input id="nocss-privacy-email" name="email" type="email" required />
       </div>
       <fieldset>
         <legend>Communication channels</legend>
@@ -36,8 +36,8 @@ function PrivacyConsentForm() {
         </label>
       </fieldset>
       <div>
-        <label htmlFor="privacy-notes">Additional notes</label>
-        <textarea id="privacy-notes" name="notes" rows="3" />
+        <label htmlFor="nocss-privacy-notes">Additional notes</label>
+        <textarea id="nocss-privacy-notes" name="notes" rows="3" />
       </div>
       <button type="submit">Save preferences</button>
     </form>

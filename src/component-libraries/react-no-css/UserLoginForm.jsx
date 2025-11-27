@@ -7,12 +7,12 @@ function UserLoginForm() {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="user-login-email">Email or username</label>
-        <input id="user-login-email" name="identifier" type="text" required />
+        <label htmlFor="nocss-user-login-email">Email or username</label>
+        <input id="nocss-user-login-email" name="identifier" type="text" required />
       </div>
       <div>
-        <label htmlFor="user-login-password">Password</label>
-        <input id="user-login-password" name="password" type="password" required />
+        <label htmlFor="nocss-user-login-password">Password</label>
+        <input id="nocss-user-login-password" name="password" type="password" required />
       </div>
       <div>
         <label>

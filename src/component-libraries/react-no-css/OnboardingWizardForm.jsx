@@ -9,13 +9,13 @@ function OnboardingWizardForm() {
       <section>
         <h3>Step 1: Account</h3>
         <div>
-          <label htmlFor="onboarding-email">Work email</label>
-          <input id="onboarding-email" name="email" type="email" required />
+          <label htmlFor="nocss-onboarding-email">Work email</label>
+          <input id="nocss-onboarding-email" name="email" type="email" required />
         </div>
         <div>
-          <label htmlFor="onboarding-password">Password</label>
+          <label htmlFor="nocss-onboarding-password">Password</label>
           <input
-            id="onboarding-password"
+            id="nocss-onboarding-password"
             name="password"
             type="password"
             minLength="8"
@@ -26,12 +26,12 @@ function OnboardingWizardForm() {
       <section>
         <h3>Step 2: Team</h3>
         <div>
-          <label htmlFor="onboarding-team-name">Team name</label>
-          <input id="onboarding-team-name" name="teamName" type="text" required />
+          <label htmlFor="nocss-onboarding-team-name">Team name</label>
+          <input id="nocss-onboarding-team-name" name="teamName" type="text" required />
         </div>
         <div>
-          <label htmlFor="onboarding-size">Team size</label>
-          <select id="onboarding-size" name="teamSize" required>
+          <label htmlFor="nocss-onboarding-size">Team size</label>
+          <select id="nocss-onboarding-size" name="teamSize" required>
             <option value="">Select size</option>
             <option value="1-5">1-5</option>
             <option value="6-20">6-20</option>
@@ -43,8 +43,8 @@ function OnboardingWizardForm() {
       <section>
         <h3>Step 3: Preferences</h3>
         <div>
-          <label htmlFor="onboarding-goal">Primary goal</label>
-          <textarea id="onboarding-goal" name="goal" rows="3" required />
+          <label htmlFor="nocss-onboarding-goal">Primary goal</label>
+          <textarea id="nocss-onboarding-goal" name="goal" rows="3" required />
         </div>
         <div>
           <label>

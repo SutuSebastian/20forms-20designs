@@ -7,13 +7,13 @@ function BillingInfoForm() {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="billing-name">Name on card</label>
-        <input id="billing-name" name="cardName" type="text" required />
+        <label htmlFor="nocss-billing-name">Name on card</label>
+        <input id="nocss-billing-name" name="cardName" type="text" required />
       </div>
       <div>
-        <label htmlFor="billing-card-number">Card number</label>
+        <label htmlFor="nocss-billing-card-number">Card number</label>
         <input
-          id="billing-card-number"
+          id="nocss-billing-card-number"
           name="cardNumber"
           type="text"
           inputMode="numeric"
@@ -23,9 +23,9 @@ function BillingInfoForm() {
         />
       </div>
       <div>
-        <label htmlFor="billing-expiration">Expiration date</label>
+        <label htmlFor="nocss-billing-expiration">Expiration date</label>
         <input
-          id="billing-expiration"
+          id="nocss-billing-expiration"
           name="expiration"
           type="text"
           placeholder="MM/YY"
@@ -35,9 +35,9 @@ function BillingInfoForm() {
         />
       </div>
       <div>
-        <label htmlFor="billing-cvc">Security code</label>
+        <label htmlFor="nocss-billing-cvc">Security code</label>
         <input
-          id="billing-cvc"
+          id="nocss-billing-cvc"
           name="cvc"
           type="text"
           inputMode="numeric"
@@ -47,12 +47,12 @@ function BillingInfoForm() {
         />
       </div>
       <div>
-        <label htmlFor="billing-address">Billing address</label>
-        <input id="billing-address" name="address" type="text" required />
+        <label htmlFor="nocss-billing-address">Billing address</label>
+        <input id="nocss-billing-address" name="address" type="text" required />
       </div>
       <div>
-        <label htmlFor="billing-country">Country</label>
-        <select id="billing-country" name="country" required>
+        <label htmlFor="nocss-billing-country">Country</label>
+        <select id="nocss-billing-country" name="country" required>
           <option value="">Select country</option>
           <option value="US">United States</option>
           <option value="CA">Canada</option>

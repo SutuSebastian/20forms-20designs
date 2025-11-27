@@ -8,9 +8,9 @@ function TwoFactorAuthForm() {
     <form onSubmit={handleSubmit}>
       <p>Enter the code from your authenticator app or SMS.</p>
       <div>
-        <label htmlFor="two-factor-code">Verification code</label>
+        <label htmlFor="nocss-two-factor-code">Verification code</label>
         <input
-          id="two-factor-code"
+          id="nocss-two-factor-code"
           name="code"
           type="text"
           inputMode="numeric"
@@ -20,8 +20,8 @@ function TwoFactorAuthForm() {
         />
       </div>
       <div>
-        <label htmlFor="two-factor-backup">Backup code (optional)</label>
-        <input id="two-factor-backup" name="backupCode" type="text" pattern="[A-Za-z0-9]{6,12}" />
+        <label htmlFor="nocss-two-factor-backup">Backup code (optional)</label>
+        <input id="nocss-two-factor-backup" name="backupCode" type="text" pattern="[A-Za-z0-9]{6,12}" />
       </div>
       <button type="submit">Verify</button>
       <button type="button" onClick={() => alert('A new code has been sent!')}>
