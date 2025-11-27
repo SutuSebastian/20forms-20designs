@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { CANADIAN_PROVINCES, COUNTRIES, US_STATES } from './locationOptions'
+import { CANADIAN_PROVINCES, COUNTRIES, US_STATES } from '../../constants/locationOptions'
 
 function ShippingAddressForm() {
   const [country, setCountry] = useState('US')
