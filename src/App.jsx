@@ -15,6 +15,7 @@ import { daisyUiFormComponents } from './component-libraries/daisyui/lazy.js'
 import { shadcnUiFormComponents } from './component-libraries/shadcn-ui/lazy.js'
 import { evergreenFormComponents } from './component-libraries/evergreen/lazy.js'
 import { gravityUiFormComponents } from './component-libraries/gravity-ui/lazy.js'
+import { GravityUiWrapper } from './component-libraries/gravity-ui/GravityUiWrapper'
 import RadixUiPreview from './components/RadixUiPreview'
 import DaisyUiPreview from './components/DaisyUiPreview'
 import ShadcnUiPreview from './components/ShadcnUiPreview'
@@ -101,6 +102,7 @@ function App() {
         description:
           'Gravity UI form implementations rendered when Gravity UI is selected.',
         components: gravityUiFormComponents,
+        Wrapper: GravityUiWrapper,
       },
     }),
     []
