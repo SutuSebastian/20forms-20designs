@@ -4,7 +4,7 @@ Introducing "20 Forms - 20 Designs"
 
 This is project that I wanted to implement for quite some time. So far in my professional experience I have worked with a lot of various design systems and I was always fascinated how the same form could look so much differently using different component library.
 
-This is how this project was born. It represents 20 extremely common forms that were built using 20 popular React design systems.
+This is how this project was born. It represents 20 extremely common forms that were built using 20+ popular React design systems.
 
 ## Forms implemented
 
@@ -43,44 +43,45 @@ This is how this project was born. It represents 20 extremely common forms that 
 10. [Carbon Design System](https://carbondesignsystem.com/) ([GitHub](https://github.com/carbon-design-system/carbon))
 11. [Mantine](https://mantine.dev/) ([GitHub](https://github.com/mantinedev/mantine))
 12. [PrimeReact](https://primereact.org/) ([GitHub](https://github.com/primefaces/primereact))
-13. [NextUI](https://nextui.org/) ([GitHub](https://github.com/nextui-org/nextui))
-14. [Geist UI](https://geist-ui.dev/) ([GitHub](https://github.com/geist-org/geist-ui))
-15. [shadcn/ui](https://ui.shadcn.com/) ([GitHub](https://github.com/shadcn-ui/ui))
-16. [Radix UI](https://www.radix-ui.com/) ([GitHub](https://github.com/radix-ui/primitives))
-17. [Headless UI](https://headlessui.com/) ([GitHub](https://github.com/tailwindlabs/headlessui))
-18. [daisyUI](https://daisyui.com/) ([GitHub](https://github.com/saadeghi/daisyui))
-19. [Cloudscape Design System](https://cloudscape.design/) ([GitHub](https://github.com/cloudscape-design/components))
-20. [Shopify Polaris](https://polaris.shopify.com/) ([GitHub](https://github.com/Shopify/polaris))
-21. [Elastic UI (EUI)](https://eui.elastic.co/) ([GitHub](https://github.com/elastic/eui))
-22. [Zendesk Garden](https://garden.zendesk.com/) ([GitHub](https://github.com/zendeskgarden/react-components))
-23. [Base Web](https://baseweb.design/) ([GitHub](https://github.com/uber/baseweb))
-24. [PatternFly](https://www.patternfly.org/) ([GitHub](https://github.com/patternfly/patternfly-react))
-25. [Atlassian Atlaskit](https://atlassian.design/components) ([Repository](https://bitbucket.org/atlassian/atlassian-frontend/))
-26. [React Spectrum](https://react-spectrum.adobe.com/) ([GitHub](https://github.com/adobe/react-spectrum))
-27. [Pinterest Gestalt](https://gestalt.pinterest.systems/) ([GitHub](https://github.com/pinterest/gestalt))
-28. [VMware Clarity](https://clarity.design/) ([GitHub](https://github.com/vmware/clarity))
-29. [Salesforce Lightning Design System React](https://react.lightningdesignsystem.com/) ([GitHub](https://github.com/salesforce/design-system-react))
-30. [Orbit by Kiwi.com](https://orbit.kiwi/) ([GitHub](https://github.com/kiwicom/orbit-components))
-31. [RSuite](https://rsuitejs.com/) ([GitHub](https://github.com/rsuite/rsuite))
-32. [Semi Design](https://semi.design/) ([GitHub](https://github.com/DouyinFE/semi-design))
-33. [Arco Design](https://arco.design/) ([GitHub](https://github.com/arco-design/arco-design))
-34. [Ionic React](https://ionicframework.com/docs/react) ([GitHub](https://github.com/ionic-team/ionic-framework))
-35. [Braid Design System](https://seek-oss.github.io/braid-design-system/) ([GitHub](https://github.com/seek-oss/braid-design-system))
-36. [Primer React](https://primer.style/react/) ([GitHub](https://github.com/primer/react))
-37. [FAST Design](https://www.fast.design/) ([GitHub](https://github.com/microsoft/fast))
-38. [Shoelace](https://shoelace.style/) ([GitHub](https://github.com/shoelace-style/shoelace))
-39. [U.S. Web Design System](https://designsystem.digital.gov/) ([GitHub](https://github.com/uswds/uswds))
-40. [Ariakit](https://ariakit.org/) ([GitHub](https://github.com/ariakit/ariakit))
-41. [Tremor](https://www.tremor.so/) ([GitHub](https://github.com/tremorlabs/tremor))
-42. [Rebass](https://rebassjs.org/) ([GitHub](https://github.com/rebassjs/rebass))
+13. [HeroUI](https://heroui.com/) ([GitHub](https://github.com/heroui-inc/heroui))
+14. [Gravity UI](https://gravity-ui.com/) ([GitHub](https://github.com/gravity-ui/uikit))
+15. [Geist UI](https://geist-ui.dev/) ([GitHub](https://github.com/geist-org/geist-ui))
+16. [shadcn/ui](https://ui.shadcn.com/) ([GitHub](https://github.com/shadcn-ui/ui))
+17. [Radix UI](https://www.radix-ui.com/) ([GitHub](https://github.com/radix-ui/primitives))
+18. [Headless UI](https://headlessui.com/) ([GitHub](https://github.com/tailwindlabs/headlessui))
+19. [daisyUI](https://daisyui.com/) ([GitHub](https://github.com/saadeghi/daisyui))
+20. [Cloudscape Design System](https://cloudscape.design/) ([GitHub](https://github.com/cloudscape-design/components))
+21. [Base Web](https://baseweb.design/) ([GitHub](https://github.com/uber/baseweb))
+22. [Shopify Polaris](https://polaris.shopify.com/) ([GitHub](https://github.com/Shopify/polaris))
+23. [Elastic UI (EUI)](https://eui.elastic.co/) ([GitHub](https://github.com/elastic/eui))
+24. [Zendesk Garden](https://garden.zendesk.com/) ([GitHub](https://github.com/zendeskgarden/react-components))
+25. [PatternFly](https://www.patternfly.org/) ([GitHub](https://github.com/patternfly/patternfly-react))
+26. [Atlassian Atlaskit](https://atlassian.design/components) ([Repository](https://bitbucket.org/atlassian/atlassian-frontend/))
+27. [React Spectrum](https://react-spectrum.adobe.com/) ([GitHub](https://github.com/adobe/react-spectrum))
+28. [Pinterest Gestalt](https://gestalt.pinterest.systems/) ([GitHub](https://github.com/pinterest/gestalt))
+29. [VMware Clarity](https://clarity.design/) ([GitHub](https://github.com/vmware/clarity))
+30. [Salesforce Lightning Design System React](https://react.lightningdesignsystem.com/) ([GitHub](https://github.com/salesforce/design-system-react))
+31. [Orbit by Kiwi.com](https://orbit.kiwi/) ([GitHub](https://github.com/kiwicom/orbit-components))
+32. [RSuite](https://rsuitejs.com/) ([GitHub](https://github.com/rsuite/rsuite))
+33. [Semi Design](https://semi.design/) ([GitHub](https://github.com/DouyinFE/semi-design))
+34. [Arco Design](https://arco.design/) ([GitHub](https://github.com/arco-design/arco-design))
+35. [Ionic React](https://ionicframework.com/docs/react) ([GitHub](https://github.com/ionic-team/ionic-framework))
+36. [Braid Design System](https://seek-oss.github.io/braid-design-system/) ([GitHub](https://github.com/seek-oss/braid-design-system))
+37. [Primer React](https://primer.style/react/) ([GitHub](https://github.com/primer/react))
+38. [FAST Design](https://www.fast.design/) ([GitHub](https://github.com/microsoft/fast))
+39. [Shoelace](https://shoelace.style/) ([GitHub](https://github.com/shoelace-style/shoelace))
+40. [U.S. Web Design System](https://designsystem.digital.gov/) ([GitHub](https://github.com/uswds/uswds))
+41. [Ariakit](https://ariakit.org/) ([GitHub](https://github.com/ariakit/ariakit))
+42. [Tremor](https://www.tremor.so/) ([GitHub](https://github.com/tremorlabs/tremor))
+43. [Rebass](https://rebassjs.org/) ([GitHub](https://github.com/rebassjs/rebass))
+44. React (no CSS) ([GitHub](https://github.com/facebook/react))
 
 ## Tech Stack
 
 - **Vite** - Next generation frontend tooling
-- **React 19** - A JavaScript library for building user interfaces
+- **React 18** - A JavaScript library for building user interfaces
 - **React DOM** - React package for working with the DOM
 - **React Router** - Declarative routing for React
-- **React Compiler** - Automatic optimization of React components
 - **Prettier** - Code formatter
 - **ESLint** - JavaScript linter
 

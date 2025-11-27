@@ -145,10 +145,16 @@ const componentLibraries = [
     repo: 'https://github.com/primefaces/primereact',
   },
   {
-    name: 'NextUI',
-    directory: 'nextui',
-    website: 'https://nextui.org',
-    repo: 'https://github.com/nextui-org/nextui',
+    name: 'HeroUI',
+    directory: 'heroui',
+    website: 'https://heroui.com',
+    repo: 'https://github.com/heroui-inc/heroui',
+  },
+  {
+    name: 'Gravity UI',
+    directory: 'gravity-ui',
+    website: 'https://gravity-ui.com',
+    repo: 'https://github.com/gravity-ui/uikit',
   },
   {
     name: 'Geist UI',
@@ -187,6 +193,12 @@ const componentLibraries = [
     repo: 'https://github.com/cloudscape-design/components',
   },
   {
+    name: 'Base Web',
+    directory: 'base-web',
+    website: 'https://baseweb.design',
+    repo: 'https://github.com/uber/baseweb',
+  },
+  {
     name: 'Shopify Polaris',
     directory: 'shopify-polaris',
     website: 'https://polaris.shopify.com',
@@ -195,7 +207,7 @@ const componentLibraries = [
   {
     name: 'Elastic UI (EUI)',
     directory: 'elastic-ui',
-    website: 'https://elastic.github.io/eui',
+    website: 'https://eui.elastic.co',
     repo: 'https://github.com/elastic/eui',
   },
   {
@@ -203,12 +215,6 @@ const componentLibraries = [
     directory: 'zendesk-garden',
     website: 'https://garden.zendesk.com',
     repo: 'https://github.com/zendesk/garden',
-  },
-  {
-    name: 'Base Web',
-    directory: 'base-web',
-    website: 'https://baseweb.design',
-    repo: 'https://github.com/uber/baseweb',
   },
   {
     name: 'PatternFly',
