@@ -1,9 +1,6 @@
 // Inlined styles from styles.js
 const styles = {
   previewSection: { marginTop: '32px' },
-  sectionHeader: { marginBottom: '6px' },
-  sectionTitle: { margin: 0, fontSize: '1.1rem' },
-  previewHelper: { margin: 0, color: '#5b6675' },
   placeholderText: { margin: '12px 0' },
   previewStrip: {
     display: 'flex',
@@ -44,6 +41,8 @@ const styles = {
 }
 import '../tailwind-no-preflight.css'
 import FormErrorBoundary from './FormErrorBoundary'
+import PreviewFormWrapper from './PreviewFormWrapper'
+import PreviewSectionHeader from './PreviewSectionHeader'
 
 function ShadcnUiPreview({ selectedForms, isLibrarySelected, formComponents }) {
   if (!isLibrarySelected) return null
@@ -63,12 +62,10 @@ function ShadcnUiPreview({ selectedForms, isLibrarySelected, formComponents }) {
 
   return (
     <section style={styles.previewSection}>
-      <div style={styles.sectionHeader}>
-        <h2 style={styles.sectionTitle}>shadcn/ui previews</h2>
-        <p style={styles.previewHelper}>
-          shadcn/ui form implementations rendered when shadcn/ui is selected.
-        </p>
-      </div>
+      <PreviewSectionHeader
+        title="shadcn/ui previews"
+        description="shadcn/ui form implementations rendered when shadcn/ui is selected."
+      />
 
       {!hasSelections ? (
         <p style={styles.placeholderText}>
@@ -80,27 +77,20 @@ function ShadcnUiPreview({ selectedForms, isLibrarySelected, formComponents }) {
             const FormComponent = formComponents[form]
             if (!FormComponent) return null
 
-            const previewFormWrapperStyle = {
-              ...styles.previewFormWrapper,
-              background: currentTheme === 'dark' ? '#23272f' : '#fff',
-              color: currentTheme === 'dark' ? '#f1f3f8' : '#23272f',
-            }
-
             return (
               <div key={`shadcn-ui-${form}`} style={styles.previewCard}>
                 <div style={styles.frameHeaderRow}>
                   <div style={styles.comboLabel}>{form}</div>
                   <div style={styles.libraryChip}>shadcn/ui</div>
                 </div>
-                <div style={previewFormWrapperStyle}>
-                  <FormErrorBoundary
-                    formName={form}
-                    libraryName="shadcn/ui"
-                    resetKey={`shadcn-ui-${form}`}
-                  >
-                    <FormComponent />
-                  </FormErrorBoundary>
-                </div>
+                <PreviewFormWrapper
+                  formName={form}
+                  libraryName="shadcn/ui"
+                  resetKey={`shadcn-ui-${form}`}
+                  themeMode={currentTheme}
+                >
+                  <FormComponent />
+                </PreviewFormWrapper>
               </div>
             )
           })}

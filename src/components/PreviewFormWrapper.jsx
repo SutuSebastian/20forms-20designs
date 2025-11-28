@@ -21,7 +21,11 @@ function PreviewFormWrapper({
 
   return (
     <div style={previewFormWrapperStyle}>
-      <FormErrorBoundary formName={formName} libraryName={libraryName} resetKey={resetKey}>
+      <FormErrorBoundary
+        formName={formName}
+        libraryName={libraryName}
+        resetKey={resetKey}
+      >
         <Wrapper>{children}</Wrapper>
       </FormErrorBoundary>
     </div>

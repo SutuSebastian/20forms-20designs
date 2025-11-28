@@ -1,9 +1,6 @@
 // Inlined styles from styles.js
 const styles = {
   previewSection: { marginTop: '32px' },
-  sectionHeader: { marginBottom: '6px' },
-  sectionTitle: { margin: 0, fontSize: '1.1rem' },
-  previewHelper: { margin: 0, color: '#5b6675' },
   placeholderText: { margin: '12px 0' },
   previewStrip: {
     display: 'flex',
@@ -43,6 +40,7 @@ const styles = {
   previewFormWrapper: { padding: '10px', display: 'block' },
 }
 import FormErrorBoundary from './FormErrorBoundary'
+import PreviewFormWrapper from './PreviewFormWrapper'
 
 function EvergreenPreview({
   selectedForms,
@@ -55,13 +53,10 @@ function EvergreenPreview({
 
   return (
     <section style={styles.previewSection}>
-      <div style={styles.sectionHeader}>
-        <h2 style={styles.sectionTitle}>Evergreen previews</h2>
-        <p style={styles.previewHelper}>
-          Evergreen UI form implementations rendered when Evergreen is selected.
-        </p>
-      </div>
-
+      <PreviewSectionHeader
+        title="Evergreen previews"
+        description="Evergreen UI form implementations rendered when Evergreen is selected."
+      />
       {!hasSelections ? (
         <p style={styles.placeholderText}>
           Select one or more forms to see their Evergreen UI implementations.
@@ -71,28 +66,20 @@ function EvergreenPreview({
           {selectedForms.map((form) => {
             const FormComponent = formComponents[form]
             if (!FormComponent) return null
-
-            const previewFormWrapperStyle = {
-              ...styles.previewFormWrapper,
-              background: 'var(--preview-bg, #fff)',
-              color: 'var(--preview-color, #23272f)',
-            }
-
             return (
               <div key={`evergreen-${form}`} style={styles.previewCard}>
                 <div style={styles.frameHeaderRow}>
                   <div style={styles.comboLabel}>{form}</div>
                   <div style={styles.libraryChip}>Evergreen</div>
                 </div>
-                <div style={previewFormWrapperStyle}>
-                  <FormErrorBoundary
-                    formName={form}
-                    libraryName="Evergreen"
-                    resetKey={`evergreen-${form}`}
-                  >
-                    <FormComponent />
-                  </FormErrorBoundary>
-                </div>
+                <PreviewFormWrapper
+                  formName={form}
+                  libraryName="Evergreen"
+                  resetKey={`evergreen-${form}`}
+                  themeMode={themeMode}
+                >
+                  <FormComponent />
+                </PreviewFormWrapper>
               </div>
             )
           })}

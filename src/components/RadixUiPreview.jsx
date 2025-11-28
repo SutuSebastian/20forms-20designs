@@ -1,9 +1,6 @@
 // Inlined styles from styles.js
 const styles = {
   previewSection: { marginTop: '32px' },
-  sectionHeader: { marginBottom: '6px' },
-  sectionTitle: { margin: 0, fontSize: '1.1rem' },
-  previewHelper: { margin: 0, color: '#5b6675' },
   placeholderText: { margin: '12px 0' },
   previewStrip: {
     display: 'flex',
@@ -45,6 +42,8 @@ const styles = {
 import '../tailwind-no-preflight.css'
 import { LibraryThemeWrapper } from './LibraryThemeWrapper'
 import FormErrorBoundary from './FormErrorBoundary'
+import PreviewFormWrapper from './PreviewFormWrapper'
+import PreviewSectionHeader from './PreviewSectionHeader'
 
 function RadixUiPreview({
   selectedForms,
@@ -54,17 +53,14 @@ function RadixUiPreview({
 }) {
   if (!isLibrarySelected) return null
 
-  const hasSelections = selectedForms.length > 0
+  const hasSelections = selectedForms && selectedForms.length > 0
 
   return (
     <section style={styles.previewSection}>
-      <div style={styles.sectionHeader}>
-        <h2 style={styles.sectionTitle}>Radix UI previews</h2>
-        <p style={styles.previewHelper}>
-          Radix UI form implementations rendered when Radix UI is selected.
-        </p>
-      </div>
-
+      <PreviewSectionHeader
+        title="Radix UI previews"
+        description="Radix UI form implementations rendered when Radix UI is selected."
+      />
       {!hasSelections ? (
         <p style={styles.placeholderText}>
           Select one or more forms to see their Radix UI implementations.
@@ -74,62 +70,29 @@ function RadixUiPreview({
           {selectedForms.map((form) => {
             const FormComponent = formComponents[form]
             if (!FormComponent) return null
-
             return (
               <div key={`radix-ui-${form}`} style={styles.previewCard}>
                 <div style={styles.frameHeaderRow}>
                   <div style={styles.comboLabel}>{form}</div>
                   <div style={styles.libraryChip}>Radix UI</div>
                 </div>
-                return (
-                  <section style={styles.previewSection}>
-                    <div style={styles.sectionHeader}>
-                      <h2 style={styles.sectionTitle}>Radix UI previews</h2>
-                      <p style={styles.previewHelper}>
-                        Radix UI form implementations rendered when Radix UI is selected.
-                      </p>
-                    </div>
+                <LibraryThemeWrapper library="Radix UI" themeMode={themeMode}>
+                  <PreviewFormWrapper
+                    formName={form}
+                    libraryName="Radix UI"
+                    resetKey={`radix-ui-${form}`}
+                    themeMode={themeMode}
+                  >
+                    <FormComponent />
+                  </PreviewFormWrapper>
+                </LibraryThemeWrapper>
+              </div>
+            )
+          })}
+        </div>
+      )}
+    </section>
+  )
+}
 
-                    {!hasSelections ? (
-                      <p style={styles.placeholderText}>
-                        Select one or more forms to see their Radix UI implementations.
-                      </p>
-                    ) : (
-                      <div style={styles.previewStrip}>
-                        {selectedForms.map((form) => {
-                          const FormComponent = formComponents[form]
-                          if (!FormComponent) return null
-
-                          const previewFormWrapperStyle = {
-                            ...styles.previewFormWrapper,
-                            background: themeMode === 'dark' ? '#23272f' : '#fff',
-                            color: themeMode === 'dark' ? '#f1f3f8' : '#23272f',
-                          }
-
-                          return (
-                            <div key={`radix-ui-${form}`} style={styles.previewCard}>
-                              <div style={styles.frameHeaderRow}>
-                                <div style={styles.comboLabel}>{form}</div>
-                                <div style={styles.libraryChip}>Radix UI</div>
-                              </div>
-                              <FormErrorBoundary
-                                formName={form}
-                                libraryName="Radix UI"
-                                resetKey={`radix-ui-${form}`}
-                              >
-                                <LibraryThemeWrapper
-                                  library="Radix UI"
-                                  themeMode={themeMode}
-                                >
-                                  <div style={previewFormWrapperStyle}>
-                                    <FormComponent />
-                                  </div>
-                                </LibraryThemeWrapper>
-                              </FormErrorBoundary>
-                            </div>
-                          )
-                        })}
-                      </div>
-                    )}
-                  </section>
-                )
+export default RadixUiPreview

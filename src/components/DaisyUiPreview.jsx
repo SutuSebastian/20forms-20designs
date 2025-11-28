@@ -1,9 +1,6 @@
 // Inlined styles from styles.js
 const styles = {
   previewSection: { marginTop: '32px' },
-  sectionHeader: { marginBottom: '6px' },
-  sectionTitle: { margin: 0, fontSize: '1.1rem' },
-  previewHelper: { margin: 0, color: '#5b6675' },
   placeholderText: { margin: '12px 0' },
   previewStrip: {
     display: 'flex',
@@ -46,6 +43,7 @@ import '../tailwind-no-preflight.css'
 import { LibraryThemeWrapper } from './LibraryThemeWrapper'
 import FormErrorBoundary from './FormErrorBoundary'
 import PreviewFormWrapper from './PreviewFormWrapper'
+import PreviewSectionHeader from './PreviewSectionHeader'
 
 function DaisyUiPreview({
   selectedForms,
@@ -59,13 +57,10 @@ function DaisyUiPreview({
 
   return (
     <section style={styles.previewSection}>
-      <div style={styles.sectionHeader}>
-        <h2 style={styles.sectionTitle}>DaisyUI previews</h2>
-        <p style={styles.previewHelper}>
-          DaisyUI form implementations (Tailwind Preflight disabled - styling
-          may be affected).
-        </p>
-      </div>
+      <PreviewSectionHeader
+        title="DaisyUI previews"
+        description="DaisyUI form implementations (Tailwind Preflight disabled - styling may be affected)."
+      />
 
       {!hasSelections ? (
         <p style={styles.placeholderText}>

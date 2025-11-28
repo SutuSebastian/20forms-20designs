@@ -1,9 +1,6 @@
 // Inlined styles from styles.js
 const styles = {
   previewSection: { marginTop: '32px' },
-  sectionHeader: { marginBottom: '6px' },
-  sectionTitle: { margin: 0, fontSize: '1.1rem' },
-  previewHelper: { margin: 0, color: '#5b6675' },
   placeholderText: { margin: '12px 0' },
   previewStrip: {
     display: 'flex',
@@ -49,6 +46,7 @@ const styles = {
 }
 import { LibraryThemeWrapper } from './LibraryThemeWrapper'
 import FormErrorBoundary from './FormErrorBoundary'
+import PreviewFormWrapper from './PreviewFormWrapper'
 
 function MuiPreview({
   selectedForms,
@@ -79,29 +77,22 @@ function MuiPreview({
             const FormComponent = formComponents[form]
             if (!FormComponent) return null
 
-            // Dynamic style for theme
-            const previewFormWrapperStyle = {
-              ...styles.previewFormWrapper,
-              background: themeMode === 'dark' ? '#23272f' : '#fff',
-              color: themeMode === 'dark' ? '#f1f3f8' : '#23272f',
-            }
             return (
               <div key={`mui-${form}`} style={styles.previewCard}>
                 <div style={styles.frameHeaderRow}>
                   <div style={styles.comboLabel}>{form}</div>
                   <div style={styles.libraryChip}>MUI</div>
                 </div>
-                <div style={previewFormWrapperStyle}>
-                  <FormErrorBoundary
+                <LibraryThemeWrapper library="MUI" themeMode={themeMode}>
+                  <PreviewFormWrapper
                     formName={form}
                     libraryName="MUI"
                     resetKey={`mui-${form}`}
+                    themeMode={themeMode}
                   >
-                    <LibraryThemeWrapper library="MUI" themeMode={themeMode}>
-                      <FormComponent />
-                    </LibraryThemeWrapper>
-                  </FormErrorBoundary>
-                </div>
+                    <FormComponent />
+                  </PreviewFormWrapper>
+                </LibraryThemeWrapper>
               </div>
             )
           })}

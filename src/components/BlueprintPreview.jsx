@@ -4,9 +4,6 @@ import '@blueprintjs/icons/lib/css/blueprint-icons.css'
 // Inlined styles from styles.js
 const styles = {
   previewSection: { marginTop: '32px' },
-  sectionHeader: { marginBottom: '6px' },
-  sectionTitle: { margin: 0, fontSize: '1.1rem' },
-  previewHelper: { margin: 0, color: '#5b6675' },
   placeholderText: { margin: '12px 0' },
   previewStrip: {
     display: 'flex',
@@ -47,6 +44,8 @@ const styles = {
 }
 import FormErrorBoundary from './FormErrorBoundary'
 import { LibraryThemeWrapper } from './LibraryThemeWrapper'
+import PreviewFormWrapper from './PreviewFormWrapper'
+import PreviewSectionHeader from './PreviewSectionHeader'
 
 function BlueprintPreview({
   selectedForms,
@@ -60,12 +59,10 @@ function BlueprintPreview({
 
   return (
     <section style={styles.previewSection}>
-      <div style={styles.sectionHeader}>
-        <h2 style={styles.sectionTitle}>Blueprint previews</h2>
-        <p style={styles.previewHelper}>
-          Blueprint UI form implementations rendered when Blueprint is selected.
-        </p>
-      </div>
+      <PreviewSectionHeader
+        title="Blueprint previews"
+        description="Blueprint UI form implementations rendered when Blueprint is selected."
+      />
 
       {!hasSelections ? (
         <p style={styles.placeholderText}>
@@ -77,32 +74,22 @@ function BlueprintPreview({
             const FormComponent = formComponents[form]
             if (!FormComponent) return null
 
-            const previewFormWrapperStyle = {
-              ...styles.previewFormWrapper,
-              background: themeMode === 'dark' ? '#23272f' : '#fff',
-              color: themeMode === 'dark' ? '#f1f3f8' : '#23272f',
-            }
-
             return (
               <div key={`blueprint-${form}`} style={styles.previewCard}>
                 <div style={styles.frameHeaderRow}>
                   <div style={styles.comboLabel}>{form}</div>
                   <div style={styles.libraryChip}>Blueprint</div>
                 </div>
-                <FormErrorBoundary
-                  formName={form}
-                  libraryName="Blueprint"
-                  resetKey={`blueprint-${form}`}
-                >
-                  <LibraryThemeWrapper
-                    library="Blueprint"
+                <LibraryThemeWrapper library="Blueprint" themeMode={themeMode}>
+                  <PreviewFormWrapper
+                    formName={form}
+                    libraryName="Blueprint"
+                    resetKey={`blueprint-${form}`}
                     themeMode={themeMode}
                   >
-                    <div style={previewFormWrapperStyle}>
-                      <FormComponent />
-                    </div>
-                  </LibraryThemeWrapper>
-                </FormErrorBoundary>
+                    <FormComponent />
+                  </PreviewFormWrapper>
+                </LibraryThemeWrapper>
               </div>
             )
           })}

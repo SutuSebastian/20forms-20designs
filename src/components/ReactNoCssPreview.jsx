@@ -43,6 +43,7 @@ const styles = {
   previewFormWrapper: { padding: '10px', display: 'block' },
 }
 import FormErrorBoundary from './FormErrorBoundary'
+import PreviewFormWrapper from './PreviewFormWrapper'
 
 function ReactNoCssPreview({
   selectedForms,
@@ -83,27 +84,20 @@ function ReactNoCssPreview({
             const FormComponent = formComponents[form]
             if (!FormComponent) return null
 
-            const previewFormWrapperStyle = {
-              ...styles.previewFormWrapper,
-              background: currentTheme === 'dark' ? '#23272f' : '#fff',
-              color: currentTheme === 'dark' ? '#f1f3f8' : '#23272f',
-            }
-
             return (
               <div key={`react-no-css-${form}`} style={styles.previewCard}>
                 <div style={styles.frameHeaderRow}>
                   <div style={styles.comboLabel}>{form}</div>
                   <div style={styles.libraryChip}>React + No CSS</div>
                 </div>
-                <div style={previewFormWrapperStyle}>
-                  <FormErrorBoundary
-                    formName={form}
-                    libraryName="React + No CSS"
-                    resetKey={`react-no-css-${form}`}
-                  >
-                    <FormComponent />
-                  </FormErrorBoundary>
-                </div>
+                <PreviewFormWrapper
+                  formName={form}
+                  libraryName="React + No CSS"
+                  resetKey={`react-no-css-${form}`}
+                  themeMode={currentTheme}
+                >
+                  <FormComponent />
+                </PreviewFormWrapper>
               </div>
             )
           })}

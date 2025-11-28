@@ -1,9 +1,6 @@
 // Inlined styles from styles.js
 const styles = {
   previewSection: { marginTop: '32px' },
-  sectionHeader: { marginBottom: '6px' },
-  sectionTitle: { margin: 0, fontSize: '1.1rem' },
-  previewHelper: { margin: 0, color: '#5b6675' },
   placeholderText: { margin: '12px 0' },
   previewStrip: {
     display: 'flex',
@@ -44,6 +41,8 @@ const styles = {
 }
 import { LibraryThemeWrapper } from './LibraryThemeWrapper'
 import FormErrorBoundary from './FormErrorBoundary'
+import PreviewFormWrapper from './PreviewFormWrapper'
+import PreviewSectionHeader from './PreviewSectionHeader'
 
 function GravityUiPreview({
   selectedForms,
@@ -57,12 +56,10 @@ function GravityUiPreview({
 
   return (
     <section style={styles.previewSection}>
-      <div style={styles.sectionHeader}>
-        <h2 style={styles.sectionTitle}>Gravity UI previews</h2>
-        <p style={styles.previewHelper}>
-          Gravity UI form implementations rendered when Gravity UI is selected.
-        </p>
-      </div>
+      <PreviewSectionHeader
+        title="Gravity UI previews"
+        description="Gravity UI form implementations rendered when Gravity UI is selected."
+      />
 
       {!hasSelections ? (
         <p style={styles.placeholderText}>
@@ -74,32 +71,22 @@ function GravityUiPreview({
             const FormComponent = formComponents[form]
             if (!FormComponent) return null
 
-            const previewFormWrapperStyle = {
-              ...styles.previewFormWrapper,
-              background: themeMode === 'dark' ? '#23272f' : '#fff',
-              color: themeMode === 'dark' ? '#f1f3f8' : '#23272f',
-            }
-
             return (
               <div key={`gravity-ui-${form}`} style={styles.previewCard}>
                 <div style={styles.frameHeaderRow}>
                   <div style={styles.comboLabel}>{form}</div>
                   <div style={styles.libraryChip}>Gravity UI</div>
                 </div>
-                <FormErrorBoundary
-                  formName={form}
-                  libraryName="Gravity UI"
-                  resetKey={`gravity-ui-${form}`}
-                >
-                  <LibraryThemeWrapper
-                    library="Gravity UI"
+                <LibraryThemeWrapper library="Gravity UI" themeMode={themeMode}>
+                  <PreviewFormWrapper
+                    formName={form}
+                    libraryName="Gravity UI"
+                    resetKey={`gravity-ui-${form}`}
                     themeMode={themeMode}
                   >
-                    <div style={previewFormWrapperStyle}>
-                      <FormComponent />
-                    </div>
-                  </LibraryThemeWrapper>
-                </FormErrorBoundary>
+                    <FormComponent />
+                  </PreviewFormWrapper>
+                </LibraryThemeWrapper>
               </div>
             )
           })}

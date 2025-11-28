@@ -3,17 +3,6 @@ const styles = {
   previewSection: {
     marginTop: '32px',
   },
-  sectionHeader: {
-    marginBottom: '6px',
-  },
-  sectionTitle: {
-    margin: 0,
-    fontSize: '1.1rem',
-  },
-  previewHelper: {
-    margin: 0,
-    color: '#5b6675',
-  },
   placeholderText: {
     margin: '12px 0',
   },
@@ -75,6 +64,7 @@ import {
   librarySupportsTheme,
 } from './LibraryThemeWrapper'
 import FormErrorBoundary from './FormErrorBoundary'
+import PreviewSectionHeader from './PreviewSectionHeader'
 
 function FormGroupedPreviews({
   selectedForms,
@@ -95,13 +85,10 @@ function FormGroupedPreviews({
 
   return (
     <section style={styles.previewSection}>
-      <div style={styles.sectionHeader}>
-        <h2 style={styles.sectionTitle}>Form previews</h2>
-        <p style={styles.previewHelper}>
-          See each selected form with implementations from the chosen component
-          libraries.
-        </p>
-      </div>
+      <PreviewSectionHeader
+        title="Form previews"
+        description="See each selected form with implementations from the chosen component libraries."
+      />
 
       {formsWithImplementations.length === 0 ? (
         <p style={styles.placeholderText}>
