@@ -3,11 +3,11 @@ import { useAppStore } from './store'
 
 import Layout from './components/Layout'
 import MuiPreview from './components/MuiPreview'
-import ChakraUiPreview from './components/ChakraUiPreview'
 import ReactBootstrapPreview from './components/ReactBootstrapPreview'
 import ReactNoCssPreview from './components/ReactNoCssPreview'
 import SelectionColumn from './components/SelectionColumn'
 import FormGroupedPreviews from './components/FormGroupedPreviews'
+
 // Inlined styles from styles.js
 const styles = {
   selectorRow: {
@@ -43,8 +43,6 @@ const styles = {
 }
 
 import RadixUiPreview from './components/RadixUiPreview'
-import DaisyUiPreview from './components/DaisyUiPreview'
-import ShadcnUiPreview from './components/ShadcnUiPreview'
 import EvergreenPreview from './components/EvergreenPreview'
 import GravityUiPreview from './components/GravityUiPreview'
 import BlueprintPreview from './components/BlueprintPreview'
@@ -104,16 +102,14 @@ function App() {
         value: library.name,
         label: (
           <span>
-            {library.name} (
             <a
               href={library.website}
               target="_blank"
               rel="noreferrer"
               onClick={(e) => e.stopPropagation()}
             >
-              website
+              {library.name}
             </a>
-            {' / '}
             <a
               href={library.repo}
               target="_blank"
@@ -122,7 +118,6 @@ function App() {
             >
               repo
             </a>
-            )
           </span>
         ),
         disabled: !library.implemented,
@@ -232,14 +227,7 @@ function App() {
             themeMode={themeMode}
             libraryName={librariesByName['MUI']?.name}
           />
-          <ChakraUiPreview
-            selectedForms={selectedFormsByLibrary['Chakra UI']}
-            isLibrarySelected={isLibrarySelected('Chakra UI')}
-            formComponents={
-              librariesByName['Chakra UI']?.implementation?.components
-            }
-            libraryName={librariesByName['Chakra UI']?.name}
-          />
+
           <ReactBootstrapPreview
             selectedForms={selectedFormsByLibrary['React Bootstrap']}
             isLibrarySelected={isLibrarySelected('React Bootstrap')}
@@ -286,25 +274,6 @@ function App() {
             libraryName={librariesByName['Radix UI']?.name}
           />
 
-          <DaisyUiPreview
-            selectedForms={selectedFormsByLibrary['daisyUI']}
-            isLibrarySelected={isLibrarySelected('daisyUI')}
-            formComponents={
-              librariesByName['daisyUI']?.implementation?.components
-            }
-            themeMode={themeMode}
-            libraryName={librariesByName['daisyUI']?.name}
-          />
-
-          <ShadcnUiPreview
-            selectedForms={selectedFormsByLibrary['shadcn/ui']}
-            isLibrarySelected={isLibrarySelected('shadcn/ui')}
-            formComponents={
-              librariesByName['shadcn/ui']?.implementation?.components
-            }
-            themeMode={themeMode}
-            libraryName={librariesByName['shadcn/ui']?.name}
-          />
           <GravityUiPreview
             selectedForms={selectedFormsByLibrary['Gravity UI']}
             isLibrarySelected={isLibrarySelected('Gravity UI')}

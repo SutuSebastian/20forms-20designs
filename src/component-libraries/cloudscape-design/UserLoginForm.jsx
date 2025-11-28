@@ -20,6 +20,7 @@ function UserLoginForm() {
         <SpaceBetween direction="vertical" size="l">
           <FormField label="Email address">
             <Input
+              id="cloudscape-user-login-email"
               name="email"
               type="email"
               placeholder="Enter your email"
@@ -28,6 +29,7 @@ function UserLoginForm() {
           </FormField>
           <FormField label="Password">
             <Input
+              id="cloudscape-user-login-password"
               name="password"
               type="password"
               placeholder="Enter your password"

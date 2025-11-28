@@ -43,6 +43,7 @@ function ShippingAddressForm() {
         <SpaceBetween direction="vertical" size="l">
           <FormField label="Recipient name">
             <Input
+              id="cloudscape-shipping-address-full-name"
               name="fullName"
               type="text"
               placeholder="Full name"
@@ -51,6 +52,7 @@ function ShippingAddressForm() {
           </FormField>
           <FormField label="Street address">
             <Input
+              id="cloudscape-shipping-address-street"
               name="street"
               type="text"
               placeholder="Street address"
@@ -58,10 +60,21 @@ function ShippingAddressForm() {
             />
           </FormField>
           <FormField label="Apartment, suite, etc.">
-            <Input name="street2" type="text" placeholder="Apt, suite, etc." />
+            <Input
+              id="cloudscape-shipping-address-street2"
+              name="street2"
+              type="text"
+              placeholder="Apt, suite, etc."
+            />
           </FormField>
           <FormField label="City">
-            <Input name="city" type="text" placeholder="City" required />
+            <Input
+              id="cloudscape-shipping-address-city"
+              name="city"
+              type="text"
+              placeholder="City"
+              required
+            />
           </FormField>
           <FormField label="Country">
             <Select
@@ -84,6 +97,7 @@ function ShippingAddressForm() {
           </FormField>
           <FormField label="Postal code">
             <Input
+              id="cloudscape-shipping-address-postal-code"
               name="postalCode"
               type="text"
               placeholder="Postal code"

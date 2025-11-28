@@ -24,7 +24,6 @@
     "@carbon/react": "^1.96.0",
     "@cds/core": "^6.16.1",
     "@cds/react": "^6.16.1",
-    "@chakra-ui/react": "^3.30.0",
     "@cloudscape-design/components": "^3.0.1144",
     "@cloudscape-design/global-styles": "^1.0.49",
     "@coreui/react": "^5.9.1",
@@ -43,7 +42,6 @@
     "@kiwicom/orbit-components": "^22.0.0",
     "@mantine/core": "^8.3.9",
     "@mantine/hooks": "^8.3.9",
-    "@material-tailwind/react": "^2.1.10",
     "@microsoft/fast-components": "^2.30.6",
     "@mui/material": "^7.3.5",
     "@nextui-org/react": "^2.6.11",
@@ -71,7 +69,6 @@
     "baseui": "^15.0.0",
     "bootstrap": "^5.3.8",
     "braid-design-system": "^33.12.2",
-    "daisyui": "^5.5.5",
     "evergreen-ui": "^7.1.9",
     "flowbite-react": "^0.12.10",
     "framer-motion": "^12.23.24",
@@ -97,7 +94,6 @@
     "rsuite": "^6.0.0",
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.5",
-    "shadcn-ui": "^0.9.5",
     "styled-components": "^6.1.19",
     "styletron-engine-atomic": "^1.6.2",
     "styletron-react": "^6.1.1",
@@ -108,7 +104,6 @@
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@playwright/test": "^1.57.0",
-    "@tailwindcss/vite": "^4.1.17",
     "@vitejs/plugin-react": "^5.1.1",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
@@ -117,7 +112,6 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "prettier": "^3.6.2",
-    "tailwindcss": "^4.1.17",
     "vite": "^7.2.4"
   },
   "overrides": {

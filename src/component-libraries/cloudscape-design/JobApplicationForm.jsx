@@ -21,6 +21,7 @@ function JobApplicationForm() {
         <SpaceBetween direction="vertical" size="l">
           <FormField label="Full name">
             <Input
+              id="cloudscape-job-application-full-name"
               name="fullName"
               type="text"
               placeholder="Enter your full name"
@@ -29,6 +30,7 @@ function JobApplicationForm() {
           </FormField>
           <FormField label="Email address">
             <Input
+              id="cloudscape-job-application-email"
               name="email"
               type="email"
               placeholder="your@email.com"
@@ -37,6 +39,7 @@ function JobApplicationForm() {
           </FormField>
           <FormField label="Phone number">
             <Input
+              id="cloudscape-job-application-phone"
               name="phone"
               type="tel"
               placeholder="+1 234 567 8900"
@@ -45,6 +48,7 @@ function JobApplicationForm() {
           </FormField>
           <FormField label="Role applied for">
             <Input
+              id="cloudscape-job-application-role"
               name="role"
               type="text"
               placeholder="Position title"
@@ -52,10 +56,17 @@ function JobApplicationForm() {
             />
           </FormField>
           <FormField label="Resume link">
-            <Input name="resume" type="url" placeholder="https://" required />
+            <Input
+              id="cloudscape-job-application-resume"
+              name="resume"
+              type="url"
+              placeholder="https://"
+              required
+            />
           </FormField>
           <FormField label="Cover letter">
             <Textarea
+              id="cloudscape-job-application-cover-letter"
               name="coverLetter"
               placeholder="Tell us why you're a great fit"
               rows={4}

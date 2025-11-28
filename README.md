@@ -39,10 +39,8 @@ This is how this project was born. It represents 20 extremely common forms that 
 6. [Blueprint](https://blueprintjs.com/) ([Repository](https://github.com/palantir/blueprint))
 7. [Braid Design System](https://seek-oss.github.io/braid-design-system/) ([Repository](https://github.com/seek-oss/braid-design-system))
 8. [Carbon Design System](https://carbondesignsystem.com/) ([Repository](https://github.com/carbon-design-system/carbon))
-9. [Chakra UI](https://chakra-ui.com/) ([Repository](https://github.com/chakra-ui/chakra-ui))
 10. [Cloudscape Design System](https://cloudscape.design/) ([Repository](https://github.com/cloudscape-design/components))
 11. [CoreUI](https://coreui.io/react/) ([Repository](https://github.com/coreui/coreui-react))
-12. [daisyUI](https://daisyui.com/) ([Repository](https://github.com/saadeghi/daisyui))
 13. [Drip UI](https://drip-ui.com/) ([Repository](https://github.com/drip-ui/drip-ui))
 14. [Elastic UI (EUI)](https://eui.elastic.co/) ([Repository](https://github.com/elastic/eui))
 15. [Emotion](https://emotion.sh/) ([Repository](https://github.com/emotion-js/emotion))
@@ -54,7 +52,6 @@ This is how this project was born. It represents 20 extremely common forms that 
 21. [Gluestack UI](https://gluestack.io/ui/docs) ([Repository](https://github.com/gluestack/gluestack-ui))
 22. [Gravity UI](https://gravity-ui.com/) ([Repository](https://github.com/gravity-ui/uikit))
 23. [Grommet](https://v2.grommet.io/) ([Repository](https://github.com/grommet/grommet))
-24. [Headless UI](https://headlessui.com/) ([Repository](https://github.com/tailwindlabs/headlessui))
 25. [HeroUI](https://heroui.com/) ([Repository](https://github.com/heroui-inc/heroui))
 26. [Ionic React](https://ionicframework.com/docs/react) ([Repository](https://github.com/ionic-team/ionic-framework))
 27. [Keep React](https://keep-react.vercel.app/) ([Repository](https://github.com/Atticus-M/keep-react))
@@ -88,7 +85,6 @@ This is how this project was born. It represents 20 extremely common forms that 
 55. [Salesforce Lightning Design System React](https://react.lightningdesignsystem.com/) ([Repository](https://github.com/salesforce/design-system-react))
 56. [Semantic UI React](https://react.semantic-ui.com/) ([Repository](https://github.com/Semantic-Org/Semantic-UI-React))
 57. [Semi Design](https://semi.design/) ([Repository](https://github.com/DouyinFE/semi-design))
-58. [shadcn/ui](https://ui.shadcn.com/) ([Repository](https://github.com/shadcn-ui/ui))
 59. [Shoelace](https://shoelace.style/) ([Repository](https://github.com/shoelace-style/shoelace))
 60. [Shopify Polaris](https://polaris.shopify.com/) ([Repository](https://github.com/Shopify/polaris))
 61. [Storybook](https://storybook.js.org/) ([Repository](https://github.com/storybookjs/storybook))
@@ -100,9 +96,17 @@ This is how this project was born. It represents 20 extremely common forms that 
 67. [VMware Clarity](https://clarity.design/) ([Repository](https://github.com/vmware/clarity))
 68. [Zendesk Garden](https://garden.zendesk.com/) ([Repository](https://github.com/zendeskgarden/react-components))
 69. [Flowbite React](https://flowbite-react.com/) ([Repository](https://github.com/themesberg/flowbite-react))
-70. [Material Tailwind](https://www.material-tailwind.com/) ([Repository](https://github.com/creativetimofficial/material-tailwind))
+
 71. [Tamagui](https://tamagui.dev/) ([Repository](https://github.com/tamagui/tamagui))
 72. [Refine](https://refine.dev/) ([Repository](https://github.com/refinedev/refine))
+
+## Due to conflicts the following libraries won't be implemented
+
+1. [Chakra UI](https://chakra-ui.com/) ([Repository](https://github.com/chakra-ui/chakra-ui))
+2. [daisyUI](https://daisyui.com/) ([Repository](https://github.com/saadeghi/daisyui))
+3. [shadcn/ui](https://ui.shadcn.com/) ([Repository](https://github.com/shadcn-ui/ui))
+4. [Material Tailwind](https://www.material-tailwind.com/) ([Repository](https://github.com/creativetimofficial/material-tailwind))
+5. [Headless UI](https://headlessui.com/) ([Repository](https://github.com/tailwindlabs/headlessui))
 
 ## Tech Stack
 
