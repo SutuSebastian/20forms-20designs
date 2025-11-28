@@ -6,7 +6,6 @@ import {
   FieldsetLegend,
   FieldsetRoot,
   Input,
-  Radio,
   RadioGroup,
   Stack,
   Textarea,
@@ -30,13 +29,25 @@ function SupportTicketForm() {
           </FieldRoot>
           <FieldsetRoot isRequired>
             <FieldsetLegend>Priority</FieldsetLegend>
-            <RadioGroup name="priority">
-              <Stack direction="row">
-                <Radio value="low">Low</Radio>
-                <Radio value="medium">Medium</Radio>
-                <Radio value="high">High</Radio>
+            <RadioGroup.Root name="priority" defaultValue="medium">
+              <Stack direction="row" gap={4}>
+                {[
+                  { value: 'low', label: 'Low' },
+                  { value: 'medium', label: 'Medium' },
+                  { value: 'high', label: 'High' },
+                ].map((option) => (
+                  <RadioGroup.Item
+                    key={option.value}
+                    value={option.value}
+                    alignItems="center"
+                    gap={2}
+                  >
+                    <RadioGroup.ItemControl />
+                    <RadioGroup.ItemText>{option.label}</RadioGroup.ItemText>
+                  </RadioGroup.Item>
+                ))}
               </Stack>
-            </RadioGroup>
+            </RadioGroup.Root>
           </FieldsetRoot>
           <FieldRoot isRequired>
             <FieldLabel>Issue description</FieldLabel>
