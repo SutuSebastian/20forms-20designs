@@ -111,16 +111,16 @@ function ShippingAddressForm() {
                   <Select.Group>
                     <Select.Label>US States</Select.Label>
                     {US_STATES.map((state) => (
-                      <Select.Item key={state.value} value={state.value}>
-                        {state.label}
+                      <Select.Item key={`us-${state}`} value={state}>
+                        {state}
                       </Select.Item>
                     ))}
                   </Select.Group>
                   <Select.Group>
                     <Select.Label>Canadian Provinces</Select.Label>
                     {CANADIAN_PROVINCES.map((province) => (
-                      <Select.Item key={province.value} value={province.value}>
-                        {province.label}
+                      <Select.Item key={`ca-${province}`} value={province}>
+                        {province}
                       </Select.Item>
                     ))}
                   </Select.Group>
@@ -159,7 +159,7 @@ function ShippingAddressForm() {
                 <Select.Trigger id="radix-shipping-country" />
                 <Select.Content>
                   {COUNTRIES.map((country) => (
-                    <Select.Item key={country.value} value={country.value}>
+                    <Select.Item key={`country-${country.value}`} value={country.value}>
                       {country.label}
                     </Select.Item>
                   ))}
