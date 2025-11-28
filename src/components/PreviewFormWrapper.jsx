@@ -1,5 +1,6 @@
 import React from 'react'
 import FormErrorBoundary from './FormErrorBoundary'
+// import root from 'react-shadow';
 
 function PreviewFormWrapper({
   children,
@@ -14,7 +15,8 @@ function PreviewFormWrapper({
     padding: '10px',
     display: 'block',
     borderRadius: '10px',
-     border: '1px solid red',
+    border: '1px solid transparent',
+    overflow: 'hidden',
   }
 
   return (
