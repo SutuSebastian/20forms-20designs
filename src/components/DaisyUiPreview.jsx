@@ -45,6 +45,7 @@ const styles = {
 import '../tailwind-no-preflight.css'
 import { LibraryThemeWrapper } from './LibraryThemeWrapper'
 import FormErrorBoundary from './FormErrorBoundary'
+import PreviewFormWrapper from './PreviewFormWrapper'
 
 function DaisyUiPreview({
   selectedForms,
@@ -76,29 +77,22 @@ function DaisyUiPreview({
             const FormComponent = formComponents[form]
             if (!FormComponent) return null
 
-            const previewFormWrapperStyle = {
-              ...styles.previewFormWrapper,
-              background: themeMode === 'dark' ? '#23272f' : '#fff',
-              color: themeMode === 'dark' ? '#f1f3f8' : '#23272f',
-            }
-
             return (
               <div key={`daisyui-${form}`} style={styles.previewCard}>
                 <div style={styles.frameHeaderRow}>
                   <div style={styles.comboLabel}>{form}</div>
                   <div style={styles.libraryChip}>DaisyUI</div>
                 </div>
-                <FormErrorBoundary
-                  formName={form}
-                  libraryName="DaisyUI"
-                  resetKey={`daisyui-${form}`}
-                >
-                  <LibraryThemeWrapper library="daisyUI" themeMode={themeMode}>
-                    <div style={previewFormWrapperStyle}>
-                      <FormComponent />
-                    </div>
-                  </LibraryThemeWrapper>
-                </FormErrorBoundary>
+                <LibraryThemeWrapper library="daisyUI" themeMode={themeMode}>
+                  <PreviewFormWrapper
+                    formName={form}
+                    libraryName="DaisyUI"
+                    resetKey={`daisyui-${form}`}
+                    themeMode={themeMode}
+                  >
+                    <FormComponent />
+                  </PreviewFormWrapper>
+                </LibraryThemeWrapper>
               </div>
             )
           })}
