@@ -302,6 +302,7 @@ function App() {
             formComponents={
               librariesByName['shadcn/ui']?.implementation?.components
             }
+            themeMode={themeMode}
             libraryName={librariesByName['shadcn/ui']?.name}
           />
           <GravityUiPreview
