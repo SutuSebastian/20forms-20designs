@@ -21,6 +21,15 @@ function App() {
     return () => window.removeEventListener('message', handleMessage)
   }, [])
 
+  // Apply dark class to document body for proper Blueprint dark mode support
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.body.classList.add(Classes.DARK)
+    } else {
+      document.body.classList.remove(Classes.DARK)
+    }
+  }, [theme])
+
   const className = theme === 'dark' ? Classes.DARK : ''
   const style = {
     padding: '16px',
