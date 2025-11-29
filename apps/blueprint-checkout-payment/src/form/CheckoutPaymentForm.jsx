@@ -1,9 +1,4 @@
-import {
-  Button,
-  FormGroup,
-  HTMLSelect,
-  InputGroup,
-} from '@blueprintjs/core'
+import { Button, FormGroup, HTMLSelect, InputGroup } from '@blueprintjs/core'
 import { formStackStyles } from './formStyles.js'
 
 function CheckoutPaymentForm() {
@@ -40,10 +35,7 @@ function CheckoutPaymentForm() {
           ]}
         />
       </FormGroup>
-      <FormGroup
-        label="Card number"
-        labelFor="blueprint-checkout-card-number"
-      >
+      <FormGroup label="Card number" labelFor="blueprint-checkout-card-number">
         <InputGroup
           id="blueprint-checkout-card-number"
           name="cardNumber"

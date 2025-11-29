@@ -1,11 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Button, Checkbox, TextInput } from '@gravity-ui/uikit'
 
-import {
-  CANADIAN_PROVINCES,
-  COUNTRIES,
-  US_STATES,
-} from './locationOptions'
+import { CANADIAN_PROVINCES, COUNTRIES, US_STATES } from './locationOptions'
 import { Field, SingleSelectField, formStackStyle } from './common.jsx'
 
 function ShippingAddressForm() {

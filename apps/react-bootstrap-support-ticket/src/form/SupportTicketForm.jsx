@@ -13,7 +13,11 @@ function SupportTicketForm() {
         <Form.Control name="subject" type="text" required />
       </Form.Group>
 
-      <Form.Group as="fieldset" className="mb-3" controlId="rb-support-priority">
+      <Form.Group
+        as="fieldset"
+        className="mb-3"
+        controlId="rb-support-priority"
+      >
         <Form.Label as="legend">Priority</Form.Label>
         <Form.Check
           type="radio"

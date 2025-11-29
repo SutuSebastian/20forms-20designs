@@ -1,11 +1,3 @@
-import { reactNoCssFormComponents } from '../component-libraries/react-no-css/lazy.js'
-import { muiFormComponents } from '../component-libraries/mui/lazy.js'
-import { reactBootstrapFormComponents } from '../component-libraries/react-bootstrap/lazy.js'
-import { radixUiFormComponents } from '../component-libraries/radix-ui/lazy.js'
-import { evergreenFormComponents } from '../component-libraries/evergreen/lazy.js'
-import { gravityUiFormComponents } from '../component-libraries/gravity-ui/lazy.js'
-import { blueprintFormComponents } from '../component-libraries/blueprint/lazy.js'
-
 export const componentLibraries = [
   {
     name: 'MUI',
@@ -382,18 +374,7 @@ const createLookup = (key) =>
 export const componentLibrariesByName = createLookup('name')
 export const componentLibrariesByDirectory = createLookup('directory')
 
-
-
-export const implementedComponentsByLibrary = {
-  MUI: muiFormComponents,
-  'React Bootstrap': reactBootstrapFormComponents,
-  Evergreen: evergreenFormComponents,
-  Blueprint: blueprintFormComponents,
-  'React + No CSS': reactNoCssFormComponents,
-  'Radix UI': radixUiFormComponents,
-  'Gravity UI': gravityUiFormComponents,
-}
-
+export const implementedComponentsByLibrary = {}
 
 export const librariesByName = Object.fromEntries(
   Object.entries(componentLibrariesByName).map(([name, library]) => {
@@ -402,8 +383,7 @@ export const librariesByName = Object.fromEntries(
     const implementation = components
       ? {
           title: `${name} previews`,
-          description:
-            `${name} form implementations rendered when ${name} is selected.`,
+          description: `${name} form implementations rendered when ${name} is selected.`,
           components,
         }
       : undefined

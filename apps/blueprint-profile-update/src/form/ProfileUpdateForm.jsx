@@ -9,10 +9,7 @@ function ProfileUpdateForm() {
 
   return (
     <form onSubmit={handleSubmit} style={formStackStyles}>
-      <FormGroup
-        label="First name"
-        labelFor="blueprint-profile-first-name"
-      >
+      <FormGroup label="First name" labelFor="blueprint-profile-first-name">
         <InputGroup
           id="blueprint-profile-first-name"
           name="firstName"

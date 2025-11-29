@@ -9,11 +9,7 @@ import {
   Select,
   SpaceBetween,
 } from '@cloudscape-design/components'
-import {
-  CANADIAN_PROVINCES,
-  COUNTRIES,
-  US_STATES,
-} from './locationOptions'
+import { CANADIAN_PROVINCES, COUNTRIES, US_STATES } from './locationOptions'
 
 function ShippingAddressForm() {
   const [country, setCountry] = useState('US')

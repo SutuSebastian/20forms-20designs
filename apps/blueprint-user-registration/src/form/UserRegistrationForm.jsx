@@ -9,10 +9,7 @@ function UserRegistrationForm() {
 
   return (
     <form onSubmit={handleSubmit} style={formStackStyles}>
-      <FormGroup
-        label="Full name"
-        labelFor="blueprint-user-registration-name"
-      >
+      <FormGroup label="Full name" labelFor="blueprint-user-registration-name">
         <InputGroup
           id="blueprint-user-registration-name"
           name="fullName"

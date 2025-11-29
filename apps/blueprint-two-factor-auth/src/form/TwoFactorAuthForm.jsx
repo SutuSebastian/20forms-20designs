@@ -12,10 +12,7 @@ function TwoFactorAuthForm() {
       <p className="bp5-text-muted">
         Enter the code from your authenticator app or SMS.
       </p>
-      <FormGroup
-        label="Verification code"
-        labelFor="blueprint-two-factor-code"
-      >
+      <FormGroup label="Verification code" labelFor="blueprint-two-factor-code">
         <InputGroup
           id="blueprint-two-factor-code"
           name="code"

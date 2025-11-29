@@ -7,11 +7,7 @@ import {
   TextInputField,
 } from 'evergreen-ui'
 
-import {
-  CANADIAN_PROVINCES,
-  COUNTRIES,
-  US_STATES,
-} from './locationOptions'
+import { CANADIAN_PROVINCES, COUNTRIES, US_STATES } from './locationOptions'
 
 const formStackProps = { display: 'flex', flexDirection: 'column', gap: 16 }
 

@@ -47,10 +47,7 @@ function EventRegistrationForm() {
           ]}
         />
       </FormGroup>
-      <FormGroup
-        label="Number of guests"
-        labelFor="blueprint-event-guests"
-      >
+      <FormGroup label="Number of guests" labelFor="blueprint-event-guests">
         <InputGroup
           id="blueprint-event-guests"
           name="guestCount"

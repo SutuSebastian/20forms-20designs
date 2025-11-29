@@ -1,6 +1,6 @@
 // Shared types and utilities for the form comparison project
 
-export type ThemeMode = 'light' | 'dark';
+export type ThemeMode = 'light' | 'dark'
 
 export type LibraryId =
   | 'mui'
@@ -10,7 +10,7 @@ export type LibraryId =
   | 'radix-ui'
   | 'gravity-ui'
   | 'react-no-css'
-  | 'cloudscape';
+  | 'cloudscape'
 
 export type FormId =
   | 'user-registration'
@@ -32,21 +32,21 @@ export type FormId =
   | 'support-ticket'
   | 'onboarding-wizard'
   | 'advanced-search'
-  | 'privacy-consent';
+  | 'privacy-consent'
 
 export interface LibraryConfig {
-  id: LibraryId;
-  name: string;
-  directory: string;
-  website: string;
-  repo: string;
-  supportsTheme: boolean;
+  id: LibraryId
+  name: string
+  directory: string
+  website: string
+  repo: string
+  supportsTheme: boolean
 }
 
 export interface FormConfig {
-  id: FormId;
-  name: string;
-  componentFile: string;
+  id: FormId
+  name: string
+  componentFile: string
 }
 
 // Mapping from human-readable form names to form IDs
@@ -71,7 +71,7 @@ export const FORM_NAME_TO_ID: Record<string, FormId> = {
   'Multi-step onboarding wizard': 'onboarding-wizard',
   'Advanced search with filters': 'advanced-search',
   'Privacy, consent, and communication preferences': 'privacy-consent',
-};
+}
 
 // Mapping from form IDs to component file names
 export const FORM_ID_TO_COMPONENT: Record<FormId, string> = {
@@ -95,7 +95,7 @@ export const FORM_ID_TO_COMPONENT: Record<FormId, string> = {
   'onboarding-wizard': 'OnboardingWizardForm',
   'advanced-search': 'AdvancedSearchForm',
   'privacy-consent': 'PrivacyConsentForm',
-};
+}
 
 // Mapping from form IDs to human-readable labels
 export const FORM_ID_TO_LABEL: Record<FormId, string> = {
@@ -119,7 +119,7 @@ export const FORM_ID_TO_LABEL: Record<FormId, string> = {
   'onboarding-wizard': 'Onboarding Wizard',
   'advanced-search': 'Advanced Search',
   'privacy-consent': 'Privacy Consent',
-};
+}
 
 // Library configurations
 export const LIBRARIES: LibraryConfig[] = [
@@ -187,7 +187,7 @@ export const LIBRARIES: LibraryConfig[] = [
     repo: 'https://github.com/cloudscape-design/components',
     supportsTheme: true,
   },
-];
+]
 
 // All form IDs as an array
 export const FORM_IDS: FormId[] = [
@@ -211,15 +211,14 @@ export const FORM_IDS: FormId[] = [
   'onboarding-wizard',
   'advanced-search',
   'privacy-consent',
-];
+]
 
 /**
  * Get theme from URL query parameters
  */
 export function getThemeFromUrl(): ThemeMode {
-  if (typeof window === 'undefined') return 'light';
-  const params = new URLSearchParams(window.location.search);
-  const theme = params.get('theme');
-  return theme === 'dark' ? 'dark' : 'light';
+  if (typeof window === 'undefined') return 'light'
+  const params = new URLSearchParams(window.location.search)
+  const theme = params.get('theme')
+  return theme === 'dark' ? 'dark' : 'light'
 }
-

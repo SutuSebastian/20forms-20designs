@@ -15,7 +15,12 @@ function PasswordChangeForm() {
 
       <Form.Group className="mb-3" controlId="rb-password-change-new">
         <Form.Label>New password</Form.Label>
-        <Form.Control name="newPassword" type="password" minLength="8" required />
+        <Form.Control
+          name="newPassword"
+          type="password"
+          minLength="8"
+          required
+        />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="rb-password-change-confirm">

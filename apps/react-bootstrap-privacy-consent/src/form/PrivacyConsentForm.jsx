@@ -27,7 +27,11 @@ function PrivacyConsentForm() {
 
       <fieldset className="mb-3">
         <legend>Privacy options</legend>
-        <Form.Check type="checkbox" name="analytics" label="Allow analytics cookies" />
+        <Form.Check
+          type="checkbox"
+          name="analytics"
+          label="Allow analytics cookies"
+        />
         <Form.Check
           type="checkbox"
           name="personalization"

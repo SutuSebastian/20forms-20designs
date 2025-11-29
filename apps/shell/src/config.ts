@@ -7,7 +7,7 @@ export type LibraryId =
   | 'radix-ui'
   | 'gravity-ui'
   | 'react-no-css'
-  | 'cloudscape';
+  | 'cloudscape'
 
 // Form ID for iframe URLs
 export type FormId =
@@ -30,34 +30,34 @@ export type FormId =
   | 'support-ticket'
   | 'onboarding-wizard'
   | 'advanced-search'
-  | 'privacy-consent';
+  | 'privacy-consent'
 
 export interface Library {
-  name: string;
-  directory: string;
-  website: string;
-  repo: string;
-  implemented: boolean;
-  supportsTheme: boolean;
+  name: string
+  directory: string
+  website: string
+  repo: string
+  implemented: boolean
+  supportsTheme: boolean
 }
 
 export interface Form {
-  id: FormId;
-  name: string;
-  label: string;
+  id: FormId
+  name: string
+  label: string
 }
 
 // Map from library name to library ID (for iframe URLs)
 export const LIBRARY_NAME_TO_ID: Record<string, LibraryId | undefined> = {
-  'MUI': 'mui',
+  MUI: 'mui',
   'React Bootstrap': 'react-bootstrap',
-  'Evergreen': 'evergreen',
-  'Blueprint': 'blueprint',
+  Evergreen: 'evergreen',
+  Blueprint: 'blueprint',
   'Radix UI': 'radix-ui',
   'Gravity UI': 'gravity-ui',
   'React + No CSS': 'react-no-css',
   'Cloudscape Design System': 'cloudscape',
-};
+}
 
 // Map from form name to form ID (for iframe URLs)
 export const FORM_NAME_TO_ID: Record<string, FormId> = {
@@ -81,7 +81,7 @@ export const FORM_NAME_TO_ID: Record<string, FormId> = {
   'Multi-step onboarding wizard': 'onboarding-wizard',
   'Advanced search with filters': 'advanced-search',
   'Privacy, consent, and communication preferences': 'privacy-consent',
-};
+}
 
 // All forms
 export const FORMS: string[] = [
@@ -105,7 +105,7 @@ export const FORMS: string[] = [
   'Multi-step onboarding wizard',
   'Advanced search with filters',
   'Privacy, consent, and communication preferences',
-];
+]
 
 // ALL component libraries (full list)
 export const LIBRARIES: Library[] = [
@@ -517,10 +517,10 @@ export const LIBRARIES: Library[] = [
     implemented: false,
     supportsTheme: false,
   },
-];
+]
 
 // Get implemented libraries only
-export const IMPLEMENTED_LIBRARIES = LIBRARIES.filter(lib => lib.implemented);
+export const IMPLEMENTED_LIBRARIES = LIBRARIES.filter((lib) => lib.implemented)
 
 // Build iframe URL
 export const buildIframeSrc = (
@@ -528,13 +528,13 @@ export const buildIframeSrc = (
   formName: string,
   theme: 'light' | 'dark' = 'light'
 ): string => {
-  const libId = LIBRARY_NAME_TO_ID[libraryName];
-  const formId = FORM_NAME_TO_ID[formName];
-  
+  const libId = LIBRARY_NAME_TO_ID[libraryName]
+  const formId = FORM_NAME_TO_ID[formName]
+
   if (!libId || !formId) {
-    return '';
+    return ''
   }
-  
-  const base = import.meta.env.BASE_URL || '/20forms-20designs/';
-  return `${base}${libId}-${formId}/index.html?theme=${theme}`;
-};
+
+  const base = import.meta.env.BASE_URL || '/20forms-20designs/'
+  return `${base}${libId}-${formId}/index.html?theme=${theme}`
+}

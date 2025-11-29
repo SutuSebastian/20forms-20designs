@@ -1,5 +1,5 @@
-import { useState, useMemo, useEffect, useRef } from 'react';
-import { LIBRARIES, FORMS, buildIframeSrc } from './config';
+import { useState, useMemo, useEffect, useRef } from 'react'
+import { LIBRARIES, FORMS, buildIframeSrc } from './config'
 
 // Minimal inline styles - matching original approach
 const styles = {
@@ -107,29 +107,29 @@ const styles = {
   sectionHeaderRow: {
     marginBottom: '8px',
   },
-};
+}
 
-type ThemeMode = 'light' | 'dark';
-type GroupBy = 'library' | 'form';
+type ThemeMode = 'light' | 'dark'
+type GroupBy = 'library' | 'form'
 
 // Simple checkbox row component
-function CheckboxRow({ 
-  label, 
-  checked, 
-  onChange, 
-  disabled = false 
-}: { 
-  label: React.ReactNode; 
-  checked: boolean; 
-  onChange: () => void; 
-  disabled?: boolean;
+function CheckboxRow({
+  label,
+  checked,
+  onChange,
+  disabled = false,
+}: {
+  label: React.ReactNode
+  checked: boolean
+  onChange: () => void
+  disabled?: boolean
 }) {
   if (disabled) {
     return (
       <div style={{ ...styles.checkboxRow, opacity: 0.5 }}>
         <span style={{ marginLeft: '22px' }}>{label}</span>
       </div>
-    );
+    )
   }
 
   return (
@@ -137,7 +137,7 @@ function CheckboxRow({
       <input type="checkbox" checked={checked} onChange={onChange} />
       <span>{label}</span>
     </label>
-  );
+  )
 }
 
 // Selection column component
@@ -150,22 +150,24 @@ function SelectionColumn({
   onSelectNone,
   twoColumnLayout = false,
 }: {
-  title: string;
-  items: { value: string; label: React.ReactNode; disabled?: boolean }[];
-  selectedItems: string[];
-  onToggleItem: (value: string) => void;
-  onSelectAll: () => void;
-  onSelectNone: () => void;
-  twoColumnLayout?: boolean;
+  title: string
+  items: { value: string; label: React.ReactNode; disabled?: boolean }[]
+  selectedItems: string[]
+  onToggleItem: (value: string) => void
+  onSelectAll: () => void
+  onSelectNone: () => void
+  twoColumnLayout?: boolean
 }) {
-  const selectableItems = items.filter((item) => !item.disabled);
+  const selectableItems = items.filter((item) => !item.disabled)
   const allSelected =
     selectableItems.length > 0 &&
-    selectableItems.every((item) => selectedItems.includes(item.value));
+    selectableItems.every((item) => selectedItems.includes(item.value))
   const noneSelected = selectableItems.every(
     (item) => !selectedItems.includes(item.value)
-  );
-  const listStyle = twoColumnLayout ? styles.twoColumnList : styles.singleColumnList;
+  )
+  const listStyle = twoColumnLayout
+    ? styles.twoColumnList
+    : styles.singleColumnList
 
   return (
     <section>
@@ -173,8 +175,16 @@ function SelectionColumn({
         <h2 style={styles.sectionTitle}>{title}</h2>
       </div>
       <div style={styles.selectionActions}>
-        <CheckboxRow label="Select all" checked={allSelected} onChange={onSelectAll} />
-        <CheckboxRow label="Select none" checked={noneSelected} onChange={onSelectNone} />
+        <CheckboxRow
+          label="Select all"
+          checked={allSelected}
+          onChange={onSelectAll}
+        />
+        <CheckboxRow
+          label="Select none"
+          checked={noneSelected}
+          onChange={onSelectNone}
+        />
       </div>
       <div style={listStyle}>
         {items.map((item) => (
@@ -188,62 +198,65 @@ function SelectionColumn({
         ))}
       </div>
     </section>
-  );
+  )
 }
 
 // Preview card with iframe (auto-loads immediately)
-function PreviewCard({ 
-  libraryName, 
+function PreviewCard({
+  libraryName,
   formName,
-  theme 
-}: { 
-  libraryName: string;
-  formName: string;
-  theme: ThemeMode;
+  theme,
+}: {
+  libraryName: string
+  formName: string
+  theme: ThemeMode
 }) {
-  const [iframeHeight, setIframeHeight] = useState(500);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-  const iframeSrc = buildIframeSrc(libraryName, formName, theme);
+  const [iframeHeight, setIframeHeight] = useState(500)
+  const iframeRef = useRef<HTMLIFrameElement>(null)
+  const iframeSrc = buildIframeSrc(libraryName, formName, theme)
 
   // Listen for height messages from iframe
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
       if (event.data?.type === 'IFRAME_HEIGHT') {
         // Check if this message is from our iframe
-        if (iframeRef.current && event.source === iframeRef.current.contentWindow) {
-          const height = event.data.height;
+        if (
+          iframeRef.current &&
+          event.source === iframeRef.current.contentWindow
+        ) {
+          const height = event.data.height
           // Only accept reasonable heights (between 100 and 700px)
           if (height > 100 && height < 700) {
-            setIframeHeight(height + 20); // Add some padding
+            setIframeHeight(height + 20) // Add some padding
           }
         }
       }
-    };
+    }
 
-    window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
-  }, []);
+    window.addEventListener('message', handleMessage)
+    return () => window.removeEventListener('message', handleMessage)
+  }, [])
 
   if (!iframeSrc) {
-    return null;
+    return null
   }
 
   // Handle iframe load and resize to fit content (fallback for same-origin)
   const handleIframeLoad = (e: React.SyntheticEvent<HTMLIFrameElement>) => {
     try {
-      const iframe = e.currentTarget;
-      const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+      const iframe = e.currentTarget
+      const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document
       if (iframeDoc) {
-        const height = iframeDoc.body.scrollHeight;
+        const height = iframeDoc.body.scrollHeight
         // Only accept reasonable heights (between 100 and 700px)
         if (height > 100 && height < 700) {
-          setIframeHeight(height + 20);
+          setIframeHeight(height + 20)
         }
       }
     } catch {
       // Cross-origin restrictions - rely on postMessage instead
     }
-  };
+  }
 
   return (
     <div style={styles.previewCard}>
@@ -259,32 +272,46 @@ function PreviewCard({
         onLoad={handleIframeLoad}
       />
     </div>
-  );
+  )
 }
 
 // Preview section header
-function PreviewSectionHeader({ title, description }: { title: string; description?: string }) {
+function PreviewSectionHeader({
+  title,
+  description,
+}: {
+  title: string
+  description?: string
+}) {
   return (
     <div style={styles.sectionHeaderRow}>
       <h3 style={{ margin: '0 0 4px' }}>{title}</h3>
-      {description && <p style={{ margin: 0, color: '#666', fontSize: '0.9rem' }}>{description}</p>}
+      {description && (
+        <p style={{ margin: 0, color: '#666', fontSize: '0.9rem' }}>
+          {description}
+        </p>
+      )}
     </div>
-  );
+  )
 }
 
 function App() {
-  const [themeMode, setThemeMode] = useState<ThemeMode>('light');
-  const [groupBy, setGroupBy] = useState<GroupBy>('library');
-  const [selectedForms, setSelectedForms] = useState<string[]>(() => FORMS.slice(0, 3));
-  const [selectedLibraries, setSelectedLibraries] = useState<string[]>(() => 
-    LIBRARIES.filter(lib => lib.implemented).slice(0, 3).map(lib => lib.name)
-  );
+  const [themeMode, setThemeMode] = useState<ThemeMode>('light')
+  const [groupBy, setGroupBy] = useState<GroupBy>('library')
+  const [selectedForms, setSelectedForms] = useState<string[]>(() =>
+    FORMS.slice(0, 3)
+  )
+  const [selectedLibraries, setSelectedLibraries] = useState<string[]>(() =>
+    LIBRARIES.filter((lib) => lib.implemented)
+      .slice(0, 3)
+      .map((lib) => lib.name)
+  )
 
   // Form items for selection
   const formItems = useMemo(
     () => FORMS.map((form) => ({ value: form, label: form })),
     []
-  );
+  )
 
   // Library items for selection (with website/repo links, disabled for non-implemented)
   const libraryItems = useMemo(
@@ -294,11 +321,21 @@ function App() {
         label: (
           <span>
             {lib.name} (
-            <a href={lib.website} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+            <a
+              href={lib.website}
+              target="_blank"
+              rel="noreferrer"
+              onClick={(e) => e.stopPropagation()}
+            >
               website
             </a>
             {' / '}
-            <a href={lib.repo} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+            <a
+              href={lib.repo}
+              target="_blank"
+              rel="noreferrer"
+              onClick={(e) => e.stopPropagation()}
+            >
               repo
             </a>
             )
@@ -307,39 +344,43 @@ function App() {
         disabled: !lib.implemented,
       })),
     []
-  );
+  )
 
   const toggleFormSelection = (form: string) => {
     setSelectedForms((prev) =>
       prev.includes(form) ? prev.filter((f) => f !== form) : [...prev, form]
-    );
-  };
+    )
+  }
 
   const toggleLibrarySelection = (lib: string) => {
     setSelectedLibraries((prev) =>
       prev.includes(lib) ? prev.filter((l) => l !== lib) : [...prev, lib]
-    );
-  };
+    )
+  }
 
   // Get active (selected AND implemented) libraries
   const activeLibraries = useMemo(
-    () => LIBRARIES.filter(lib => lib.implemented && selectedLibraries.includes(lib.name)),
+    () =>
+      LIBRARIES.filter(
+        (lib) => lib.implemented && selectedLibraries.includes(lib.name)
+      ),
     [selectedLibraries]
-  );
+  )
 
   // Get forms that the selected libraries have (all forms since all are implemented)
   const activeForms = useMemo(
-    () => FORMS.filter(form => selectedForms.includes(form)),
+    () => FORMS.filter((form) => selectedForms.includes(form)),
     [selectedForms]
-  );
+  )
 
   return (
     <div style={styles.page}>
       <header style={styles.header}>
         <h1 style={styles.title}>20 Forms, 20 Designs</h1>
         <p style={styles.subtitle}>
-          Choose a form and a component library to see the pairing. Each preview is 
-          rendered in an isolated iframe for complete CSS isolation between libraries.
+          Choose a form and a component library to see the pairing. Each preview
+          is rendered in an isolated iframe for complete CSS isolation between
+          libraries.
         </p>
       </header>
 
@@ -350,7 +391,9 @@ function App() {
             items={formItems}
             selectedItems={selectedForms}
             onToggleItem={toggleFormSelection}
-            onSelectAll={() => setSelectedForms(formItems.map((item) => item.value))}
+            onSelectAll={() =>
+              setSelectedForms(formItems.map((item) => item.value))
+            }
             onSelectNone={() => setSelectedForms([])}
           />
           <SelectionColumn
@@ -358,9 +401,13 @@ function App() {
             items={libraryItems}
             selectedItems={selectedLibraries}
             onToggleItem={toggleLibrarySelection}
-            onSelectAll={() => setSelectedLibraries(
-              libraryItems.filter((item) => !item.disabled).map((item) => item.value)
-            )}
+            onSelectAll={() =>
+              setSelectedLibraries(
+                libraryItems
+                  .filter((item) => !item.disabled)
+                  .map((item) => item.value)
+              )
+            }
             onSelectNone={() => setSelectedLibraries([])}
             twoColumnLayout
           />
@@ -415,53 +462,55 @@ function App() {
         </div>
 
         {/* Previews grouped by library */}
-        {groupBy === 'library' && activeLibraries.map((lib) => {
-          const formsForLibrary = activeForms;
-          if (formsForLibrary.length === 0) return null;
-          
-          return (
-            <section key={lib.name} style={styles.previewSection}>
-              <PreviewSectionHeader 
-                title={`${lib.name} previews`}
-                description={`${lib.name} form implementations.`}
-              />
-              <div style={styles.previewStrip}>
-                {formsForLibrary.map((form) => (
-                  <PreviewCard
-                    key={`${lib.name}-${form}`}
-                    libraryName={lib.name}
-                    formName={form}
-                    theme={themeMode}
-                  />
-                ))}
-              </div>
-            </section>
-          );
-        })}
+        {groupBy === 'library' &&
+          activeLibraries.map((lib) => {
+            const formsForLibrary = activeForms
+            if (formsForLibrary.length === 0) return null
+
+            return (
+              <section key={lib.name} style={styles.previewSection}>
+                <PreviewSectionHeader
+                  title={`${lib.name} previews`}
+                  description={`${lib.name} form implementations.`}
+                />
+                <div style={styles.previewStrip}>
+                  {formsForLibrary.map((form) => (
+                    <PreviewCard
+                      key={`${lib.name}-${form}`}
+                      libraryName={lib.name}
+                      formName={form}
+                      theme={themeMode}
+                    />
+                  ))}
+                </div>
+              </section>
+            )
+          })}
 
         {/* Previews grouped by form */}
-        {groupBy === 'form' && activeForms.map((form) => {
-          if (activeLibraries.length === 0) return null;
-          
-          return (
-            <section key={form} style={styles.previewSection}>
-              <PreviewSectionHeader 
-                title={form}
-                description={`Compare this form across different design systems.`}
-              />
-              <div style={styles.previewStrip}>
-                {activeLibraries.map((lib) => (
-                  <PreviewCard
-                    key={`${lib.name}-${form}`}
-                    libraryName={lib.name}
-                    formName={form}
-                    theme={themeMode}
-                  />
-                ))}
-              </div>
-            </section>
-          );
-        })}
+        {groupBy === 'form' &&
+          activeForms.map((form) => {
+            if (activeLibraries.length === 0) return null
+
+            return (
+              <section key={form} style={styles.previewSection}>
+                <PreviewSectionHeader
+                  title={form}
+                  description={`Compare this form across different design systems.`}
+                />
+                <div style={styles.previewStrip}>
+                  {activeLibraries.map((lib) => (
+                    <PreviewCard
+                      key={`${lib.name}-${form}`}
+                      libraryName={lib.name}
+                      formName={form}
+                      theme={themeMode}
+                    />
+                  ))}
+                </div>
+              </section>
+            )
+          })}
 
         {activeLibraries.length === 0 && (
           <p style={{ marginTop: '32px', color: '#666' }}>
@@ -476,7 +525,7 @@ function App() {
         )}
       </main>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

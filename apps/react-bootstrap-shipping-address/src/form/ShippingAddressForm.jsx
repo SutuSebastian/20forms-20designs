@@ -1,10 +1,6 @@
 import { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
-import {
-  CANADIAN_PROVINCES,
-  COUNTRIES,
-  US_STATES,
-} from './locationOptions'
+import { CANADIAN_PROVINCES, COUNTRIES, US_STATES } from './locationOptions'
 
 function ShippingAddressForm() {
   const [country, setCountry] = useState('US')

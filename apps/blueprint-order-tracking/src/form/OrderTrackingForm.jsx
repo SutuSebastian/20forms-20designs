@@ -22,7 +22,10 @@ function OrderTrackingForm() {
           fill
         />
       </FormGroup>
-      <FormGroup label="Email address" labelFor="blueprint-order-tracking-email">
+      <FormGroup
+        label="Email address"
+        labelFor="blueprint-order-tracking-email"
+      >
         <InputGroup
           id="blueprint-order-tracking-email"
           name="email"

@@ -7,11 +7,7 @@ import {
   MenuItem,
   TextField,
 } from '@mui/material'
-import {
-  CANADIAN_PROVINCES,
-  COUNTRIES,
-  US_STATES,
-} from './locationOptions'
+import { CANADIAN_PROVINCES, COUNTRIES, US_STATES } from './locationOptions'
 
 function ShippingAddressForm() {
   const [country, setCountry] = useState('US')

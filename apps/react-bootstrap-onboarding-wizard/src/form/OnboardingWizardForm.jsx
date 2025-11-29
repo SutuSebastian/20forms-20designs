@@ -16,7 +16,12 @@ function OnboardingWizardForm() {
         </Form.Group>
         <Form.Group className="mb-3" controlId="rb-onboarding-password">
           <Form.Label>Password</Form.Label>
-          <Form.Control name="password" type="password" minLength="8" required />
+          <Form.Control
+            name="password"
+            type="password"
+            minLength="8"
+            required
+          />
         </Form.Group>
       </section>
 

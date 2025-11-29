@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { ThemeProvider, defaultTheme, mergeTheme } from 'evergreen-ui';
+import { useState, useEffect } from 'react'
+import { ThemeProvider, defaultTheme, mergeTheme } from 'evergreen-ui'
 
 // Custom dark theme for Evergreen
 const darkTheme = mergeTheme(defaultTheme, {
@@ -21,34 +21,34 @@ const darkTheme = mergeTheme(defaultTheme, {
       muted: '#9ca3af',
     },
   },
-});
-import FormComponent from './form/NewsletterSubscriptionForm';
+})
+import FormComponent from './form/NewsletterSubscriptionForm'
 
 function App() {
   const [theme, setTheme] = useState(() => {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('theme') === 'dark' ? 'dark' : 'light';
-  });
+    const params = new URLSearchParams(window.location.search)
+    return params.get('theme') === 'dark' ? 'dark' : 'light'
+  })
 
   // Listen for theme changes from parent
   useEffect(() => {
     const handleMessage = (event) => {
       if (event.data?.type === 'SET_THEME') {
-        setTheme(event.data.theme);
+        setTheme(event.data.theme)
       }
-    };
-    window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
-  }, []);
+    }
+    window.addEventListener('message', handleMessage)
+    return () => window.removeEventListener('message', handleMessage)
+  }, [])
 
-    const evergreenTheme = theme === 'dark' ? darkTheme : defaultTheme;
-    return (
-      <ThemeProvider value={evergreenTheme}>
-        <div style={{ padding: '16px' }}>
-          <FormComponent />
-        </div>
-      </ThemeProvider>
-    );
+  const evergreenTheme = theme === 'dark' ? darkTheme : defaultTheme
+  return (
+    <ThemeProvider value={evergreenTheme}>
+      <div style={{ padding: '16px' }}>
+        <FormComponent />
+      </div>
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default App

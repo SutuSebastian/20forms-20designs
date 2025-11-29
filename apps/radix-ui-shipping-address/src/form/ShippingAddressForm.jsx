@@ -9,11 +9,7 @@ import {
   Theme,
 } from '@radix-ui/themes'
 import '@radix-ui/themes/styles.css'
-import {
-  COUNTRIES,
-  US_STATES,
-  CANADIAN_PROVINCES,
-} from './locationOptions'
+import { COUNTRIES, US_STATES, CANADIAN_PROVINCES } from './locationOptions'
 
 function ShippingAddressForm() {
   const handleSubmit = (event) => {
@@ -159,7 +155,10 @@ function ShippingAddressForm() {
                 <Select.Trigger id="radix-shipping-country" />
                 <Select.Content>
                   {COUNTRIES.map((country) => (
-                    <Select.Item key={`country-${country.value}`} value={country.value}>
+                    <Select.Item
+                      key={`country-${country.value}`}
+                      value={country.value}
+                    >
                       {country.label}
                     </Select.Item>
                   ))}

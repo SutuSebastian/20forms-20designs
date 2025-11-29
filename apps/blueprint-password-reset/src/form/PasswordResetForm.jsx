@@ -9,9 +9,7 @@ function PasswordResetForm() {
 
   return (
     <form onSubmit={handleSubmit} style={formStackStyles}>
-      <p className="bp5-text-muted">
-        Request a password reset link via email.
-      </p>
+      <p className="bp5-text-muted">Request a password reset link via email.</p>
       <FormGroup
         label="Email address"
         labelFor="blueprint-password-reset-email"

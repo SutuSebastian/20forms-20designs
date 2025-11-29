@@ -15,10 +15,7 @@ function NewsletterSubscriptionForm() {
 
   return (
     <form onSubmit={handleSubmit} style={formStackStyles}>
-      <FormGroup
-        label="Email address"
-        labelFor="blueprint-newsletter-email"
-      >
+      <FormGroup label="Email address" labelFor="blueprint-newsletter-email">
         <InputGroup
           id="blueprint-newsletter-email"
           name="email"

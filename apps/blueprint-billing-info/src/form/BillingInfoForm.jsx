@@ -1,9 +1,4 @@
-import {
-  Button,
-  FormGroup,
-  HTMLSelect,
-  InputGroup,
-} from '@blueprintjs/core'
+import { Button, FormGroup, HTMLSelect, InputGroup } from '@blueprintjs/core'
 import { formStackStyles } from './formStyles.js'
 
 function BillingInfoForm() {
@@ -23,10 +18,7 @@ function BillingInfoForm() {
           fill
         />
       </FormGroup>
-      <FormGroup
-        label="Card number"
-        labelFor="blueprint-billing-card-number"
-      >
+      <FormGroup label="Card number" labelFor="blueprint-billing-card-number">
         <InputGroup
           id="blueprint-billing-card-number"
           name="cardNumber"
@@ -65,10 +57,7 @@ function BillingInfoForm() {
           fill
         />
       </FormGroup>
-      <FormGroup
-        label="Billing address"
-        labelFor="blueprint-billing-address"
-      >
+      <FormGroup label="Billing address" labelFor="blueprint-billing-address">
         <InputGroup
           id="blueprint-billing-address"
           name="address"

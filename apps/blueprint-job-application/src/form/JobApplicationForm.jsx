@@ -71,10 +71,7 @@ function JobApplicationForm() {
           fill
         />
       </FormGroup>
-      <Checkbox
-        label="Keep me informed about future roles"
-        name="updates"
-      />
+      <Checkbox label="Keep me informed about future roles" name="updates" />
       <Button intent="primary" type="submit">
         Submit application
       </Button>

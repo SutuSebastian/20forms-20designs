@@ -86,10 +86,7 @@ function OnboardingWizardForm() {
       </div>
 
       <div style={actionRowStyles}>
-        <Button
-          type="button"
-          onClick={() => alert('Back action placeholder')}
-        >
+        <Button type="button" onClick={() => alert('Back action placeholder')}>
           Back
         </Button>
         <Button intent="primary" type="submit">

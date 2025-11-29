@@ -1,4 +1,10 @@
-import { Button, Checkbox, FormGroup, InputGroup, TextArea } from '@blueprintjs/core'
+import {
+  Button,
+  Checkbox,
+  FormGroup,
+  InputGroup,
+  TextArea,
+} from '@blueprintjs/core'
 import { formStackStyles, sectionCardStyles } from './formStyles.js'
 
 function PrivacyConsentForm() {
@@ -42,12 +48,7 @@ function PrivacyConsentForm() {
       </div>
 
       <FormGroup label="Additional notes" labelFor="blueprint-privacy-notes">
-        <TextArea
-          id="blueprint-privacy-notes"
-          name="notes"
-          rows={3}
-          fill
-        />
+        <TextArea id="blueprint-privacy-notes" name="notes" rows={3} fill />
       </FormGroup>
       <Button intent="primary" type="submit">
         Save preferences

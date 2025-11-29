@@ -6,11 +6,7 @@ import {
   HTMLSelect,
   InputGroup,
 } from '@blueprintjs/core'
-import {
-  CANADIAN_PROVINCES,
-  COUNTRIES,
-  US_STATES,
-} from './locationOptions'
+import { CANADIAN_PROVINCES, COUNTRIES, US_STATES } from './locationOptions'
 import { formStackStyles } from './formStyles.js'
 
 function ShippingAddressForm() {

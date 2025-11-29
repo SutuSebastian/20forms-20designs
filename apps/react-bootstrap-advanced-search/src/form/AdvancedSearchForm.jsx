@@ -47,7 +47,10 @@ function AdvancedSearchForm() {
         </Form.Select>
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="rb-advanced-search-include-archived">
+      <Form.Group
+        className="mb-3"
+        controlId="rb-advanced-search-include-archived"
+      >
         <Form.Check
           type="checkbox"
           name="includeArchived"
