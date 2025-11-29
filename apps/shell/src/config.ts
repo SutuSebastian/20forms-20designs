@@ -12,6 +12,7 @@ export type LibraryId =
   | 'shadcn-ui'
   | 'gestalt'
   | 'polaris'
+  | 'chakra'
 
 // Form ID for iframe URLs
 export type FormId =
@@ -65,6 +66,7 @@ export const LIBRARY_NAME_TO_ID: Record<string, LibraryId | undefined> = {
   'shadcn/ui': 'shadcn-ui',
   'Pinterest Gestalt': 'gestalt',
   'Shopify Polaris': 'polaris',
+  'Chakra UI': 'chakra',
 }
 
 // Map from form name to form ID (for iframe URLs)
@@ -130,8 +132,8 @@ export const LIBRARIES: Library[] = [
     directory: 'chakra-ui',
     website: 'https://chakra-ui.com',
     repo: 'https://github.com/chakra-ui/chakra-ui',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Ant Design',
