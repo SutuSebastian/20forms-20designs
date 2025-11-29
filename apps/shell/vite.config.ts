@@ -7,6 +7,12 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
+    // Use esbuild for minification - much faster than default Terser
+    minify: 'esbuild',
+    // Disable sourcemaps in production for faster builds
+    sourcemap: false,
+    // Reduce chunk size analysis overhead
+    reportCompressedSize: false,
   },
 })
 

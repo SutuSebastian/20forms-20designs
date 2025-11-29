@@ -21,8 +21,8 @@ const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
 const APPS_DIR = path.join(ROOT_DIR, 'apps');
 
-// Maximum concurrent builds
-const MAX_CONCURRENCY = 4;
+// Maximum concurrent builds (increase based on CPU cores - typically 8-12 is safe)
+const MAX_CONCURRENCY = 16;
 
 /**
  * Run a command in a directory

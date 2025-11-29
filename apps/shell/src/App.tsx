@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { LIBRARIES, FORMS, buildIframeSrc } from './config';
 
 // Minimal inline styles - matching original approach
@@ -101,7 +101,7 @@ const styles = {
   },
   iframe: {
     width: '100%',
-    height: '450px',
+    height: '500px',
     border: 'none',
   },
   sectionHeaderRow: {
@@ -191,7 +191,7 @@ function SelectionColumn({
   );
 }
 
-// Preview card with iframe (loads on demand)
+// Preview card with iframe (auto-loads immediately)
 function PreviewCard({ 
   libraryName, 
   formName,
@@ -201,47 +201,63 @@ function PreviewCard({
   formName: string;
   theme: ThemeMode;
 }) {
-  const [shouldLoad, setShouldLoad] = useState(false);
+  const [iframeHeight, setIframeHeight] = useState(500);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   const iframeSrc = buildIframeSrc(libraryName, formName, theme);
 
-  // Load iframe when card becomes visible (simple intersection observer could be added)
-  // For now, load on first render or on click
-  const handleLoadClick = () => setShouldLoad(true);
+  // Listen for height messages from iframe
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      if (event.data?.type === 'IFRAME_HEIGHT') {
+        // Check if this message is from our iframe
+        if (iframeRef.current && event.source === iframeRef.current.contentWindow) {
+          const height = event.data.height;
+          // Only accept reasonable heights (between 100 and 700px)
+          if (height > 100 && height < 700) {
+            setIframeHeight(height + 20); // Add some padding
+          }
+        }
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, []);
 
   if (!iframeSrc) {
     return null;
   }
+
+  // Handle iframe load and resize to fit content (fallback for same-origin)
+  const handleIframeLoad = (e: React.SyntheticEvent<HTMLIFrameElement>) => {
+    try {
+      const iframe = e.currentTarget;
+      const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document;
+      if (iframeDoc) {
+        const height = iframeDoc.body.scrollHeight;
+        // Only accept reasonable heights (between 100 and 700px)
+        if (height > 100 && height < 700) {
+          setIframeHeight(height + 20);
+        }
+      }
+    } catch {
+      // Cross-origin restrictions - rely on postMessage instead
+    }
+  };
 
   return (
     <div style={styles.previewCard}>
       <div style={styles.previewCardHeader}>
         <strong>{formName}</strong> — {libraryName}
       </div>
-      {!shouldLoad ? (
-        <div 
-          style={{ 
-            ...styles.iframe, 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center',
-            background: '#fafafa',
-            cursor: 'pointer',
-            flexDirection: 'column',
-            gap: '8px',
-          }}
-          onClick={handleLoadClick}
-        >
-          <span style={{ fontSize: '32px' }}>▶️</span>
-          <span style={{ color: '#666', fontSize: '14px' }}>Click to load preview</span>
-        </div>
-      ) : (
-        <iframe
-          title={`${libraryName}-${formName}`}
-          src={iframeSrc}
-          style={styles.iframe}
-          sandbox="allow-scripts allow-forms allow-same-origin"
-        />
-      )}
+      <iframe
+        ref={iframeRef}
+        title={`${libraryName}-${formName}`}
+        src={iframeSrc}
+        style={{ ...styles.iframe, height: `${iframeHeight}px` }}
+        sandbox="allow-scripts allow-forms allow-same-origin"
+        onLoad={handleIframeLoad}
+      />
     </div>
   );
 }

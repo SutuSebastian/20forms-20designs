@@ -18,6 +18,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30  # Building 161 apps can take a while
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,8 +32,19 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
-      - name: Build
+      - name: Generate mini-apps (if needed)
+        run: |
+          if [ ! -d "apps/mui-user-login" ]; then
+            echo "Mini-apps not found, generating..."
+            npm run generate
+          else
+            echo "Mini-apps already exist, skipping generation"
+          fi
+
+      - name: Build all apps (shell + 160 mini-apps)
         run: npm run build
+        env:
+          NODE_OPTIONS: '--max-old-space-size=4096'
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

@@ -17,6 +17,7 @@
     "preview": "node scripts/serve-preview.mjs",
     "preview:shell": "npm run preview --workspace=@forms-comparison/shell",
     "clean": "node scripts/clean.mjs",
+    "optimize-configs": "node scripts/optimize-vite-configs.mjs",
     "lint": "eslint .",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "test": "playwright test",

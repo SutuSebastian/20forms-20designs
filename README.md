@@ -240,12 +240,48 @@ Each mini-app is a standalone Vite + React application that:
 4. Update `apps/shell/src/config.ts` with the new form
 5. Run `npm run build`
 
+## 🌐 Deployment
+
+### GitHub Pages (Automatic)
+
+This project is configured for automatic deployment to GitHub Pages via GitHub Actions.
+
+1. **Push to `main` branch** — Triggers the deploy workflow automatically
+2. **Manual trigger** — Go to Actions → "Deploy to GitHub Pages" → "Run workflow"
+
+The workflow:
+- Installs dependencies with `--legacy-peer-deps`
+- Generates mini-apps if they don't exist
+- Builds all 161 apps (shell + 160 mini-apps)
+- Deploys to GitHub Pages
+
+**Live URL:** `https://<username>.github.io/20forms-20designs/`
+
+### Manual Deployment
+
+```bash
+# Build for production
+npm run build
+
+# The dist/ folder contains all static assets
+# Upload dist/ to any static hosting provider
+```
+
+### Base Path Configuration
+
+The project is configured with `/20forms-20designs/` as the base path. If deploying to a different path:
+
+1. Update `BASE_PATH` in `apps/shell/vite.config.ts`
+2. Update `buildIframeSrc` in `apps/shell/src/config.ts`
+3. Update base paths in `scripts/generate-mini-apps.mjs`
+
 ## 📝 Tech Stack
 
 - **Vite** — Fast build tool and dev server
 - **React 18** — UI library
 - **TypeScript** — Type-safe shell app
 - **npm Workspaces** — Monorepo management
+- **GitHub Actions** — CI/CD pipeline
 - **GitHub Pages** — Static hosting
 
 ## 📄 License
