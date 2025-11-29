@@ -19,6 +19,7 @@ export type LibraryId =
   | 'zendesk-garden'
   | 'tamagui'
   | 'heroui'
+  | 'uswds'
 
 // Form ID for iframe URLs
 export type FormId =
@@ -79,6 +80,7 @@ export const LIBRARY_NAME_TO_ID: Record<string, LibraryId | undefined> = {
   'Zendesk Garden': 'zendesk-garden',
   Tamagui: 'tamagui',
   HeroUI: 'heroui',
+  'U.S. Web Design System': 'uswds',
 }
 
 // Map from form name to form ID (for iframe URLs)
@@ -472,8 +474,8 @@ export const LIBRARIES: Library[] = [
     directory: 'uswds',
     website: 'https://designsystem.digital.gov',
     repo: 'https://github.com/uswds/uswds',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Ariakit',

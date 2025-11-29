@@ -18,7 +18,9 @@ function TwoFactorAuthForm() {
         <Row>
           <Col>
             <Field>
-              <Label>{useBackupCode ? 'Backup code' : 'Verification code'}</Label>
+              <Label>
+                {useBackupCode ? 'Backup code' : 'Verification code'}
+              </Label>
               <Hint>
                 {useBackupCode
                   ? 'Enter one of your backup codes'

@@ -11,6 +11,17 @@ export type LibraryId =
   | 'gravity-ui'
   | 'react-no-css'
   | 'cloudscape'
+  | 'daisyui'
+  | 'shadcn-ui'
+  | 'gestalt'
+  | 'polaris'
+  | 'chakra'
+  | 'elastic-ui'
+  | 'nextui'
+  | 'geist-ui'
+  | 'zendesk-garden'
+  | 'tamagui'
+  | 'heroui'
   | 'uswds'
 
 export type FormId =
@@ -146,7 +157,7 @@ export const LIBRARIES: LibraryConfig[] = [
     directory: 'evergreen',
     website: 'https://evergreen.segment.com',
     repo: 'https://github.com/segmentio/evergreen',
-    supportsTheme: true,
+    supportsTheme: false,
   },
   {
     id: 'blueprint',
@@ -178,14 +189,102 @@ export const LIBRARIES: LibraryConfig[] = [
     directory: 'react-no-css',
     website: 'https://react.dev',
     repo: 'https://github.com/facebook/react',
-    supportsTheme: false,
+    supportsTheme: true,
   },
   {
     id: 'cloudscape',
     name: 'Cloudscape',
-    directory: 'cloudscape-design',
+    directory: 'cloudscape',
     website: 'https://cloudscape.design',
     repo: 'https://github.com/cloudscape-design/components',
+    supportsTheme: true,
+  },
+  {
+    id: 'daisyui',
+    name: 'daisyUI',
+    directory: 'daisyui',
+    website: 'https://daisyui.com',
+    repo: 'https://github.com/saadeghi/daisyui',
+    supportsTheme: true,
+  },
+  {
+    id: 'shadcn-ui',
+    name: 'shadcn/ui',
+    directory: 'shadcn-ui',
+    website: 'https://ui.shadcn.com',
+    repo: 'https://github.com/shadcn-ui/ui',
+    supportsTheme: true,
+  },
+  {
+    id: 'gestalt',
+    name: 'Pinterest Gestalt',
+    directory: 'gestalt',
+    website: 'https://gestalt.pinterest.systems',
+    repo: 'https://github.com/pinterest/gestalt',
+    supportsTheme: true,
+  },
+  {
+    id: 'polaris',
+    name: 'Shopify Polaris',
+    directory: 'polaris',
+    website: 'https://polaris.shopify.com',
+    repo: 'https://github.com/Shopify/polaris',
+    supportsTheme: true,
+  },
+  {
+    id: 'chakra',
+    name: 'Chakra UI',
+    directory: 'chakra',
+    website: 'https://chakra-ui.com',
+    repo: 'https://github.com/chakra-ui/chakra-ui',
+    supportsTheme: true,
+  },
+  {
+    id: 'elastic-ui',
+    name: 'Elastic UI (EUI)',
+    directory: 'elastic-ui',
+    website: 'https://eui.elastic.co',
+    repo: 'https://github.com/elastic/eui',
+    supportsTheme: true,
+  },
+  {
+    id: 'nextui',
+    name: 'NextUI',
+    directory: 'nextui',
+    website: 'https://nextui.org',
+    repo: 'https://github.com/nextui-org/nextui',
+    supportsTheme: true,
+  },
+  {
+    id: 'geist-ui',
+    name: 'Geist UI',
+    directory: 'geist-ui',
+    website: 'https://geist-ui.dev',
+    repo: 'https://github.com/geist-org/geist-ui',
+    supportsTheme: true,
+  },
+  {
+    id: 'zendesk-garden',
+    name: 'Zendesk Garden',
+    directory: 'zendesk-garden',
+    website: 'https://garden.zendesk.com',
+    repo: 'https://github.com/zendeskgarden/react-components',
+    supportsTheme: true,
+  },
+  {
+    id: 'tamagui',
+    name: 'Tamagui',
+    directory: 'tamagui',
+    website: 'https://tamagui.dev',
+    repo: 'https://github.com/tamagui/tamagui',
+    supportsTheme: true,
+  },
+  {
+    id: 'heroui',
+    name: 'HeroUI',
+    directory: 'heroui',
+    website: 'https://heroui.com',
+    repo: 'https://github.com/heroui-inc/heroui',
     supportsTheme: true,
   },
   {

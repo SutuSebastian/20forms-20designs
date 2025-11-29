@@ -43,10 +43,7 @@ function CustomerFeedbackForm() {
           <Col>
             <Field>
               <Label>Name (optional)</Label>
-              <Input
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
+              <Input value={name} onChange={(e) => setName(e.target.value)} />
             </Field>
           </Col>
         </Row>
