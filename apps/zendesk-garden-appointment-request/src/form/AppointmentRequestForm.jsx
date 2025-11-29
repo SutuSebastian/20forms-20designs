@@ -12,7 +12,7 @@ function AppointmentRequestForm() {
 
   const handleSubmit = useCallback((event) => {
     event.preventDefault()
-    alert('Appointment requested!')
+    alert('Appointment request submitted!')
   }, [])
 
   return (
@@ -34,7 +34,7 @@ function AppointmentRequestForm() {
         <Row style={{ marginTop: '16px' }}>
           <Col>
             <Field>
-              <Label>Email</Label>
+              <Label>Email address</Label>
               <Input
                 type="email"
                 value={email}
@@ -73,11 +73,12 @@ function AppointmentRequestForm() {
         <Row style={{ marginTop: '16px' }}>
           <Col>
             <Field>
-              <Label>Reason for appointment</Label>
+              <Label>Reason for visit</Label>
               <Textarea
                 value={reason}
                 onChange={(e) => setReason(e.target.value)}
-                rows={4}
+                rows={3}
+                required
               />
             </Field>
           </Col>

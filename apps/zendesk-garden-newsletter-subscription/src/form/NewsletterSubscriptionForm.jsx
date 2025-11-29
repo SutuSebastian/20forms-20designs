@@ -1,29 +1,22 @@
 import { useState, useCallback } from 'react'
-import { Field, Label, Input, Checkbox } from '@zendeskgarden/react-forms'
+import {
+  Field,
+  Label,
+  Input,
+  Checkbox,
+  Select,
+} from '@zendeskgarden/react-forms'
 import { Button } from '@zendeskgarden/react-buttons'
 import { Grid, Row, Col } from '@zendeskgarden/react-grid'
-import {
-  Dropdown,
-  Trigger,
-  Select,
-  Menu,
-  Item,
-} from '@zendeskgarden/react-dropdowns'
-
-const FREQUENCY_OPTIONS = [
-  { value: 'daily', label: 'Daily' },
-  { value: 'weekly', label: 'Weekly' },
-  { value: 'monthly', label: 'Monthly' },
-]
 
 function NewsletterSubscriptionForm() {
   const [email, setEmail] = useState('')
-  const [frequency, setFrequency] = useState(FREQUENCY_OPTIONS[1])
+  const [frequency, setFrequency] = useState('')
   const [productUpdates, setProductUpdates] = useState(false)
 
   const handleSubmit = useCallback((event) => {
     event.preventDefault()
-    alert('Subscribed successfully!')
+    alert('Newsletter subscription submitted!')
   }, [])
 
   return (
@@ -32,7 +25,7 @@ function NewsletterSubscriptionForm() {
         <Row>
           <Col>
             <Field>
-              <Label>Email</Label>
+              <Label>Email address</Label>
               <Input
                 type="email"
                 value={email}
@@ -47,22 +40,16 @@ function NewsletterSubscriptionForm() {
           <Col>
             <Field>
               <Label>Frequency</Label>
-              <Dropdown
-                selectedItem={frequency}
-                onSelect={(item) => setFrequency(item)}
-                downshiftProps={{ itemToString: (item) => item?.label || '' }}
+              <Select
+                value={frequency}
+                onChange={(e) => setFrequency(e.target.value)}
+                required
               >
-                <Trigger>
-                  <Select>{frequency.label}</Select>
-                </Trigger>
-                <Menu>
-                  {FREQUENCY_OPTIONS.map((option) => (
-                    <Item key={option.value} value={option}>
-                      {option.label}
-                    </Item>
-                  ))}
-                </Menu>
-              </Dropdown>
+                <option value="">Select frequency</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="quarterly">Quarterly</option>
+              </Select>
             </Field>
           </Col>
         </Row>
@@ -74,7 +61,7 @@ function NewsletterSubscriptionForm() {
                 checked={productUpdates}
                 onChange={(e) => setProductUpdates(e.target.checked)}
               >
-                <Label>Also receive product updates</Label>
+                <Label>Receive product updates</Label>
               </Checkbox>
             </Field>
           </Col>

@@ -1,13 +1,9 @@
-import { Button, Input, Label, YStack, TextArea, Select } from 'tamagui'
-import { useState } from 'react'
+import { Button, Input, Label, YStack, TextArea } from 'tamagui'
 
 function AppointmentRequestForm() {
-  const [appointmentType, setAppointmentType] = useState('')
-  const [timeSlot, setTimeSlot] = useState('')
-
   const handleSubmit = (event) => {
     event.preventDefault()
-    alert('Appointment requested!')
+    alert('Appointment request submitted!')
   }
 
   return (
@@ -35,80 +31,33 @@ function AppointmentRequestForm() {
         </YStack>
 
         <YStack gap="$1">
-          <Label htmlFor="phone">Phone number</Label>
-          <Input
-            id="phone"
-            name="phone"
-            inputMode="tel"
-            placeholder="Phone number"
+          <Label htmlFor="date">Preferred date</Label>
+          <input
+            id="date"
+            name="date"
+            type="date"
             required
           />
         </YStack>
 
         <YStack gap="$1">
-          <Label htmlFor="appointmentType">Appointment type</Label>
-          <Select
-            id="appointmentType"
-            value={appointmentType}
-            onValueChange={setAppointmentType}
-          >
-            <Select.Trigger>
-              <Select.Value placeholder="Select appointment type" />
-            </Select.Trigger>
-            <Select.Content>
-              <Select.Item index={0} value="consultation">
-                <Select.ItemText>Consultation</Select.ItemText>
-              </Select.Item>
-              <Select.Item index={1} value="followup">
-                <Select.ItemText>Follow-up</Select.ItemText>
-              </Select.Item>
-              <Select.Item index={2} value="checkup">
-                <Select.ItemText>Check-up</Select.ItemText>
-              </Select.Item>
-              <Select.Item index={3} value="other">
-                <Select.ItemText>Other</Select.ItemText>
-              </Select.Item>
-            </Select.Content>
-          </Select>
-        </YStack>
-
-        <YStack gap="$1">
-          <Label htmlFor="preferredDate">Preferred date</Label>
-          <Input
-            id="preferredDate"
-            name="preferredDate"
-            placeholder="YYYY-MM-DD"
+          <Label htmlFor="time">Preferred time</Label>
+          <input
+            id="time"
+            name="time"
+            type="time"
             required
           />
         </YStack>
 
         <YStack gap="$1">
-          <Label htmlFor="timeSlot">Preferred time</Label>
-          <Select id="timeSlot" value={timeSlot} onValueChange={setTimeSlot}>
-            <Select.Trigger>
-              <Select.Value placeholder="Select time slot" />
-            </Select.Trigger>
-            <Select.Content>
-              <Select.Item index={0} value="morning">
-                <Select.ItemText>Morning (9am - 12pm)</Select.ItemText>
-              </Select.Item>
-              <Select.Item index={1} value="afternoon">
-                <Select.ItemText>Afternoon (12pm - 5pm)</Select.ItemText>
-              </Select.Item>
-              <Select.Item index={2} value="evening">
-                <Select.ItemText>Evening (5pm - 8pm)</Select.ItemText>
-              </Select.Item>
-            </Select.Content>
-          </Select>
-        </YStack>
-
-        <YStack gap="$1">
-          <Label htmlFor="notes">Additional notes</Label>
+          <Label htmlFor="reason">Reason for visit</Label>
           <TextArea
-            id="notes"
-            name="notes"
-            placeholder="Any additional information"
+            id="reason"
+            name="reason"
+            placeholder="Reason for visit"
             rows={3}
+            required
           />
         </YStack>
 

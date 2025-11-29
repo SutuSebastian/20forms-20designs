@@ -12,8 +12,8 @@ import {
 import { useState } from 'react'
 
 function CustomerFeedbackForm() {
-  const [satisfaction, setSatisfaction] = useState('')
-  const [recommend, setRecommend] = useState(false)
+  const [rating, setRating] = useState('')
+  const [followUp, setFollowUp] = useState(false)
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -24,8 +24,8 @@ function CustomerFeedbackForm() {
     <form onSubmit={handleSubmit}>
       <YStack gap="$3">
         <YStack gap="$1">
-          <Label htmlFor="name">Your name</Label>
-          <Input id="name" name="name" placeholder="Your name" required />
+          <Label htmlFor="name">Name</Label>
+          <Input id="name" name="name" placeholder="Name" required />
         </YStack>
 
         <YStack gap="$1">
@@ -40,41 +40,38 @@ function CustomerFeedbackForm() {
         </YStack>
 
         <YStack gap="$1">
-          <Label htmlFor="satisfaction">Satisfaction level</Label>
+          <Label htmlFor="rating">Overall rating</Label>
           <Select
-            id="satisfaction"
-            value={satisfaction}
-            onValueChange={setSatisfaction}
+            id="rating"
+            value={rating}
+            onValueChange={setRating}
           >
             <Select.Trigger>
-              <Select.Value placeholder="Select satisfaction level" />
+              <Select.Value placeholder="Select rating" />
             </Select.Trigger>
             <Select.Content>
-              <Select.Item index={0} value="very-satisfied">
-                <Select.ItemText>Very satisfied</Select.ItemText>
+              <Select.Item index={0} value="excellent">
+                <Select.ItemText>Excellent</Select.ItemText>
               </Select.Item>
-              <Select.Item index={1} value="satisfied">
-                <Select.ItemText>Satisfied</Select.ItemText>
+              <Select.Item index={1} value="good">
+                <Select.ItemText>Good</Select.ItemText>
               </Select.Item>
-              <Select.Item index={2} value="neutral">
-                <Select.ItemText>Neutral</Select.ItemText>
+              <Select.Item index={2} value="average">
+                <Select.ItemText>Average</Select.ItemText>
               </Select.Item>
-              <Select.Item index={3} value="dissatisfied">
-                <Select.ItemText>Dissatisfied</Select.ItemText>
-              </Select.Item>
-              <Select.Item index={4} value="very-dissatisfied">
-                <Select.ItemText>Very dissatisfied</Select.ItemText>
+              <Select.Item index={3} value="poor">
+                <Select.ItemText>Poor</Select.ItemText>
               </Select.Item>
             </Select.Content>
           </Select>
         </YStack>
 
         <YStack gap="$1">
-          <Label htmlFor="feedback">Feedback</Label>
+          <Label htmlFor="comments">Comments</Label>
           <TextArea
-            id="feedback"
-            name="feedback"
-            placeholder="Share your experience with us"
+            id="comments"
+            name="comments"
+            placeholder="Comments"
             rows={4}
             required
           />
@@ -82,19 +79,19 @@ function CustomerFeedbackForm() {
 
         <XStack gap="$2" alignItems="center">
           <Checkbox
-            id="recommend"
-            checked={recommend}
-            onCheckedChange={setRecommend}
+            id="followUp"
+            checked={followUp}
+            onCheckedChange={setFollowUp}
           >
             <Checkbox.Indicator>
               <Text>✓</Text>
             </Checkbox.Indicator>
           </Checkbox>
-          <Label htmlFor="recommend">I would recommend this product</Label>
+          <Label htmlFor="followUp">I would like a follow-up</Label>
         </XStack>
 
         <Button themeInverse onPress={() => {}}>
-          Submit feedback
+          Send feedback
         </Button>
       </YStack>
     </form>

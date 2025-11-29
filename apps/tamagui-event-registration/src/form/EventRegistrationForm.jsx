@@ -7,17 +7,16 @@ import {
   YStack,
   Text,
   Select,
-  TextArea,
 } from 'tamagui'
 import { useState } from 'react'
 
 function EventRegistrationForm() {
   const [ticketType, setTicketType] = useState('')
-  const [dietaryRestrictions, setDietaryRestrictions] = useState(false)
+  const [newsletter, setNewsletter] = useState(false)
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    alert('Registration submitted!')
+    alert('Event registration submitted!')
   }
 
   return (
@@ -45,25 +44,6 @@ function EventRegistrationForm() {
         </YStack>
 
         <YStack gap="$1">
-          <Label htmlFor="phone">Phone number</Label>
-          <Input
-            id="phone"
-            name="phone"
-            inputMode="tel"
-            placeholder="Phone number"
-          />
-        </YStack>
-
-        <YStack gap="$1">
-          <Label htmlFor="organization">Organization (optional)</Label>
-          <Input
-            id="organization"
-            name="organization"
-            placeholder="Organization"
-          />
-        </YStack>
-
-        <YStack gap="$1">
           <Label htmlFor="ticketType">Ticket type</Label>
           <Select
             id="ticketType"
@@ -71,11 +51,11 @@ function EventRegistrationForm() {
             onValueChange={setTicketType}
           >
             <Select.Trigger>
-              <Select.Value placeholder="Select ticket type" />
+              <Select.Value placeholder="Select ticket" />
             </Select.Trigger>
             <Select.Content>
               <Select.Item index={0} value="general">
-                <Select.ItemText>General Admission</Select.ItemText>
+                <Select.ItemText>General admission</Select.ItemText>
               </Select.Item>
               <Select.Item index={1} value="vip">
                 <Select.ItemText>VIP</Select.ItemText>
@@ -88,26 +68,27 @@ function EventRegistrationForm() {
         </YStack>
 
         <YStack gap="$1">
-          <Label htmlFor="specialRequirements">Special requirements</Label>
-          <TextArea
-            id="specialRequirements"
-            name="specialRequirements"
-            placeholder="Any special requirements"
-            rows={3}
+          <Label htmlFor="guestCount">Number of guests</Label>
+          <Input
+            id="guestCount"
+            name="guestCount"
+            inputMode="numeric"
+            placeholder="Number of guests"
+            required
           />
         </YStack>
 
         <XStack gap="$2" alignItems="center">
           <Checkbox
-            id="dietary"
-            checked={dietaryRestrictions}
-            onCheckedChange={setDietaryRestrictions}
+            id="newsletter"
+            checked={newsletter}
+            onCheckedChange={setNewsletter}
           >
             <Checkbox.Indicator>
               <Text>✓</Text>
             </Checkbox.Indicator>
           </Checkbox>
-          <Label htmlFor="dietary">I have dietary restrictions</Label>
+          <Label htmlFor="newsletter">Notify me about future events</Label>
         </XStack>
 
         <Button themeInverse onPress={() => {}}>

@@ -1,9 +1,12 @@
-import { Button, Input, Label, YStack } from 'tamagui'
+import { Button, Checkbox, Input, Label, XStack, YStack, Text } from 'tamagui'
+import { useState } from 'react'
 
 function PasswordChangeForm() {
+  const [logoutOthers, setLogoutOthers] = useState(false)
+
   const handleSubmit = (event) => {
     event.preventDefault()
-    alert('Password changed!')
+    alert('Password change requested!')
   }
 
   return (
@@ -44,8 +47,21 @@ function PasswordChangeForm() {
           />
         </YStack>
 
+        <XStack gap="$2" alignItems="center">
+          <Checkbox
+            id="logoutOthers"
+            checked={logoutOthers}
+            onCheckedChange={setLogoutOthers}
+          >
+            <Checkbox.Indicator>
+              <Text>✓</Text>
+            </Checkbox.Indicator>
+          </Checkbox>
+          <Label htmlFor="logoutOthers">Sign out of other devices</Label>
+        </XStack>
+
         <Button themeInverse onPress={() => {}}>
-          Change password
+          Update password
         </Button>
       </YStack>
     </form>

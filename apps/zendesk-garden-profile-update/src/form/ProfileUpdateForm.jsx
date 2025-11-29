@@ -44,7 +44,7 @@ function ProfileUpdateForm() {
         <Row style={{ marginTop: '16px' }}>
           <Col>
             <Field>
-              <Label>Email</Label>
+              <Label>Email address</Label>
               <Input
                 type="email"
                 value={email}
@@ -63,6 +63,8 @@ function ProfileUpdateForm() {
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
+                inputMode="tel"
+                required
               />
             </Field>
           </Col>
@@ -71,11 +73,12 @@ function ProfileUpdateForm() {
         <Row style={{ marginTop: '16px' }}>
           <Col>
             <Field>
-              <Label>Bio</Label>
+              <Label>Short bio</Label>
               <Textarea
                 value={bio}
                 onChange={(e) => setBio(e.target.value)}
-                rows={4}
+                rows={3}
+                required
               />
             </Field>
           </Col>

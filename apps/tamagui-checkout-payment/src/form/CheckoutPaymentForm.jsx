@@ -1,43 +1,52 @@
 import {
   Button,
-  Checkbox,
   Input,
   Label,
-  XStack,
   YStack,
-  Text,
   Select,
 } from 'tamagui'
 import { useState } from 'react'
 
 function CheckoutPaymentForm() {
-  const [expiryMonth, setExpiryMonth] = useState('')
-  const [expiryYear, setExpiryYear] = useState('')
-  const [saveCard, setSaveCard] = useState(false)
+  const [shippingMethod, setShippingMethod] = useState('')
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    alert('Payment submitted!')
+    alert('Checkout submitted!')
   }
-
-  const months = Array.from({ length: 12 }, (_, i) =>
-    String(i + 1).padStart(2, '0')
-  )
-  const years = Array.from({ length: 10 }, (_, i) =>
-    String(new Date().getFullYear() + i)
-  )
 
   return (
     <form onSubmit={handleSubmit}>
       <YStack gap="$3">
         <YStack gap="$1">
-          <Label htmlFor="cardName">Name on card</Label>
+          <Label htmlFor="email">Email for receipt</Label>
           <Input
-            id="cardName"
-            name="cardName"
-            placeholder="Name on card"
+            id="email"
+            name="email"
+            inputMode="email"
+            placeholder="Email for receipt"
             required
           />
+        </YStack>
+
+        <YStack gap="$1">
+          <Label htmlFor="shippingMethod">Shipping method</Label>
+          <Select id="shippingMethod" value={shippingMethod} onValueChange={setShippingMethod}>
+            <Select.Trigger>
+              <Select.Value placeholder="Select shipping" />
+            </Select.Trigger>
+            <Select.Content>
+              <Select.Item index={0} value="standard">
+                <Select.ItemText>Standard</Select.ItemText>
+              </Select.Item>
+              <Select.Item index={1} value="express">
+                <Select.ItemText>Express</Select.ItemText>
+              </Select.Item>
+              <Select.Item index={2} value="overnight">
+                <Select.ItemText>Overnight</Select.ItemText>
+              </Select.Item>
+            </Select.Content>
+          </Select>
         </YStack>
 
         <YStack gap="$1">
@@ -46,81 +55,46 @@ function CheckoutPaymentForm() {
             id="cardNumber"
             name="cardNumber"
             inputMode="numeric"
-            placeholder="1234 5678 9012 3456"
+            placeholder="Card number"
             maxLength={19}
             required
           />
         </YStack>
 
-        <XStack gap="$2">
-          <YStack gap="$1" flex={1}>
-            <Label htmlFor="expiryMonth">Expiry month</Label>
-            <Select
-              id="expiryMonth"
-              value={expiryMonth}
-              onValueChange={setExpiryMonth}
-            >
-              <Select.Trigger>
-                <Select.Value placeholder="MM" />
-              </Select.Trigger>
-              <Select.Content>
-                {months.map((m, index) => (
-                  <Select.Item key={m} index={index} value={m}>
-                    <Select.ItemText>{m}</Select.ItemText>
-                  </Select.Item>
-                ))}
-              </Select.Content>
-            </Select>
-          </YStack>
-
-          <YStack gap="$1" flex={1}>
-            <Label htmlFor="expiryYear">Expiry year</Label>
-            <Select
-              id="expiryYear"
-              value={expiryYear}
-              onValueChange={setExpiryYear}
-            >
-              <Select.Trigger>
-                <Select.Value placeholder="YYYY" />
-              </Select.Trigger>
-              <Select.Content>
-                {years.map((y, index) => (
-                  <Select.Item key={y} index={index} value={y}>
-                    <Select.ItemText>{y}</Select.ItemText>
-                  </Select.Item>
-                ))}
-              </Select.Content>
-            </Select>
-          </YStack>
-        </XStack>
+        <YStack gap="$1">
+          <Label htmlFor="expiration">Expiration</Label>
+          <Input
+            id="expiration"
+            name="expiration"
+            placeholder="MM/YY"
+            inputMode="numeric"
+            required
+          />
+        </YStack>
 
         <YStack gap="$1">
-          <Label htmlFor="cvv">CVV</Label>
+          <Label htmlFor="cvc">CVC</Label>
           <Input
-            id="cvv"
-            name="cvv"
+            id="cvc"
+            name="cvc"
             inputMode="numeric"
-            placeholder="123"
+            placeholder="CVC"
             maxLength={4}
             required
           />
         </YStack>
 
-        <XStack gap="$2" alignItems="center">
-          <Checkbox
-            id="saveCard"
-            checked={saveCard}
-            onCheckedChange={setSaveCard}
-          >
-            <Checkbox.Indicator>
-              <Text>✓</Text>
-            </Checkbox.Indicator>
-          </Checkbox>
-          <Label htmlFor="saveCard">Save card for future purchases</Label>
-        </XStack>
+        <YStack gap="$1">
+          <Label htmlFor="promoCode">Promo code</Label>
+          <Input
+            id="promoCode"
+            name="promoCode"
+            placeholder="Promo code"
+          />
+        </YStack>
 
         <Button themeInverse onPress={() => {}}>
-          Pay now
+          Place order
         </Button>
       </YStack>
     </form>

@@ -1,20 +1,36 @@
-import { Button, Input, Label, YStack, TextArea, Select } from 'tamagui'
+import {
+  Button,
+  Checkbox,
+  Input,
+  Label,
+  XStack,
+  YStack,
+  Text,
+  Select,
+  TextArea,
+} from 'tamagui'
 import { useState } from 'react'
 
 function ContactInquiryForm() {
-  const [subject, setSubject] = useState('')
+  const [topic, setTopic] = useState('')
+  const [consent, setConsent] = useState(false)
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    alert('Message sent!')
+    alert('Inquiry submitted!')
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <YStack gap="$3">
         <YStack gap="$1">
-          <Label htmlFor="name">Your name</Label>
-          <Input id="name" name="name" placeholder="Your name" required />
+          <Label htmlFor="fullName">Full name</Label>
+          <Input
+            id="fullName"
+            name="fullName"
+            placeholder="Full name"
+            required
+          />
         </YStack>
 
         <YStack gap="$1">
@@ -29,23 +45,23 @@ function ContactInquiryForm() {
         </YStack>
 
         <YStack gap="$1">
-          <Label htmlFor="subject">Subject</Label>
-          <Select id="subject" value={subject} onValueChange={setSubject}>
+          <Label htmlFor="topic">Topic</Label>
+          <Select id="topic" value={topic} onValueChange={setTopic}>
             <Select.Trigger>
-              <Select.Value placeholder="Select a subject" />
+              <Select.Value placeholder="Select topic" />
             </Select.Trigger>
             <Select.Content>
-              <Select.Item index={0} value="general">
-                <Select.ItemText>General inquiry</Select.ItemText>
+              <Select.Item index={0} value="support">
+                <Select.ItemText>Support</Select.ItemText>
               </Select.Item>
-              <Select.Item index={1} value="support">
-                <Select.ItemText>Technical support</Select.ItemText>
-              </Select.Item>
-              <Select.Item index={2} value="sales">
+              <Select.Item index={1} value="sales">
                 <Select.ItemText>Sales</Select.ItemText>
               </Select.Item>
-              <Select.Item index={3} value="feedback">
+              <Select.Item index={2} value="feedback">
                 <Select.ItemText>Feedback</Select.ItemText>
+              </Select.Item>
+              <Select.Item index={3} value="other">
+                <Select.ItemText>Other</Select.ItemText>
               </Select.Item>
             </Select.Content>
           </Select>
@@ -56,14 +72,27 @@ function ContactInquiryForm() {
           <TextArea
             id="message"
             name="message"
-            placeholder="Your message"
+            placeholder="Message"
             rows={4}
             required
           />
         </YStack>
 
+        <XStack gap="$2" alignItems="center">
+          <Checkbox
+            id="consent"
+            checked={consent}
+            onCheckedChange={setConsent}
+          >
+            <Checkbox.Indicator>
+              <Text>✓</Text>
+            </Checkbox.Indicator>
+          </Checkbox>
+          <Label htmlFor="consent">Allow follow-up communication</Label>
+        </XStack>
+
         <Button themeInverse onPress={() => {}}>
-          Send message
+          Submit inquiry
         </Button>
       </YStack>
     </form>

@@ -1,17 +1,11 @@
 import { useState, useCallback } from 'react'
-import { Field, Label, Input, Radio } from '@zendeskgarden/react-forms'
+import { Field, Label, Input, Select } from '@zendeskgarden/react-forms'
 import { Button } from '@zendeskgarden/react-buttons'
 import { Grid, Row, Col } from '@zendeskgarden/react-grid'
 
-const SHIPPING_OPTIONS = [
-  { value: 'standard', label: 'Standard Shipping (5-7 days) - Free' },
-  { value: 'express', label: 'Express Shipping (2-3 days) - $9.99' },
-  { value: 'overnight', label: 'Overnight Shipping - $19.99' },
-]
-
 function CheckoutPaymentForm() {
   const [email, setEmail] = useState('')
-  const [shippingMethod, setShippingMethod] = useState('standard')
+  const [shippingMethod, setShippingMethod] = useState('')
   const [cardNumber, setCardNumber] = useState('')
   const [expiration, setExpiration] = useState('')
   const [cvc, setCvc] = useState('')
@@ -19,7 +13,7 @@ function CheckoutPaymentForm() {
 
   const handleSubmit = useCallback((event) => {
     event.preventDefault()
-    alert('Order placed!')
+    alert('Checkout submitted!')
   }, [])
 
   return (
@@ -28,7 +22,7 @@ function CheckoutPaymentForm() {
         <Row>
           <Col>
             <Field>
-              <Label>Email</Label>
+              <Label>Email for receipt</Label>
               <Input
                 type="email"
                 value={email}
@@ -41,21 +35,19 @@ function CheckoutPaymentForm() {
 
         <Row style={{ marginTop: '16px' }}>
           <Col>
-            <Label style={{ marginBottom: '8px', display: 'block' }}>
-              Shipping method
-            </Label>
-            {SHIPPING_OPTIONS.map((option) => (
-              <Field key={option.value} style={{ marginBottom: '8px' }}>
-                <Radio
-                  name="shipping"
-                  value={option.value}
-                  checked={shippingMethod === option.value}
-                  onChange={() => setShippingMethod(option.value)}
-                >
-                  <Label>{option.label}</Label>
-                </Radio>
-              </Field>
-            ))}
+            <Field>
+              <Label>Shipping method</Label>
+              <Select
+                value={shippingMethod}
+                onChange={(e) => setShippingMethod(e.target.value)}
+                required
+              >
+                <option value="">Select shipping</option>
+                <option value="standard">Standard</option>
+                <option value="express">Express</option>
+                <option value="overnight">Overnight</option>
+              </Select>
+            </Field>
           </Col>
         </Row>
 
@@ -66,7 +58,8 @@ function CheckoutPaymentForm() {
               <Input
                 value={cardNumber}
                 onChange={(e) => setCardNumber(e.target.value)}
-                placeholder="1234 5678 9012 3456"
+                inputMode="numeric"
+                maxLength={19}
                 required
               />
             </Field>
@@ -76,11 +69,12 @@ function CheckoutPaymentForm() {
         <Row style={{ marginTop: '16px' }}>
           <Col sm={6}>
             <Field>
-              <Label>Expiration date</Label>
+              <Label>Expiration</Label>
               <Input
                 value={expiration}
                 onChange={(e) => setExpiration(e.target.value)}
                 placeholder="MM/YY"
+                inputMode="numeric"
                 required
               />
             </Field>
@@ -91,7 +85,7 @@ function CheckoutPaymentForm() {
               <Input
                 value={cvc}
                 onChange={(e) => setCvc(e.target.value)}
-                placeholder="123"
+                inputMode="numeric"
                 maxLength={4}
                 required
               />
@@ -102,7 +96,7 @@ function CheckoutPaymentForm() {
         <Row style={{ marginTop: '16px' }}>
           <Col>
             <Field>
-              <Label>Promo code (optional)</Label>
+              <Label>Promo code</Label>
               <Input
                 value={promoCode}
                 onChange={(e) => setPromoCode(e.target.value)}

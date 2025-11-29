@@ -11,17 +11,10 @@ function UserRegistrationForm() {
   const [confirmPassword, setConfirmPassword] = useState('')
   const [agreeToTerms, setAgreeToTerms] = useState(false)
 
-  const handleSubmit = useCallback(
-    (event) => {
-      event.preventDefault()
-      if (password !== confirmPassword) {
-        alert('Passwords do not match!')
-        return
-      }
-      alert('Registration submitted!')
-    },
-    [password, confirmPassword]
-  )
+  const handleSubmit = useCallback((event) => {
+    event.preventDefault()
+    alert('Registration submitted!')
+  }, [])
 
   return (
     <form onSubmit={handleSubmit}>
@@ -42,7 +35,7 @@ function UserRegistrationForm() {
         <Row style={{ marginTop: '16px' }}>
           <Col>
             <Field>
-              <Label>Email</Label>
+              <Label>Email address</Label>
               <Input
                 type="email"
                 value={email}
@@ -60,6 +53,7 @@ function UserRegistrationForm() {
               <Input
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+                minLength={3}
                 required
               />
             </Field>
@@ -74,6 +68,7 @@ function UserRegistrationForm() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                minLength={8}
                 required
               />
             </Field>
@@ -88,6 +83,7 @@ function UserRegistrationForm() {
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
+                minLength={8}
                 required
               />
             </Field>

@@ -1,23 +1,7 @@
 import { useState, useCallback } from 'react'
-import { Field, Label, Input } from '@zendeskgarden/react-forms'
+import { Field, Label, Input, Select } from '@zendeskgarden/react-forms'
 import { Button } from '@zendeskgarden/react-buttons'
 import { Grid, Row, Col } from '@zendeskgarden/react-grid'
-import {
-  Dropdown,
-  Trigger,
-  Select,
-  Menu,
-  Item,
-} from '@zendeskgarden/react-dropdowns'
-
-const COUNTRIES = [
-  { value: 'US', label: 'United States' },
-  { value: 'CA', label: 'Canada' },
-  { value: 'GB', label: 'United Kingdom' },
-  { value: 'DE', label: 'Germany' },
-  { value: 'FR', label: 'France' },
-  { value: 'AU', label: 'Australia' },
-]
 
 function BillingInfoForm() {
   const [cardName, setCardName] = useState('')
@@ -25,11 +9,11 @@ function BillingInfoForm() {
   const [expiration, setExpiration] = useState('')
   const [cvc, setCvc] = useState('')
   const [billingAddress, setBillingAddress] = useState('')
-  const [country, setCountry] = useState(COUNTRIES[0])
+  const [country, setCountry] = useState('')
 
   const handleSubmit = useCallback((event) => {
     event.preventDefault()
-    alert('Billing info saved!')
+    alert('Billing details saved!')
   }, [])
 
   return (
@@ -55,7 +39,8 @@ function BillingInfoForm() {
               <Input
                 value={cardNumber}
                 onChange={(e) => setCardNumber(e.target.value)}
-                placeholder="1234 5678 9012 3456"
+                inputMode="numeric"
+                maxLength={19}
                 required
               />
             </Field>
@@ -70,17 +55,18 @@ function BillingInfoForm() {
                 value={expiration}
                 onChange={(e) => setExpiration(e.target.value)}
                 placeholder="MM/YY"
+                inputMode="numeric"
                 required
               />
             </Field>
           </Col>
           <Col sm={6}>
             <Field>
-              <Label>CVC</Label>
+              <Label>Security code</Label>
               <Input
                 value={cvc}
                 onChange={(e) => setCvc(e.target.value)}
-                placeholder="123"
+                inputMode="numeric"
                 maxLength={4}
                 required
               />
@@ -105,22 +91,15 @@ function BillingInfoForm() {
           <Col>
             <Field>
               <Label>Country</Label>
-              <Dropdown
-                selectedItem={country}
-                onSelect={(item) => setCountry(item)}
-                downshiftProps={{ itemToString: (item) => item?.label || '' }}
+              <Select
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+                required
               >
-                <Trigger>
-                  <Select>{country.label}</Select>
-                </Trigger>
-                <Menu>
-                  {COUNTRIES.map((c) => (
-                    <Item key={c.value} value={c}>
-                      {c.label}
-                    </Item>
-                  ))}
-                </Menu>
-              </Dropdown>
+                <option value="">Select country</option>
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
+              </Select>
             </Field>
           </Col>
         </Row>
@@ -128,7 +107,7 @@ function BillingInfoForm() {
         <Row style={{ marginTop: '24px' }}>
           <Col>
             <Button type="submit" isPrimary>
-              Save billing info
+              Save billing details
             </Button>
           </Col>
         </Row>

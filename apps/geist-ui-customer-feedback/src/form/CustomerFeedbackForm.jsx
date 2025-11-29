@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import {
   Input,
   Button,
@@ -10,8 +9,6 @@ import {
 } from '@geist-ui/core'
 
 function CustomerFeedbackForm() {
-  const [satisfaction, setSatisfaction] = useState('')
-
   const handleSubmit = (event) => {
     event.preventDefault()
     alert('Feedback submitted!')
@@ -19,8 +16,8 @@ function CustomerFeedbackForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input name="name" width="100%" placeholder="Your name" required>
-        Your name
+      <Input name="name" width="100%" placeholder="Name" required>
+        Name
       </Input>
       <Spacer h={1} />
       <Input
@@ -33,37 +30,29 @@ function CustomerFeedbackForm() {
         Email address
       </Input>
       <Spacer h={1} />
-      <Text small>Satisfaction level</Text>
+      <Text small>Overall rating</Text>
       <Spacer h={0.5} />
-      <Select
-        placeholder="Select satisfaction level"
-        width="100%"
-        value={satisfaction}
-        onChange={(val) => setSatisfaction(val)}
-      >
-        <Select.Option value="very-satisfied">Very satisfied</Select.Option>
-        <Select.Option value="satisfied">Satisfied</Select.Option>
-        <Select.Option value="neutral">Neutral</Select.Option>
-        <Select.Option value="dissatisfied">Dissatisfied</Select.Option>
-        <Select.Option value="very-dissatisfied">
-          Very dissatisfied
-        </Select.Option>
+      <Select name="rating" placeholder="Select rating" width="100%">
+        <Select.Option value="excellent">Excellent</Select.Option>
+        <Select.Option value="good">Good</Select.Option>
+        <Select.Option value="average">Average</Select.Option>
+        <Select.Option value="poor">Poor</Select.Option>
       </Select>
       <Spacer h={1} />
-      <Text small>Feedback</Text>
+      <Text small>Comments</Text>
       <Spacer h={0.5} />
       <Textarea
-        name="feedback"
+        name="comments"
         width="100%"
-        placeholder="Share your experience with us"
+        placeholder="Your comments"
         rows={4}
         required
       />
       <Spacer h={1} />
-      <Checkbox name="recommend">I would recommend this product</Checkbox>
+      <Checkbox name="followUp">I would like a follow-up</Checkbox>
       <Spacer h={1} />
       <Button htmlType="submit" type="success" width="100%">
-        Submit feedback
+        Send feedback
       </Button>
     </form>
   )

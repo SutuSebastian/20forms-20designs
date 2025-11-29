@@ -8,7 +8,7 @@ function PasswordResetForm() {
 
   const handleSubmit = useCallback((event) => {
     event.preventDefault()
-    alert('Password reset link sent!')
+    alert('Password reset link requested!')
   }, [])
 
   return (
@@ -16,8 +16,14 @@ function PasswordResetForm() {
       <Grid>
         <Row>
           <Col>
+            <p>Request a password reset link via email.</p>
+          </Col>
+        </Row>
+
+        <Row style={{ marginTop: '16px' }}>
+          <Col>
             <Field>
-              <Label>Email</Label>
+              <Label>Email address</Label>
               <Input
                 type="email"
                 value={email}

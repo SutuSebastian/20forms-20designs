@@ -1,31 +1,24 @@
 import { useState, useCallback } from 'react'
-import { Field, Label, Input, Checkbox } from '@zendeskgarden/react-forms'
+import {
+  Field,
+  Label,
+  Input,
+  Checkbox,
+  Select,
+} from '@zendeskgarden/react-forms'
 import { Button } from '@zendeskgarden/react-buttons'
 import { Grid, Row, Col } from '@zendeskgarden/react-grid'
-import {
-  Dropdown,
-  Trigger,
-  Select,
-  Menu,
-  Item,
-} from '@zendeskgarden/react-dropdowns'
-
-const TICKET_OPTIONS = [
-  { value: 'general', label: 'General Admission - $50' },
-  { value: 'vip', label: 'VIP - $150' },
-  { value: 'student', label: 'Student - $25' },
-]
 
 function EventRegistrationForm() {
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
-  const [ticketType, setTicketType] = useState(TICKET_OPTIONS[0])
-  const [guestCount, setGuestCount] = useState('1')
+  const [ticketType, setTicketType] = useState('')
+  const [guestCount, setGuestCount] = useState('')
   const [newsletter, setNewsletter] = useState(false)
 
   const handleSubmit = useCallback((event) => {
     event.preventDefault()
-    alert('Registration submitted!')
+    alert('Event registration submitted!')
   }, [])
 
   return (
@@ -47,7 +40,7 @@ function EventRegistrationForm() {
         <Row style={{ marginTop: '16px' }}>
           <Col>
             <Field>
-              <Label>Email</Label>
+              <Label>Email address</Label>
               <Input
                 type="email"
                 value={email}
@@ -62,22 +55,16 @@ function EventRegistrationForm() {
           <Col>
             <Field>
               <Label>Ticket type</Label>
-              <Dropdown
-                selectedItem={ticketType}
-                onSelect={(item) => setTicketType(item)}
-                downshiftProps={{ itemToString: (item) => item?.label || '' }}
+              <Select
+                value={ticketType}
+                onChange={(e) => setTicketType(e.target.value)}
+                required
               >
-                <Trigger>
-                  <Select>{ticketType.label}</Select>
-                </Trigger>
-                <Menu>
-                  {TICKET_OPTIONS.map((option) => (
-                    <Item key={option.value} value={option}>
-                      {option.label}
-                    </Item>
-                  ))}
-                </Menu>
-              </Dropdown>
+                <option value="">Select ticket</option>
+                <option value="general">General admission</option>
+                <option value="vip">VIP</option>
+                <option value="student">Student</option>
+              </Select>
             </Field>
           </Col>
         </Row>
@@ -88,8 +75,8 @@ function EventRegistrationForm() {
               <Label>Number of guests</Label>
               <Input
                 type="number"
-                min="1"
-                max="10"
+                min={0}
+                max={20}
                 value={guestCount}
                 onChange={(e) => setGuestCount(e.target.value)}
                 required
@@ -105,7 +92,7 @@ function EventRegistrationForm() {
                 checked={newsletter}
                 onChange={(e) => setNewsletter(e.target.checked)}
               >
-                <Label>Subscribe to event newsletter</Label>
+                <Label>Notify me about future events</Label>
               </Checkbox>
             </Field>
           </Col>

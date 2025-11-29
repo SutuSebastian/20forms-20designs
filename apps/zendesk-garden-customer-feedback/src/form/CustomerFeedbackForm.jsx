@@ -5,29 +5,15 @@ import {
   Input,
   Textarea,
   Checkbox,
+  Select,
 } from '@zendeskgarden/react-forms'
 import { Button } from '@zendeskgarden/react-buttons'
 import { Grid, Row, Col } from '@zendeskgarden/react-grid'
-import {
-  Dropdown,
-  Trigger,
-  Select,
-  Menu,
-  Item,
-} from '@zendeskgarden/react-dropdowns'
-
-const RATING_OPTIONS = [
-  { value: '5', label: '5 - Excellent' },
-  { value: '4', label: '4 - Good' },
-  { value: '3', label: '3 - Average' },
-  { value: '2', label: '2 - Poor' },
-  { value: '1', label: '1 - Very Poor' },
-]
 
 function CustomerFeedbackForm() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [rating, setRating] = useState(RATING_OPTIONS[0])
+  const [rating, setRating] = useState('')
   const [comments, setComments] = useState('')
   const [followUp, setFollowUp] = useState(false)
 
@@ -42,20 +28,11 @@ function CustomerFeedbackForm() {
         <Row>
           <Col>
             <Field>
-              <Label>Name (optional)</Label>
-              <Input value={name} onChange={(e) => setName(e.target.value)} />
-            </Field>
-          </Col>
-        </Row>
-
-        <Row style={{ marginTop: '16px' }}>
-          <Col>
-            <Field>
-              <Label>Email (optional)</Label>
+              <Label>Name</Label>
               <Input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
               />
             </Field>
           </Col>
@@ -64,23 +41,32 @@ function CustomerFeedbackForm() {
         <Row style={{ marginTop: '16px' }}>
           <Col>
             <Field>
-              <Label>Rating</Label>
-              <Dropdown
-                selectedItem={rating}
-                onSelect={(item) => setRating(item)}
-                downshiftProps={{ itemToString: (item) => item?.label || '' }}
+              <Label>Email address</Label>
+              <Input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </Field>
+          </Col>
+        </Row>
+
+        <Row style={{ marginTop: '16px' }}>
+          <Col>
+            <Field>
+              <Label>Overall rating</Label>
+              <Select
+                value={rating}
+                onChange={(e) => setRating(e.target.value)}
+                required
               >
-                <Trigger>
-                  <Select>{rating.label}</Select>
-                </Trigger>
-                <Menu>
-                  {RATING_OPTIONS.map((option) => (
-                    <Item key={option.value} value={option}>
-                      {option.label}
-                    </Item>
-                  ))}
-                </Menu>
-              </Dropdown>
+                <option value="">Select rating</option>
+                <option value="excellent">Excellent</option>
+                <option value="good">Good</option>
+                <option value="average">Average</option>
+                <option value="poor">Poor</option>
+              </Select>
             </Field>
           </Col>
         </Row>
@@ -92,7 +78,8 @@ function CustomerFeedbackForm() {
               <Textarea
                 value={comments}
                 onChange={(e) => setComments(e.target.value)}
-                rows={5}
+                rows={4}
+                required
               />
             </Field>
           </Col>
@@ -105,7 +92,7 @@ function CustomerFeedbackForm() {
                 checked={followUp}
                 onChange={(e) => setFollowUp(e.target.checked)}
               >
-                <Label>I would like a follow-up response</Label>
+                <Label>I would like a follow-up</Label>
               </Checkbox>
             </Field>
           </Col>
@@ -114,7 +101,7 @@ function CustomerFeedbackForm() {
         <Row style={{ marginTop: '24px' }}>
           <Col>
             <Button type="submit" isPrimary>
-              Submit feedback
+              Send feedback
             </Button>
           </Col>
         </Row>

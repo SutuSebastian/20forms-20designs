@@ -1,12 +1,13 @@
 import { useState } from 'react'
-import { Box, Button, Flex, SelectList, TextField } from 'gestalt'
+import { Box, Button, Checkbox, Flex, SelectList, TextField } from 'gestalt'
 
 function AdvancedSearchForm() {
   const [query, setQuery] = useState('')
-  const [category, setCategory] = useState('')
+  const [category, setCategory] = useState('all')
   const [dateFrom, setDateFrom] = useState('')
   const [dateTo, setDateTo] = useState('')
-  const [sortBy, setSortBy] = useState('')
+  const [sortBy, setSortBy] = useState('relevance')
+  const [includeArchived, setIncludeArchived] = useState(false)
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -20,7 +21,6 @@ function AdvancedSearchForm() {
           id="gestalt-search-query"
           label="Search query"
           onChange={({ value }) => setQuery(value)}
-          placeholder="Enter search terms..."
           type="text"
           value={query}
         />
@@ -28,21 +28,15 @@ function AdvancedSearchForm() {
           id="gestalt-search-category"
           label="Category"
           onChange={({ value }) => setCategory(value)}
-          placeholder="All categories"
           value={category}
         >
           {[
-            { label: 'All categories', value: '' },
-            { label: 'Products', value: 'products' },
+            { label: 'All', value: 'all' },
             { label: 'Articles', value: 'articles' },
-            { label: 'Users', value: 'users' },
-            { label: 'Documentation', value: 'docs' },
+            { label: 'Products', value: 'products' },
+            { label: 'People', value: 'people' },
           ].map(({ label, value }) => (
-            <SelectList.Option
-              key={value || 'all'}
-              label={label}
-              value={value}
-            />
+            <SelectList.Option key={value} label={label} value={value} />
           ))}
         </SelectList>
         <TextField
@@ -63,18 +57,22 @@ function AdvancedSearchForm() {
           id="gestalt-search-sort"
           label="Sort by"
           onChange={({ value }) => setSortBy(value)}
-          placeholder="Relevance"
           value={sortBy}
         >
           {[
             { label: 'Relevance', value: 'relevance' },
-            { label: 'Date (newest first)', value: 'date-desc' },
-            { label: 'Date (oldest first)', value: 'date-asc' },
-            { label: 'Popularity', value: 'popularity' },
+            { label: 'Newest', value: 'newest' },
+            { label: 'Oldest', value: 'oldest' },
           ].map(({ label, value }) => (
             <SelectList.Option key={value} label={label} value={value} />
           ))}
         </SelectList>
+        <Checkbox
+          checked={includeArchived}
+          id="gestalt-search-archived"
+          label="Include archived"
+          onChange={({ checked }) => setIncludeArchived(checked)}
+        />
         <Box>
           <Button color="red" text="Search" type="submit" />
         </Box>

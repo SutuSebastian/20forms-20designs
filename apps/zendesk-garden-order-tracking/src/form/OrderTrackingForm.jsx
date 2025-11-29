@@ -10,7 +10,7 @@ function OrderTrackingForm() {
 
   const handleSubmit = useCallback((event) => {
     event.preventDefault()
-    alert('Tracking your order...')
+    alert('Order lookup submitted!')
   }, [])
 
   return (
@@ -23,7 +23,6 @@ function OrderTrackingForm() {
               <Input
                 value={orderNumber}
                 onChange={(e) => setOrderNumber(e.target.value)}
-                placeholder="e.g., ORD-12345"
                 required
               />
             </Field>
@@ -47,7 +46,7 @@ function OrderTrackingForm() {
         <Row style={{ marginTop: '16px' }}>
           <Col>
             <Field>
-              <Label>Billing postal code</Label>
+              <Label>Postal code</Label>
               <Input
                 value={postalCode}
                 onChange={(e) => setPostalCode(e.target.value)}
@@ -60,7 +59,7 @@ function OrderTrackingForm() {
         <Row style={{ marginTop: '24px' }}>
           <Col>
             <Button type="submit" isPrimary>
-              Track order
+              Find order
             </Button>
           </Col>
         </Row>

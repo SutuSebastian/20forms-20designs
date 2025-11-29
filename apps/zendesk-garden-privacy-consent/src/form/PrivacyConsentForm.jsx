@@ -12,16 +12,16 @@ import { Grid, Row, Col } from '@zendeskgarden/react-grid'
 function PrivacyConsentForm() {
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
-  const [emailComm, setEmailComm] = useState(true)
-  const [smsComm, setSmsComm] = useState(false)
-  const [phoneComm, setPhoneComm] = useState(false)
-  const [analytics, setAnalytics] = useState(true)
-  const [personalization, setPersonalization] = useState(true)
+  const [emailOptIn, setEmailOptIn] = useState(false)
+  const [smsOptIn, setSmsOptIn] = useState(false)
+  const [phoneOptIn, setPhoneOptIn] = useState(false)
+  const [analytics, setAnalytics] = useState(false)
+  const [personalization, setPersonalization] = useState(false)
   const [notes, setNotes] = useState('')
 
   const handleSubmit = useCallback((event) => {
     event.preventDefault()
-    alert('Preferences saved!')
+    alert('Privacy preferences saved!')
   }, [])
 
   return (
@@ -43,7 +43,7 @@ function PrivacyConsentForm() {
         <Row style={{ marginTop: '16px' }}>
           <Col>
             <Field>
-              <Label>Email</Label>
+              <Label>Email address</Label>
               <Input
                 type="email"
                 value={email}
@@ -56,69 +56,61 @@ function PrivacyConsentForm() {
 
         <Row style={{ marginTop: '24px' }}>
           <Col>
-            <Label
-              style={{
-                fontWeight: 'bold',
-                marginBottom: '8px',
-                display: 'block',
-              }}
-            >
-              Communication Preferences
-            </Label>
-            <Field style={{ marginBottom: '8px' }}>
-              <Checkbox
-                checked={emailComm}
-                onChange={(e) => setEmailComm(e.target.checked)}
-              >
-                <Label>Email communications</Label>
-              </Checkbox>
-            </Field>
-            <Field style={{ marginBottom: '8px' }}>
-              <Checkbox
-                checked={smsComm}
-                onChange={(e) => setSmsComm(e.target.checked)}
-              >
-                <Label>SMS notifications</Label>
-              </Checkbox>
-            </Field>
-            <Field>
-              <Checkbox
-                checked={phoneComm}
-                onChange={(e) => setPhoneComm(e.target.checked)}
-              >
-                <Label>Phone calls</Label>
-              </Checkbox>
-            </Field>
+            <fieldset style={{ border: 'none', padding: 0, margin: 0 }}>
+              <legend style={{ fontWeight: 'bold', marginBottom: '8px' }}>
+                Communication channels
+              </legend>
+              <Field style={{ marginBottom: '8px' }}>
+                <Checkbox
+                  checked={emailOptIn}
+                  onChange={(e) => setEmailOptIn(e.target.checked)}
+                >
+                  <Label>Email updates</Label>
+                </Checkbox>
+              </Field>
+              <Field style={{ marginBottom: '8px' }}>
+                <Checkbox
+                  checked={smsOptIn}
+                  onChange={(e) => setSmsOptIn(e.target.checked)}
+                >
+                  <Label>SMS notifications</Label>
+                </Checkbox>
+              </Field>
+              <Field>
+                <Checkbox
+                  checked={phoneOptIn}
+                  onChange={(e) => setPhoneOptIn(e.target.checked)}
+                >
+                  <Label>Phone calls</Label>
+                </Checkbox>
+              </Field>
+            </fieldset>
           </Col>
         </Row>
 
         <Row style={{ marginTop: '24px' }}>
           <Col>
-            <Label
-              style={{
-                fontWeight: 'bold',
-                marginBottom: '8px',
-                display: 'block',
-              }}
-            >
-              Privacy Settings
-            </Label>
-            <Field style={{ marginBottom: '8px' }}>
-              <Checkbox
-                checked={analytics}
-                onChange={(e) => setAnalytics(e.target.checked)}
-              >
-                <Label>Allow analytics cookies</Label>
-              </Checkbox>
-            </Field>
-            <Field>
-              <Checkbox
-                checked={personalization}
-                onChange={(e) => setPersonalization(e.target.checked)}
-              >
-                <Label>Allow personalization</Label>
-              </Checkbox>
-            </Field>
+            <fieldset style={{ border: 'none', padding: 0, margin: 0 }}>
+              <legend style={{ fontWeight: 'bold', marginBottom: '8px' }}>
+                Privacy options
+              </legend>
+              <Field style={{ marginBottom: '8px' }}>
+                <Checkbox
+                  checked={analytics}
+                  onChange={(e) => setAnalytics(e.target.checked)}
+                >
+                  <Label>Allow analytics cookies</Label>
+                </Checkbox>
+              </Field>
+              <Field>
+                <Checkbox
+                  checked={personalization}
+                  onChange={(e) => setPersonalization(e.target.checked)}
+                >
+                  <Label>Allow personalized content</Label>
+                </Checkbox>
+              </Field>
+            </fieldset>
           </Col>
         </Row>
 

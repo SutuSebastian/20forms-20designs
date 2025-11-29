@@ -10,11 +10,11 @@ import {
 } from 'gestalt'
 
 function CustomerFeedbackForm() {
-  const [fullName, setFullName] = useState('')
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [rating, setRating] = useState('')
   const [comments, setComments] = useState('')
-  const [contactMe, setContactMe] = useState(false)
+  const [followUp, setFollowUp] = useState(false)
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -26,10 +26,10 @@ function CustomerFeedbackForm() {
       <Flex direction="column" gap={4}>
         <TextField
           id="gestalt-feedback-name"
-          label="Full name"
-          onChange={({ value }) => setFullName(value)}
+          label="Name"
+          onChange={({ value }) => setName(value)}
           type="text"
-          value={fullName}
+          value={name}
         />
         <TextField
           id="gestalt-feedback-email"
@@ -46,11 +46,10 @@ function CustomerFeedbackForm() {
           value={rating}
         >
           {[
-            { label: 'Excellent', value: '5' },
-            { label: 'Good', value: '4' },
-            { label: 'Average', value: '3' },
-            { label: 'Poor', value: '2' },
-            { label: 'Very poor', value: '1' },
+            { label: 'Excellent', value: 'excellent' },
+            { label: 'Good', value: 'good' },
+            { label: 'Average', value: 'average' },
+            { label: 'Poor', value: 'poor' },
           ].map(({ label, value }) => (
             <SelectList.Option key={value} label={label} value={value} />
           ))}
@@ -59,17 +58,16 @@ function CustomerFeedbackForm() {
           id="gestalt-feedback-comments"
           label="Comments"
           onChange={({ value }) => setComments(value)}
-          placeholder="Share your experience..."
           value={comments}
         />
         <Checkbox
-          checked={contactMe}
+          checked={followUp}
           id="gestalt-feedback-contact"
-          label="I'd like to be contacted about my feedback"
-          onChange={({ checked }) => setContactMe(checked)}
+          label="I would like a follow-up"
+          onChange={({ checked }) => setFollowUp(checked)}
         />
         <Box>
-          <Button color="red" text="Submit feedback" type="submit" />
+          <Button color="red" text="Send feedback" type="submit" />
         </Box>
       </Flex>
     </form>

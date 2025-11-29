@@ -1,37 +1,20 @@
 import { useState, useCallback } from 'react'
-import { Field, Label, Input, Checkbox } from '@zendeskgarden/react-forms'
+import {
+  Field,
+  Label,
+  Input,
+  Checkbox,
+  Select,
+} from '@zendeskgarden/react-forms'
 import { Button } from '@zendeskgarden/react-buttons'
 import { Grid, Row, Col } from '@zendeskgarden/react-grid'
-import {
-  Dropdown,
-  Trigger,
-  Select,
-  Menu,
-  Item,
-} from '@zendeskgarden/react-dropdowns'
-
-const CATEGORY_OPTIONS = [
-  { value: 'all', label: 'All Categories' },
-  { value: 'articles', label: 'Articles' },
-  { value: 'products', label: 'Products' },
-  { value: 'users', label: 'Users' },
-  { value: 'documents', label: 'Documents' },
-]
-
-const SORT_OPTIONS = [
-  { value: 'relevance', label: 'Relevance' },
-  { value: 'date-desc', label: 'Date (Newest first)' },
-  { value: 'date-asc', label: 'Date (Oldest first)' },
-  { value: 'title-asc', label: 'Title (A-Z)' },
-  { value: 'title-desc', label: 'Title (Z-A)' },
-]
 
 function AdvancedSearchForm() {
   const [query, setQuery] = useState('')
-  const [category, setCategory] = useState(CATEGORY_OPTIONS[0])
+  const [category, setCategory] = useState('all')
   const [dateFrom, setDateFrom] = useState('')
   const [dateTo, setDateTo] = useState('')
-  const [sortBy, setSortBy] = useState(SORT_OPTIONS[0])
+  const [sortBy, setSortBy] = useState('relevance')
   const [includeArchived, setIncludeArchived] = useState(false)
 
   const handleSubmit = useCallback((event) => {
@@ -49,7 +32,6 @@ function AdvancedSearchForm() {
               <Input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Enter keywords..."
                 required
               />
             </Field>
@@ -60,22 +42,16 @@ function AdvancedSearchForm() {
           <Col>
             <Field>
               <Label>Category</Label>
-              <Dropdown
-                selectedItem={category}
-                onSelect={(item) => setCategory(item)}
-                downshiftProps={{ itemToString: (item) => item?.label || '' }}
+              <Select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                required
               >
-                <Trigger>
-                  <Select>{category.label}</Select>
-                </Trigger>
-                <Menu>
-                  {CATEGORY_OPTIONS.map((option) => (
-                    <Item key={option.value} value={option}>
-                      {option.label}
-                    </Item>
-                  ))}
-                </Menu>
-              </Dropdown>
+                <option value="all">All</option>
+                <option value="articles">Articles</option>
+                <option value="products">Products</option>
+                <option value="people">People</option>
+              </Select>
             </Field>
           </Col>
         </Row>
@@ -107,22 +83,15 @@ function AdvancedSearchForm() {
           <Col>
             <Field>
               <Label>Sort by</Label>
-              <Dropdown
-                selectedItem={sortBy}
-                onSelect={(item) => setSortBy(item)}
-                downshiftProps={{ itemToString: (item) => item?.label || '' }}
+              <Select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                required
               >
-                <Trigger>
-                  <Select>{sortBy.label}</Select>
-                </Trigger>
-                <Menu>
-                  {SORT_OPTIONS.map((option) => (
-                    <Item key={option.value} value={option}>
-                      {option.label}
-                    </Item>
-                  ))}
-                </Menu>
-              </Dropdown>
+                <option value="relevance">Relevance</option>
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+              </Select>
             </Field>
           </Col>
         </Row>
@@ -134,7 +103,7 @@ function AdvancedSearchForm() {
                 checked={includeArchived}
                 onChange={(e) => setIncludeArchived(e.target.checked)}
               >
-                <Label>Include archived items</Label>
+                <Label>Include archived</Label>
               </Checkbox>
             </Field>
           </Col>

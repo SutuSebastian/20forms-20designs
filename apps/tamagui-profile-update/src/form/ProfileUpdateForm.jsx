@@ -10,11 +10,21 @@ function ProfileUpdateForm() {
     <form onSubmit={handleSubmit}>
       <YStack gap="$3">
         <YStack gap="$1">
-          <Label htmlFor="displayName">Display name</Label>
+          <Label htmlFor="firstName">First name</Label>
           <Input
-            id="displayName"
-            name="displayName"
-            placeholder="Display name"
+            id="firstName"
+            name="firstName"
+            placeholder="First name"
+            required
+          />
+        </YStack>
+
+        <YStack gap="$1">
+          <Label htmlFor="lastName">Last name</Label>
+          <Input
+            id="lastName"
+            name="lastName"
+            placeholder="Last name"
             required
           />
         </YStack>
@@ -37,26 +47,18 @@ function ProfileUpdateForm() {
             name="phone"
             inputMode="tel"
             placeholder="Phone number"
+            required
           />
         </YStack>
 
         <YStack gap="$1">
-          <Label htmlFor="bio">Bio</Label>
+          <Label htmlFor="bio">Short bio</Label>
           <TextArea
             id="bio"
             name="bio"
-            placeholder="Tell us about yourself"
+            placeholder="Short bio"
             rows={3}
-          />
-        </YStack>
-
-        <YStack gap="$1">
-          <Label htmlFor="website">Website</Label>
-          <Input
-            id="website"
-            name="website"
-            inputMode="url"
-            placeholder="https://example.com"
+            required
           />
         </YStack>
 

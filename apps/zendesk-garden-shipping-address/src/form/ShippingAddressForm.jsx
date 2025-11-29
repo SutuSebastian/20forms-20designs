@@ -1,41 +1,30 @@
-import { useState, useCallback, useMemo } from 'react'
-import { Field, Label, Input, Checkbox } from '@zendeskgarden/react-forms'
+import { useState, useCallback } from 'react'
+import {
+  Field,
+  Label,
+  Input,
+  Checkbox,
+  Select,
+} from '@zendeskgarden/react-forms'
 import { Button } from '@zendeskgarden/react-buttons'
 import { Grid, Row, Col } from '@zendeskgarden/react-grid'
-import {
-  Dropdown,
-  Trigger,
-  Select,
-  Menu,
-  Item,
-} from '@zendeskgarden/react-dropdowns'
 import { COUNTRIES, US_STATES, CANADIAN_PROVINCES } from './locationOptions'
 
 function ShippingAddressForm() {
   const [fullName, setFullName] = useState('')
-  const [streetAddress, setStreetAddress] = useState('')
-  const [streetAddress2, setStreetAddress2] = useState('')
+  const [street, setStreet] = useState('')
+  const [street2, setStreet2] = useState('')
   const [city, setCity] = useState('')
-  const [country, setCountry] = useState({
-    value: 'US',
-    label: 'United States',
-  })
-  const [region, setRegion] = useState(null)
+  const [country, setCountry] = useState('US')
+  const [region, setRegion] = useState('')
   const [postalCode, setPostalCode] = useState('')
   const [isDefault, setIsDefault] = useState(false)
 
-  const regionOptions = useMemo(() => {
-    if (country?.value === 'US') {
-      return US_STATES.map((s) => ({ value: s, label: s }))
-    } else if (country?.value === 'CA') {
-      return CANADIAN_PROVINCES.map((p) => ({ value: p, label: p }))
-    }
-    return []
-  }, [country])
+  const regionOptions = country === 'CA' ? CANADIAN_PROVINCES : US_STATES
 
   const handleSubmit = useCallback((event) => {
     event.preventDefault()
-    alert('Address saved!')
+    alert('Shipping address saved!')
   }, [])
 
   return (
@@ -44,7 +33,7 @@ function ShippingAddressForm() {
         <Row>
           <Col>
             <Field>
-              <Label>Full name</Label>
+              <Label>Recipient name</Label>
               <Input
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
@@ -59,8 +48,8 @@ function ShippingAddressForm() {
             <Field>
               <Label>Street address</Label>
               <Input
-                value={streetAddress}
-                onChange={(e) => setStreetAddress(e.target.value)}
+                value={street}
+                onChange={(e) => setStreet(e.target.value)}
                 required
               />
             </Field>
@@ -70,17 +59,17 @@ function ShippingAddressForm() {
         <Row style={{ marginTop: '16px' }}>
           <Col>
             <Field>
-              <Label>Street address line 2</Label>
+              <Label>Apartment, suite, etc.</Label>
               <Input
-                value={streetAddress2}
-                onChange={(e) => setStreetAddress2(e.target.value)}
+                value={street2}
+                onChange={(e) => setStreet2(e.target.value)}
               />
             </Field>
           </Col>
         </Row>
 
         <Row style={{ marginTop: '16px' }}>
-          <Col sm={6}>
+          <Col>
             <Field>
               <Label>City</Label>
               <Input
@@ -90,57 +79,52 @@ function ShippingAddressForm() {
               />
             </Field>
           </Col>
-          <Col sm={6}>
+        </Row>
+
+        <Row style={{ marginTop: '16px' }}>
+          <Col>
             <Field>
               <Label>Country</Label>
-              <Dropdown
-                selectedItem={country}
-                onSelect={(item) => {
-                  setCountry(item)
-                  setRegion(null)
+              <Select
+                value={country}
+                onChange={(e) => {
+                  setCountry(e.target.value)
+                  setRegion('')
                 }}
-                downshiftProps={{ itemToString: (item) => item?.label || '' }}
+                required
               >
-                <Trigger>
-                  <Select>{country?.label || 'Select country'}</Select>
-                </Trigger>
-                <Menu>
-                  {COUNTRIES.map((c) => (
-                    <Item key={c.value} value={c}>
-                      {c.label}
-                    </Item>
-                  ))}
-                </Menu>
-              </Dropdown>
+                {COUNTRIES.map((c) => (
+                  <option key={c.value} value={c.value}>
+                    {c.label}
+                  </option>
+                ))}
+              </Select>
             </Field>
           </Col>
         </Row>
 
         <Row style={{ marginTop: '16px' }}>
-          <Col sm={6}>
-            {regionOptions.length > 0 && (
-              <Field>
-                <Label>State / Province</Label>
-                <Dropdown
-                  selectedItem={region}
-                  onSelect={(item) => setRegion(item)}
-                  downshiftProps={{ itemToString: (item) => item?.label || '' }}
-                >
-                  <Trigger>
-                    <Select>{region?.label || 'Select region'}</Select>
-                  </Trigger>
-                  <Menu>
-                    {regionOptions.map((r) => (
-                      <Item key={r.value} value={r}>
-                        {r.label}
-                      </Item>
-                    ))}
-                  </Menu>
-                </Dropdown>
-              </Field>
-            )}
+          <Col>
+            <Field>
+              <Label>State / Province / Territory</Label>
+              <Select
+                value={region}
+                onChange={(e) => setRegion(e.target.value)}
+                required
+              >
+                <option value="">Select an option</option>
+                {regionOptions.map((r) => (
+                  <option key={r} value={r}>
+                    {r}
+                  </option>
+                ))}
+              </Select>
+            </Field>
           </Col>
-          <Col sm={6}>
+        </Row>
+
+        <Row style={{ marginTop: '16px' }}>
+          <Col>
             <Field>
               <Label>Postal code</Label>
               <Input
@@ -159,7 +143,7 @@ function ShippingAddressForm() {
                 checked={isDefault}
                 onChange={(e) => setIsDefault(e.target.checked)}
               >
-                <Label>Set as default shipping address</Label>
+                <Label>Use as default shipping address</Label>
               </Checkbox>
             </Field>
           </Col>

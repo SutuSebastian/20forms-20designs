@@ -5,28 +5,15 @@ import {
   Input,
   Textarea,
   Checkbox,
+  Select,
 } from '@zendeskgarden/react-forms'
 import { Button } from '@zendeskgarden/react-buttons'
 import { Grid, Row, Col } from '@zendeskgarden/react-grid'
-import {
-  Dropdown,
-  Trigger,
-  Select,
-  Menu,
-  Item,
-} from '@zendeskgarden/react-dropdowns'
-
-const TOPIC_OPTIONS = [
-  { value: 'general', label: 'General Inquiry' },
-  { value: 'support', label: 'Technical Support' },
-  { value: 'sales', label: 'Sales Question' },
-  { value: 'feedback', label: 'Feedback' },
-]
 
 function ContactInquiryForm() {
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
-  const [topic, setTopic] = useState(TOPIC_OPTIONS[0])
+  const [topic, setTopic] = useState('')
   const [message, setMessage] = useState('')
   const [consent, setConsent] = useState(false)
 
@@ -54,7 +41,7 @@ function ContactInquiryForm() {
         <Row style={{ marginTop: '16px' }}>
           <Col>
             <Field>
-              <Label>Email</Label>
+              <Label>Email address</Label>
               <Input
                 type="email"
                 value={email}
@@ -69,22 +56,17 @@ function ContactInquiryForm() {
           <Col>
             <Field>
               <Label>Topic</Label>
-              <Dropdown
-                selectedItem={topic}
-                onSelect={(item) => setTopic(item)}
-                downshiftProps={{ itemToString: (item) => item?.label || '' }}
+              <Select
+                value={topic}
+                onChange={(e) => setTopic(e.target.value)}
+                required
               >
-                <Trigger>
-                  <Select>{topic.label}</Select>
-                </Trigger>
-                <Menu>
-                  {TOPIC_OPTIONS.map((option) => (
-                    <Item key={option.value} value={option}>
-                      {option.label}
-                    </Item>
-                  ))}
-                </Menu>
-              </Dropdown>
+                <option value="">Select topic</option>
+                <option value="support">Support</option>
+                <option value="sales">Sales</option>
+                <option value="feedback">Feedback</option>
+                <option value="other">Other</option>
+              </Select>
             </Field>
           </Col>
         </Row>
@@ -96,7 +78,7 @@ function ContactInquiryForm() {
               <Textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                rows={5}
+                rows={4}
                 required
               />
             </Field>
@@ -109,9 +91,8 @@ function ContactInquiryForm() {
               <Checkbox
                 checked={consent}
                 onChange={(e) => setConsent(e.target.checked)}
-                required
               >
-                <Label>I consent to being contacted about my inquiry</Label>
+                <Label>Allow follow-up communication</Label>
               </Checkbox>
             </Field>
           </Col>

@@ -1,55 +1,76 @@
 import {
   Button,
-  Checkbox,
   Input,
   Label,
-  XStack,
   YStack,
-  Text,
   Select,
 } from 'tamagui'
 import { useState } from 'react'
 
 function BillingInfoForm() {
-  const [country, setCountry] = useState('US')
-  const [sameAsShipping, setSameAsShipping] = useState(false)
+  const [country, setCountry] = useState('')
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    alert('Billing information saved!')
+    alert('Billing details saved!')
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <YStack gap="$3">
         <YStack gap="$1">
-          <Label htmlFor="fullName">Full name</Label>
+          <Label htmlFor="cardName">Name on card</Label>
           <Input
-            id="fullName"
-            name="fullName"
-            placeholder="Full name"
+            id="cardName"
+            name="cardName"
+            placeholder="Name on card"
             required
           />
         </YStack>
 
         <YStack gap="$1">
-          <Label htmlFor="company">Company (optional)</Label>
-          <Input id="company" name="company" placeholder="Company" />
+          <Label htmlFor="cardNumber">Card number</Label>
+          <Input
+            id="cardNumber"
+            name="cardNumber"
+            inputMode="numeric"
+            placeholder="Card number"
+            maxLength={19}
+            required
+          />
         </YStack>
 
         <YStack gap="$1">
-          <Label htmlFor="address">Street address</Label>
+          <Label htmlFor="expiration">Expiration date</Label>
+          <Input
+            id="expiration"
+            name="expiration"
+            placeholder="MM/YY"
+            inputMode="numeric"
+            required
+          />
+        </YStack>
+
+        <YStack gap="$1">
+          <Label htmlFor="cvc">Security code</Label>
+          <Input
+            id="cvc"
+            name="cvc"
+            inputMode="numeric"
+            placeholder="Security code"
+            maxLength={4}
+            required
+          />
+        </YStack>
+
+        <YStack gap="$1">
+          <Label htmlFor="address">Billing address</Label>
           <Input
             id="address"
             name="address"
-            placeholder="Street address"
+            placeholder="Billing address"
             required
           />
-        </YStack>
-
-        <YStack gap="$1">
-          <Label htmlFor="city">City</Label>
-          <Input id="city" name="city" placeholder="City" required />
         </YStack>
 
         <YStack gap="$1">
@@ -65,48 +86,12 @@ function BillingInfoForm() {
               <Select.Item index={1} value="CA">
                 <Select.ItemText>Canada</Select.ItemText>
               </Select.Item>
-              <Select.Item index={2} value="UK">
-                <Select.ItemText>United Kingdom</Select.ItemText>
-              </Select.Item>
             </Select.Content>
           </Select>
         </YStack>
 
-        <YStack gap="$1">
-          <Label htmlFor="postalCode">Postal code</Label>
-          <Input
-            id="postalCode"
-            name="postalCode"
-            placeholder="Postal code"
-            required
-          />
-        </YStack>
-
-        <YStack gap="$1">
-          <Label htmlFor="phone">Phone number</Label>
-          <Input
-            id="phone"
-            name="phone"
-            inputMode="tel"
-            placeholder="Phone number"
-          />
-        </YStack>
-
-        <XStack gap="$2" alignItems="center">
-          <Checkbox
-            id="sameAsShipping"
-            checked={sameAsShipping}
-            onCheckedChange={setSameAsShipping}
-          >
-            <Checkbox.Indicator>
-              <Text>✓</Text>
-            </Checkbox.Indicator>
-          </Checkbox>
-          <Label htmlFor="sameAsShipping">Same as shipping address</Label>
-        </XStack>
-
         <Button themeInverse onPress={() => {}}>
-          Save billing information
+          Save billing details
         </Button>
       </YStack>
     </form>

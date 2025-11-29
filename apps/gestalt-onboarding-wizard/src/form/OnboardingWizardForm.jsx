@@ -6,18 +6,17 @@ import {
   Flex,
   Heading,
   SelectList,
+  TextArea,
   TextField,
 } from 'gestalt'
 
 function OnboardingWizardForm() {
-  const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
-  const [companyName, setCompanyName] = useState('')
-  const [companySize, setCompanySize] = useState('')
-  const [industry, setIndustry] = useState('')
-  const [role, setRole] = useState('')
-  const [acceptTerms, setAcceptTerms] = useState(false)
-  const [subscribeUpdates, setSubscribeUpdates] = useState(false)
+  const [password, setPassword] = useState('')
+  const [teamName, setTeamName] = useState('')
+  const [teamSize, setTeamSize] = useState('')
+  const [goal, setGoal] = useState('')
+  const [updates, setUpdates] = useState(false)
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -29,71 +28,53 @@ function OnboardingWizardForm() {
       <Flex direction="column" gap={6}>
         <Box>
           <Heading accessibilityLevel={3} size="400">
-            Personal Information
+            Step 1: Account
           </Heading>
           <Box marginTop={3}>
             <Flex direction="column" gap={4}>
               <TextField
-                id="gestalt-onboard-name"
-                label="Full name"
-                onChange={({ value }) => setFullName(value)}
-                type="text"
-                value={fullName}
-              />
-              <TextField
                 id="gestalt-onboard-email"
-                label="Email address"
+                label="Work email"
                 onChange={({ value }) => setEmail(value)}
                 type="email"
                 value={email}
               />
+              <TextField
+                id="gestalt-onboard-password"
+                label="Password"
+                onChange={({ value }) => setPassword(value)}
+                type="password"
+                value={password}
+              />
             </Flex>
           </Box>
         </Box>
 
         <Box>
           <Heading accessibilityLevel={3} size="400">
-            Company Details
+            Step 2: Team
           </Heading>
           <Box marginTop={3}>
             <Flex direction="column" gap={4}>
               <TextField
-                id="gestalt-onboard-company"
-                label="Company name"
-                onChange={({ value }) => setCompanyName(value)}
+                id="gestalt-onboard-team-name"
+                label="Team name"
+                onChange={({ value }) => setTeamName(value)}
                 type="text"
-                value={companyName}
+                value={teamName}
               />
               <SelectList
                 id="gestalt-onboard-size"
-                label="Company size"
-                onChange={({ value }) => setCompanySize(value)}
+                label="Team size"
+                onChange={({ value }) => setTeamSize(value)}
                 placeholder="Select size"
-                value={companySize}
+                value={teamSize}
               >
                 {[
-                  { label: '1-10 employees', value: '1-10' },
-                  { label: '11-50 employees', value: '11-50' },
-                  { label: '51-200 employees', value: '51-200' },
-                  { label: '201-500 employees', value: '201-500' },
-                  { label: '500+ employees', value: '500+' },
-                ].map(({ label, value }) => (
-                  <SelectList.Option key={value} label={label} value={value} />
-                ))}
-              </SelectList>
-              <SelectList
-                id="gestalt-onboard-industry"
-                label="Industry"
-                onChange={({ value }) => setIndustry(value)}
-                placeholder="Select industry"
-                value={industry}
-              >
-                {[
-                  { label: 'Technology', value: 'technology' },
-                  { label: 'Healthcare', value: 'healthcare' },
-                  { label: 'Finance', value: 'finance' },
-                  { label: 'Education', value: 'education' },
-                  { label: 'Other', value: 'other' },
+                  { label: '1-5', value: '1-5' },
+                  { label: '6-20', value: '6-20' },
+                  { label: '21-50', value: '21-50' },
+                  { label: '50+', value: '50+' },
                 ].map(({ label, value }) => (
                   <SelectList.Option key={value} label={label} value={value} />
                 ))}
@@ -104,54 +85,34 @@ function OnboardingWizardForm() {
 
         <Box>
           <Heading accessibilityLevel={3} size="400">
-            Your Role
+            Step 3: Preferences
           </Heading>
           <Box marginTop={3}>
-            <SelectList
-              id="gestalt-onboard-role"
-              label="Job role"
-              onChange={({ value }) => setRole(value)}
-              placeholder="Select role"
-              value={role}
-            >
-              {[
-                { label: 'Developer', value: 'developer' },
-                { label: 'Designer', value: 'designer' },
-                { label: 'Product Manager', value: 'pm' },
-                { label: 'Executive', value: 'executive' },
-                { label: 'Other', value: 'other' },
-              ].map(({ label, value }) => (
-                <SelectList.Option key={value} label={label} value={value} />
-              ))}
-            </SelectList>
-          </Box>
-        </Box>
-
-        <Box>
-          <Heading accessibilityLevel={3} size="400">
-            Preferences
-          </Heading>
-          <Box marginTop={3}>
-            <Flex direction="column" gap={3}>
-              <Checkbox
-                checked={acceptTerms}
-                id="gestalt-onboard-terms"
-                label="I accept the terms and conditions"
-                onChange={({ checked }) => setAcceptTerms(checked)}
+            <Flex direction="column" gap={4}>
+              <TextArea
+                id="gestalt-onboard-goal"
+                label="Primary goal"
+                onChange={({ value }) => setGoal(value)}
+                value={goal}
               />
               <Checkbox
-                checked={subscribeUpdates}
+                checked={updates}
                 id="gestalt-onboard-updates"
-                label="Subscribe to product updates"
-                onChange={({ checked }) => setSubscribeUpdates(checked)}
+                label="Send me product tips"
+                onChange={({ checked }) => setUpdates(checked)}
               />
             </Flex>
           </Box>
         </Box>
 
-        <Box>
-          <Button color="red" text="Complete setup" type="submit" />
-        </Box>
+        <Flex gap={2}>
+          <Button
+            color="gray"
+            onClick={() => alert('Back action placeholder')}
+            text="Back"
+          />
+          <Button color="red" text="Finish setup" type="submit" />
+        </Flex>
       </Flex>
     </form>
   )

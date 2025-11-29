@@ -1,16 +1,18 @@
 import { useState } from 'react'
-import { Box, Button, Flex, SelectList, TextArea, TextField } from 'gestalt'
+import { Box, Button, Checkbox, Flex, TextArea, TextField } from 'gestalt'
 
 function JobApplicationForm() {
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-  const [position, setPosition] = useState('')
+  const [role, setRole] = useState('')
+  const [resume, setResume] = useState('')
   const [coverLetter, setCoverLetter] = useState('')
+  const [updates, setUpdates] = useState(false)
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    alert('Job application submitted!')
+    alert('Application submitted!')
   }
 
   return (
@@ -37,28 +39,31 @@ function JobApplicationForm() {
           type="tel"
           value={phone}
         />
-        <SelectList
-          id="gestalt-job-position"
-          label="Position applying for"
-          onChange={({ value }) => setPosition(value)}
-          placeholder="Select position"
-          value={position}
-        >
-          {[
-            { label: 'Software engineer', value: 'engineer' },
-            { label: 'Product designer', value: 'designer' },
-            { label: 'Product manager', value: 'manager' },
-            { label: 'Data analyst', value: 'analyst' },
-          ].map(({ label, value }) => (
-            <SelectList.Option key={value} label={label} value={value} />
-          ))}
-        </SelectList>
+        <TextField
+          id="gestalt-job-role"
+          label="Role applied for"
+          onChange={({ value }) => setRole(value)}
+          type="text"
+          value={role}
+        />
+        <TextField
+          id="gestalt-job-resume"
+          label="Resume link"
+          onChange={({ value }) => setResume(value)}
+          type="url"
+          value={resume}
+        />
         <TextArea
           id="gestalt-job-cover"
           label="Cover letter"
           onChange={({ value }) => setCoverLetter(value)}
-          placeholder="Tell us why you're a great fit..."
           value={coverLetter}
+        />
+        <Checkbox
+          checked={updates}
+          id="gestalt-job-updates"
+          label="Keep me informed about future roles"
+          onChange={({ checked }) => setUpdates(checked)}
         />
         <Box>
           <Button color="red" text="Submit application" type="submit" />

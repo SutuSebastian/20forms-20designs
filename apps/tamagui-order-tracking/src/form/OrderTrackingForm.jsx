@@ -1,38 +1,47 @@
-import { Button, Input, Label, YStack, Text } from 'tamagui'
+import { Button, Input, Label, YStack } from 'tamagui'
 
 function OrderTrackingForm() {
   const handleSubmit = (event) => {
     event.preventDefault()
-    alert('Tracking order...')
+    alert('Order lookup submitted!')
   }
 
   return (
     <form onSubmit={handleSubmit}>
       <YStack gap="$3">
-        <Text>Enter your order number to track your shipment.</Text>
-
         <YStack gap="$1">
           <Label htmlFor="orderNumber">Order number</Label>
           <Input
             id="orderNumber"
             name="orderNumber"
-            placeholder="e.g., ORD-123456"
+            placeholder="Order number"
             required
           />
         </YStack>
 
         <YStack gap="$1">
-          <Label htmlFor="email">Email address (optional)</Label>
+          <Label htmlFor="email">Email address</Label>
           <Input
             id="email"
             name="email"
             inputMode="email"
             placeholder="Email address"
+            required
+          />
+        </YStack>
+
+        <YStack gap="$1">
+          <Label htmlFor="postalCode">Postal code</Label>
+          <Input
+            id="postalCode"
+            name="postalCode"
+            placeholder="Postal code"
+            required
           />
         </YStack>
 
         <Button themeInverse onPress={() => {}}>
-          Track order
+          Find order
         </Button>
       </YStack>
     </form>
