@@ -1,5 +1,13 @@
 import { useState } from 'react'
-import { Box, Button, Checkbox, Flex, Heading, SelectList, TextField } from 'gestalt'
+import {
+  Box,
+  Button,
+  Checkbox,
+  Flex,
+  Heading,
+  SelectList,
+  TextField,
+} from 'gestalt'
 
 function OnboardingWizardForm() {
   const [fullName, setFullName] = useState('')

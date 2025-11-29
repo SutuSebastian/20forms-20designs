@@ -15,6 +15,7 @@ export type LibraryId =
   | 'chakra'
   | 'elastic-ui'
   | 'nextui'
+  | 'geist-ui'
 
 // Form ID for iframe URLs
 export type FormId =
@@ -71,6 +72,7 @@ export const LIBRARY_NAME_TO_ID: Record<string, LibraryId | undefined> = {
   'Chakra UI': 'chakra',
   'Elastic UI (EUI)': 'elastic-ui',
   NextUI: 'nextui',
+  'Geist UI': 'geist-ui',
 }
 
 // Map from form name to form ID (for iframe URLs)
@@ -256,8 +258,8 @@ export const LIBRARIES: Library[] = [
     directory: 'geist-ui',
     website: 'https://geist-ui.dev',
     repo: 'https://github.com/geist-org/geist-ui',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'shadcn/ui',

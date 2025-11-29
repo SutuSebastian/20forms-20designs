@@ -1,5 +1,13 @@
 import { useState } from 'react'
-import { Box, Button, Checkbox, Flex, NumberField, SelectList, TextField } from 'gestalt'
+import {
+  Box,
+  Button,
+  Checkbox,
+  Flex,
+  NumberField,
+  SelectList,
+  TextField,
+} from 'gestalt'
 
 function EventRegistrationForm() {
   const [fullName, setFullName] = useState('')

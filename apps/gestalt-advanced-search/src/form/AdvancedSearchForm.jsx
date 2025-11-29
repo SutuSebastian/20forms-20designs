@@ -38,7 +38,11 @@ function AdvancedSearchForm() {
             { label: 'Users', value: 'users' },
             { label: 'Documentation', value: 'docs' },
           ].map(({ label, value }) => (
-            <SelectList.Option key={value || 'all'} label={label} value={value} />
+            <SelectList.Option
+              key={value || 'all'}
+              label={label}
+              value={value}
+            />
           ))}
         </SelectList>
         <TextField
