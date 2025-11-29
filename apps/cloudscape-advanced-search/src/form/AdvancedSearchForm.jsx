@@ -1,4 +1,5 @@
 import '@cloudscape-design/global-styles/index.css'
+import { useState } from 'react'
 import {
   Button,
   Checkbox,
@@ -11,6 +12,11 @@ import {
 } from '@cloudscape-design/components'
 
 function AdvancedSearchForm() {
+  const [selectedCategory, setSelectedCategory] = useState({ label: 'All', value: 'all' })
+  const [selectedSort, setSelectedSort] = useState({ label: 'Relevance', value: 'relevance' })
+  const [dateFrom, setDateFrom] = useState('')
+  const [dateTo, setDateTo] = useState('')
+
   const handleSubmit = (event) => {
     event.preventDefault()
     alert('Search submitted!')
@@ -31,42 +37,42 @@ function AdvancedSearchForm() {
           <FormField label="Category">
             <Select
               name="category"
-              selectedOption={{ label: 'All', value: 'all' }}
+              selectedOption={selectedCategory}
               options={[
                 { label: 'All', value: 'all' },
                 { label: 'Articles', value: 'articles' },
                 { label: 'Products', value: 'products' },
                 { label: 'People', value: 'people' },
               ]}
-              onChange={() => {}}
+              onChange={({ detail }) => setSelectedCategory(detail.selectedOption)}
             />
           </FormField>
           <FormField label="Date from">
             <DatePicker
               name="dateFrom"
               placeholder="YYYY/MM/DD"
-              value=""
-              onChange={() => {}}
+              value={dateFrom}
+              onChange={({ detail }) => setDateFrom(detail.value)}
             />
           </FormField>
           <FormField label="Date to">
             <DatePicker
               name="dateTo"
               placeholder="YYYY/MM/DD"
-              value=""
-              onChange={() => {}}
+              value={dateTo}
+              onChange={({ detail }) => setDateTo(detail.value)}
             />
           </FormField>
           <FormField label="Sort by">
             <Select
               name="sort"
-              selectedOption={{ label: 'Relevance', value: 'relevance' }}
+              selectedOption={selectedSort}
               options={[
                 { label: 'Relevance', value: 'relevance' },
                 { label: 'Newest', value: 'newest' },
                 { label: 'Oldest', value: 'oldest' },
               ]}
-              onChange={() => {}}
+              onChange={({ detail }) => setSelectedSort(detail.selectedOption)}
             />
           </FormField>
           <Checkbox name="includeArchived">Include archived</Checkbox>

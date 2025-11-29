@@ -1,4 +1,5 @@
 import '@cloudscape-design/global-styles/index.css'
+import { useState } from 'react'
 import {
   Button,
   Checkbox,
@@ -10,6 +11,8 @@ import {
 } from '@cloudscape-design/components'
 
 function EventRegistrationForm() {
+  const [selectedTicketType, setSelectedTicketType] = useState(null)
+
   const handleSubmit = (event) => {
     event.preventDefault()
     alert('Event registration submitted!')
@@ -44,7 +47,8 @@ function EventRegistrationForm() {
                 { label: 'VIP', value: 'vip' },
                 { label: 'Student', value: 'student' },
               ]}
-              selectedOption={null}
+              selectedOption={selectedTicketType}
+              onChange={({ detail }) => setSelectedTicketType(detail.selectedOption)}
             />
           </FormField>
           <FormField label="Number of guests">

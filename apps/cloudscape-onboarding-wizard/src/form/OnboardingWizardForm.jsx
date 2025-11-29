@@ -1,4 +1,5 @@
 import '@cloudscape-design/global-styles/index.css'
+import { useState } from 'react'
 import {
   Button,
   Checkbox,
@@ -12,6 +13,8 @@ import {
 } from '@cloudscape-design/components'
 
 function OnboardingWizardForm() {
+  const [selectedTeamSize, setSelectedTeamSize] = useState(null)
+
   const handleSubmit = (event) => {
     event.preventDefault()
     alert('Onboarding complete!')
@@ -62,7 +65,8 @@ function OnboardingWizardForm() {
                     { label: '21-50', value: '21-50' },
                     { label: '50+', value: '50+' },
                   ]}
-                  selectedOption={null}
+                  selectedOption={selectedTeamSize}
+                  onChange={({ detail }) => setSelectedTeamSize(detail.selectedOption)}
                 />
               </FormField>
             </SpaceBetween>

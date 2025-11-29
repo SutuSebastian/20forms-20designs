@@ -142,8 +142,8 @@ function generatePackageJson(library, form) {
       ...library.dependencies,
     },
     devDependencies: {
-      '@vitejs/plugin-react': '^4.3.4',
-      vite: '^6.0.3',
+      '@vitejs/plugin-react': '^5.1.1',
+      vite: '^7.2.4',
     },
   }, null, 2);
 }

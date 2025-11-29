@@ -1,4 +1,5 @@
 import '@cloudscape-design/global-styles/index.css'
+import { useState } from 'react'
 import {
   Button,
   Checkbox,
@@ -11,6 +12,8 @@ import {
 } from '@cloudscape-design/components'
 
 function CustomerFeedbackForm() {
+  const [selectedRating, setSelectedRating] = useState(null)
+
   const handleSubmit = (event) => {
     event.preventDefault()
     alert('Feedback submitted!')
@@ -41,7 +44,8 @@ function CustomerFeedbackForm() {
                 { label: 'Average', value: 'average' },
                 { label: 'Poor', value: 'poor' },
               ]}
-              selectedOption={null}
+              selectedOption={selectedRating}
+              onChange={({ detail }) => setSelectedRating(detail.selectedOption)}
             />
           </FormField>
           <FormField label="Comments">

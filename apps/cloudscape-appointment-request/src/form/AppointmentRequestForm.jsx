@@ -1,4 +1,5 @@
 import '@cloudscape-design/global-styles/index.css'
+import { useState } from 'react'
 import {
   Button,
   Container,
@@ -11,6 +12,9 @@ import {
 } from '@cloudscape-design/components'
 
 function AppointmentRequestForm() {
+  const [preferredDate, setPreferredDate] = useState('')
+  const [preferredTime, setPreferredTime] = useState('')
+
   const handleSubmit = (event) => {
     event.preventDefault()
     alert('Appointment request submitted!')
@@ -40,16 +44,16 @@ function AppointmentRequestForm() {
             <DatePicker
               name="date"
               placeholder="YYYY/MM/DD"
-              value=""
-              onChange={() => {}}
+              value={preferredDate}
+              onChange={({ detail }) => setPreferredDate(detail.value)}
             />
           </FormField>
           <FormField label="Preferred time">
             <TimeInput
               name="time"
               placeholder="hh:mm"
-              value=""
-              onChange={() => {}}
+              value={preferredTime}
+              onChange={({ detail }) => setPreferredTime(detail.value)}
             />
           </FormField>
           <FormField label="Reason for visit">

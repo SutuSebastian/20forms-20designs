@@ -1,4 +1,5 @@
 import '@cloudscape-design/global-styles/index.css'
+import { useState } from 'react'
 import {
   Button,
   Container,
@@ -9,6 +10,8 @@ import {
 } from '@cloudscape-design/components'
 
 function BillingInfoForm() {
+  const [selectedCountry, setSelectedCountry] = useState(null)
+
   const handleSubmit = (event) => {
     event.preventDefault()
     alert('Billing details saved!')
@@ -69,7 +72,8 @@ function BillingInfoForm() {
                 { label: 'United States', value: 'US' },
                 { label: 'Canada', value: 'CA' },
               ]}
-              selectedOption={null}
+              selectedOption={selectedCountry}
+              onChange={({ detail }) => setSelectedCountry(detail.selectedOption)}
             />
           </FormField>
           <Button variant="primary" formAction="submit">

@@ -1,4 +1,5 @@
 import '@cloudscape-design/global-styles/index.css'
+import { useState } from 'react'
 import {
   Button,
   Checkbox,
@@ -10,6 +11,8 @@ import {
 } from '@cloudscape-design/components'
 
 function NewsletterSubscriptionForm() {
+  const [selectedFrequency, setSelectedFrequency] = useState(null)
+
   const handleSubmit = (event) => {
     event.preventDefault()
     alert('Newsletter subscription submitted!')
@@ -36,7 +39,8 @@ function NewsletterSubscriptionForm() {
                 { label: 'Monthly', value: 'monthly' },
                 { label: 'Quarterly', value: 'quarterly' },
               ]}
-              selectedOption={null}
+              selectedOption={selectedFrequency}
+              onChange={({ detail }) => setSelectedFrequency(detail.selectedOption)}
             />
           </FormField>
           <Checkbox name="agree">Receive product updates</Checkbox>

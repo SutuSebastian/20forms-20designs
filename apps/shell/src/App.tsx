@@ -116,8 +116,8 @@ function PreviewCard({
           event.source === iframeRef.current.contentWindow
         ) {
           const height = event.data.height
-          // Only accept reasonable heights (between 100 and 700px)
-          if (height > 100 && height < 700) {
+          // Only accept reasonable heights (between 100 and 1200px)
+          if (height > 100 && height < 1200) {
             setIframeHeight(height + 20) // Add some padding
           }
         }
@@ -149,8 +149,8 @@ function PreviewCard({
       const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document
       if (iframeDoc) {
         const height = iframeDoc.body.scrollHeight
-        // Only accept reasonable heights (between 100 and 700px)
-        if (height > 100 && height < 700) {
+        // Only accept reasonable heights (between 100 and 1200px)
+        if (height > 100 && height < 1200) {
           setIframeHeight(height + 20)
         }
       }

@@ -1,4 +1,5 @@
 import '@cloudscape-design/global-styles/index.css'
+import { useState } from 'react'
 import {
   Button,
   Container,
@@ -9,6 +10,8 @@ import {
 } from '@cloudscape-design/components'
 
 function CheckoutPaymentForm() {
+  const [selectedShipping, setSelectedShipping] = useState(null)
+
   const handleSubmit = (event) => {
     event.preventDefault()
     alert('Checkout submitted!')
@@ -35,7 +38,8 @@ function CheckoutPaymentForm() {
                 { label: 'Express', value: 'express' },
                 { label: 'Overnight', value: 'overnight' },
               ]}
-              selectedOption={null}
+              selectedOption={selectedShipping}
+              onChange={({ detail }) => setSelectedShipping(detail.selectedOption)}
             />
           </FormField>
           <FormField label="Card number">

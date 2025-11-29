@@ -17,6 +17,7 @@ function ShippingAddressForm() {
     value: 'US',
     label: 'United States',
   })
+  const [selectedRegion, setSelectedRegion] = useState(null)
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -79,6 +80,7 @@ function ShippingAddressForm() {
               onChange={({ detail }) => {
                 setCountry(detail.selectedOption.value)
                 setSelectedCountryOption(detail.selectedOption)
+                setSelectedRegion(null) // Reset region when country changes
               }}
               options={countryOptions}
             />
@@ -88,7 +90,8 @@ function ShippingAddressForm() {
               name="region"
               placeholder="Select an option"
               options={regionOptions}
-              selectedOption={null}
+              selectedOption={selectedRegion}
+              onChange={({ detail }) => setSelectedRegion(detail.selectedOption)}
             />
           </FormField>
           <FormField label="Postal code">

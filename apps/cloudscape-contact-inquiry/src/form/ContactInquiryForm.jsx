@@ -1,4 +1,5 @@
 import '@cloudscape-design/global-styles/index.css'
+import { useState } from 'react'
 import {
   Button,
   Checkbox,
@@ -11,6 +12,8 @@ import {
 } from '@cloudscape-design/components'
 
 function ContactInquiryForm() {
+  const [selectedTopic, setSelectedTopic] = useState(null)
+
   const handleSubmit = (event) => {
     event.preventDefault()
     alert('Inquiry submitted!')
@@ -46,7 +49,8 @@ function ContactInquiryForm() {
                 { label: 'Feedback', value: 'feedback' },
                 { label: 'Other', value: 'other' },
               ]}
-              selectedOption={null}
+              selectedOption={selectedTopic}
+              onChange={({ detail }) => setSelectedTopic(detail.selectedOption)}
             />
           </FormField>
           <FormField label="Message">
