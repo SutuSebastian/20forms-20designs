@@ -4,7 +4,7 @@ import '@radix-ui/themes/styles.css'
 function OrderTrackingForm() {
   const handleSubmit = (event) => {
     event.preventDefault()
-    alert('Tracking order...')
+    alert('Order lookup submitted!')
   }
 
   return (
@@ -16,15 +16,16 @@ function OrderTrackingForm() {
               as="label"
               size="2"
               weight="medium"
-              htmlFor="radix-tracking-order-id"
+              htmlFor="radix-tracking-order-number"
             >
-              Order ID
+              Order number
             </Text>
             <TextField.Root
-              id="radix-tracking-order-id"
-              name="orderId"
+              id="radix-tracking-order-number"
+              name="orderNumber"
               type="text"
-              placeholder="Enter your order ID"
+              placeholder="Enter your order number"
+              pattern="[A-Za-z0-9-]{6,20}"
               required
             />
           </Box>
@@ -45,7 +46,24 @@ function OrderTrackingForm() {
               required
             />
           </Box>
-          <Button type="submit">Track order</Button>
+          <Box>
+            <Text
+              as="label"
+              size="2"
+              weight="medium"
+              htmlFor="radix-tracking-postal"
+            >
+              Postal code
+            </Text>
+            <TextField.Root
+              id="radix-tracking-postal"
+              name="postalCode"
+              type="text"
+              placeholder="Enter postal code"
+              required
+            />
+          </Box>
+          <Button type="submit">Find order</Button>
         </Flex>
       </form>
     </Theme>

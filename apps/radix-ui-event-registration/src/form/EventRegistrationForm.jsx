@@ -5,7 +5,6 @@ import {
   Flex,
   Select,
   Text,
-  TextArea,
   TextField,
   Theme,
 } from '@radix-ui/themes'
@@ -14,7 +13,7 @@ import '@radix-ui/themes/styles.css'
 function EventRegistrationForm() {
   const handleSubmit = (event) => {
     event.preventDefault()
-    alert('Registered for event!')
+    alert('Event registration submitted!')
   }
 
   return (
@@ -26,32 +25,15 @@ function EventRegistrationForm() {
               as="label"
               size="2"
               weight="medium"
-              htmlFor="radix-event-first-name"
+              htmlFor="radix-event-name"
             >
-              First name
+              Full name
             </Text>
             <TextField.Root
-              id="radix-event-first-name"
-              name="firstName"
+              id="radix-event-name"
+              name="fullName"
               type="text"
-              placeholder="Enter first name"
-              required
-            />
-          </Box>
-          <Box>
-            <Text
-              as="label"
-              size="2"
-              weight="medium"
-              htmlFor="radix-event-last-name"
-            >
-              Last name
-            </Text>
-            <TextField.Root
-              id="radix-event-last-name"
-              name="lastName"
-              type="text"
-              placeholder="Enter last name"
+              placeholder="Enter your full name"
               required
             />
           </Box>
@@ -77,22 +59,6 @@ function EventRegistrationForm() {
               as="label"
               size="2"
               weight="medium"
-              htmlFor="radix-event-organization"
-            >
-              Organization
-            </Text>
-            <TextField.Root
-              id="radix-event-organization"
-              name="organization"
-              type="text"
-              placeholder="Enter organization (optional)"
-            />
-          </Box>
-          <Box>
-            <Text
-              as="label"
-              size="2"
-              weight="medium"
               htmlFor="radix-event-ticket"
             >
               Ticket type
@@ -100,13 +66,12 @@ function EventRegistrationForm() {
             <Select.Root name="ticketType" required>
               <Select.Trigger
                 id="radix-event-ticket"
-                placeholder="Select ticket type"
+                placeholder="Select ticket"
               />
               <Select.Content>
-                <Select.Item value="general">General Admission</Select.Item>
+                <Select.Item value="general">General admission</Select.Item>
                 <Select.Item value="vip">VIP</Select.Item>
                 <Select.Item value="student">Student</Select.Item>
-                <Select.Item value="early">Early Bird</Select.Item>
               </Select.Content>
             </Select.Root>
           </Box>
@@ -115,27 +80,24 @@ function EventRegistrationForm() {
               as="label"
               size="2"
               weight="medium"
-              htmlFor="radix-event-dietary"
+              htmlFor="radix-event-guests"
             >
-              Dietary restrictions
+              Number of guests
             </Text>
-            <TextArea
-              id="radix-event-dietary"
-              name="dietaryRestrictions"
-              rows="2"
-              placeholder="Any dietary restrictions or allergies"
+            <TextField.Root
+              id="radix-event-guests"
+              name="guestCount"
+              type="number"
+              placeholder="0"
+              min={0}
+              max={20}
+              required
             />
           </Box>
           <Text as="label" size="2">
             <Flex gap="2" align="center">
-              <Checkbox name="updates" />
-              Receive event updates via email
-            </Flex>
-          </Text>
-          <Text as="label" size="2">
-            <Flex gap="2" align="center">
-              <Checkbox name="terms" required />I agree to the event terms and
-              conditions
+              <Checkbox name="newsletter" />
+              Notify me about future events
             </Flex>
           </Text>
           <Button type="submit">Register</Button>

@@ -84,6 +84,9 @@ function ProfileUpdateForm() {
               name="phone"
               type="tel"
               placeholder="Enter phone number"
+              pattern="[+0-9\s-]{7,20}"
+              inputMode="tel"
+              required
             />
           </Box>
           <Box>
@@ -93,32 +96,17 @@ function ProfileUpdateForm() {
               weight="medium"
               htmlFor="radix-profile-bio"
             >
-              Bio
+              Short bio
             </Text>
             <TextArea
               id="radix-profile-bio"
               name="bio"
-              rows="3"
+              rows={3}
               placeholder="Tell us about yourself"
+              required
             />
           </Box>
-          <Box>
-            <Text
-              as="label"
-              size="2"
-              weight="medium"
-              htmlFor="radix-profile-avatar"
-            >
-              Profile picture
-            </Text>
-            <input
-              id="radix-profile-avatar"
-              name="avatar"
-              type="file"
-              accept="image/*"
-            />
-          </Box>
-          <Button type="submit">Update profile</Button>
+          <Button type="submit">Save changes</Button>
         </Flex>
       </form>
     </Theme>

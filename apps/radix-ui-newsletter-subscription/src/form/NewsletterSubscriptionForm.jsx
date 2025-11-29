@@ -13,7 +13,7 @@ import '@radix-ui/themes/styles.css'
 function NewsletterSubscriptionForm() {
   const handleSubmit = (event) => {
     event.preventDefault()
-    alert('Subscribed to newsletter!')
+    alert('Newsletter subscription submitted!')
   }
 
   return (
@@ -46,19 +46,22 @@ function NewsletterSubscriptionForm() {
             >
               Frequency
             </Text>
-            <Select.Root name="frequency" defaultValue="weekly">
-              <Select.Trigger id="radix-newsletter-frequency" />
+            <Select.Root name="frequency" required>
+              <Select.Trigger
+                id="radix-newsletter-frequency"
+                placeholder="Select frequency"
+              />
               <Select.Content>
-                <Select.Item value="daily">Daily</Select.Item>
                 <Select.Item value="weekly">Weekly</Select.Item>
                 <Select.Item value="monthly">Monthly</Select.Item>
+                <Select.Item value="quarterly">Quarterly</Select.Item>
               </Select.Content>
             </Select.Root>
           </Box>
           <Text as="label" size="2">
             <Flex gap="2" align="center">
-              <Checkbox name="terms" required />I agree to the terms and
-              conditions
+              <Checkbox name="agree" />
+              Receive product updates
             </Flex>
           </Text>
           <Button type="submit">Subscribe</Button>

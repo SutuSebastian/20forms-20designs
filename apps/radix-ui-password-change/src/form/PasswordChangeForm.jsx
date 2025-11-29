@@ -1,10 +1,18 @@
-import { Box, Button, Flex, Text, TextField, Theme } from '@radix-ui/themes'
+import {
+  Box,
+  Button,
+  Checkbox,
+  Flex,
+  Text,
+  TextField,
+  Theme,
+} from '@radix-ui/themes'
 import '@radix-ui/themes/styles.css'
 
 function PasswordChangeForm() {
   const handleSubmit = (event) => {
     event.preventDefault()
-    alert('Password changed!')
+    alert('Password change requested!')
   }
 
   return (
@@ -42,6 +50,7 @@ function PasswordChangeForm() {
               name="newPassword"
               type="password"
               placeholder="Enter new password"
+              minLength={8}
               required
             />
           </Box>
@@ -59,10 +68,17 @@ function PasswordChangeForm() {
               name="confirmPassword"
               type="password"
               placeholder="Confirm new password"
+              minLength={8}
               required
             />
           </Box>
-          <Button type="submit">Change password</Button>
+          <Text as="label" size="2">
+            <Flex gap="2" align="center">
+              <Checkbox name="logoutOthers" />
+              Sign out of other devices
+            </Flex>
+          </Text>
+          <Button type="submit">Update password</Button>
         </Flex>
       </form>
     </Theme>

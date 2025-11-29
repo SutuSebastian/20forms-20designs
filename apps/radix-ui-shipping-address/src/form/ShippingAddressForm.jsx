@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   Box,
   Button,
@@ -12,10 +13,18 @@ import '@radix-ui/themes/styles.css'
 import { COUNTRIES, US_STATES, CANADIAN_PROVINCES } from './locationOptions'
 
 function ShippingAddressForm() {
+  const [country, setCountry] = useState('US')
+
   const handleSubmit = (event) => {
     event.preventDefault()
     alert('Shipping address saved!')
   }
+
+  const regionOptions = country === 'CA' ? CANADIAN_PROVINCES : US_STATES
+  const postalPattern =
+    country === 'CA'
+      ? '[A-Za-z]\\d[A-Za-z] ?\\d[A-Za-z]\\d'
+      : '\\d{5}(-\\d{4})?'
 
   return (
     <Theme>
@@ -26,15 +35,15 @@ function ShippingAddressForm() {
               as="label"
               size="2"
               weight="medium"
-              htmlFor="radix-shipping-name"
+              htmlFor="radix-shipping-full-name"
             >
-              Full name
+              Recipient name
             </Text>
             <TextField.Root
-              id="radix-shipping-name"
+              id="radix-shipping-full-name"
               name="fullName"
               type="text"
-              placeholder="Enter full name"
+              placeholder="Enter recipient name"
               required
             />
           </Box>
@@ -43,15 +52,15 @@ function ShippingAddressForm() {
               as="label"
               size="2"
               weight="medium"
-              htmlFor="radix-shipping-address1"
+              htmlFor="radix-shipping-street"
             >
-              Address line 1
+              Street address
             </Text>
             <TextField.Root
-              id="radix-shipping-address1"
-              name="address1"
+              id="radix-shipping-street"
+              name="street"
               type="text"
-              placeholder="Street address"
+              placeholder="Enter street address"
               required
             />
           </Box>
@@ -60,132 +69,107 @@ function ShippingAddressForm() {
               as="label"
               size="2"
               weight="medium"
-              htmlFor="radix-shipping-address2"
+              htmlFor="radix-shipping-street-2"
             >
-              Address line 2
+              Apartment, suite, etc.
             </Text>
             <TextField.Root
-              id="radix-shipping-address2"
-              name="address2"
+              id="radix-shipping-street-2"
+              name="street2"
               type="text"
               placeholder="Apartment, suite, etc. (optional)"
             />
           </Box>
-          <Flex gap="3">
-            <Box style={{ flex: 1 }}>
-              <Text
-                as="label"
-                size="2"
-                weight="medium"
-                htmlFor="radix-shipping-city"
-              >
-                City
-              </Text>
-              <TextField.Root
-                id="radix-shipping-city"
-                name="city"
-                type="text"
-                placeholder="Enter city"
-                required
-              />
-            </Box>
-            <Box style={{ flex: 1 }}>
-              <Text
-                as="label"
-                size="2"
-                weight="medium"
-                htmlFor="radix-shipping-state"
-              >
-                State/Province
-              </Text>
-              <Select.Root name="state">
-                <Select.Trigger
-                  id="radix-shipping-state"
-                  placeholder="Select"
-                />
-                <Select.Content>
-                  <Select.Group>
-                    <Select.Label>US States</Select.Label>
-                    {US_STATES.map((state) => (
-                      <Select.Item key={`us-${state}`} value={state}>
-                        {state}
-                      </Select.Item>
-                    ))}
-                  </Select.Group>
-                  <Select.Group>
-                    <Select.Label>Canadian Provinces</Select.Label>
-                    {CANADIAN_PROVINCES.map((province) => (
-                      <Select.Item key={`ca-${province}`} value={province}>
-                        {province}
-                      </Select.Item>
-                    ))}
-                  </Select.Group>
-                </Select.Content>
-              </Select.Root>
-            </Box>
-          </Flex>
-          <Flex gap="3">
-            <Box style={{ flex: 1 }}>
-              <Text
-                as="label"
-                size="2"
-                weight="medium"
-                htmlFor="radix-shipping-zip"
-              >
-                ZIP/Postal code
-              </Text>
-              <TextField.Root
-                id="radix-shipping-zip"
-                name="zipCode"
-                type="text"
-                placeholder="Enter ZIP code"
-                required
-              />
-            </Box>
-            <Box style={{ flex: 1 }}>
-              <Text
-                as="label"
-                size="2"
-                weight="medium"
-                htmlFor="radix-shipping-country"
-              >
-                Country
-              </Text>
-              <Select.Root name="country" defaultValue="us">
-                <Select.Trigger id="radix-shipping-country" />
-                <Select.Content>
-                  {COUNTRIES.map((country) => (
-                    <Select.Item
-                      key={`country-${country.value}`}
-                      value={country.value}
-                    >
-                      {country.label}
-                    </Select.Item>
-                  ))}
-                </Select.Content>
-              </Select.Root>
-            </Box>
-          </Flex>
           <Box>
             <Text
               as="label"
               size="2"
               weight="medium"
-              htmlFor="radix-shipping-phone"
+              htmlFor="radix-shipping-city"
             >
-              Phone number
+              City
             </Text>
             <TextField.Root
-              id="radix-shipping-phone"
-              name="phone"
-              type="tel"
-              placeholder="Enter phone number"
+              id="radix-shipping-city"
+              name="city"
+              type="text"
+              placeholder="Enter city"
+              required
+            />
+          </Box>
+          <Box>
+            <Text
+              as="label"
+              size="2"
+              weight="medium"
+              htmlFor="radix-shipping-country"
+            >
+              Country
+            </Text>
+            <Select.Root
+              name="country"
+              value={country}
+              onValueChange={setCountry}
+              required
+            >
+              <Select.Trigger
+                id="radix-shipping-country"
+                placeholder="Select country"
+              />
+              <Select.Content>
+                {COUNTRIES.map((c) => (
+                  <Select.Item key={c.value} value={c.value}>
+                    {c.label}
+                  </Select.Item>
+                ))}
+              </Select.Content>
+            </Select.Root>
+          </Box>
+          <Box>
+            <Text
+              as="label"
+              size="2"
+              weight="medium"
+              htmlFor="radix-shipping-region"
+            >
+              State / Province / Territory
+            </Text>
+            <Select.Root name="region" required>
+              <Select.Trigger
+                id="radix-shipping-region"
+                placeholder="Select an option"
+              />
+              <Select.Content>
+                {regionOptions.map((region) => (
+                  <Select.Item key={region} value={region}>
+                    {region}
+                  </Select.Item>
+                ))}
+              </Select.Content>
+            </Select.Root>
+          </Box>
+          <Box>
+            <Text
+              as="label"
+              size="2"
+              weight="medium"
+              htmlFor="radix-shipping-postal"
+            >
+              Postal code
+            </Text>
+            <TextField.Root
+              id="radix-shipping-postal"
+              name="postalCode"
+              type="text"
+              placeholder="Enter postal code"
+              pattern={postalPattern}
+              required
             />
           </Box>
           <Text as="label" size="2">
             <Flex gap="2" align="center">
-              <Checkbox name="defaultAddress" />
-              Set as default shipping address
+              <Checkbox name="default" />
+              Use as default shipping address
             </Flex>
           </Text>
           <Button type="submit">Save address</Button>

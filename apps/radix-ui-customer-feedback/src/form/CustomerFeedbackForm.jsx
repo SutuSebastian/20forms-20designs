@@ -1,8 +1,9 @@
 import {
   Box,
   Button,
+  Checkbox,
   Flex,
-  RadioGroup,
+  Select,
   Text,
   TextArea,
   TextField,
@@ -27,13 +28,14 @@ function CustomerFeedbackForm() {
               weight="medium"
               htmlFor="radix-feedback-name"
             >
-              Name (optional)
+              Name
             </Text>
             <TextField.Root
               id="radix-feedback-name"
               name="name"
               type="text"
               placeholder="Enter your name"
+              required
             />
           </Box>
           <Box>
@@ -43,80 +45,37 @@ function CustomerFeedbackForm() {
               weight="medium"
               htmlFor="radix-feedback-email"
             >
-              Email (optional)
+              Email address
             </Text>
             <TextField.Root
               id="radix-feedback-email"
               name="email"
               type="email"
               placeholder="Enter your email"
+              required
             />
           </Box>
           <Box>
-            <Text as="label" size="2" weight="medium">
-              Overall satisfaction
+            <Text
+              as="label"
+              size="2"
+              weight="medium"
+              htmlFor="radix-feedback-rating"
+            >
+              Overall rating
             </Text>
-            <RadioGroup.Root name="satisfaction" defaultValue="satisfied">
-              <Flex gap="3" wrap="wrap">
-                <Text as="label" size="2">
-                  <Flex gap="2" align="center">
-                    <RadioGroup.Item value="very-dissatisfied" />
-                    Very Dissatisfied
-                  </Flex>
-                </Text>
-                <Text as="label" size="2">
-                  <Flex gap="2" align="center">
-                    <RadioGroup.Item value="dissatisfied" />
-                    Dissatisfied
-                  </Flex>
-                </Text>
-                <Text as="label" size="2">
-                  <Flex gap="2" align="center">
-                    <RadioGroup.Item value="neutral" />
-                    Neutral
-                  </Flex>
-                </Text>
-                <Text as="label" size="2">
-                  <Flex gap="2" align="center">
-                    <RadioGroup.Item value="satisfied" />
-                    Satisfied
-                  </Flex>
-                </Text>
-                <Text as="label" size="2">
-                  <Flex gap="2" align="center">
-                    <RadioGroup.Item value="very-satisfied" />
-                    Very Satisfied
-                  </Flex>
-                </Text>
-              </Flex>
-            </RadioGroup.Root>
-          </Box>
-          <Box>
-            <Text as="label" size="2" weight="medium">
-              Would you recommend us?
-            </Text>
-            <RadioGroup.Root name="recommend" defaultValue="yes">
-              <Flex gap="3">
-                <Text as="label" size="2">
-                  <Flex gap="2" align="center">
-                    <RadioGroup.Item value="yes" />
-                    Yes
-                  </Flex>
-                </Text>
-                <Text as="label" size="2">
-                  <Flex gap="2" align="center">
-                    <RadioGroup.Item value="no" />
-                    No
-                  </Flex>
-                </Text>
-                <Text as="label" size="2">
-                  <Flex gap="2" align="center">
-                    <RadioGroup.Item value="maybe" />
-                    Maybe
-                  </Flex>
-                </Text>
-              </Flex>
-            </RadioGroup.Root>
+            <Select.Root name="rating" required>
+              <Select.Trigger
+                id="radix-feedback-rating"
+                placeholder="Select rating"
+              />
+              <Select.Content>
+                <Select.Item value="excellent">Excellent</Select.Item>
+                <Select.Item value="good">Good</Select.Item>
+                <Select.Item value="average">Average</Select.Item>
+                <Select.Item value="poor">Poor</Select.Item>
+              </Select.Content>
+            </Select.Root>
           </Box>
           <Box>
             <Text
@@ -135,7 +94,12 @@ function CustomerFeedbackForm() {
               required
             />
           </Box>
-          <Button type="submit">Submit feedback</Button>
+          <Text as="label" size="2">
+            <Flex gap="2" align="center">
+              <Checkbox name="followUp" />I would like a follow-up
+            </Flex>
+          </Text>
+          <Button type="submit">Send feedback</Button>
         </Flex>
       </form>
     </Theme>

@@ -3,7 +3,6 @@ import {
   Button,
   Flex,
   RadioGroup,
-  Select,
   Text,
   TextArea,
   TextField,
@@ -26,63 +25,23 @@ function SupportTicketForm() {
               as="label"
               size="2"
               weight="medium"
-              htmlFor="radix-support-name"
+              htmlFor="radix-support-subject"
             >
-              Full name
+              Subject
             </Text>
             <TextField.Root
-              id="radix-support-name"
-              name="fullName"
+              id="radix-support-subject"
+              name="subject"
               type="text"
-              placeholder="Enter your name"
+              placeholder="Brief description of the issue"
               required
             />
-          </Box>
-          <Box>
-            <Text
-              as="label"
-              size="2"
-              weight="medium"
-              htmlFor="radix-support-email"
-            >
-              Email address
-            </Text>
-            <TextField.Root
-              id="radix-support-email"
-              name="email"
-              type="email"
-              placeholder="Enter your email"
-              required
-            />
-          </Box>
-          <Box>
-            <Text
-              as="label"
-              size="2"
-              weight="medium"
-              htmlFor="radix-support-category"
-            >
-              Category
-            </Text>
-            <Select.Root name="category" required>
-              <Select.Trigger
-                id="radix-support-category"
-                placeholder="Select category"
-              />
-              <Select.Content>
-                <Select.Item value="technical">Technical Issue</Select.Item>
-                <Select.Item value="billing">Billing</Select.Item>
-                <Select.Item value="account">Account</Select.Item>
-                <Select.Item value="feature">Feature Request</Select.Item>
-                <Select.Item value="other">Other</Select.Item>
-              </Select.Content>
-            </Select.Root>
           </Box>
           <Box>
             <Text as="label" size="2" weight="medium">
               Priority
             </Text>
-            <RadioGroup.Root name="priority" defaultValue="medium">
+            <RadioGroup.Root name="priority" required>
               <Flex gap="3">
                 <Text as="label" size="2">
                   <Flex gap="2" align="center">
@@ -102,12 +61,6 @@ function SupportTicketForm() {
                     High
                   </Flex>
                 </Text>
-                <Text as="label" size="2">
-                  <Flex gap="2" align="center">
-                    <RadioGroup.Item value="urgent" />
-                    Urgent
-                  </Flex>
-                </Text>
               </Flex>
             </RadioGroup.Root>
           </Box>
@@ -116,26 +69,9 @@ function SupportTicketForm() {
               as="label"
               size="2"
               weight="medium"
-              htmlFor="radix-support-subject"
-            >
-              Subject
-            </Text>
-            <TextField.Root
-              id="radix-support-subject"
-              name="subject"
-              type="text"
-              placeholder="Brief description of the issue"
-              required
-            />
-          </Box>
-          <Box>
-            <Text
-              as="label"
-              size="2"
-              weight="medium"
               htmlFor="radix-support-description"
             >
-              Description
+              Issue description
             </Text>
             <TextArea
               id="radix-support-description"
@@ -150,15 +86,15 @@ function SupportTicketForm() {
               as="label"
               size="2"
               weight="medium"
-              htmlFor="radix-support-attachment"
+              htmlFor="radix-support-attachments"
             >
-              Attachment (optional)
+              Attachments
             </Text>
             <input
-              id="radix-support-attachment"
-              name="attachment"
+              id="radix-support-attachments"
+              name="attachments"
               type="file"
-              accept=".png,.jpg,.jpeg,.pdf,.doc,.docx"
+              multiple
             />
           </Box>
           <Button type="submit">Submit ticket</Button>

@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Checkbox,
   Flex,
   Select,
   Text,
@@ -13,7 +12,7 @@ import '@radix-ui/themes/styles.css'
 function CheckoutPaymentForm() {
   const handleSubmit = (event) => {
     event.preventDefault()
-    alert('Payment submitted!')
+    alert('Checkout submitted!')
   }
 
   return (
@@ -25,16 +24,36 @@ function CheckoutPaymentForm() {
               as="label"
               size="2"
               weight="medium"
-              htmlFor="radix-payment-method"
+              htmlFor="radix-checkout-email"
             >
-              Payment method
+              Email for receipt
             </Text>
-            <Select.Root name="paymentMethod" defaultValue="credit">
-              <Select.Trigger id="radix-payment-method" />
+            <TextField.Root
+              id="radix-checkout-email"
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+              required
+            />
+          </Box>
+          <Box>
+            <Text
+              as="label"
+              size="2"
+              weight="medium"
+              htmlFor="radix-checkout-shipping-method"
+            >
+              Shipping method
+            </Text>
+            <Select.Root name="shippingMethod" required>
+              <Select.Trigger
+                id="radix-checkout-shipping-method"
+                placeholder="Select shipping"
+              />
               <Select.Content>
-                <Select.Item value="credit">Credit Card</Select.Item>
-                <Select.Item value="debit">Debit Card</Select.Item>
-                <Select.Item value="paypal">PayPal</Select.Item>
+                <Select.Item value="standard">Standard</Select.Item>
+                <Select.Item value="express">Express</Select.Item>
+                <Select.Item value="overnight">Overnight</Select.Item>
               </Select.Content>
             </Select.Root>
           </Box>
@@ -43,15 +62,18 @@ function CheckoutPaymentForm() {
               as="label"
               size="2"
               weight="medium"
-              htmlFor="radix-payment-card-name"
+              htmlFor="radix-checkout-card-number"
             >
-              Name on card
+              Card number
             </Text>
             <TextField.Root
-              id="radix-payment-card-name"
-              name="cardName"
+              id="radix-checkout-card-number"
+              name="cardNumber"
               type="text"
-              placeholder="Enter name on card"
+              placeholder="Enter card number"
+              inputMode="numeric"
+              pattern="[0-9]{13,19}"
+              maxLength={19}
               required
             />
           </Box>
@@ -60,67 +82,58 @@ function CheckoutPaymentForm() {
               as="label"
               size="2"
               weight="medium"
-              htmlFor="radix-payment-card-number"
+              htmlFor="radix-checkout-expiration"
             >
-              Card number
+              Expiration
             </Text>
             <TextField.Root
-              id="radix-payment-card-number"
-              name="cardNumber"
+              id="radix-checkout-expiration"
+              name="expiration"
               type="text"
-              placeholder="1234 5678 9012 3456"
+              placeholder="MM/YY"
+              pattern="^(0[1-9]|1[0-2])\/\d{2}$"
+              inputMode="numeric"
               required
             />
           </Box>
-          <Flex gap="3">
-            <Box style={{ flex: 1 }}>
-              <Text
-                as="label"
-                size="2"
-                weight="medium"
-                htmlFor="radix-payment-expiry"
-              >
-                Expiry date
-              </Text>
-              <TextField.Root
-                id="radix-payment-expiry"
-                name="expiry"
-                type="text"
-                placeholder="MM/YY"
-                required
-              />
-            </Box>
-            <Box style={{ flex: 1 }}>
-              <Text
-                as="label"
-                size="2"
-                weight="medium"
-                htmlFor="radix-payment-cvv"
-              >
-                CVV
-              </Text>
-              <TextField.Root
-                id="radix-payment-cvv"
-                name="cvv"
-                type="text"
-                placeholder="123"
-                required
-              />
-            </Box>
-          </Flex>
-          <Text as="label" size="2">
-            <Flex gap="2" align="center">
-              <Checkbox name="saveCard" />
-              Save card for future purchases
-            </Flex>
-          </Text>
-          <Text as="label" size="2">
-            <Flex gap="2" align="center">
-              <Checkbox name="terms" required />I agree to the terms and
-              conditions
-            </Flex>
-          </Text>
-          <Button type="submit">Complete payment</Button>
+          <Box>
+            <Text
+              as="label"
+              size="2"
+              weight="medium"
+              htmlFor="radix-checkout-cvc"
+            >
+              CVC
+            </Text>
+            <TextField.Root
+              id="radix-checkout-cvc"
+              name="cvc"
+              type="text"
+              placeholder="CVC"
+              inputMode="numeric"
+              pattern="[0-9]{3,4}"
+              maxLength={4}
+              required
+            />
+          </Box>
+          <Box>
+            <Text
+              as="label"
+              size="2"
+              weight="medium"
+              htmlFor="radix-checkout-promo"
+            >
+              Promo code
+            </Text>
+            <TextField.Root
+              id="radix-checkout-promo"
+              name="promoCode"
+              type="text"
+              placeholder="Enter promo code (optional)"
+              pattern="[A-Za-z0-9]{3,15}"
+            />
+          </Box>
+          <Button type="submit">Place order</Button>
         </Flex>
       </form>
     </Theme>

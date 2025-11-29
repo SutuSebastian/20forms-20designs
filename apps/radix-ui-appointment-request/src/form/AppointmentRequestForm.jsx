@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Flex,
-  Select,
   Text,
   TextArea,
   TextField,
@@ -13,7 +12,7 @@ import '@radix-ui/themes/styles.css'
 function AppointmentRequestForm() {
   const handleSubmit = (event) => {
     event.preventDefault()
-    alert('Appointment requested!')
+    alert('Appointment request submitted!')
   }
 
   return (
@@ -59,15 +58,20 @@ function AppointmentRequestForm() {
               as="label"
               size="2"
               weight="medium"
-              htmlFor="radix-appointment-phone"
+              htmlFor="radix-appointment-date"
             >
-              Phone number
+              Preferred date
             </Text>
-            <TextField.Root
-              id="radix-appointment-phone"
-              name="phone"
-              type="tel"
-              placeholder="Enter phone number"
+            <input
+              id="radix-appointment-date"
+              name="date"
+              type="date"
+              required
+              style={{
+                width: '100%',
+                padding: '8px',
+                boxSizing: 'border-box',
+              }}
             />
           </Box>
           <Box>
@@ -75,81 +79,37 @@ function AppointmentRequestForm() {
               as="label"
               size="2"
               weight="medium"
-              htmlFor="radix-appointment-service"
+              htmlFor="radix-appointment-time"
             >
-              Service type
+              Preferred time
             </Text>
-            <Select.Root name="service" required>
-              <Select.Trigger
-                id="radix-appointment-service"
-                placeholder="Select service"
-              />
-              <Select.Content>
-                <Select.Item value="consultation">Consultation</Select.Item>
-                <Select.Item value="followup">Follow-up</Select.Item>
-                <Select.Item value="checkup">Check-up</Select.Item>
-                <Select.Item value="other">Other</Select.Item>
-              </Select.Content>
-            </Select.Root>
+            <input
+              id="radix-appointment-time"
+              name="time"
+              type="time"
+              required
+              style={{
+                width: '100%',
+                padding: '8px',
+                boxSizing: 'border-box',
+              }}
+            />
           </Box>
-          <Flex gap="3">
-            <Box style={{ flex: 1 }}>
-              <Text
-                as="label"
-                size="2"
-                weight="medium"
-                htmlFor="radix-appointment-date"
-              >
-                Preferred date
-              </Text>
-              <input
-                id="radix-appointment-date"
-                name="date"
-                type="date"
-                required
-                style={{
-                  width: '100%',
-                  padding: '8px',
-                  boxSizing: 'border-box',
-                }}
-              />
-            </Box>
-            <Box style={{ flex: 1 }}>
-              <Text
-                as="label"
-                size="2"
-                weight="medium"
-                htmlFor="radix-appointment-time"
-              >
-                Preferred time
-              </Text>
-              <input
-                id="radix-appointment-time"
-                name="time"
-                type="time"
-                required
-                style={{
-                  width: '100%',
-                  padding: '8px',
-                  boxSizing: 'border-box',
-                }}
-              />
-            </Box>
-          </Flex>
           <Box>
             <Text
               as="label"
               size="2"
               weight="medium"
-              htmlFor="radix-appointment-notes"
+              htmlFor="radix-appointment-reason"
             >
-              Additional notes
+              Reason for visit
             </Text>
             <TextArea
-              id="radix-appointment-notes"
-              name="notes"
+              id="radix-appointment-reason"
+              name="reason"
               rows="3"
-              placeholder="Any additional information"
+              placeholder="Enter reason for visit"
+              required
             />
           </Box>
           <Button type="submit">Request appointment</Button>

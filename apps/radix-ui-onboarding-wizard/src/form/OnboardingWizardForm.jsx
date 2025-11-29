@@ -33,40 +33,9 @@ function OnboardingWizardForm() {
 
           {step === 1 && (
             <>
-              <Box>
-                <Text
-                  as="label"
-                  size="2"
-                  weight="medium"
-                  htmlFor="radix-onboard-first-name"
-                >
-                  First name
-                </Text>
-                <TextField.Root
-                  id="radix-onboard-first-name"
-                  name="firstName"
-                  type="text"
-                  placeholder="Enter first name"
-                  required
-                />
-              </Box>
-              <Box>
-                <Text
-                  as="label"
-                  size="2"
-                  weight="medium"
-                  htmlFor="radix-onboard-last-name"
-                >
-                  Last name
-                </Text>
-                <TextField.Root
-                  id="radix-onboard-last-name"
-                  name="lastName"
-                  type="text"
-                  placeholder="Enter last name"
-                  required
-                />
-              </Box>
+              <Text size="2" weight="bold">
+                Step 1: Account
+              </Text>
               <Box>
                 <Text
                   as="label"
@@ -74,13 +43,31 @@ function OnboardingWizardForm() {
                   weight="medium"
                   htmlFor="radix-onboard-email"
                 >
-                  Email address
+                  Work email
                 </Text>
                 <TextField.Root
                   id="radix-onboard-email"
                   name="email"
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="Enter your work email"
+                  required
+                />
+              </Box>
+              <Box>
+                <Text
+                  as="label"
+                  size="2"
+                  weight="medium"
+                  htmlFor="radix-onboard-password"
+                >
+                  Password
+                </Text>
+                <TextField.Root
+                  id="radix-onboard-password"
+                  name="password"
+                  type="password"
+                  placeholder="Enter password"
+                  minLength={8}
                   required
                 />
               </Box>
@@ -89,44 +76,25 @@ function OnboardingWizardForm() {
 
           {step === 2 && (
             <>
+              <Text size="2" weight="bold">
+                Step 2: Team
+              </Text>
               <Box>
                 <Text
                   as="label"
                   size="2"
                   weight="medium"
-                  htmlFor="radix-onboard-company"
+                  htmlFor="radix-onboard-team-name"
                 >
-                  Company name
+                  Team name
                 </Text>
                 <TextField.Root
-                  id="radix-onboard-company"
-                  name="company"
+                  id="radix-onboard-team-name"
+                  name="teamName"
                   type="text"
-                  placeholder="Enter company name"
+                  placeholder="Enter team name"
+                  required
                 />
-              </Box>
-              <Box>
-                <Text
-                  as="label"
-                  size="2"
-                  weight="medium"
-                  htmlFor="radix-onboard-role"
-                >
-                  Your role
-                </Text>
-                <Select.Root name="role">
-                  <Select.Trigger
-                    id="radix-onboard-role"
-                    placeholder="Select role"
-                  />
-                  <Select.Content>
-                    <Select.Item value="developer">Developer</Select.Item>
-                    <Select.Item value="designer">Designer</Select.Item>
-                    <Select.Item value="manager">Manager</Select.Item>
-                    <Select.Item value="executive">Executive</Select.Item>
-                    <Select.Item value="other">Other</Select.Item>
-                  </Select.Content>
-                </Select.Root>
               </Box>
               <Box>
                 <Text
@@ -137,17 +105,16 @@ function OnboardingWizardForm() {
                 >
                   Team size
                 </Text>
-                <Select.Root name="teamSize">
+                <Select.Root name="teamSize" required>
                   <Select.Trigger
                     id="radix-onboard-team-size"
-                    placeholder="Select team size"
+                    placeholder="Select size"
                   />
                   <Select.Content>
-                    <Select.Item value="1">Just me</Select.Item>
-                    <Select.Item value="2-10">2-10</Select.Item>
-                    <Select.Item value="11-50">11-50</Select.Item>
-                    <Select.Item value="51-200">51-200</Select.Item>
-                    <Select.Item value="200+">200+</Select.Item>
+                    <Select.Item value="1-5">1-5</Select.Item>
+                    <Select.Item value="6-20">6-20</Select.Item>
+                    <Select.Item value="21-50">21-50</Select.Item>
+                    <Select.Item value="50+">50+</Select.Item>
                   </Select.Content>
                 </Select.Root>
               </Box>
@@ -156,55 +123,30 @@ function OnboardingWizardForm() {
 
           {step === 3 && (
             <>
+              <Text size="2" weight="bold">
+                Step 3: Preferences
+              </Text>
               <Box>
                 <Text
                   as="label"
                   size="2"
                   weight="medium"
-                  htmlFor="radix-onboard-goals"
+                  htmlFor="radix-onboard-goal"
                 >
-                  What are your goals?
+                  Primary goal
                 </Text>
                 <TextArea
-                  id="radix-onboard-goals"
-                  name="goals"
+                  id="radix-onboard-goal"
+                  name="goal"
                   rows="3"
-                  placeholder="Tell us what you want to achieve"
+                  placeholder="Tell us your primary goal"
+                  required
                 />
               </Box>
-              <Box>
-                <Text
-                  as="label"
-                  size="2"
-                  weight="medium"
-                  htmlFor="radix-onboard-hear-about"
-                >
-                  How did you hear about us?
-                </Text>
-                <Select.Root name="hearAbout">
-                  <Select.Trigger
-                    id="radix-onboard-hear-about"
-                    placeholder="Select"
-                  />
-                  <Select.Content>
-                    <Select.Item value="search">Search Engine</Select.Item>
-                    <Select.Item value="social">Social Media</Select.Item>
-                    <Select.Item value="friend">Friend/Colleague</Select.Item>
-                    <Select.Item value="blog">Blog/Article</Select.Item>
-                    <Select.Item value="other">Other</Select.Item>
-                  </Select.Content>
-                </Select.Root>
-              </Box>
               <Text as="label" size="2">
                 <Flex gap="2" align="center">
-                  <Checkbox name="newsletter" />
-                  Subscribe to our newsletter
-                </Flex>
-              </Text>
-              <Text as="label" size="2">
-                <Flex gap="2" align="center">
-                  <Checkbox name="terms" required />I agree to the terms of
-                  service
+                  <Checkbox name="updates" />
+                  Send me product tips
                 </Flex>
               </Text>
             </>
@@ -213,7 +155,7 @@ function OnboardingWizardForm() {
           <Flex gap="3" justify="between">
             {step > 1 && (
               <Button type="button" variant="outline" onClick={handlePrev}>
-                Previous
+                Back
               </Button>
             )}
             {step < 3 ? (
@@ -221,7 +163,7 @@ function OnboardingWizardForm() {
                 Next
               </Button>
             ) : (
-              <Button type="submit">Complete setup</Button>
+              <Button type="submit">Finish setup</Button>
             )}
           </Flex>
         </Flex>

@@ -1,4 +1,13 @@
-import { Box, Button, Checkbox, Flex, Text, Theme } from '@radix-ui/themes'
+import {
+  Box,
+  Button,
+  Checkbox,
+  Flex,
+  Text,
+  TextArea,
+  TextField,
+  Theme,
+} from '@radix-ui/themes'
 import '@radix-ui/themes/styles.css'
 
 function PrivacyConsentForm() {
@@ -11,91 +20,106 @@ function PrivacyConsentForm() {
     <Theme>
       <form onSubmit={handleSubmit}>
         <Flex direction="column" gap="3">
-          <Text size="3" weight="bold">
-            Privacy preferences
-          </Text>
-          <Text size="2" color="gray">
-            Please review and manage your privacy settings below.
-          </Text>
-
           <Box>
-            <Text as="label" size="2">
-              <Flex gap="2" align="center">
-                <Checkbox name="essential" defaultChecked disabled />
-                Essential cookies (required)
-              </Flex>
+            <Text
+              as="label"
+              size="2"
+              weight="medium"
+              htmlFor="radix-privacy-name"
+            >
+              Full name
             </Text>
-            <Text size="1" color="gray">
-              These cookies are necessary for the website to function properly.
-            </Text>
+            <TextField.Root
+              id="radix-privacy-name"
+              name="fullName"
+              type="text"
+              placeholder="Enter your full name"
+              required
+            />
           </Box>
 
           <Box>
-            <Text as="label" size="2">
-              <Flex gap="2" align="center">
-                <Checkbox name="analytics" />
-                Analytics cookies
-              </Flex>
+            <Text
+              as="label"
+              size="2"
+              weight="medium"
+              htmlFor="radix-privacy-email"
+            >
+              Email address
             </Text>
-            <Text size="1" color="gray">
-              Help us understand how visitors interact with our website.
-            </Text>
+            <TextField.Root
+              id="radix-privacy-email"
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+              required
+            />
           </Box>
 
           <Box>
-            <Text as="label" size="2">
-              <Flex gap="2" align="center">
-                <Checkbox name="marketing" />
-                Marketing cookies
-              </Flex>
+            <Text size="2" weight="medium">
+              Communication channels
             </Text>
-            <Text size="1" color="gray">
-              Used to deliver personalized advertisements.
-            </Text>
+            <Flex direction="column" gap="2" mt="2">
+              <Text as="label" size="2">
+                <Flex gap="2" align="center">
+                  <Checkbox name="emailOptIn" />
+                  Email updates
+                </Flex>
+              </Text>
+              <Text as="label" size="2">
+                <Flex gap="2" align="center">
+                  <Checkbox name="smsOptIn" />
+                  SMS notifications
+                </Flex>
+              </Text>
+              <Text as="label" size="2">
+                <Flex gap="2" align="center">
+                  <Checkbox name="phoneOptIn" />
+                  Phone calls
+                </Flex>
+              </Text>
+            </Flex>
           </Box>
 
           <Box>
-            <Text as="label" size="2">
-              <Flex gap="2" align="center">
-                <Checkbox name="thirdParty" />
-                Third-party cookies
-              </Flex>
+            <Text size="2" weight="medium">
+              Privacy options
             </Text>
-            <Text size="1" color="gray">
-              Allow third-party services to provide enhanced functionality.
-            </Text>
+            <Flex direction="column" gap="2" mt="2">
+              <Text as="label" size="2">
+                <Flex gap="2" align="center">
+                  <Checkbox name="analytics" />
+                  Allow analytics cookies
+                </Flex>
+              </Text>
+              <Text as="label" size="2">
+                <Flex gap="2" align="center">
+                  <Checkbox name="personalization" />
+                  Allow personalized content
+                </Flex>
+              </Text>
+            </Flex>
           </Box>
 
           <Box>
-            <Text as="label" size="2">
-              <Flex gap="2" align="center">
-                <Checkbox name="dataSharing" />
-                Data sharing with partners
-              </Flex>
+            <Text
+              as="label"
+              size="2"
+              weight="medium"
+              htmlFor="radix-privacy-notes"
+            >
+              Additional notes
             </Text>
-            <Text size="1" color="gray">
-              Share anonymized data with our trusted partners.
-            </Text>
+            <TextArea
+              id="radix-privacy-notes"
+              name="notes"
+              rows="3"
+              placeholder="Any additional notes"
+            />
           </Box>
 
-          <Box>
-            <Text as="label" size="2">
-              <Flex gap="2" align="center">
-                <Checkbox name="terms" required />I have read and agree to the
-                privacy policy
-              </Flex>
-            </Text>
-          </Box>
-
-          <Flex gap="3">
-            <Button type="submit">Save preferences</Button>
-            <Button type="button" variant="outline">
-              Accept all
-            </Button>
-            <Button type="button" variant="outline">
-              Reject all
-            </Button>
-          </Flex>
+          <Button type="submit">Save preferences</Button>
         </Flex>
       </form>
     </Theme>
