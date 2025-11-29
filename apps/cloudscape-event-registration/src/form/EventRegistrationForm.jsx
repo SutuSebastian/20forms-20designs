@@ -48,7 +48,9 @@ function EventRegistrationForm() {
                 { label: 'Student', value: 'student' },
               ]}
               selectedOption={selectedTicketType}
-              onChange={({ detail }) => setSelectedTicketType(detail.selectedOption)}
+              onChange={({ detail }) =>
+                setSelectedTicketType(detail.selectedOption)
+              }
             />
           </FormField>
           <FormField label="Number of guests">

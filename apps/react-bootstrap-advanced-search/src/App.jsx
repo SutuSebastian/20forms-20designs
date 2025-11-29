@@ -19,6 +19,11 @@ function App() {
     return () => window.removeEventListener('message', handleMessage)
   }, [])
 
+  // Apply theme to document root for proper Bootstrap dark mode support
+  useEffect(() => {
+    document.documentElement.setAttribute('data-bs-theme', theme)
+  }, [theme])
+
   return (
     <div
       data-bs-theme={theme}

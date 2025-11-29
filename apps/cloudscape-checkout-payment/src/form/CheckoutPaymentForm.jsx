@@ -39,7 +39,9 @@ function CheckoutPaymentForm() {
                 { label: 'Overnight', value: 'overnight' },
               ]}
               selectedOption={selectedShipping}
-              onChange={({ detail }) => setSelectedShipping(detail.selectedOption)}
+              onChange={({ detail }) =>
+                setSelectedShipping(detail.selectedOption)
+              }
             />
           </FormField>
           <FormField label="Card number">

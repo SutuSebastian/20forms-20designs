@@ -45,7 +45,9 @@ function CustomerFeedbackForm() {
                 { label: 'Poor', value: 'poor' },
               ]}
               selectedOption={selectedRating}
-              onChange={({ detail }) => setSelectedRating(detail.selectedOption)}
+              onChange={({ detail }) =>
+                setSelectedRating(detail.selectedOption)
+              }
             />
           </FormField>
           <FormField label="Comments">

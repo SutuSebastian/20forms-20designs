@@ -1,9 +1,7 @@
 import { useState, useMemo, useEffect, useRef } from 'react'
 import { LIBRARIES, FORMS, buildIframeSrc } from './config'
+import { useAppStore, ThemeMode } from './store'
 import './styles.css'
-
-type ThemeMode = 'light' | 'dark'
-type GroupBy = 'library' | 'form'
 
 // Simple checkbox row component
 function CheckboxRow({
@@ -58,7 +56,9 @@ function SelectionColumn({
   const noneSelected = selectableItems.every(
     (item) => !selectedItems.includes(item.value)
   )
-  const listClassName = twoColumnLayout ? 'two-column-list' : 'single-column-list'
+  const listClassName = twoColumnLayout
+    ? 'two-column-list'
+    : 'single-column-list'
 
   return (
     <section>
@@ -97,10 +97,12 @@ function PreviewCard({
   libraryName,
   formName,
   theme,
+  supportsTheme,
 }: {
   libraryName: string
   formName: string
   theme: ThemeMode
+  supportsTheme: boolean
 }) {
   const [iframeHeight, setIframeHeight] = useState(500)
   const iframeRef = useRef<HTMLIFrameElement>(null)
@@ -171,6 +173,14 @@ function PreviewCard({
     <div className="preview-card">
       <div className="preview-card-header">
         <strong>{formName}</strong> — {libraryName}
+        {!supportsTheme && theme === 'dark' && (
+          <span
+            className="no-dark-theme-badge"
+            title="This library does not support dark theme"
+          >
+            ⚠️ Light only
+          </span>
+        )}
       </div>
       <iframe
         ref={iframeRef}
@@ -202,16 +212,21 @@ function PreviewSectionHeader({
 }
 
 function App() {
-  const [themeMode, setThemeMode] = useState<ThemeMode>('light')
-  const [groupBy, setGroupBy] = useState<GroupBy>('library')
-  const [selectedForms, setSelectedForms] = useState<string[]>(() =>
-    FORMS.slice(0, 3)
-  )
-  const [selectedLibraries, setSelectedLibraries] = useState<string[]>(() =>
-    LIBRARIES.filter((lib) => lib.implemented)
-      .slice(0, 3)
-      .map((lib) => lib.name)
-  )
+  // Get state and actions from Zustand store
+  const {
+    themeMode,
+    groupBy,
+    selectedForms,
+    selectedLibraries,
+    setThemeMode,
+    setGroupBy,
+    toggleFormSelection,
+    selectAllForms,
+    selectNoForms,
+    toggleLibrarySelection,
+    selectAllLibraries,
+    selectNoLibraries,
+  } = useAppStore()
 
   // Form items for selection
   const formItems = useMemo(
@@ -252,18 +267,6 @@ function App() {
     []
   )
 
-  const toggleFormSelection = (form: string) => {
-    setSelectedForms((prev) =>
-      prev.includes(form) ? prev.filter((f) => f !== form) : [...prev, form]
-    )
-  }
-
-  const toggleLibrarySelection = (lib: string) => {
-    setSelectedLibraries((prev) =>
-      prev.includes(lib) ? prev.filter((l) => l !== lib) : [...prev, lib]
-    )
-  }
-
   // Get active (selected AND implemented) libraries
   const activeLibraries = useMemo(
     () =>
@@ -297,24 +300,16 @@ function App() {
             items={formItems}
             selectedItems={selectedForms}
             onToggleItem={toggleFormSelection}
-            onSelectAll={() =>
-              setSelectedForms(formItems.map((item) => item.value))
-            }
-            onSelectNone={() => setSelectedForms([])}
+            onSelectAll={selectAllForms}
+            onSelectNone={selectNoForms}
           />
           <SelectionColumn
             title="Component libraries"
             items={libraryItems}
             selectedItems={selectedLibraries}
             onToggleItem={toggleLibrarySelection}
-            onSelectAll={() =>
-              setSelectedLibraries(
-                libraryItems
-                  .filter((item) => !item.disabled)
-                  .map((item) => item.value)
-              )
-            }
-            onSelectNone={() => setSelectedLibraries([])}
+            onSelectAll={selectAllLibraries}
+            onSelectNone={selectNoLibraries}
             twoColumnLayout
           />
         </div>
@@ -386,6 +381,7 @@ function App() {
                       libraryName={lib.name}
                       formName={form}
                       theme={themeMode}
+                      supportsTheme={lib.supportsTheme}
                     />
                   ))}
                 </div>
@@ -411,6 +407,7 @@ function App() {
                       libraryName={lib.name}
                       formName={form}
                       theme={themeMode}
+                      supportsTheme={lib.supportsTheme}
                     />
                   ))}
                 </div>

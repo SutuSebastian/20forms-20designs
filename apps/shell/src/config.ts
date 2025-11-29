@@ -163,7 +163,7 @@ export const LIBRARIES: Library[] = [
     website: 'https://evergreen.segment.com',
     repo: 'https://github.com/segmentio/evergreen',
     implemented: true,
-    supportsTheme: true,
+    supportsTheme: false,
   },
   {
     name: 'Blueprint',

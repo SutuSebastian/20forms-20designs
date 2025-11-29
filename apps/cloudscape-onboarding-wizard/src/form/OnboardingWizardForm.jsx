@@ -66,7 +66,9 @@ function OnboardingWizardForm() {
                     { label: '50+', value: '50+' },
                   ]}
                   selectedOption={selectedTeamSize}
-                  onChange={({ detail }) => setSelectedTeamSize(detail.selectedOption)}
+                  onChange={({ detail }) =>
+                    setSelectedTeamSize(detail.selectedOption)
+                  }
                 />
               </FormField>
             </SpaceBetween>

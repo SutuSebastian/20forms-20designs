@@ -12,8 +12,14 @@ import {
 } from '@cloudscape-design/components'
 
 function AdvancedSearchForm() {
-  const [selectedCategory, setSelectedCategory] = useState({ label: 'All', value: 'all' })
-  const [selectedSort, setSelectedSort] = useState({ label: 'Relevance', value: 'relevance' })
+  const [selectedCategory, setSelectedCategory] = useState({
+    label: 'All',
+    value: 'all',
+  })
+  const [selectedSort, setSelectedSort] = useState({
+    label: 'Relevance',
+    value: 'relevance',
+  })
   const [dateFrom, setDateFrom] = useState('')
   const [dateTo, setDateTo] = useState('')
 
@@ -44,7 +50,9 @@ function AdvancedSearchForm() {
                 { label: 'Products', value: 'products' },
                 { label: 'People', value: 'people' },
               ]}
-              onChange={({ detail }) => setSelectedCategory(detail.selectedOption)}
+              onChange={({ detail }) =>
+                setSelectedCategory(detail.selectedOption)
+              }
             />
           </FormField>
           <FormField label="Date from">

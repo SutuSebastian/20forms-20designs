@@ -164,6 +164,19 @@ a:hover {
   background: #f5f5f5;
   border-bottom: 1px solid #ddd;
   font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.no-dark-theme-badge {
+  font-size: 0.75rem;
+  background: #fff3cd;
+  color: #856404;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
 }
 
 .preview-iframe {

@@ -22,8 +22,12 @@ function App() {
   }, [])
 
   const className = theme === 'dark' ? Classes.DARK : ''
+  const style = {
+    padding: '16px',
+    color: theme === 'dark' ? '#f6f7f9' : '#1c2127',
+  }
   return (
-    <div className={className} style={{ padding: '16px' }}>
+    <div className={className} style={style}>
       <FormComponent />
     </div>
   )

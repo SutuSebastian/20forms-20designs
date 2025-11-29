@@ -40,7 +40,9 @@ function NewsletterSubscriptionForm() {
                 { label: 'Quarterly', value: 'quarterly' },
               ]}
               selectedOption={selectedFrequency}
-              onChange={({ detail }) => setSelectedFrequency(detail.selectedOption)}
+              onChange={({ detail }) =>
+                setSelectedFrequency(detail.selectedOption)
+              }
             />
           </FormField>
           <Checkbox name="agree">Receive product updates</Checkbox>

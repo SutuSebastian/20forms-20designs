@@ -73,7 +73,9 @@ function BillingInfoForm() {
                 { label: 'Canada', value: 'CA' },
               ]}
               selectedOption={selectedCountry}
-              onChange={({ detail }) => setSelectedCountry(detail.selectedOption)}
+              onChange={({ detail }) =>
+                setSelectedCountry(detail.selectedOption)
+              }
             />
           </FormField>
           <Button variant="primary" formAction="submit">
