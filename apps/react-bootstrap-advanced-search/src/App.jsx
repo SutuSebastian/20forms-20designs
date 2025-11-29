@@ -20,7 +20,7 @@ function App() {
   }, []);
 
     return (
-      <div data-bs-theme={theme} style={{ padding: '16px' }}>
+      <div data-bs-theme={theme} className="bg-body" style={{ padding: '16px', minHeight: '100vh' }}>
         <FormComponent />
       </div>
     );

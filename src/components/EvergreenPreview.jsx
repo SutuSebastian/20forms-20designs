@@ -24,12 +24,16 @@ function EvergreenPreview({
   if (!isLibrarySelected) return null
 
   const hasSelections = selectedForms.length > 0
+  const darkThemeWarning = themeMode === 'dark' 
+    ? "Evergreen does not support dark theme natively. Forms are displayed in light mode."
+    : null
 
   return (
     <section style={styles.previewSection}>
       <PreviewSectionHeader
         title="Evergreen previews"
         description="Evergreen UI form implementations rendered when Evergreen is selected."
+        warningMessage={darkThemeWarning}
       />
       {!hasSelections ? (
         <PreviewPlaceholder libraryName={libraryName} />

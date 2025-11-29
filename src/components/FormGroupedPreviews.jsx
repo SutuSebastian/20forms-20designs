@@ -32,6 +32,19 @@ const styles = {
     gap: '16px',
     padding: '6px 2px 12px',
   },
+  noDarkThemeBadge: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '4px',
+    padding: '2px 8px',
+    backgroundColor: '#fff3cd',
+    color: '#856404',
+    border: '1px solid #ffc107',
+    borderRadius: '4px',
+    fontSize: '0.7rem',
+    fontWeight: 500,
+    marginLeft: '8px',
+  },
 }
 import {
   LibraryThemeWrapper,
@@ -40,6 +53,7 @@ import {
 import FormErrorBoundary from './FormErrorBoundary'
 import PreviewSectionHeader from './PreviewSectionHeader'
 import PreviewCard from './PreviewCard'
+import { librariesByName } from '../constants/componentLibraries'
 
 function FormGroupedPreviews({
   selectedForms,
@@ -88,8 +102,23 @@ function FormGroupedPreviews({
                   const FormComponent = components[form]
                   if (!FormComponent) return null
 
+                  const libraryConfig = librariesByName[library]
+                  const showNoDarkThemeWarning = themeMode === 'dark' && libraryConfig?.supportsDarkTheme === false
+
                   return (
-                    <PreviewCard key={`${form}-${library}`} form={library}>
+                    <PreviewCard 
+                      key={`${form}-${library}`} 
+                      form={
+                        <>
+                          {library}
+                          {showNoDarkThemeWarning && (
+                            <span style={styles.noDarkThemeBadge}>
+                              ⚠️ No dark theme
+                            </span>
+                          )}
+                        </>
+                      }
+                    >
                       <FormErrorBoundary
                         formName={form}
                         libraryName={library}

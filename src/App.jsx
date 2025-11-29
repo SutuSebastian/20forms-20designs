@@ -246,6 +246,7 @@ function App() {
             formComponents={
               librariesByName['Evergreen']?.implementation?.components
             }
+            themeMode={themeMode}
             libraryName={librariesByName['Evergreen']?.name}
           />
           <BlueprintPreview
