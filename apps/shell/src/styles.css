@@ -6,9 +6,6 @@
 }
 
 body {
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
-    Arial, sans-serif;
   line-height: 1.5;
 }
 
@@ -18,4 +15,162 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* Page layout */
+.page {
+  padding: 24px;
+  color: #1f2933;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.title {
+  margin: 0 0 8px;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 760px;
+  line-height: 1.4;
+}
+
+/* Selector row */
+.selector-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  column-gap: 64px;
+  row-gap: 24px;
+  align-items: start;
+}
+
+/* Toggle rows */
+.theme-toggle-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 4px;
+}
+
+.preview-toggle-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 8px;
+  margin-bottom: -12px;
+}
+
+.toggle-label {
+  font-weight: 600;
+}
+
+.radio-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+/* Section styles */
+.section-header {
+  margin-bottom: 6px;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.section-header-row {
+  margin-bottom: 8px;
+}
+
+.section-header-row h3 {
+  margin: 0 0 4px;
+}
+
+.section-header-row p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Selection actions */
+.selection-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+/* Checkbox row */
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.checkbox-row.disabled {
+  opacity: 0.5;
+}
+
+.checkbox-row.disabled span {
+  margin-left: 22px;
+}
+
+/* List layouts */
+.two-column-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 12px;
+}
+
+.single-column-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Preview section */
+.preview-section {
+  margin-top: 32px;
+}
+
+.preview-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 6px 2px 12px;
+}
+
+/* Preview card */
+.preview-card {
+  width: 400px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.preview-card-header {
+  padding: 8px 12px;
+  background: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+  font-size: 0.85rem;
+}
+
+.preview-iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+}
+
+/* Empty state message */
+.empty-message {
+  margin-top: 32px;
+  color: #666;
 }

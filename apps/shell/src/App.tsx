@@ -1,113 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from 'react'
 import { LIBRARIES, FORMS, buildIframeSrc } from './config'
-
-// Minimal inline styles - matching original approach
-const styles = {
-  page: {
-    padding: '24px',
-    color: '#1f2933',
-  },
-  header: {
-    marginBottom: '24px',
-  },
-  title: {
-    margin: '0 0 8px',
-  },
-  subtitle: {
-    margin: 0,
-    maxWidth: '760px',
-    lineHeight: 1.4,
-  },
-  selectorRow: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-    columnGap: '64px',
-    rowGap: '24px',
-    alignItems: 'start',
-  },
-  themeToggleRow: {
-    display: 'flex',
-    gap: '12px',
-    alignItems: 'center',
-    marginTop: '24px',
-    marginBottom: '4px',
-  },
-  previewToggleRow: {
-    display: 'flex',
-    gap: '12px',
-    alignItems: 'center',
-    marginTop: '8px',
-    marginBottom: '-12px',
-  },
-  toggleLabel: {
-    fontWeight: 600,
-  },
-  radioRow: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    fontSize: '0.95rem',
-  },
-  sectionHeader: {
-    marginBottom: '6px',
-  },
-  sectionTitle: {
-    margin: 0,
-    fontSize: '1.1rem',
-  },
-  selectionActions: {
-    display: 'flex',
-    gap: '12px',
-    flexWrap: 'wrap' as const,
-    marginBottom: '12px',
-    alignItems: 'center',
-  },
-  checkboxRow: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    fontSize: '0.95rem',
-  },
-  twoColumnList: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
-    gap: '8px 12px',
-  },
-  singleColumnList: {
-    display: 'flex',
-    flexDirection: 'column' as const,
-    gap: '8px',
-  },
-  previewSection: {
-    marginTop: '32px',
-  },
-  previewStrip: {
-    display: 'flex',
-    flexWrap: 'wrap' as const,
-    gap: '16px',
-    padding: '6px 2px 12px',
-  },
-  previewCard: {
-    width: '400px',
-    border: '1px solid #ddd',
-    borderRadius: '8px',
-    overflow: 'hidden',
-  },
-  previewCardHeader: {
-    padding: '8px 12px',
-    background: '#f5f5f5',
-    borderBottom: '1px solid #ddd',
-    fontSize: '0.85rem',
-  },
-  iframe: {
-    width: '100%',
-    height: '500px',
-    border: 'none',
-  },
-  sectionHeaderRow: {
-    marginBottom: '8px',
-  },
-}
+import './styles.css'
 
 type ThemeMode = 'light' | 'dark'
 type GroupBy = 'library' | 'form'
@@ -126,14 +19,14 @@ function CheckboxRow({
 }) {
   if (disabled) {
     return (
-      <div style={{ ...styles.checkboxRow, opacity: 0.5 }}>
-        <span style={{ marginLeft: '22px' }}>{label}</span>
+      <div className="checkbox-row disabled">
+        <span>{label}</span>
       </div>
     )
   }
 
   return (
-    <label style={styles.checkboxRow}>
+    <label className="checkbox-row">
       <input type="checkbox" checked={checked} onChange={onChange} />
       <span>{label}</span>
     </label>
@@ -165,16 +58,14 @@ function SelectionColumn({
   const noneSelected = selectableItems.every(
     (item) => !selectedItems.includes(item.value)
   )
-  const listStyle = twoColumnLayout
-    ? styles.twoColumnList
-    : styles.singleColumnList
+  const listClassName = twoColumnLayout ? 'two-column-list' : 'single-column-list'
 
   return (
     <section>
-      <div style={styles.sectionHeader}>
-        <h2 style={styles.sectionTitle}>{title}</h2>
+      <div className="section-header">
+        <h2 className="section-title">{title}</h2>
       </div>
-      <div style={styles.selectionActions}>
+      <div className="selection-actions">
         <CheckboxRow
           label="Select all"
           checked={allSelected}
@@ -186,7 +77,7 @@ function SelectionColumn({
           onChange={onSelectNone}
         />
       </div>
-      <div style={listStyle}>
+      <div className={listClassName}>
         {items.map((item) => (
           <CheckboxRow
             key={item.value}
@@ -266,7 +157,7 @@ function PreviewCard({
     } catch {
       // Cross-origin restrictions - rely on postMessage instead
     }
-    
+
     // Send theme to iframe when it loads
     if (iframeRef.current?.contentWindow) {
       iframeRef.current.contentWindow.postMessage(
@@ -277,15 +168,16 @@ function PreviewCard({
   }
 
   return (
-    <div style={styles.previewCard}>
-      <div style={styles.previewCardHeader}>
+    <div className="preview-card">
+      <div className="preview-card-header">
         <strong>{formName}</strong> — {libraryName}
       </div>
       <iframe
         ref={iframeRef}
         title={`${libraryName}-${formName}`}
         src={iframeSrc}
-        style={{ ...styles.iframe, height: `${iframeHeight}px` }}
+        className="preview-iframe"
+        style={{ height: `${iframeHeight}px` }}
         sandbox="allow-scripts allow-forms allow-same-origin"
         onLoad={handleIframeLoad}
       />
@@ -302,13 +194,9 @@ function PreviewSectionHeader({
   description?: string
 }) {
   return (
-    <div style={styles.sectionHeaderRow}>
-      <h3 style={{ margin: '0 0 4px' }}>{title}</h3>
-      {description && (
-        <p style={{ margin: 0, color: '#666', fontSize: '0.9rem' }}>
-          {description}
-        </p>
-      )}
+    <div className="section-header-row">
+      <h3>{title}</h3>
+      {description && <p>{description}</p>}
     </div>
   )
 }
@@ -392,10 +280,10 @@ function App() {
   )
 
   return (
-    <div style={styles.page}>
-      <header style={styles.header}>
-        <h1 style={styles.title}>20 Forms, 20 Designs</h1>
-        <p style={styles.subtitle}>
+    <div className="page">
+      <header className="header">
+        <h1 className="title">20 Forms, 20 Designs</h1>
+        <p className="subtitle">
           Choose a form and a component library to see the pairing. Each preview
           is rendered in an isolated iframe for complete CSS isolation between
           libraries.
@@ -403,7 +291,7 @@ function App() {
       </header>
 
       <main>
-        <div style={styles.selectorRow}>
+        <div className="selector-row">
           <SelectionColumn
             title="Forms"
             items={formItems}
@@ -431,9 +319,9 @@ function App() {
           />
         </div>
 
-        <div style={styles.themeToggleRow}>
-          <span style={styles.toggleLabel}>Theme:</span>
-          <label style={styles.radioRow}>
+        <div className="theme-toggle-row">
+          <span className="toggle-label">Theme:</span>
+          <label className="radio-row">
             <input
               type="radio"
               name="preview-theme"
@@ -443,7 +331,7 @@ function App() {
             />
             <span>Light theme</span>
           </label>
-          <label style={styles.radioRow}>
+          <label className="radio-row">
             <input
               type="radio"
               name="preview-theme"
@@ -455,9 +343,9 @@ function App() {
           </label>
         </div>
 
-        <div style={styles.previewToggleRow}>
-          <span style={styles.toggleLabel}>Group previews by:</span>
-          <label style={styles.radioRow}>
+        <div className="preview-toggle-row">
+          <span className="toggle-label">Group previews by:</span>
+          <label className="radio-row">
             <input
               type="radio"
               name="preview-group-by"
@@ -467,7 +355,7 @@ function App() {
             />
             <span>Design system</span>
           </label>
-          <label style={styles.radioRow}>
+          <label className="radio-row">
             <input
               type="radio"
               name="preview-group-by"
@@ -486,12 +374,12 @@ function App() {
             if (formsForLibrary.length === 0) return null
 
             return (
-              <section key={lib.name} style={styles.previewSection}>
+              <section key={lib.name} className="preview-section">
                 <PreviewSectionHeader
                   title={`${lib.name} previews`}
                   description={`${lib.name} form implementations.`}
                 />
-                <div style={styles.previewStrip}>
+                <div className="preview-strip">
                   {formsForLibrary.map((form) => (
                     <PreviewCard
                       key={`${lib.name}-${form}`}
@@ -511,12 +399,12 @@ function App() {
             if (activeLibraries.length === 0) return null
 
             return (
-              <section key={form} style={styles.previewSection}>
+              <section key={form} className="preview-section">
                 <PreviewSectionHeader
                   title={form}
                   description={`Compare this form across different design systems.`}
                 />
-                <div style={styles.previewStrip}>
+                <div className="preview-strip">
                   {activeLibraries.map((lib) => (
                     <PreviewCard
                       key={`${lib.name}-${form}`}
@@ -531,13 +419,13 @@ function App() {
           })}
 
         {activeLibraries.length === 0 && (
-          <p style={{ marginTop: '32px', color: '#666' }}>
+          <p className="empty-message">
             Select at least one implemented library to see previews.
           </p>
         )}
 
         {activeForms.length === 0 && activeLibraries.length > 0 && (
-          <p style={{ marginTop: '32px', color: '#666' }}>
+          <p className="empty-message">
             Select at least one form to see previews.
           </p>
         )}
