@@ -1,5 +1,13 @@
 import { useState } from 'react'
-import { Input, Button, Select, Checkbox, Spacer, Text, Divider } from '@geist-ui/core'
+import {
+  Input,
+  Button,
+  Select,
+  Checkbox,
+  Spacer,
+  Text,
+  Divider,
+} from '@geist-ui/core'
 
 function AdvancedSearchForm() {
   const [category, setCategory] = useState('')

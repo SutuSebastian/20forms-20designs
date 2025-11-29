@@ -11,6 +11,7 @@ export type LibraryId =
   | 'gravity-ui'
   | 'react-no-css'
   | 'cloudscape'
+  | 'uswds'
 
 export type FormId =
   | 'user-registration'
@@ -185,6 +186,14 @@ export const LIBRARIES: LibraryConfig[] = [
     directory: 'cloudscape-design',
     website: 'https://cloudscape.design',
     repo: 'https://github.com/cloudscape-design/components',
+    supportsTheme: true,
+  },
+  {
+    id: 'uswds',
+    name: 'U.S. Web Design System',
+    directory: 'uswds',
+    website: 'https://designsystem.digital.gov',
+    repo: 'https://github.com/uswds/uswds',
     supportsTheme: true,
   },
 ]

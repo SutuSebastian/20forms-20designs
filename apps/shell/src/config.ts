@@ -16,6 +16,9 @@ export type LibraryId =
   | 'elastic-ui'
   | 'nextui'
   | 'geist-ui'
+  | 'zendesk-garden'
+  | 'tamagui'
+  | 'heroui'
 
 // Form ID for iframe URLs
 export type FormId =
@@ -73,6 +76,9 @@ export const LIBRARY_NAME_TO_ID: Record<string, LibraryId | undefined> = {
   'Elastic UI (EUI)': 'elastic-ui',
   NextUI: 'nextui',
   'Geist UI': 'geist-ui',
+  'Zendesk Garden': 'zendesk-garden',
+  Tamagui: 'tamagui',
+  HeroUI: 'heroui',
 }
 
 // Map from form name to form ID (for iframe URLs)
@@ -234,8 +240,8 @@ export const LIBRARIES: Library[] = [
     directory: 'heroui',
     website: 'https://heroui.com',
     repo: 'https://github.com/heroui-inc/heroui',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'NextUI',
@@ -330,8 +336,8 @@ export const LIBRARIES: Library[] = [
     directory: 'zendesk-garden',
     website: 'https://garden.zendesk.com',
     repo: 'https://github.com/zendesk/garden',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'PatternFly',
@@ -522,8 +528,8 @@ export const LIBRARIES: Library[] = [
     directory: 'tamagui',
     website: 'https://tamagui.dev',
     repo: 'https://github.com/tamagui/tamagui',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'CoreUI',

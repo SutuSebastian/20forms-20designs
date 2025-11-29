@@ -10,7 +10,8 @@ function PrivacyConsentForm() {
     <form onSubmit={handleSubmit}>
       <Text h5>Essential Cookies</Text>
       <Text small type="secondary">
-        These cookies are necessary for the website to function and cannot be disabled.
+        These cookies are necessary for the website to function and cannot be
+        disabled.
       </Text>
       <Spacer h={1} />
       <Card>
