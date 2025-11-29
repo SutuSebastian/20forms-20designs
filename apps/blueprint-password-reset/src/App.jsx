@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Classes } from '@blueprintjs/core'
 import '@blueprintjs/core/lib/css/blueprint.css'
 import '@blueprintjs/icons/lib/css/blueprint-icons.css'
 import FormComponent from './form/PasswordResetForm'
@@ -20,7 +21,7 @@ function App() {
     return () => window.removeEventListener('message', handleMessage)
   }, [])
 
-  const className = theme === 'dark' ? 'bp5-dark' : ''
+  const className = theme === 'dark' ? Classes.DARK : ''
   return (
     <div className={className} style={{ padding: '16px' }}>
       <FormComponent />
