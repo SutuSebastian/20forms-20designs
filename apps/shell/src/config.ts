@@ -11,6 +11,7 @@ export type LibraryId =
   | 'daisyui'
   | 'shadcn-ui'
   | 'gestalt'
+  | 'polaris'
 
 // Form ID for iframe URLs
 export type FormId =
@@ -63,6 +64,7 @@ export const LIBRARY_NAME_TO_ID: Record<string, LibraryId | undefined> = {
   daisyUI: 'daisyui',
   'shadcn/ui': 'shadcn-ui',
   'Pinterest Gestalt': 'gestalt',
+  'Shopify Polaris': 'polaris',
 }
 
 // Map from form name to form ID (for iframe URLs)
@@ -301,11 +303,11 @@ export const LIBRARIES: Library[] = [
   },
   {
     name: 'Shopify Polaris',
-    directory: 'shopify-polaris',
+    directory: 'polaris',
     website: 'https://polaris.shopify.com',
     repo: 'https://github.com/Shopify/polaris',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Elastic UI (EUI)',

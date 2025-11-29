@@ -1,5 +1,11 @@
 import { useState, useCallback } from 'react'
-import { FormLayout, Checkbox, Button, Text, BlockStack } from '@shopify/polaris'
+import {
+  FormLayout,
+  Checkbox,
+  Button,
+  Text,
+  BlockStack,
+} from '@shopify/polaris'
 
 function PrivacyConsentForm() {
   const [essentialCookies, setEssentialCookies] = useState(true)
@@ -65,9 +71,7 @@ function PrivacyConsentForm() {
           <Button submit variant="primary">
             Save preferences
           </Button>
-          <Button onClick={handleAcceptAll}>
-            Accept all
-          </Button>
+          <Button onClick={handleAcceptAll}>Accept all</Button>
         </BlockStack>
       </FormLayout>
     </form>
