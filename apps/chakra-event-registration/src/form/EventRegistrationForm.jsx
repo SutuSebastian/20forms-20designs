@@ -1,4 +1,11 @@
-import { Button, Field, Input, Stack, Checkbox, NativeSelect } from '@chakra-ui/react'
+import {
+  Button,
+  Field,
+  Input,
+  Stack,
+  Checkbox,
+  NativeSelect,
+} from '@chakra-ui/react'
 
 function EventRegistrationForm() {
   const handleSubmit = (event) => {

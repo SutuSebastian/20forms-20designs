@@ -91,7 +91,9 @@ function ShippingAddressForm() {
               placeholder="Select an option"
               options={regionOptions}
               selectedOption={selectedRegion}
-              onChange={({ detail }) => setSelectedRegion(detail.selectedOption)}
+              onChange={({ detail }) =>
+                setSelectedRegion(detail.selectedOption)
+              }
             />
           </FormField>
           <FormField label="Postal code">

@@ -10,6 +10,7 @@ export type LibraryId =
   | 'cloudscape'
   | 'daisyui'
   | 'shadcn-ui'
+  | 'gestalt'
 
 // Form ID for iframe URLs
 export type FormId =
@@ -61,6 +62,7 @@ export const LIBRARY_NAME_TO_ID: Record<string, LibraryId | undefined> = {
   'Cloudscape Design System': 'cloudscape',
   daisyUI: 'daisyui',
   'shadcn/ui': 'shadcn-ui',
+  'Pinterest Gestalt': 'gestalt',
 }
 
 // Map from form name to form ID (for iframe URLs)
@@ -358,8 +360,8 @@ export const LIBRARIES: Library[] = [
     directory: 'gestalt',
     website: 'https://gestalt.pinterest.systems',
     repo: 'https://github.com/pinterest/gestalt',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'VMware Clarity',
