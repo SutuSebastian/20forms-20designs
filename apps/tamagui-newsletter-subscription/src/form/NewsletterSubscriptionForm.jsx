@@ -54,11 +54,7 @@ function NewsletterSubscriptionForm() {
         </YStack>
 
         <XStack gap="$2" alignItems="center">
-          <Checkbox
-            id="agree"
-            checked={agree}
-            onCheckedChange={setAgree}
-          >
+          <Checkbox id="agree" checked={agree} onCheckedChange={setAgree}>
             <Checkbox.Indicator>
               <Text>✓</Text>
             </Checkbox.Indicator>

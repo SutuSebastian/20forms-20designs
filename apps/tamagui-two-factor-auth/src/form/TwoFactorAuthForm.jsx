@@ -25,18 +25,17 @@ function TwoFactorAuthForm() {
 
         <YStack gap="$1">
           <Label htmlFor="backupCode">Backup code (optional)</Label>
-          <Input
-            id="backupCode"
-            name="backupCode"
-            placeholder="Backup code"
-          />
+          <Input id="backupCode" name="backupCode" placeholder="Backup code" />
         </YStack>
 
         <Button themeInverse onPress={() => {}}>
           Verify
         </Button>
 
-        <Button variant="outlined" onPress={() => alert('A new code has been sent!')}>
+        <Button
+          variant="outlined"
+          onPress={() => alert('A new code has been sent!')}
+        >
           Resend code
         </Button>
       </YStack>

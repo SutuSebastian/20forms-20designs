@@ -14,9 +14,6 @@ const countryOptions = [
   { value: '', text: 'Select country' },
   { value: 'us', text: 'United States' },
   { value: 'ca', text: 'Canada' },
-  { value: 'uk', text: 'United Kingdom' },
-  { value: 'au', text: 'Australia' },
-  { value: 'de', text: 'Germany' },
 ]
 
 function ShippingAddressForm() {

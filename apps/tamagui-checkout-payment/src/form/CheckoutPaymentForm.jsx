@@ -1,10 +1,4 @@
-import {
-  Button,
-  Input,
-  Label,
-  YStack,
-  Select,
-} from 'tamagui'
+import { Button, Input, Label, YStack, Select } from 'tamagui'
 import { useState } from 'react'
 
 function CheckoutPaymentForm() {
@@ -31,7 +25,11 @@ function CheckoutPaymentForm() {
 
         <YStack gap="$1">
           <Label htmlFor="shippingMethod">Shipping method</Label>
-          <Select id="shippingMethod" value={shippingMethod} onValueChange={setShippingMethod}>
+          <Select
+            id="shippingMethod"
+            value={shippingMethod}
+            onValueChange={setShippingMethod}
+          >
             <Select.Trigger>
               <Select.Value placeholder="Select shipping" />
             </Select.Trigger>
@@ -86,11 +84,7 @@ function CheckoutPaymentForm() {
 
         <YStack gap="$1">
           <Label htmlFor="promoCode">Promo code</Label>
-          <Input
-            id="promoCode"
-            name="promoCode"
-            placeholder="Promo code"
-          />
+          <Input id="promoCode" name="promoCode" placeholder="Promo code" />
         </YStack>
 
         <Button themeInverse onPress={() => {}}>

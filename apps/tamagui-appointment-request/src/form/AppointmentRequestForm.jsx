@@ -32,22 +32,12 @@ function AppointmentRequestForm() {
 
         <YStack gap="$1">
           <Label htmlFor="date">Preferred date</Label>
-          <input
-            id="date"
-            name="date"
-            type="date"
-            required
-          />
+          <input id="date" name="date" type="date" required />
         </YStack>
 
         <YStack gap="$1">
           <Label htmlFor="time">Preferred time</Label>
-          <input
-            id="time"
-            name="time"
-            type="time"
-            required
-          />
+          <input id="time" name="time" type="time" required />
         </YStack>
 
         <YStack gap="$1">

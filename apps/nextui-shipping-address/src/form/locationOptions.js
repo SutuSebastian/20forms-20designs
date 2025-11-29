@@ -1,9 +1,6 @@
 export const countries = [
   { key: 'us', label: 'United States' },
   { key: 'ca', label: 'Canada' },
-  { key: 'uk', label: 'United Kingdom' },
-  { key: 'de', label: 'Germany' },
-  { key: 'fr', label: 'France' },
 ]
 
 export const usStates = [

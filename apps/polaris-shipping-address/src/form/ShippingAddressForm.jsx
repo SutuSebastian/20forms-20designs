@@ -14,9 +14,6 @@ function ShippingAddressForm() {
     { label: 'Select country', value: '' },
     { label: 'United States', value: 'us' },
     { label: 'Canada', value: 'ca' },
-    { label: 'United Kingdom', value: 'uk' },
-    { label: 'Australia', value: 'au' },
-    { label: 'Germany', value: 'de' },
   ]
 
   const handleSubmit = useCallback((event) => {

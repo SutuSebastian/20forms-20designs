@@ -1,10 +1,4 @@
-import {
-  Button,
-  Input,
-  Label,
-  YStack,
-  Select,
-} from 'tamagui'
+import { Button, Input, Label, YStack, Select } from 'tamagui'
 import { useState } from 'react'
 
 function BillingInfoForm() {

@@ -70,17 +70,4 @@ export const CANADIAN_PROVINCES = [
 export const COUNTRIES = [
   { value: 'US', label: 'United States' },
   { value: 'CA', label: 'Canada' },
-  { value: 'MX', label: 'Mexico' },
-  { value: 'GB', label: 'United Kingdom' },
-  { value: 'DE', label: 'Germany' },
-  { value: 'FR', label: 'France' },
-  { value: 'IT', label: 'Italy' },
-  { value: 'ES', label: 'Spain' },
-  { value: 'AU', label: 'Australia' },
-  { value: 'JP', label: 'Japan' },
-  { value: 'CN', label: 'China' },
-  { value: 'IN', label: 'India' },
-  { value: 'BR', label: 'Brazil' },
-  { value: 'KR', label: 'South Korea' },
-  { value: 'NL', label: 'Netherlands' },
 ]

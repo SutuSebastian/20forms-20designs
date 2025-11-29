@@ -25,12 +25,7 @@ function AdvancedSearchForm() {
       <YStack gap="$3">
         <YStack gap="$1">
           <Label htmlFor="query">Search query</Label>
-          <Input
-            id="query"
-            name="query"
-            placeholder="Search query"
-            required
-          />
+          <Input id="query" name="query" placeholder="Search query" required />
         </YStack>
 
         <YStack gap="$1">
@@ -58,20 +53,12 @@ function AdvancedSearchForm() {
 
         <YStack gap="$1">
           <Label htmlFor="dateFrom">Date from</Label>
-          <input
-            id="dateFrom"
-            name="dateFrom"
-            type="date"
-          />
+          <input id="dateFrom" name="dateFrom" type="date" />
         </YStack>
 
         <YStack gap="$1">
           <Label htmlFor="dateTo">Date to</Label>
-          <input
-            id="dateTo"
-            name="dateTo"
-            type="date"
-          />
+          <input id="dateTo" name="dateTo" type="date" />
         </YStack>
 
         <YStack gap="$1">

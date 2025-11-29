@@ -79,11 +79,7 @@ function ContactInquiryForm() {
         </YStack>
 
         <XStack gap="$2" alignItems="center">
-          <Checkbox
-            id="consent"
-            checked={consent}
-            onCheckedChange={setConsent}
-          >
+          <Checkbox id="consent" checked={consent} onCheckedChange={setConsent}>
             <Checkbox.Indicator>
               <Text>✓</Text>
             </Checkbox.Indicator>

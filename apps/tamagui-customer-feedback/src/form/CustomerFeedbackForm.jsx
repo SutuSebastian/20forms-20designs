@@ -41,11 +41,7 @@ function CustomerFeedbackForm() {
 
         <YStack gap="$1">
           <Label htmlFor="rating">Overall rating</Label>
-          <Select
-            id="rating"
-            value={rating}
-            onValueChange={setRating}
-          >
+          <Select id="rating" value={rating} onValueChange={setRating}>
             <Select.Trigger>
               <Select.Value placeholder="Select rating" />
             </Select.Trigger>

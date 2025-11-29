@@ -117,9 +117,7 @@ function OnboardingWizardForm() {
         </YStack>
 
         <XStack gap="$2">
-          <Button onPress={() => alert('Back action placeholder')}>
-            Back
-          </Button>
+          <Button onPress={() => alert('Back action placeholder')}>Back</Button>
           <Button themeInverse onPress={() => {}}>
             Finish setup
           </Button>

@@ -22,12 +22,7 @@ function SupportTicketForm() {
       <YStack gap="$3">
         <YStack gap="$1">
           <Label htmlFor="subject">Subject</Label>
-          <Input
-            id="subject"
-            name="subject"
-            placeholder="Subject"
-            required
-          />
+          <Input id="subject" name="subject" placeholder="Subject" required />
         </YStack>
 
         <YStack gap="$1">
@@ -69,12 +64,7 @@ function SupportTicketForm() {
 
         <YStack gap="$1">
           <Label htmlFor="attachments">Attachments</Label>
-          <input
-            id="attachments"
-            name="attachments"
-            type="file"
-            multiple
-          />
+          <input id="attachments" name="attachments" type="file" multiple />
         </YStack>
 
         <Button themeInverse onPress={() => {}}>
