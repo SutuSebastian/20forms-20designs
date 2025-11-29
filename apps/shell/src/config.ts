@@ -8,6 +8,8 @@ export type LibraryId =
   | 'gravity-ui'
   | 'react-no-css'
   | 'cloudscape'
+  | 'daisyui'
+  | 'shadcn-ui'
 
 // Form ID for iframe URLs
 export type FormId =
@@ -57,6 +59,8 @@ export const LIBRARY_NAME_TO_ID: Record<string, LibraryId | undefined> = {
   'Gravity UI': 'gravity-ui',
   'React + No CSS': 'react-no-css',
   'Cloudscape Design System': 'cloudscape',
+  daisyUI: 'daisyui',
+  'shadcn/ui': 'shadcn-ui',
 }
 
 // Map from form name to form ID (for iframe URLs)
@@ -250,8 +254,8 @@ export const LIBRARIES: Library[] = [
     directory: 'shadcn-ui',
     website: 'https://ui.shadcn.com',
     repo: 'https://github.com/shadcn-ui/ui',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Radix UI',
@@ -274,8 +278,8 @@ export const LIBRARIES: Library[] = [
     directory: 'daisyui',
     website: 'https://daisyui.com',
     repo: 'https://github.com/saadeghi/daisyui',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Cloudscape Design System',

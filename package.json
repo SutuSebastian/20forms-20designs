@@ -17,7 +17,7 @@
     "preview:shell": "npm run preview --workspace=@forms-comparison/shell",
     "clean": "node scripts/clean.mjs",
     "optimize-configs": "node scripts/optimize-vite-configs.mjs",
-    "lint": "eslint .",
+    "lint": "eslint . --cache",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\""
   },
   "devDependencies": {
