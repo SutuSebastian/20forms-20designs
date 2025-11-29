@@ -9,7 +9,6 @@
   ],
   "scripts": {
     "generate": "node scripts/generate-mini-apps.mjs",
-    "dev": "vite",
     "dev:shell": "npm run dev --workspace=@forms-comparison/shell",
     "build": "node scripts/build-all.mjs",
     "build:shell": "npm run build --workspace=@forms-comparison/shell",
