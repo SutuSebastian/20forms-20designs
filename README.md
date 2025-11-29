@@ -12,7 +12,7 @@ This is how this project was born. It represents 20 extremely common forms that 
 
 ## ✨ Features
 
-- **160 Mini-Apps** — Each form × library combination runs in its own isolated context
+- **200 Mini-Apps** — Each form × library combination runs in its own isolated context
 - **CSS Isolation** — No style conflicts between design systems (iframe-based architecture)
 - **Theme Support** — Light/dark mode toggle for libraries that support theming
 - **Comparison Matrix** — Side-by-side comparison of forms across libraries
@@ -29,7 +29,7 @@ This project uses a **monorepo + iframe architecture** for complete CSS isolatio
 │   ├── mui-user-login/           # MUI Login Form
 │   ├── mui-user-registration/    # MUI Registration Form
 │   ├── radix-ui-user-login/      # Radix UI Login Form
-│   └── ... (160 mini-apps total)
+│   └── ... (200 mini-apps total)
 ├── packages/
 │   └── shared/                   # Shared types and utilities
 ├── scripts/
@@ -40,9 +40,9 @@ This project uses a **monorepo + iframe architecture** for complete CSS isolatio
     └── component-libraries/      # Original form implementations
 ```
 
-### Why 160 Separate Mini-Apps?
+### Why 200 Separate Mini-Apps?
 
-You might wonder: *why build 160 separate applications instead of one unified app?* The answer comes down to **CSS isolation** — the core technical challenge of this project.
+You might wonder: *why build 200 separate applications instead of one unified app?* The answer comes down to **CSS isolation** — the core technical challenge of this project.
 
 **The Problem with a Single SPA:**
 
@@ -70,7 +70,7 @@ This means MUI's `CssBaseline`, Tailwind's preflight, and Chakra's global styles
 
 **The Trade-off:**
 
-Yes, building 160 separate apps means:
+Yes, building 200 separate apps means:
 - Longer build times (~2-3 minutes for full build)
 - Duplicated React/library bundles across apps
 - More complex deployment orchestration
@@ -112,12 +112,14 @@ But it guarantees:
 | ------------------------------------------------------- | ------------- | ------------------------------------------------------------ |
 | [Blueprint](https://blueprintjs.com/)                   | ✅ Light/Dark | [GitHub](https://github.com/palantir/blueprint)              |
 | [Cloudscape](https://cloudscape.design/)                | ✅ Light/Dark | [GitHub](https://github.com/cloudscape-design/components)    |
+| [daisyUI](https://daisyui.com/)                         | ✅ Light/Dark | [GitHub](https://github.com/saadeghi/daisyui)                |
 | [Evergreen](https://evergreen.segment.com/)             | ⚠️ Light only | [GitHub](https://github.com/segmentio/evergreen)             |
 | [Gravity UI](https://gravity-ui.com/)                   | ✅ Light/Dark | [GitHub](https://github.com/gravity-ui/uikit)                |
 | [MUI](https://mui.com/)                                 | ✅ Light/Dark | [GitHub](https://github.com/mui/material-ui)                 |
 | [Radix UI](https://www.radix-ui.com/)                   | ✅ Light/Dark | [GitHub](https://github.com/radix-ui/primitives)             |
 | [React Bootstrap](https://react-bootstrap.netlify.app/) | ✅ Light/Dark | [GitHub](https://github.com/react-bootstrap/react-bootstrap) |
 | [React (No CSS)](https://react.dev/)                    | ✅ Light/Dark | [GitHub](https://github.com/facebook/react)                  |
+| [shadcn/ui](https://ui.shadcn.com/)                     | ✅ Light/Dark | [GitHub](https://github.com/shadcn-ui/ui)                    |
 
 ### 📋 Planned Libraries
 
@@ -132,7 +134,6 @@ But it guarantees:
 | [Carbon Design System](https://carbondesignsystem.com/)                              | [GitHub](https://github.com/carbon-design-system/carbon)           |
 | [Chakra UI](https://chakra-ui.com/)                                                  | [GitHub](https://github.com/chakra-ui/chakra-ui)                   |
 | [CoreUI](https://coreui.io/react/)                                                   | [GitHub](https://github.com/coreui/coreui-react)                   |
-| [daisyUI](https://daisyui.com/)                                                      | [GitHub](https://github.com/saadeghi/daisyui)                      |
 | [Drip UI](https://drip-ui.com/)                                                      | [GitHub](https://github.com/drip-ui/drip-ui)                       |
 | [Elastic UI (EUI)](https://eui.elastic.co/)                                          | [GitHub](https://github.com/elastic/eui)                           |
 | [Emotion](https://emotion.sh/)                                                       | [GitHub](https://github.com/emotion-js/emotion)                    |
@@ -175,7 +176,6 @@ But it guarantees:
 | [Salesforce Lightning Design System React](https://react.lightningdesignsystem.com/) | [GitHub](https://github.com/salesforce/design-system-react)        |
 | [Semantic UI React](https://react.semantic-ui.com/)                                  | [GitHub](https://github.com/Semantic-Org/Semantic-UI-React)        |
 | [Semi Design](https://semi.design/)                                                  | [GitHub](https://github.com/DouyinFE/semi-design)                  |
-| [shadcn/ui](https://ui.shadcn.com/)                                                  | [GitHub](https://github.com/shadcn-ui/ui)                          |
 | [Shoelace](https://shoelace.style/)                                                  | [GitHub](https://github.com/shoelace-style/shoelace)               |
 | [Shopify Polaris](https://polaris.shopify.com/)                                      | [GitHub](https://github.com/Shopify/polaris)                       |
 | [Storybook](https://storybook.js.org/)                                               | [GitHub](https://github.com/storybookjs/storybook)                 |
@@ -218,7 +218,7 @@ This runs the shell application in development mode.
 ### Production Build (CSS Isolation)
 
 ```bash
-# Build all 161 apps (shell + 160 mini-apps) for GitHub Pages
+# Build all 201 apps (shell + 200 mini-apps) for GitHub Pages
 npm run build
 
 # Preview the production build locally
@@ -258,14 +258,26 @@ Each mini-app is a standalone Vite + React application that:
 
 ### Scripts
 
-| Script                | Description                                       |
-| --------------------- | ------------------------------------------------- |
-| `npm run generate`    | Generate all 160 mini-apps from source components |
-| `npm run build`       | Build shell + all mini-apps + copy to dist        |
-| `npm run build:shell` | Build only the shell app                          |
-| `npm run clean`       | Remove all build artifacts                        |
-| `npm run dev:shell`   | Run shell app in development mode                 |
-| `npm run preview`     | Preview the production build locally              |
+| Script                      | Description                                       |
+| --------------------------- | ------------------------------------------------- |
+| `npm run generate`          | Generate all mini-apps from source components     |
+| `npm run build`             | Build shell + all mini-apps + copy to dist        |
+| `npm run build:shell`       | Build only the shell app                          |
+| `npm run clean`             | Remove all build artifacts                        |
+| `npm run dev:shell`         | Run shell app in development mode                 |
+| `npm run preview`           | Preview the production build locally              |
+| `npm run lint`              | Lint all apps (may take a while)                  |
+| `npm run lint:shell`        | Lint only the shell app                           |
+| `npm run lint:mui`          | Lint only MUI apps                                |
+| `npm run lint:react-bootstrap` | Lint only React Bootstrap apps                 |
+| `npm run lint:evergreen`    | Lint only Evergreen apps                          |
+| `npm run lint:blueprint`    | Lint only Blueprint apps                          |
+| `npm run lint:radix-ui`     | Lint only Radix UI apps                           |
+| `npm run lint:gravity-ui`   | Lint only Gravity UI apps                         |
+| `npm run lint:react-no-css` | Lint only React (No CSS) apps                     |
+| `npm run lint:cloudscape`   | Lint only Cloudscape apps                         |
+| `npm run lint:daisyui`      | Lint only daisyUI apps                            |
+| `npm run lint:shadcn-ui`    | Lint only shadcn/ui apps                          |
 
 ## 🔧 Adding a New Library
 
@@ -296,7 +308,7 @@ The workflow:
 
 - Installs dependencies with `--legacy-peer-deps`
 - Generates mini-apps if they don't exist
-- Builds all 161 apps (shell + 160 mini-apps)
+- Builds all 201 apps (shell + 200 mini-apps)
 - Deploys to GitHub Pages
 
 **Live URL:** `https://<username>.github.io/20forms-20designs/`
