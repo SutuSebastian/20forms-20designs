@@ -20,7 +20,10 @@ function UserRegistrationForm() {
   return (
     <form onSubmit={handleSubmit} className="p-fluid">
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-user-registration-name" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-user-registration-name"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Full name
         </label>
         <InputText
@@ -32,7 +35,10 @@ function UserRegistrationForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-user-registration-email" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-user-registration-email"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Email address
         </label>
         <InputText
@@ -45,7 +51,10 @@ function UserRegistrationForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-user-registration-username" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-user-registration-username"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Username
         </label>
         <InputText
@@ -58,7 +67,10 @@ function UserRegistrationForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-user-registration-password" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-user-registration-password"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Password
         </label>
         <Password
@@ -71,7 +83,10 @@ function UserRegistrationForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-user-registration-confirm" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-user-registration-confirm"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Confirm password
         </label>
         <Password
@@ -84,7 +99,15 @@ function UserRegistrationForm() {
           required
         />
       </div>
-      <div className="field-checkbox" style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+      <div
+        className="field-checkbox"
+        style={{
+          marginBottom: '1rem',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+        }}
+      >
         <Checkbox
           inputId="primereact-user-registration-terms"
           name="terms"
@@ -92,7 +115,9 @@ function UserRegistrationForm() {
           onChange={(e) => setTerms(e.checked)}
           required
         />
-        <label htmlFor="primereact-user-registration-terms">I agree to the terms and conditions</label>
+        <label htmlFor="primereact-user-registration-terms">
+          I agree to the terms and conditions
+        </label>
       </div>
       <Button type="submit" label="Create account" />
     </form>

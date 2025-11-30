@@ -29,7 +29,10 @@ function ShippingAddressForm() {
   return (
     <form onSubmit={handleSubmit} className="p-fluid">
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-shipping-full-name" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-shipping-full-name"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Recipient name
         </label>
         <InputText
@@ -41,7 +44,10 @@ function ShippingAddressForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-shipping-street" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-shipping-street"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Street address
         </label>
         <InputText
@@ -53,7 +59,10 @@ function ShippingAddressForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-shipping-street-2" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-shipping-street-2"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Apartment, suite, etc.
         </label>
         <InputText
@@ -64,7 +73,10 @@ function ShippingAddressForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-shipping-city" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-shipping-city"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           City
         </label>
         <InputText
@@ -76,7 +88,10 @@ function ShippingAddressForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-shipping-country" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-shipping-country"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Country
         </label>
         <Dropdown
@@ -94,7 +109,10 @@ function ShippingAddressForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-shipping-region" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-shipping-region"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           State / Province / Territory
         </label>
         <Dropdown
@@ -108,7 +126,10 @@ function ShippingAddressForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-shipping-postal" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-shipping-postal"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Postal code
         </label>
         <InputText
@@ -119,14 +140,24 @@ function ShippingAddressForm() {
           required
         />
       </div>
-      <div className="field-checkbox" style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+      <div
+        className="field-checkbox"
+        style={{
+          marginBottom: '1rem',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+        }}
+      >
         <Checkbox
           inputId="primereact-shipping-default"
           name="default"
           checked={isDefault}
           onChange={(e) => setIsDefault(e.checked)}
         />
-        <label htmlFor="primereact-shipping-default">Use as default shipping address</label>
+        <label htmlFor="primereact-shipping-default">
+          Use as default shipping address
+        </label>
       </div>
       <Button type="submit" label="Save address" />
     </form>

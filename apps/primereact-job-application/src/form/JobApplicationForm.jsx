@@ -21,7 +21,10 @@ function JobApplicationForm() {
   return (
     <form onSubmit={handleSubmit} className="p-fluid">
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-job-full-name" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-job-full-name"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Full name
         </label>
         <InputText
@@ -33,7 +36,10 @@ function JobApplicationForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-job-email" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-job-email"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Email address
         </label>
         <InputText
@@ -46,7 +52,10 @@ function JobApplicationForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-job-phone" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-job-phone"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Phone number
         </label>
         <InputText
@@ -59,7 +68,10 @@ function JobApplicationForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-job-role" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-job-role"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Role applied for
         </label>
         <InputText
@@ -71,7 +83,10 @@ function JobApplicationForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-job-resume" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-job-resume"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Resume link
         </label>
         <InputText
@@ -84,7 +99,10 @@ function JobApplicationForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-job-cover-letter" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-job-cover-letter"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Cover letter
         </label>
         <InputTextarea
@@ -96,14 +114,24 @@ function JobApplicationForm() {
           required
         />
       </div>
-      <div className="field-checkbox" style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+      <div
+        className="field-checkbox"
+        style={{
+          marginBottom: '1rem',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+        }}
+      >
         <Checkbox
           inputId="primereact-job-updates"
           name="updates"
           checked={updates}
           onChange={(e) => setUpdates(e.checked)}
         />
-        <label htmlFor="primereact-job-updates">Keep me informed about future roles</label>
+        <label htmlFor="primereact-job-updates">
+          Keep me informed about future roles
+        </label>
       </div>
       <Button type="submit" label="Submit application" />
     </form>

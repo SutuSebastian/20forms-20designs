@@ -17,13 +17,13 @@ function AdvancedSearchForm() {
     { label: 'All', value: 'all' },
     { label: 'Articles', value: 'articles' },
     { label: 'Products', value: 'products' },
-    { label: 'People', value: 'people' }
+    { label: 'People', value: 'people' },
   ]
 
   const sortOptions = [
     { label: 'Relevance', value: 'relevance' },
     { label: 'Newest', value: 'newest' },
-    { label: 'Oldest', value: 'oldest' }
+    { label: 'Oldest', value: 'oldest' },
   ]
 
   const handleSubmit = (event) => {
@@ -34,7 +34,10 @@ function AdvancedSearchForm() {
   return (
     <form onSubmit={handleSubmit} className="p-fluid">
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-search-query" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-search-query"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Search query
         </label>
         <InputText
@@ -46,7 +49,10 @@ function AdvancedSearchForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-search-category" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-search-category"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Category
         </label>
         <Dropdown
@@ -59,7 +65,10 @@ function AdvancedSearchForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-search-date-from" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-search-date-from"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Date from
         </label>
         <Calendar
@@ -72,7 +81,10 @@ function AdvancedSearchForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-search-date-to" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-search-date-to"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Date to
         </label>
         <Calendar
@@ -85,7 +97,10 @@ function AdvancedSearchForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-search-sort" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-search-sort"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Sort by
         </label>
         <Dropdown
@@ -97,7 +112,15 @@ function AdvancedSearchForm() {
           required
         />
       </div>
-      <div className="field" style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+      <div
+        className="field"
+        style={{
+          marginBottom: '1rem',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+        }}
+      >
         <Checkbox
           inputId="primereact-search-archived"
           name="includeArchived"

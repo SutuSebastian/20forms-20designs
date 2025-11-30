@@ -3,51 +3,69 @@ import { InputText } from 'primereact/inputtext'
 import { Dropdown } from 'primereact/dropdown'
 import { Button } from 'primereact/button'
 
-function BillingInfoForm() {
-  const [cardName, setCardName] = useState('')
+function CheckoutPaymentForm() {
+  const [email, setEmail] = useState('')
+  const [shippingMethod, setShippingMethod] = useState('')
   const [cardNumber, setCardNumber] = useState('')
   const [expiration, setExpiration] = useState('')
   const [cvc, setCvc] = useState('')
-  const [address, setAddress] = useState('')
-  const [country, setCountry] = useState('')
+  const [promoCode, setPromoCode] = useState('')
 
-  const countryOptions = [
-    { label: 'Select country', value: '' },
-    { label: 'United States', value: 'US' },
-    { label: 'Canada', value: 'CA' },
+  const shippingOptions = [
+    { label: 'Select shipping', value: '' },
+    { label: 'Standard', value: 'standard' },
+    { label: 'Express', value: 'express' },
+    { label: 'Overnight', value: 'overnight' },
   ]
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    alert('Billing details saved!')
+    alert('Checkout submitted!')
   }
 
   return (
     <form onSubmit={handleSubmit} className="p-fluid">
       <div className="field" style={{ marginBottom: '1rem' }}>
         <label
-          htmlFor="primereact-billing-name"
+          htmlFor="primereact-checkout-email"
           style={{ display: 'block', marginBottom: '0.5rem' }}
         >
-          Name on card
+          Email for receipt
         </label>
         <InputText
-          id="primereact-billing-name"
-          name="cardName"
-          value={cardName}
-          onChange={(e) => setCardName(e.target.value)}
+          id="primereact-checkout-email"
+          name="email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
         <label
-          htmlFor="primereact-billing-card-number"
+          htmlFor="primereact-checkout-shipping-method"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
+          Shipping method
+        </label>
+        <Dropdown
+          id="primereact-checkout-shipping-method"
+          name="shippingMethod"
+          value={shippingMethod}
+          options={shippingOptions}
+          onChange={(e) => setShippingMethod(e.value)}
+          required
+        />
+      </div>
+      <div className="field" style={{ marginBottom: '1rem' }}>
+        <label
+          htmlFor="primereact-checkout-card-number"
           style={{ display: 'block', marginBottom: '0.5rem' }}
         >
           Card number
         </label>
         <InputText
-          id="primereact-billing-card-number"
+          id="primereact-checkout-card-number"
           name="cardNumber"
           value={cardNumber}
           onChange={(e) => setCardNumber(e.target.value)}
@@ -58,13 +76,13 @@ function BillingInfoForm() {
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
         <label
-          htmlFor="primereact-billing-expiration"
+          htmlFor="primereact-checkout-expiration"
           style={{ display: 'block', marginBottom: '0.5rem' }}
         >
-          Expiration date
+          Expiration
         </label>
         <InputText
-          id="primereact-billing-expiration"
+          id="primereact-checkout-expiration"
           name="expiration"
           value={expiration}
           onChange={(e) => setExpiration(e.target.value)}
@@ -74,13 +92,13 @@ function BillingInfoForm() {
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
         <label
-          htmlFor="primereact-billing-cvc"
+          htmlFor="primereact-checkout-cvc"
           style={{ display: 'block', marginBottom: '0.5rem' }}
         >
-          Security code
+          CVC
         </label>
         <InputText
-          id="primereact-billing-cvc"
+          id="primereact-checkout-cvc"
           name="cvc"
           value={cvc}
           onChange={(e) => setCvc(e.target.value)}
@@ -91,38 +109,21 @@ function BillingInfoForm() {
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
         <label
-          htmlFor="primereact-billing-address"
+          htmlFor="primereact-checkout-promo"
           style={{ display: 'block', marginBottom: '0.5rem' }}
         >
-          Billing address
+          Promo code
         </label>
         <InputText
-          id="primereact-billing-address"
-          name="address"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-          required
+          id="primereact-checkout-promo"
+          name="promoCode"
+          value={promoCode}
+          onChange={(e) => setPromoCode(e.target.value)}
         />
       </div>
-      <div className="field" style={{ marginBottom: '1rem' }}>
-        <label
-          htmlFor="primereact-billing-country"
-          style={{ display: 'block', marginBottom: '0.5rem' }}
-        >
-          Country
-        </label>
-        <Dropdown
-          id="primereact-billing-country"
-          name="country"
-          value={country}
-          options={countryOptions}
-          onChange={(e) => setCountry(e.value)}
-          required
-        />
-      </div>
-      <Button type="submit" label="Save billing details" />
+      <Button type="submit" label="Place order" />
     </form>
   )
 }
 
-export default BillingInfoForm
+export default CheckoutPaymentForm

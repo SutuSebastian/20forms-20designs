@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { PrimeReactProvider } from 'primereact/api'
 import 'primereact/resources/primereact.min.css'
 import 'primeicons/primeicons.css'
-import FormComponent from './form/ShippingAddressForm'
+import FormComponent from './form/OrderTrackingForm'
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -23,18 +23,16 @@ function App() {
   useEffect(() => {
     const themeLink = document.getElementById('theme-link')
     if (themeLink) {
-      themeLink.href =
-        theme === 'dark'
-          ? 'https://unpkg.com/primereact/resources/themes/lara-dark-indigo/theme.css'
-          : 'https://unpkg.com/primereact/resources/themes/lara-light-indigo/theme.css'
+      themeLink.href = theme === 'dark'
+        ? 'https://unpkg.com/primereact/resources/themes/lara-dark-indigo/theme.css'
+        : 'https://unpkg.com/primereact/resources/themes/lara-light-indigo/theme.css'
     } else {
       const link = document.createElement('link')
       link.id = 'theme-link'
       link.rel = 'stylesheet'
-      link.href =
-        theme === 'dark'
-          ? 'https://unpkg.com/primereact/resources/themes/lara-dark-indigo/theme.css'
-          : 'https://unpkg.com/primereact/resources/themes/lara-light-indigo/theme.css'
+      link.href = theme === 'dark'
+        ? 'https://unpkg.com/primereact/resources/themes/lara-dark-indigo/theme.css'
+        : 'https://unpkg.com/primereact/resources/themes/lara-light-indigo/theme.css'
       document.head.appendChild(link)
     }
   }, [theme])

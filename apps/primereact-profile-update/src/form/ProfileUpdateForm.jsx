@@ -18,7 +18,10 @@ function ProfileUpdateForm() {
   return (
     <form onSubmit={handleSubmit} className="p-fluid">
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-profile-first-name" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-profile-first-name"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           First name
         </label>
         <InputText
@@ -30,7 +33,10 @@ function ProfileUpdateForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-profile-last-name" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-profile-last-name"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Last name
         </label>
         <InputText
@@ -42,7 +48,10 @@ function ProfileUpdateForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-profile-email" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-profile-email"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Email address
         </label>
         <InputText
@@ -55,7 +64,10 @@ function ProfileUpdateForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-profile-phone" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-profile-phone"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Phone number
         </label>
         <InputText
@@ -68,7 +80,10 @@ function ProfileUpdateForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-profile-bio" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-profile-bio"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Short bio
         </label>
         <InputTextarea

@@ -19,7 +19,10 @@ function SupportTicketForm() {
   return (
     <form onSubmit={handleSubmit} className="p-fluid">
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-ticket-subject" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-ticket-subject"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Subject
         </label>
         <InputText
@@ -30,9 +33,18 @@ function SupportTicketForm() {
           required
         />
       </div>
-      <fieldset style={{ border: '1px solid #dee2e6', borderRadius: '4px', padding: '1rem', marginBottom: '1rem' }}>
+      <fieldset
+        style={{
+          border: '1px solid #dee2e6',
+          borderRadius: '4px',
+          padding: '1rem',
+          marginBottom: '1rem',
+        }}
+      >
         <legend style={{ padding: '0 0.5rem' }}>Priority</legend>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+        <div
+          style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
+        >
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <RadioButton
               inputId="primereact-ticket-priority-low"
@@ -66,7 +78,10 @@ function SupportTicketForm() {
         </div>
       </fieldset>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-ticket-description" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-ticket-description"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Issue description
         </label>
         <InputTextarea
@@ -79,7 +94,9 @@ function SupportTicketForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label style={{ display: 'block', marginBottom: '0.5rem' }}>Attachments</label>
+        <label style={{ display: 'block', marginBottom: '0.5rem' }}>
+          Attachments
+        </label>
         <FileUpload
           ref={fileUploadRef}
           name="attachments"

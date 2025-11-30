@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { PrimeReactProvider } from 'primereact/api'
 import 'primereact/resources/primereact.min.css'
 import 'primeicons/primeicons.css'
-import FormComponent from './form/ShippingAddressForm'
+import FormComponent from './form/OnboardingWizardForm'
 
 function App() {
   const [theme, setTheme] = useState(() => {

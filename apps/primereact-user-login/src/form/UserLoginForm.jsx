@@ -17,7 +17,10 @@ function UserLoginForm() {
   return (
     <form onSubmit={handleSubmit} className="p-fluid">
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-user-login-email" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-user-login-email"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Email or username
         </label>
         <InputText
@@ -29,7 +32,10 @@ function UserLoginForm() {
         />
       </div>
       <div className="field" style={{ marginBottom: '1rem' }}>
-        <label htmlFor="primereact-user-login-password" style={{ display: 'block', marginBottom: '0.5rem' }}>
+        <label
+          htmlFor="primereact-user-login-password"
+          style={{ display: 'block', marginBottom: '0.5rem' }}
+        >
           Password
         </label>
         <Password
@@ -42,14 +48,24 @@ function UserLoginForm() {
           required
         />
       </div>
-      <div className="field-checkbox" style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+      <div
+        className="field-checkbox"
+        style={{
+          marginBottom: '1rem',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+        }}
+      >
         <Checkbox
           inputId="primereact-user-login-remember"
           name="remember"
           checked={remember}
           onChange={(e) => setRemember(e.checked)}
         />
-        <label htmlFor="primereact-user-login-remember">Keep me signed in</label>
+        <label htmlFor="primereact-user-login-remember">
+          Keep me signed in
+        </label>
       </div>
       <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
         <Button type="submit" label="Sign in" />
