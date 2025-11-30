@@ -20,6 +20,12 @@ export type LibraryId =
   | 'antd'
   | 'primereact'
   | 'webawesome'
+  | 'arco-design'
+  | 'carbon'
+  | 'ariakit'
+  | 'baseweb'
+  | 'atlaskit'
+  | 'braid'
 
 // Form ID for iframe URLs
 export type FormId =
@@ -81,6 +87,12 @@ export const LIBRARY_NAME_TO_ID: Record<string, LibraryId | undefined> = {
   'Ant Design': 'antd',
   PrimeReact: 'primereact',
   'Web Awesome': 'webawesome',
+  'Arco Design': 'arco-design',
+  'Carbon Design System': 'carbon',
+  Ariakit: 'ariakit',
+  'Base Web': 'baseweb',
+  'Atlassian Atlaskit': 'atlaskit',
+  'Braid Design System': 'braid',
 }
 
 // Map from form name to form ID (for iframe URLs)
@@ -207,11 +219,11 @@ export const LIBRARIES: Library[] = [
   },
   {
     name: 'Carbon Design System',
-    directory: 'carbon-design-system',
+    directory: 'carbon',
     website: 'https://carbondesignsystem.com',
     repo: 'https://github.com/carbon-design-system/carbon',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Mantine',
@@ -282,8 +294,8 @@ export const LIBRARIES: Library[] = [
     directory: 'base-web',
     website: 'https://baseweb.design',
     repo: 'https://github.com/uber/baseweb',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Shopify Polaris',
@@ -319,11 +331,11 @@ export const LIBRARIES: Library[] = [
   },
   {
     name: 'Atlassian Atlaskit',
-    directory: 'atlassian-atlaskit',
+    directory: 'atlaskit',
     website: 'https://atlassian.design/components',
     repo: 'https://bitbucket.org/atlassian/atlassian-frontend',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'React Spectrum',
@@ -394,8 +406,8 @@ export const LIBRARIES: Library[] = [
     directory: 'arco-design',
     website: 'https://arco.design',
     repo: 'https://github.com/arco-design/arco-design',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Ionic React',
@@ -410,8 +422,8 @@ export const LIBRARIES: Library[] = [
     directory: 'braid-design-system',
     website: 'https://seek-oss.github.io/braid-design-system',
     repo: 'https://github.com/seek-oss/braid-design-system',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Primer React',
@@ -442,8 +454,8 @@ export const LIBRARIES: Library[] = [
     directory: 'ariakit',
     website: 'https://ariakit.org',
     repo: 'https://github.com/ariakit/ariakit',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Tremor',

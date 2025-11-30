@@ -20,6 +20,10 @@ export type LibraryId =
   | 'zendesk-garden'
   | 'tamagui'
   | 'uswds'
+  | 'antd'
+  | 'primereact'
+  | 'webawesome'
+  | 'arco-design'
 
 export type FormId =
   | 'user-registration'
@@ -266,6 +270,38 @@ export const LIBRARIES: LibraryConfig[] = [
     directory: 'uswds',
     website: 'https://designsystem.digital.gov',
     repo: 'https://github.com/uswds/uswds',
+    supportsTheme: true,
+  },
+  {
+    id: 'antd',
+    name: 'Ant Design',
+    directory: 'antd',
+    website: 'https://ant.design',
+    repo: 'https://github.com/ant-design/ant-design',
+    supportsTheme: true,
+  },
+  {
+    id: 'primereact',
+    name: 'PrimeReact',
+    directory: 'primereact',
+    website: 'https://primereact.org',
+    repo: 'https://github.com/primefaces/primereact',
+    supportsTheme: true,
+  },
+  {
+    id: 'webawesome',
+    name: 'Web Awesome',
+    directory: 'webawesome',
+    website: 'https://webawesome.com',
+    repo: 'https://github.com/AmazeeLabs/webawesome',
+    supportsTheme: true,
+  },
+  {
+    id: 'arco-design',
+    name: 'Arco Design',
+    directory: 'arco-design',
+    website: 'https://arco.design',
+    repo: 'https://github.com/arco-design/arco-design',
     supportsTheme: true,
   },
 ]

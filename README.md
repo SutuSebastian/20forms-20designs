@@ -109,7 +109,11 @@ All libraries implement the same 20 forms with identical content, labels, and fi
 | Library                                                 | Theme Support | Repository                                                        |
 | ------------------------------------------------------- | ------------- | ----------------------------------------------------------------- |
 | [Ant Design](https://ant.design/)                       | ✅ Light/Dark | [GitHub](https://github.com/ant-design/ant-design)                |
+| [Arco Design](https://arco.design/)                     | ✅ Light/Dark | [GitHub](https://github.com/arco-design/arco-design)              |
+| [Ariakit](https://ariakit.org/)                         | ✅ Light/Dark | [GitHub](https://github.com/ariakit/ariakit)                      |
+| [Atlassian Atlaskit](https://atlassian.design/components) | ✅ Light/Dark | [Bitbucket](https://bitbucket.org/atlassian/atlassian-frontend/)  |
 | [Blueprint](https://blueprintjs.com/)                   | ✅ Light/Dark | [GitHub](https://github.com/palantir/blueprint)                   |
+| [Carbon Design System](https://carbondesignsystem.com/) | ✅ Light/Dark | [GitHub](https://github.com/carbon-design-system/carbon)          |
 | [Chakra UI](https://chakra-ui.com/)                     | ✅ Light/Dark | [GitHub](https://github.com/chakra-ui/chakra-ui)                  |
 | [Cloudscape](https://cloudscape.design/)                | ✅ Light/Dark | [GitHub](https://github.com/cloudscape-design/components)         |
 | [daisyUI](https://daisyui.com/)                         | ✅ Light/Dark | [GitHub](https://github.com/saadeghi/daisyui)                     |
@@ -133,12 +137,8 @@ All libraries implement the same 20 forms with identical content, labels, and fi
 
 | Library                                                                              | Repository                                                         |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| [Arco Design](https://arco.design/)                                                  | [GitHub](https://github.com/arco-design/arco-design)               |
-| [Ariakit](https://ariakit.org/)                                                      | [GitHub](https://github.com/ariakit/ariakit)                       |
-| [Atlassian Atlaskit](https://atlassian.design/components)                            | [Bitbucket](https://bitbucket.org/atlassian/atlassian-frontend/)   |
 | [Base Web](https://baseweb.design/)                                                  | [GitHub](https://github.com/uber/baseweb)                          |
 | [Braid Design System](https://seek-oss.github.io/braid-design-system/)               | [GitHub](https://github.com/seek-oss/braid-design-system)          |
-| [Carbon Design System](https://carbondesignsystem.com/)                              | [GitHub](https://github.com/carbon-design-system/carbon)           |
 | [CoreUI](https://coreui.io/react/)                                                   | [GitHub](https://github.com/coreui/coreui-react)                   |
 | [Flowbite React](https://flowbite-react.com/)                                        | [GitHub](https://github.com/themesberg/flowbite-react)             |
 | [Fluent UI](https://developer.microsoft.com/en-us/fluentui)                          | [GitHub](https://github.com/microsoft/fluentui)                    |
