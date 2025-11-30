@@ -16,7 +16,7 @@
     "@progress/kendo-react-labels": "^9.4.0",
     "@progress/kendo-react-form": "^9.4.0",
     "@progress/kendo-react-upload": "^9.4.0",
-    "@progress/kendo-theme-default": "^9.4.0",
+    "@progress/kendo-theme-default": "^9.1.0",
     "@progress/kendo-licensing": "^1.4.1"
   },
   "devDependencies": {
