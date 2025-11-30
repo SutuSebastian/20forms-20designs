@@ -6,7 +6,9 @@ import { Button } from '@progress/kendo-react-buttons'
 
 const requiredValidator = (value) => (value ? '' : 'This field is required')
 const cardNumberValidator = (value) =>
-  value && /^[0-9]{13,19}$/.test(value.replace(/\s/g, '')) ? '' : 'Please enter a valid card number'
+  value && /^[0-9]{13,19}$/.test(value.replace(/\s/g, ''))
+    ? ''
+    : 'Please enter a valid card number'
 
 const countryOptions = [
   { text: 'Select country', value: '' },
@@ -15,18 +17,31 @@ const countryOptions = [
 ]
 
 const FormInput = (fieldRenderProps) => {
-  const { label, id, valid, visited, validationMessage, ...others } = fieldRenderProps
+  const { label, id, valid, visited, validationMessage, ...others } =
+    fieldRenderProps
   return (
     <div className="k-form-field">
       <Label editorId={id}>{label}</Label>
       <Input id={id} {...others} />
-      {visited && !valid && <div className="k-form-error">{validationMessage}</div>}
+      {visited && !valid && (
+        <div className="k-form-error">{validationMessage}</div>
+      )}
     </div>
   )
 }
 
 const FormMaskedInput = (fieldRenderProps) => {
-  const { label, id, valid, visited, validationMessage, value, onChange, mask, placeholder } = fieldRenderProps
+  const {
+    label,
+    id,
+    valid,
+    visited,
+    validationMessage,
+    value,
+    onChange,
+    mask,
+    placeholder,
+  } = fieldRenderProps
   return (
     <div className="k-form-field">
       <Label editorId={id}>{label}</Label>
@@ -37,13 +52,24 @@ const FormMaskedInput = (fieldRenderProps) => {
         mask={mask}
         placeholder={placeholder}
       />
-      {visited && !valid && <div className="k-form-error">{validationMessage}</div>}
+      {visited && !valid && (
+        <div className="k-form-error">{validationMessage}</div>
+      )}
     </div>
   )
 }
 
 const FormDropDown = (fieldRenderProps) => {
-  const { label, id, valid, visited, validationMessage, value, onChange, data } = fieldRenderProps
+  const {
+    label,
+    id,
+    valid,
+    visited,
+    validationMessage,
+    value,
+    onChange,
+    data,
+  } = fieldRenderProps
   return (
     <div className="k-form-field">
       <Label editorId={id}>{label}</Label>
@@ -55,7 +81,9 @@ const FormDropDown = (fieldRenderProps) => {
         value={data.find((item) => item.value === value) || data[0]}
         onChange={(e) => onChange({ value: e.target.value.value })}
       />
-      {visited && !valid && <div className="k-form-error">{validationMessage}</div>}
+      {visited && !valid && (
+        <div className="k-form-error">{validationMessage}</div>
+      )}
     </div>
   )
 }
@@ -124,7 +152,11 @@ function BillingInfoForm() {
           />
 
           <div className="k-form-buttons" style={{ marginTop: '16px' }}>
-            <Button type="submit" themeColor="primary" disabled={!formRenderProps.allowSubmit}>
+            <Button
+              type="submit"
+              themeColor="primary"
+              disabled={!formRenderProps.allowSubmit}
+            >
               Save billing details
             </Button>
           </div>

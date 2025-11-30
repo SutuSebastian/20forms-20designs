@@ -6,7 +6,9 @@ import { Button } from '@progress/kendo-react-buttons'
 
 const requiredValidator = (value) => (value ? '' : 'This field is required')
 const emailValidator = (value) =>
-  value && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Please enter a valid email'
+  value && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+    ? ''
+    : 'Please enter a valid email'
 
 const ticketOptions = [
   { text: 'Select ticket', value: '' },
@@ -16,18 +18,31 @@ const ticketOptions = [
 ]
 
 const FormInput = (fieldRenderProps) => {
-  const { label, id, valid, visited, validationMessage, ...others } = fieldRenderProps
+  const { label, id, valid, visited, validationMessage, ...others } =
+    fieldRenderProps
   return (
     <div className="k-form-field">
       <Label editorId={id}>{label}</Label>
       <Input id={id} {...others} />
-      {visited && !valid && <div className="k-form-error">{validationMessage}</div>}
+      {visited && !valid && (
+        <div className="k-form-error">{validationMessage}</div>
+      )}
     </div>
   )
 }
 
 const FormNumericInput = (fieldRenderProps) => {
-  const { label, id, valid, visited, validationMessage, value, onChange, min, max } = fieldRenderProps
+  const {
+    label,
+    id,
+    valid,
+    visited,
+    validationMessage,
+    value,
+    onChange,
+    min,
+    max,
+  } = fieldRenderProps
   return (
     <div className="k-form-field">
       <Label editorId={id}>{label}</Label>
@@ -39,13 +54,24 @@ const FormNumericInput = (fieldRenderProps) => {
         max={max}
         format="n0"
       />
-      {visited && !valid && <div className="k-form-error">{validationMessage}</div>}
+      {visited && !valid && (
+        <div className="k-form-error">{validationMessage}</div>
+      )}
     </div>
   )
 }
 
 const FormDropDown = (fieldRenderProps) => {
-  const { label, id, valid, visited, validationMessage, value, onChange, data } = fieldRenderProps
+  const {
+    label,
+    id,
+    valid,
+    visited,
+    validationMessage,
+    value,
+    onChange,
+    data,
+  } = fieldRenderProps
   return (
     <div className="k-form-field">
       <Label editorId={id}>{label}</Label>
@@ -57,7 +83,9 @@ const FormDropDown = (fieldRenderProps) => {
         value={data.find((item) => item.value === value) || data[0]}
         onChange={(e) => onChange({ value: e.target.value.value })}
       />
-      {visited && !valid && <div className="k-form-error">{validationMessage}</div>}
+      {visited && !valid && (
+        <div className="k-form-error">{validationMessage}</div>
+      )}
     </div>
   )
 }
@@ -66,12 +94,7 @@ const FormCheckbox = (fieldRenderProps) => {
   const { label, value, onChange, id } = fieldRenderProps
   return (
     <div className="k-form-field">
-      <Checkbox
-        id={id}
-        label={label}
-        value={value}
-        onChange={onChange}
-      />
+      <Checkbox id={id} label={label} value={value} onChange={onChange} />
     </div>
   )
 }
@@ -130,7 +153,11 @@ function EventRegistrationForm() {
           />
 
           <div className="k-form-buttons" style={{ marginTop: '16px' }}>
-            <Button type="submit" themeColor="primary" disabled={!formRenderProps.allowSubmit}>
+            <Button
+              type="submit"
+              themeColor="primary"
+              disabled={!formRenderProps.allowSubmit}
+            >
               Register
             </Button>
           </div>

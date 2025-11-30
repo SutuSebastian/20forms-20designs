@@ -5,28 +5,38 @@ import { Button } from '@progress/kendo-react-buttons'
 
 const requiredValidator = (value) => (value ? '' : 'This field is required')
 const emailValidator = (value) =>
-  value && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? '' : 'Please enter a valid email'
+  value && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+    ? ''
+    : 'Please enter a valid email'
 const phoneValidator = (value) =>
-  value && /^[+0-9\s-]{7,20}$/.test(value) ? '' : 'Please enter a valid phone number'
+  value && /^[+0-9\s-]{7,20}$/.test(value)
+    ? ''
+    : 'Please enter a valid phone number'
 
 const FormInput = (fieldRenderProps) => {
-  const { label, id, valid, visited, validationMessage, ...others } = fieldRenderProps
+  const { label, id, valid, visited, validationMessage, ...others } =
+    fieldRenderProps
   return (
     <div className="k-form-field">
       <Label editorId={id}>{label}</Label>
       <Input id={id} {...others} />
-      {visited && !valid && <div className="k-form-error">{validationMessage}</div>}
+      {visited && !valid && (
+        <div className="k-form-error">{validationMessage}</div>
+      )}
     </div>
   )
 }
 
 const FormTextArea = (fieldRenderProps) => {
-  const { label, id, valid, visited, validationMessage, value, onChange } = fieldRenderProps
+  const { label, id, valid, visited, validationMessage, value, onChange } =
+    fieldRenderProps
   return (
     <div className="k-form-field">
       <Label editorId={id}>{label}</Label>
       <TextArea id={id} value={value} onChange={onChange} rows={3} />
-      {visited && !valid && <div className="k-form-error">{validationMessage}</div>}
+      {visited && !valid && (
+        <div className="k-form-error">{validationMessage}</div>
+      )}
     </div>
   )
 }
@@ -84,7 +94,11 @@ function ProfileUpdateForm() {
           />
 
           <div className="k-form-buttons" style={{ marginTop: '16px' }}>
-            <Button type="submit" themeColor="primary" disabled={!formRenderProps.allowSubmit}>
+            <Button
+              type="submit"
+              themeColor="primary"
+              disabled={!formRenderProps.allowSubmit}
+            >
               Save changes
             </Button>
           </div>
