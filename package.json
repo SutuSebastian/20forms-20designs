@@ -8,7 +8,6 @@
     "packages/*"
   ],
   "scripts": {
-    "generate": "node scripts/generate-mini-apps.mjs",
     "dev:shell": "npm run dev --workspace=@forms-comparison/shell",
     "build": "node scripts/build-all.mjs",
     "build:shell": "npm run build --workspace=@forms-comparison/shell",
@@ -16,7 +15,6 @@
     "preview": "node scripts/serve-preview.mjs",
     "preview:shell": "npm run preview --workspace=@forms-comparison/shell",
     "clean": "node scripts/clean.mjs",
-    "optimize-configs": "node scripts/optimize-vite-configs.mjs",
     "lint": "eslint 'apps/*/src/**/*.{js,jsx,ts,tsx}' 'packages/*/src/**/*.{js,jsx,ts,tsx}' --cache",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\""
   },
@@ -37,7 +35,8 @@
   },
   "overrides": {
     "@types/react": "^18.3.11",
-    "@types/react-dom": "^18.3.0"
+    "@types/react-dom": "^18.3.0",
+    "tailwindcss": "^3.4.17"
   },
   "engines": {
     "node": ">=18.0.0"
