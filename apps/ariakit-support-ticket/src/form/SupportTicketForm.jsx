@@ -3,7 +3,10 @@ import * as Ariakit from '@ariakit/react'
 
 function SupportTicketForm() {
   const [priority, setPriority] = useState('')
-  const radio = Ariakit.useRadioStore({ value: priority, setValue: setPriority })
+  const radio = Ariakit.useRadioStore({
+    value: priority,
+    setValue: setPriority,
+  })
 
   const handleSubmit = (event) => {
     event.preventDefault()

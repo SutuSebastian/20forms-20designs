@@ -92,7 +92,9 @@ function JobApplicationForm() {
         >
           <Ariakit.CheckboxCheck className="checkbox-check" />
         </Ariakit.Checkbox>
-        <span className="checkbox-label">Keep me informed about future roles</span>
+        <span className="checkbox-label">
+          Keep me informed about future roles
+        </span>
       </label>
       <Ariakit.Button type="submit" className="button button-primary">
         Submit application

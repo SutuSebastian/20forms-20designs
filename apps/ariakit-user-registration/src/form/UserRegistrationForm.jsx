@@ -74,10 +74,17 @@ function UserRegistrationForm() {
         />
       </div>
       <label className="checkbox-wrapper">
-        <Ariakit.Checkbox store={termsCheckbox} name="terms" className="checkbox" required>
+        <Ariakit.Checkbox
+          store={termsCheckbox}
+          name="terms"
+          className="checkbox"
+          required
+        >
           <Ariakit.CheckboxCheck className="checkbox-check" />
         </Ariakit.Checkbox>
-        <span className="checkbox-label">I agree to the terms and conditions</span>
+        <span className="checkbox-label">
+          I agree to the terms and conditions
+        </span>
       </label>
       <Ariakit.Button type="submit" className="button button-primary">
         Create account
