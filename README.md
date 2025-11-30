@@ -122,7 +122,6 @@ All libraries implement the same 20 forms with identical content, labels, and fi
 | [Gravity UI](https://gravity-ui.com/)                   | ✅ Light/Dark | [GitHub](https://github.com/gravity-ui/uikit)                     |
 | [HeroUI](https://heroui.com/)                           | ✅ Light/Dark | [GitHub](https://github.com/heroui-inc/heroui)                    |
 | [MUI](https://mui.com/)                                 | ✅ Light/Dark | [GitHub](https://github.com/mui/material-ui)                      |
-| [NextUI](https://nextui.org/)                           | ✅ Light/Dark | [GitHub](https://github.com/nextui-org/nextui)                    |
 | [Pinterest Gestalt](https://gestalt.pinterest.systems/) | ✅ Light/Dark | [GitHub](https://github.com/pinterest/gestalt)                    |
 | [Radix UI](https://www.radix-ui.com/)                   | ✅ Light/Dark | [GitHub](https://github.com/radix-ui/primitives)                  |
 | [React Bootstrap](https://react-bootstrap.netlify.app/) | ✅ Light/Dark | [GitHub](https://github.com/react-bootstrap/react-bootstrap)      |
