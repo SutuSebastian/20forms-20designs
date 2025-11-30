@@ -1,0 +1,29 @@
+import '@arco-design/web-react/dist/css/arco.css'
+import { useEffect } from 'react'
+import BillingInfoForm from './form/BillingInfoForm'
+
+function App() {
+  useEffect(() => {
+    // Check URL for theme parameter
+    const params = new URLSearchParams(window.location.search)
+    const theme = params.get('theme')
+    
+    if (theme === 'dark') {
+      document.body.setAttribute('arco-theme', 'dark')
+      document.body.style.backgroundColor = 'var(--color-bg-1)'
+      document.body.style.color = 'var(--color-text-1)'
+    } else {
+      document.body.removeAttribute('arco-theme')
+      document.body.style.backgroundColor = ''
+      document.body.style.color = ''
+    }
+  }, [])
+
+  return (
+    <div style={{ padding: '20px', maxWidth: '500px', margin: '0 auto' }}>
+      <BillingInfoForm />
+    </div>
+  )
+}
+
+export default App
