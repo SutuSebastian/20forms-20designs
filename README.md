@@ -108,6 +108,8 @@ But it guarantees:
 
 ### ✅ Implemented Libraries
 
+All libraries implement the same 20 forms with identical content, labels, and field structures. The **React (No CSS)** implementation serves as the canonical reference — every other library's forms match its exact structure and text content, differing only in styling and component usage.
+
 | Library                                                 | Theme Support | Repository                                                        |
 | ------------------------------------------------------- | ------------- | ----------------------------------------------------------------- |
 | [Blueprint](https://blueprintjs.com/)                   | ✅ Light/Dark | [GitHub](https://github.com/palantir/blueprint)                   |
@@ -124,7 +126,7 @@ But it guarantees:
 | [Pinterest Gestalt](https://gestalt.pinterest.systems/) | ✅ Light/Dark | [GitHub](https://github.com/pinterest/gestalt)                    |
 | [Radix UI](https://www.radix-ui.com/)                   | ✅ Light/Dark | [GitHub](https://github.com/radix-ui/primitives)                  |
 | [React Bootstrap](https://react-bootstrap.netlify.app/) | ✅ Light/Dark | [GitHub](https://github.com/react-bootstrap/react-bootstrap)      |
-| [React (No CSS)](https://react.dev/)                    | ✅ Light/Dark | [GitHub](https://github.com/facebook/react)                       |
+| [React (No CSS)](https://react.dev/)                    | ✅ Light/Dark | [GitHub](https://github.com/facebook/react) — *Reference implementation* |
 | [shadcn/ui](https://ui.shadcn.com/)                     | ✅ Light/Dark | [GitHub](https://github.com/shadcn-ui/ui)                         |
 | [Shopify Polaris](https://polaris.shopify.com/)         | ✅ Light/Dark | [GitHub](https://github.com/Shopify/polaris)                      |
 | [Tamagui](https://tamagui.dev/)                         | ✅ Light/Dark | [GitHub](https://github.com/tamagui/tamagui)                      |
