@@ -17,7 +17,6 @@ export type LibraryId =
   | 'polaris'
   | 'chakra'
   | 'elastic-ui'
-  | 'nextui'
   | 'geist-ui'
   | 'zendesk-garden'
   | 'tamagui'
@@ -245,14 +244,6 @@ export const LIBRARIES: LibraryConfig[] = [
     directory: 'elastic-ui',
     website: 'https://eui.elastic.co',
     repo: 'https://github.com/elastic/eui',
-    supportsTheme: true,
-  },
-  {
-    id: 'nextui',
-    name: 'NextUI',
-    directory: 'nextui',
-    website: 'https://nextui.org',
-    repo: 'https://github.com/nextui-org/nextui',
     supportsTheme: true,
   },
   {
