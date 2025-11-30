@@ -20,6 +20,7 @@ function OnboardingWizardForm() {
         <Text h4>Step 1: Account</Text>
         <Spacer h={1} />
         <Input
+          id="nocss-onboarding-email"
           name="email"
           type="email"
           width="100%"
@@ -30,6 +31,7 @@ function OnboardingWizardForm() {
         </Input>
         <Spacer h={1} />
         <Input.Password
+          id="nocss-onboarding-password"
           name="password"
           width="100%"
           placeholder="Password"
@@ -43,13 +45,24 @@ function OnboardingWizardForm() {
       <section>
         <Text h4>Step 2: Team</Text>
         <Spacer h={1} />
-        <Input name="teamName" width="100%" placeholder="Team name" required>
+        <Input
+          id="nocss-onboarding-team-name"
+          name="teamName"
+          width="100%"
+          placeholder="Team name"
+          required
+        >
           Team name
         </Input>
         <Spacer h={1} />
         <Text small>Team size</Text>
         <Spacer h={0.5} />
-        <Select name="teamSize" placeholder="Select size" width="100%">
+        <Select
+          id="nocss-onboarding-size"
+          name="teamSize"
+          placeholder="Select size"
+          width="100%"
+        >
           <Select.Option value="1-5">1-5</Select.Option>
           <Select.Option value="6-20">6-20</Select.Option>
           <Select.Option value="21-50">21-50</Select.Option>
@@ -63,6 +76,7 @@ function OnboardingWizardForm() {
         <Text small>Primary goal</Text>
         <Spacer h={0.5} />
         <Textarea
+          id="nocss-onboarding-goal"
           name="goal"
           width="100%"
           placeholder="Your primary goal"

@@ -11,6 +11,7 @@ function PasswordResetForm() {
       <Text p>Request a password reset link via email.</Text>
       <Spacer h={1} />
       <Input
+        id="nocss-password-reset-email"
         name="email"
         type="email"
         width="100%"

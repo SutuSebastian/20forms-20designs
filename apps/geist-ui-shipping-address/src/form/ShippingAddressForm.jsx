@@ -11,28 +11,56 @@ function ShippingAddressForm() {
   }
 
   const regionOptions = country === 'CA' ? CANADIAN_PROVINCES : US_STATES
+  const postalPattern =
+    country === 'CA'
+      ? '[A-Za-z]\\d[A-Za-z] ?\\d[A-Za-z]\\d'
+      : '\\d{5}(-\\d{4})?'
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input name="fullName" width="100%" placeholder="Recipient name" required>
+      <Input
+        id="nocss-shipping-full-name"
+        name="fullName"
+        width="100%"
+        placeholder="Recipient name"
+        required
+      >
         Recipient name
       </Input>
       <Spacer h={1} />
-      <Input name="street" width="100%" placeholder="Street address" required>
+      <Input
+        id="nocss-shipping-street"
+        name="street"
+        width="100%"
+        placeholder="Street address"
+        required
+      >
         Street address
       </Input>
       <Spacer h={1} />
-      <Input name="street2" width="100%" placeholder="Apartment, suite, etc.">
+      <Input
+        id="nocss-shipping-street-2"
+        name="street2"
+        width="100%"
+        placeholder="Apartment, suite, etc."
+      >
         Apartment, suite, etc.
       </Input>
       <Spacer h={1} />
-      <Input name="city" width="100%" placeholder="City" required>
+      <Input
+        id="nocss-shipping-city"
+        name="city"
+        width="100%"
+        placeholder="City"
+        required
+      >
         City
       </Input>
       <Spacer h={1} />
       <Text small>Country</Text>
       <Spacer h={0.5} />
       <Select
+        id="nocss-shipping-country"
         name="country"
         value={country}
         onChange={(val) => setCountry(val)}
@@ -47,7 +75,12 @@ function ShippingAddressForm() {
       <Spacer h={1} />
       <Text small>State / Province / Territory</Text>
       <Spacer h={0.5} />
-      <Select name="region" placeholder="Select an option" width="100%">
+      <Select
+        id="nocss-shipping-region"
+        name="region"
+        placeholder="Select an option"
+        width="100%"
+      >
         {regionOptions.map((region) => (
           <Select.Option key={region} value={region}>
             {region}
@@ -55,7 +88,15 @@ function ShippingAddressForm() {
         ))}
       </Select>
       <Spacer h={1} />
-      <Input name="postalCode" width="100%" placeholder="Postal code" required>
+      <Input
+        id="nocss-shipping-postal"
+        name="postalCode"
+        width="100%"
+        placeholder="Postal code"
+        pattern={postalPattern}
+        inputMode="text"
+        required
+      >
         Postal code
       </Input>
       <Spacer h={1} />

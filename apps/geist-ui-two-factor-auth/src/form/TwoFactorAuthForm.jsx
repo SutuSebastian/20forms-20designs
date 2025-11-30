@@ -11,11 +11,13 @@ function TwoFactorAuthForm() {
       <Text p>Enter the code from your authenticator app or SMS.</Text>
       <Spacer h={1} />
       <Input
+        id="nocss-two-factor-code"
         name="code"
         width="100%"
         placeholder="Verification code"
         htmlType="text"
         inputMode="numeric"
+        pattern="\d{6}"
         maxLength={6}
         required
       >
@@ -23,10 +25,12 @@ function TwoFactorAuthForm() {
       </Input>
       <Spacer h={1} />
       <Input
+        id="nocss-two-factor-backup"
         name="backupCode"
         width="100%"
         placeholder="Backup code (optional)"
         htmlType="text"
+        pattern="[A-Za-z0-9]{6,12}"
       >
         Backup code (optional)
       </Input>

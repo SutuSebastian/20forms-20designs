@@ -9,6 +9,7 @@ function ProfileUpdateForm() {
   return (
     <form onSubmit={handleSubmit}>
       <Input
+        id="nocss-profile-first-name"
         name="firstName"
         width="100%"
         placeholder="First name"
@@ -18,6 +19,7 @@ function ProfileUpdateForm() {
       </Input>
       <Spacer h={1} />
       <Input
+        id="nocss-profile-last-name"
         name="lastName"
         width="100%"
         placeholder="Last name"
@@ -27,6 +29,7 @@ function ProfileUpdateForm() {
       </Input>
       <Spacer h={1} />
       <Input
+        id="nocss-profile-email"
         name="email"
         type="email"
         width="100%"
@@ -37,10 +40,13 @@ function ProfileUpdateForm() {
       </Input>
       <Spacer h={1} />
       <Input
+        id="nocss-profile-phone"
         name="phone"
         type="tel"
         width="100%"
         placeholder="Phone number"
+        pattern="[+0-9\s-]{7,20}"
+        inputMode="tel"
         required
       >
         Phone number
@@ -49,6 +55,7 @@ function ProfileUpdateForm() {
       <Text small>Short bio</Text>
       <Spacer h={0.5} />
       <Textarea
+        id="nocss-profile-bio"
         name="bio"
         width="100%"
         placeholder="Tell us about yourself"

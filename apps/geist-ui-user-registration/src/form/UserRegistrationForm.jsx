@@ -8,11 +8,18 @@ function UserRegistrationForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input name="fullName" width="100%" placeholder="Full name" required>
+      <Input
+        id="nocss-user-registration-name"
+        name="fullName"
+        width="100%"
+        placeholder="Full name"
+        required
+      >
         Full name
       </Input>
       <Spacer h={1} />
       <Input
+        id="nocss-user-registration-email"
         name="email"
         type="email"
         width="100%"
@@ -23,6 +30,7 @@ function UserRegistrationForm() {
       </Input>
       <Spacer h={1} />
       <Input
+        id="nocss-user-registration-username"
         name="username"
         width="100%"
         placeholder="Username"
@@ -33,6 +41,7 @@ function UserRegistrationForm() {
       </Input>
       <Spacer h={1} />
       <Input.Password
+        id="nocss-user-registration-password"
         name="password"
         width="100%"
         placeholder="Password"
@@ -43,6 +52,7 @@ function UserRegistrationForm() {
       </Input.Password>
       <Spacer h={1} />
       <Input.Password
+        id="nocss-user-registration-confirm"
         name="confirmPassword"
         width="100%"
         placeholder="Confirm password"

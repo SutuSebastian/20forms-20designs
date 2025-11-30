@@ -9,6 +9,7 @@ function NewsletterSubscriptionForm() {
   return (
     <form onSubmit={handleSubmit}>
       <Input
+        id="nocss-newsletter-email"
         name="email"
         type="email"
         width="100%"
@@ -20,7 +21,12 @@ function NewsletterSubscriptionForm() {
       <Spacer h={1} />
       <Text small>Frequency</Text>
       <Spacer h={0.5} />
-      <Select name="frequency" placeholder="Select frequency" width="100%">
+      <Select
+        id="nocss-newsletter-frequency"
+        name="frequency"
+        placeholder="Select frequency"
+        width="100%"
+      >
         <Select.Option value="weekly">Weekly</Select.Option>
         <Select.Option value="monthly">Monthly</Select.Option>
         <Select.Option value="quarterly">Quarterly</Select.Option>

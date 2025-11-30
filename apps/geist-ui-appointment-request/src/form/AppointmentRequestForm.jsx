@@ -8,11 +8,18 @@ function AppointmentRequestForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input name="fullName" width="100%" placeholder="Full name" required>
+      <Input
+        id="nocss-appointment-name"
+        name="fullName"
+        width="100%"
+        placeholder="Full name"
+        required
+      >
         Full name
       </Input>
       <Spacer h={1} />
       <Input
+        id="nocss-appointment-email"
         name="email"
         type="email"
         width="100%"
@@ -22,17 +29,30 @@ function AppointmentRequestForm() {
         Email address
       </Input>
       <Spacer h={1} />
-      <Input name="date" htmlType="date" width="100%" required>
+      <Input
+        id="nocss-appointment-date"
+        name="date"
+        htmlType="date"
+        width="100%"
+        required
+      >
         Preferred date
       </Input>
       <Spacer h={1} />
-      <Input name="time" htmlType="time" width="100%" required>
+      <Input
+        id="nocss-appointment-time"
+        name="time"
+        htmlType="time"
+        width="100%"
+        required
+      >
         Preferred time
       </Input>
       <Spacer h={1} />
       <Text small>Reason for visit</Text>
       <Spacer h={0.5} />
       <Textarea
+        id="nocss-appointment-reason"
         name="reason"
         width="100%"
         placeholder="Reason for visit"

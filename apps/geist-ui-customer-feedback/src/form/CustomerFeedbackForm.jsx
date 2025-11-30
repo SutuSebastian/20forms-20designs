@@ -16,11 +16,18 @@ function CustomerFeedbackForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input name="name" width="100%" placeholder="Name" required>
+      <Input
+        id="nocss-feedback-name"
+        name="name"
+        width="100%"
+        placeholder="Name"
+        required
+      >
         Name
       </Input>
       <Spacer h={1} />
       <Input
+        id="nocss-feedback-email"
         name="email"
         type="email"
         width="100%"
@@ -32,7 +39,12 @@ function CustomerFeedbackForm() {
       <Spacer h={1} />
       <Text small>Overall rating</Text>
       <Spacer h={0.5} />
-      <Select name="rating" placeholder="Select rating" width="100%">
+      <Select
+        id="nocss-feedback-rating"
+        name="rating"
+        placeholder="Select rating"
+        width="100%"
+      >
         <Select.Option value="excellent">Excellent</Select.Option>
         <Select.Option value="good">Good</Select.Option>
         <Select.Option value="average">Average</Select.Option>
@@ -42,6 +54,7 @@ function CustomerFeedbackForm() {
       <Text small>Comments</Text>
       <Spacer h={0.5} />
       <Textarea
+        id="nocss-feedback-comments"
         name="comments"
         width="100%"
         placeholder="Your comments"

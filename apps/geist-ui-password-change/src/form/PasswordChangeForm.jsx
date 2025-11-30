@@ -9,6 +9,7 @@ function PasswordChangeForm() {
   return (
     <form onSubmit={handleSubmit}>
       <Input.Password
+        id="nocss-password-change-current"
         name="currentPassword"
         width="100%"
         placeholder="Current password"
@@ -18,6 +19,7 @@ function PasswordChangeForm() {
       </Input.Password>
       <Spacer h={1} />
       <Input.Password
+        id="nocss-password-change-new"
         name="newPassword"
         width="100%"
         placeholder="New password"
@@ -28,6 +30,7 @@ function PasswordChangeForm() {
       </Input.Password>
       <Spacer h={1} />
       <Input.Password
+        id="nocss-password-change-confirm"
         name="confirmPassword"
         width="100%"
         placeholder="Confirm new password"

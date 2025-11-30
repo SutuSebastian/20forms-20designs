@@ -8,11 +8,18 @@ function EventRegistrationForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input name="fullName" width="100%" placeholder="Full name" required>
+      <Input
+        id="nocss-event-name"
+        name="fullName"
+        width="100%"
+        placeholder="Full name"
+        required
+      >
         Full name
       </Input>
       <Spacer h={1} />
       <Input
+        id="nocss-event-email"
         name="email"
         type="email"
         width="100%"
@@ -24,13 +31,19 @@ function EventRegistrationForm() {
       <Spacer h={1} />
       <Text small>Ticket type</Text>
       <Spacer h={0.5} />
-      <Select name="ticketType" placeholder="Select ticket" width="100%">
+      <Select
+        id="nocss-event-ticket"
+        name="ticketType"
+        placeholder="Select ticket"
+        width="100%"
+      >
         <Select.Option value="general">General admission</Select.Option>
         <Select.Option value="vip">VIP</Select.Option>
         <Select.Option value="student">Student</Select.Option>
       </Select>
       <Spacer h={1} />
       <Input
+        id="nocss-event-guests"
         name="guestCount"
         htmlType="number"
         width="100%"

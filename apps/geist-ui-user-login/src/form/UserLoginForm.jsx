@@ -9,6 +9,7 @@ function UserLoginForm() {
   return (
     <form onSubmit={handleSubmit}>
       <Input
+        id="nocss-user-login-email"
         name="identifier"
         width="100%"
         placeholder="Email or username"
@@ -18,6 +19,7 @@ function UserLoginForm() {
       </Input>
       <Spacer h={1} />
       <Input.Password
+        id="nocss-user-login-password"
         name="password"
         width="100%"
         placeholder="Password"

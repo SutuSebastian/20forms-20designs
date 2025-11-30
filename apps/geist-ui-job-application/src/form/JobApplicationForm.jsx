@@ -8,11 +8,18 @@ function JobApplicationForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Input name="fullName" width="100%" placeholder="Full name" required>
+      <Input
+        id="nocss-job-full-name"
+        name="fullName"
+        width="100%"
+        placeholder="Full name"
+        required
+      >
         Full name
       </Input>
       <Spacer h={1} />
       <Input
+        id="nocss-job-email"
         name="email"
         type="email"
         width="100%"
@@ -23,20 +30,30 @@ function JobApplicationForm() {
       </Input>
       <Spacer h={1} />
       <Input
+        id="nocss-job-phone"
         name="phone"
         type="tel"
         width="100%"
         placeholder="Phone number"
+        pattern="[+0-9\s-]{7,20}"
+        inputMode="tel"
         required
       >
         Phone number
       </Input>
       <Spacer h={1} />
-      <Input name="role" width="100%" placeholder="Role applied for" required>
+      <Input
+        id="nocss-job-role"
+        name="role"
+        width="100%"
+        placeholder="Role applied for"
+        required
+      >
         Role applied for
       </Input>
       <Spacer h={1} />
       <Input
+        id="nocss-job-resume"
         name="resume"
         type="url"
         width="100%"
@@ -49,6 +66,7 @@ function JobApplicationForm() {
       <Text small>Cover letter</Text>
       <Spacer h={0.5} />
       <Textarea
+        id="nocss-job-cover-letter"
         name="coverLetter"
         width="100%"
         placeholder="Cover letter"
