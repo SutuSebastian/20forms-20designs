@@ -29,7 +29,9 @@ function OnboardingWizardForm() {
       <Grid>
         <Row>
           <Col>
-            <MD isBold tag="div">Step 1: Account</MD>
+            <MD isBold tag="div">
+              Step 1: Account
+            </MD>
           </Col>
         </Row>
 
@@ -64,7 +66,9 @@ function OnboardingWizardForm() {
 
         <Row style={{ marginTop: '24px' }}>
           <Col>
-            <MD isBold tag="div">Step 2: Team</MD>
+            <MD isBold tag="div">
+              Step 2: Team
+            </MD>
           </Col>
         </Row>
 
@@ -102,7 +106,9 @@ function OnboardingWizardForm() {
 
         <Row style={{ marginTop: '24px' }}>
           <Col>
-            <MD isBold tag="div">Step 3: Preferences</MD>
+            <MD isBold tag="div">
+              Step 3: Preferences
+            </MD>
           </Col>
         </Row>
 
