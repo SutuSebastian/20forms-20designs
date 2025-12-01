@@ -1,4 +1,14 @@
-import { Box, Button, CheckBox, Form, FormField, Heading, Select, TextArea, TextInput } from 'grommet'
+import {
+  Box,
+  Button,
+  CheckBox,
+  Form,
+  FormField,
+  Heading,
+  Select,
+  TextArea,
+  TextInput,
+} from 'grommet'
 
 function OnboardingWizardForm() {
   const handleSubmit = (event) => {
@@ -9,18 +19,16 @@ function OnboardingWizardForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <Box margin={{ bottom: 'medium' }}>
-        <Heading level={3} margin={{ bottom: 'small' }}>Step 1: Account</Heading>
+        <Heading level={3} margin={{ bottom: 'small' }}>
+          Step 1: Account
+        </Heading>
         <FormField
           label="Work email"
           name="email"
           htmlFor="grommet-onboarding-email"
           required
         >
-          <TextInput
-            id="grommet-onboarding-email"
-            name="email"
-            type="email"
-          />
+          <TextInput id="grommet-onboarding-email" name="email" type="email" />
         </FormField>
         <FormField
           label="Password"
@@ -37,7 +45,9 @@ function OnboardingWizardForm() {
       </Box>
 
       <Box margin={{ bottom: 'medium' }}>
-        <Heading level={3} margin={{ bottom: 'small' }}>Step 2: Team</Heading>
+        <Heading level={3} margin={{ bottom: 'small' }}>
+          Step 2: Team
+        </Heading>
         <FormField
           label="Team name"
           name="teamName"
@@ -66,18 +76,16 @@ function OnboardingWizardForm() {
       </Box>
 
       <Box margin={{ bottom: 'medium' }}>
-        <Heading level={3} margin={{ bottom: 'small' }}>Step 3: Preferences</Heading>
+        <Heading level={3} margin={{ bottom: 'small' }}>
+          Step 3: Preferences
+        </Heading>
         <FormField
           label="Primary goal"
           name="goal"
           htmlFor="grommet-onboarding-goal"
           required
         >
-          <TextArea
-            id="grommet-onboarding-goal"
-            name="goal"
-            rows={3}
-          />
+          <TextArea id="grommet-onboarding-goal" name="goal" rows={3} />
         </FormField>
         <FormField name="updates" htmlFor="grommet-onboarding-updates">
           <CheckBox
