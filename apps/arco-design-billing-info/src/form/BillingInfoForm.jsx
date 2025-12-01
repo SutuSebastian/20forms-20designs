@@ -1,4 +1,7 @@
-import { Button, Input, Checkbox, Select, DatePicker, Radio,  InputNumber, TimePicker, Switch, Form } from '@arco-design/web-react'
+import {
+ Button, Input, Checkbox, Select, DatePicker, Radio,  InputNumber, TimePicker, Switch, Form,
+  Space,
+} from '@arco-design/web-react'
 
 function BillingInfoForm() {
   const handleSubmit = (event) => {
@@ -8,11 +11,12 @@ function BillingInfoForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div style={{ marginBottom: '12px' }}>
+      <Space direction="vertical" size="medium" style={{ width: '100%' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-billing-name">Name on card</label>
         <Input id="nocss-billing-name" name="cardName" type="text" required  style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-billing-card-number">Card number</label>
         <Input id="nocss-billing-card-number"
           name="cardNumber"
@@ -23,7 +27,7 @@ function BillingInfoForm() {
           required
          style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-billing-expiration">Expiration date</label>
         <Input id="nocss-billing-expiration"
           name="expiration"
@@ -34,7 +38,7 @@ function BillingInfoForm() {
           required
          style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-billing-cvc">Security code</label>
         <Input id="nocss-billing-cvc"
           name="cvc"
@@ -45,11 +49,11 @@ function BillingInfoForm() {
           required
          style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-billing-address">Billing address</label>
         <Input id="nocss-billing-address" name="address" type="text" required  style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-billing-country">Country</label>
         <Select id="nocss-billing-country" name="country" required style={{ width: '100%' }}>
         <Select.Option value="">Select country</Select.Option>
@@ -58,7 +62,7 @@ function BillingInfoForm() {
         </Select>
       </div>
       <Button type="primary" htmlType="submit">Save billing details</Button>
-      </div>
+    </Space>
     </form>
   )
 }

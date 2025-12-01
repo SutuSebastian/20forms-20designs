@@ -1,4 +1,7 @@
-import { Button, Input, Checkbox, Select, DatePicker, Radio,  InputNumber, TimePicker, Switch, Form } from '@arco-design/web-react'
+import {
+ Button, Input, Checkbox, Select, DatePicker, Radio,  InputNumber, TimePicker, Switch, Form,
+  Space,
+} from '@arco-design/web-react'
 
 function ContactInquiryForm() {
   const handleSubmit = (event) => {
@@ -8,15 +11,16 @@ function ContactInquiryForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div style={{ marginBottom: '12px' }}>
+      <Space direction="vertical" size="medium" style={{ width: '100%' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-contact-name">Full name</label>
         <Input id="nocss-contact-name" name="fullName" type="text" required  style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-contact-email">Email address</label>
         <Input id="nocss-contact-email" name="email" type="email" required  style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-contact-topic">Topic</label>
         <Select id="nocss-contact-topic" name="topic" required style={{ width: '100%' }}>
         <Select.Option value="">Select topic</Select.Option>
@@ -26,11 +30,11 @@ function ContactInquiryForm() {
         <Select.Option value="other">Other</Select.Option>
         </Select>
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-contact-message">Message</label>
         <Input.TextArea id="nocss-contact-message" name="message" rows="4" required  style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }}>
           <Checkbox name="consent">
           Allow follow-up communication
@@ -38,7 +42,7 @@ function ContactInquiryForm() {
         </label>
       </div>
       <Button type="primary" htmlType="submit">Submit inquiry</Button>
-      </div>
+    </Space>
     </form>
   )
 }

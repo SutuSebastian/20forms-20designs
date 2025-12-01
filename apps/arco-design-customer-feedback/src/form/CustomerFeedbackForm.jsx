@@ -1,4 +1,7 @@
-import { Button, Input, Checkbox, Select, DatePicker, Radio,  InputNumber, TimePicker, Switch, Form } from '@arco-design/web-react'
+import {
+ Button, Input, Checkbox, Select, DatePicker, Radio,  InputNumber, TimePicker, Switch, Form,
+  Space,
+} from '@arco-design/web-react'
 
 function CustomerFeedbackForm() {
   const handleSubmit = (event) => {
@@ -8,15 +11,16 @@ function CustomerFeedbackForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div style={{ marginBottom: '12px' }}>
+      <Space direction="vertical" size="medium" style={{ width: '100%' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-feedback-name">Name</label>
         <Input id="nocss-feedback-name" name="name" type="text" required  style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-feedback-email">Email address</label>
         <Input id="nocss-feedback-email" name="email" type="email" required  style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-feedback-rating">Overall rating</label>
         <Select id="nocss-feedback-rating" name="rating" required style={{ width: '100%' }}>
         <Select.Option value="">Select rating</Select.Option>
@@ -26,7 +30,7 @@ function CustomerFeedbackForm() {
         <Select.Option value="poor">Poor</Select.Option>
         </Select>
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-feedback-comments">Comments</label>
         <Input.TextArea id="nocss-feedback-comments"
           name="comments"
@@ -34,7 +38,7 @@ function CustomerFeedbackForm() {
           required
          style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }}>
           <Checkbox name="followUp">
           I would like a follow-up
@@ -42,7 +46,7 @@ function CustomerFeedbackForm() {
         </label>
       </div>
       <Button type="primary" htmlType="submit">Send feedback</Button>
-      </div>
+    </Space>
     </form>
   )
 }

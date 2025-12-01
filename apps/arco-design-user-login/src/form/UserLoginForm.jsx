@@ -5,11 +5,11 @@ import {
   Select,
   DatePicker,
   Radio,
-  
   InputNumber,
   TimePicker,
   Switch,
   Form,
+  Space,
 } from '@arco-design/web-react'
 
 function UserLoginForm() {
@@ -20,7 +20,8 @@ function UserLoginForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div style={{ marginBottom: '12px' }}>
+      <Space direction="vertical" size="medium" style={{ width: '100%' }}>
+      <div>
         <label
           style={{ display: 'block', marginBottom: '4px' }}
           htmlFor="nocss-user-login-email"
@@ -35,7 +36,7 @@ function UserLoginForm() {
           style={{ width: '100%' }}
         />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label
           style={{ display: 'block', marginBottom: '4px' }}
           htmlFor="nocss-user-login-password"
@@ -53,8 +54,8 @@ function UserLoginForm() {
       <div>
         <Checkbox name="remember">Keep me signed in</Checkbox>
       </div>
-      <div style={{ marginTop: '12px' }}>
-        <Button type="primary" htmlType="submit" style={{ marginRight: '8px' }}>
+      <Space size="medium">
+        <Button type="primary" htmlType="submit">
           Sign in
         </Button>
         <Button
@@ -63,7 +64,8 @@ function UserLoginForm() {
         >
           Forgot password?
         </Button>
-      </div>
+      </Space>
+    </Space>
     </form>
   )
 }

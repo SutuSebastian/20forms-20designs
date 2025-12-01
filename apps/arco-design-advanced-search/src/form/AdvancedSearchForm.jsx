@@ -1,4 +1,7 @@
-import { Button, Input, Checkbox, Select, DatePicker, Radio,  InputNumber, TimePicker, Switch, Form } from '@arco-design/web-react'
+import {
+ Button, Input, Checkbox, Select, DatePicker, Radio,  InputNumber, TimePicker, Switch, Form,
+  Space,
+} from '@arco-design/web-react'
 
 function AdvancedSearchForm() {
   const handleSubmit = (event) => {
@@ -8,11 +11,12 @@ function AdvancedSearchForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div style={{ marginBottom: '12px' }}>
+      <Space direction="vertical" size="medium" style={{ width: '100%' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-search-query">Search query</label>
         <Input id="nocss-search-query" name="query" type="text" required  style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-search-category">Category</label>
         <Select id="nocss-search-category" name="category" required style={{ width: '100%' }}>
         <Select.Option value="all">All</Select.Option>
@@ -21,15 +25,15 @@ function AdvancedSearchForm() {
         <Select.Option value="people">People</Select.Option>
         </Select>
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-search-date-from">Date from</label>
         <DatePicker id="nocss-search-date-from" name="dateFrom" type="date"  style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-search-date-to">Date to</label>
         <DatePicker id="nocss-search-date-to" name="dateTo" type="date"  style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-search-sort">Sort by</label>
         <Select id="nocss-search-sort" name="sort" required style={{ width: '100%' }}>
         <Select.Option value="relevance">Relevance</Select.Option>
@@ -37,7 +41,7 @@ function AdvancedSearchForm() {
         <Select.Option value="oldest">Oldest</Select.Option>
         </Select>
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }}>
           <Checkbox name="includeArchived">
           Include archived
@@ -45,7 +49,7 @@ function AdvancedSearchForm() {
         </label>
       </div>
       <Button type="primary" htmlType="submit">Search</Button>
-      </div>
+    </Space>
     </form>
   )
 }

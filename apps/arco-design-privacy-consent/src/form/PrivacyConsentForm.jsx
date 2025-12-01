@@ -1,4 +1,7 @@
-import { Button, Input, Checkbox, Select, DatePicker, Radio,  InputNumber, TimePicker, Switch, Form } from '@arco-design/web-react'
+import {
+ Button, Input, Checkbox, Select, DatePicker, Radio,  InputNumber, TimePicker, Switch, Form,
+  Space,
+} from '@arco-design/web-react'
 
 function PrivacyConsentForm() {
   const handleSubmit = (event) => {
@@ -8,11 +11,12 @@ function PrivacyConsentForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div style={{ marginBottom: '12px' }}>
+      <Space direction="vertical" size="medium" style={{ width: '100%' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-privacy-name">Full name</label>
         <Input id="nocss-privacy-name" name="fullName" type="text" required  style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-privacy-email">Email address</label>
         <Input id="nocss-privacy-email" name="email" type="email" required  style={{ width: '100%' }} />
       </div>
@@ -47,12 +51,12 @@ function PrivacyConsentForm() {
         </Checkbox>
         </label>
       </fieldset>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-privacy-notes">Additional notes</label>
         <Input.TextArea id="nocss-privacy-notes" name="notes" rows="3"  style={{ width: '100%' }} />
       </div>
       <Button type="primary" htmlType="submit">Save preferences</Button>
-      </div>
+    </Space>
     </form>
   )
 }

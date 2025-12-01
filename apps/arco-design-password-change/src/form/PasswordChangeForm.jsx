@@ -1,4 +1,7 @@
-import { Button, Input, Checkbox, Select, DatePicker, Radio,  InputNumber, TimePicker, Switch, Form } from '@arco-design/web-react'
+import {
+ Button, Input, Checkbox, Select, DatePicker, Radio,  InputNumber, TimePicker, Switch, Form,
+  Space,
+} from '@arco-design/web-react'
 
 function PasswordChangeForm() {
   const handleSubmit = (event) => {
@@ -8,7 +11,8 @@ function PasswordChangeForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div style={{ marginBottom: '12px' }}>
+      <Space direction="vertical" size="medium" style={{ width: '100%' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-password-change-current">Current password</label>
         <Input.Password id="nocss-password-change-current"
           name="currentPassword"
@@ -16,7 +20,7 @@ function PasswordChangeForm() {
           required
          style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-password-change-new">New password</label>
         <Input.Password id="nocss-password-change-new"
           name="newPassword"
@@ -25,7 +29,7 @@ function PasswordChangeForm() {
           required
          style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-password-change-confirm">
           Confirm new password
         </label>
@@ -36,7 +40,7 @@ function PasswordChangeForm() {
           required
          style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }}>
           <Checkbox name="logoutOthers">
           Sign out of other devices
@@ -44,7 +48,7 @@ function PasswordChangeForm() {
         </label>
       </div>
       <Button type="primary" htmlType="submit">Update password</Button>
-      </div>
+    </Space>
     </form>
   )
 }

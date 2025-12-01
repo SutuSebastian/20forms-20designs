@@ -1,4 +1,7 @@
-import { Button, Input, Checkbox, Select, DatePicker, Radio,  InputNumber, TimePicker, Switch, Form } from '@arco-design/web-react'
+import {
+ Button, Input, Checkbox, Select, DatePicker, Radio,  InputNumber, TimePicker, Switch, Form,
+  Space,
+} from '@arco-design/web-react'
 
 function UserRegistrationForm() {
   const handleSubmit = (event) => {
@@ -8,7 +11,8 @@ function UserRegistrationForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div style={{ marginBottom: '12px' }}>
+      <Space direction="vertical" size="medium" style={{ width: '100%' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-user-registration-name">Full name</label>
         <Input id="nocss-user-registration-name"
           name="fullName"
@@ -16,7 +20,7 @@ function UserRegistrationForm() {
           required
          style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-user-registration-email">Email address</label>
         <Input id="nocss-user-registration-email"
           name="email"
@@ -24,7 +28,7 @@ function UserRegistrationForm() {
           required
          style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-user-registration-username">Username</label>
         <Input id="nocss-user-registration-username"
           name="username"
@@ -33,7 +37,7 @@ function UserRegistrationForm() {
           required
          style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-user-registration-password">Password</label>
         <Input.Password id="nocss-user-registration-password"
           name="password"
@@ -42,7 +46,7 @@ function UserRegistrationForm() {
           required
          style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-user-registration-confirm">
           Confirm password
         </label>
@@ -53,7 +57,7 @@ function UserRegistrationForm() {
           required
          style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }}>
           <Checkbox name="terms"  required>
           I agree to the terms
@@ -62,7 +66,7 @@ function UserRegistrationForm() {
         </label>
       </div>
       <Button type="primary" htmlType="submit">Create account</Button>
-      </div>
+    </Space>
     </form>
   )
 }

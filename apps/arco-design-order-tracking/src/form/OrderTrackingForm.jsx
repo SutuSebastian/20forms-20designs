@@ -1,4 +1,7 @@
-import { Button, Input, Checkbox, Select, DatePicker, Radio,  InputNumber, TimePicker, Switch, Form } from '@arco-design/web-react'
+import {
+ Button, Input, Checkbox, Select, DatePicker, Radio,  InputNumber, TimePicker, Switch, Form,
+  Space,
+} from '@arco-design/web-react'
 
 function OrderTrackingForm() {
   const handleSubmit = (event) => {
@@ -8,7 +11,8 @@ function OrderTrackingForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div style={{ marginBottom: '12px' }}>
+      <Space direction="vertical" size="medium" style={{ width: '100%' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-order-tracking-number">Order number</label>
         <Input id="nocss-order-tracking-number"
           name="orderNumber"
@@ -17,7 +21,7 @@ function OrderTrackingForm() {
           required
          style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-order-tracking-email">Email address</label>
         <Input id="nocss-order-tracking-email"
           name="email"
@@ -25,7 +29,7 @@ function OrderTrackingForm() {
           required
          style={{ width: '100%' }} />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-order-tracking-postal">Postal code</label>
         <Input id="nocss-order-tracking-postal"
           name="postalCode"
@@ -34,7 +38,7 @@ function OrderTrackingForm() {
          style={{ width: '100%' }} />
       </div>
       <Button type="primary" htmlType="submit">Find order</Button>
-      </div>
+    </Space>
     </form>
   )
 }

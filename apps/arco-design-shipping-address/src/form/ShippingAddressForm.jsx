@@ -1,4 +1,16 @@
-import { Button, Input, Checkbox, Select, DatePicker, Radio,  InputNumber, TimePicker, Switch, Form } from '@arco-design/web-react'
+import {
+  Button,
+  Input,
+  Checkbox,
+  Select,
+  DatePicker,
+  Radio,
+  InputNumber,
+  TimePicker,
+  Switch,
+  Form,
+  Space,
+} from '@arco-design/web-react'
 
 import { useState } from 'react'
 import { CANADIAN_PROVINCES, COUNTRIES, US_STATES } from './locationOptions'
@@ -19,68 +31,130 @@ function ShippingAddressForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div style={{ marginBottom: '12px' }}>
-        <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-shipping-full-name">Recipient name</label>
-        <Input id="nocss-shipping-full-name"
+      <Space direction="vertical" size="medium" style={{ width: '100%' }}>
+      <div>
+        <label
+          style={{ display: 'block', marginBottom: '4px' }}
+          htmlFor="nocss-shipping-full-name"
+        >
+          Recipient name
+        </label>
+        <Input
+          id="nocss-shipping-full-name"
           name="fullName"
           type="text"
           required
-         style={{ width: '100%' }} />
+          style={{ width: '100%' }}
+        />
       </div>
-      <div style={{ marginBottom: '12px' }}>
-        <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-shipping-street">Street address</label>
-        <Input id="nocss-shipping-street" name="street" type="text" required  style={{ width: '100%' }} />
+      <div>
+        <label
+          style={{ display: 'block', marginBottom: '4px' }}
+          htmlFor="nocss-shipping-street"
+        >
+          Street address
+        </label>
+        <Input
+          id="nocss-shipping-street"
+          name="street"
+          type="text"
+          required
+          style={{ width: '100%' }}
+        />
       </div>
-      <div style={{ marginBottom: '12px' }}>
-        <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-shipping-street-2">Apartment, suite, etc.</label>
-        <Input id="nocss-shipping-street-2" name="street2" type="text"  style={{ width: '100%' }} />
+      <div>
+        <label
+          style={{ display: 'block', marginBottom: '4px' }}
+          htmlFor="nocss-shipping-street-2"
+        >
+          Apartment, suite, etc.
+        </label>
+        <Input
+          id="nocss-shipping-street-2"
+          name="street2"
+          type="text"
+          style={{ width: '100%' }}
+        />
       </div>
-      <div style={{ marginBottom: '12px' }}>
-        <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-shipping-city">City</label>
-        <Input id="nocss-shipping-city" name="city" type="text" required  style={{ width: '100%' }} />
+      <div>
+        <label
+          style={{ display: 'block', marginBottom: '4px' }}
+          htmlFor="nocss-shipping-city"
+        >
+          City
+        </label>
+        <Input
+          id="nocss-shipping-city"
+          name="city"
+          type="text"
+          required
+          style={{ width: '100%' }}
+        />
       </div>
-      <div style={{ marginBottom: '12px' }}>
-        <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-shipping-country">Country</label>
-        <Select id="nocss-shipping-country"
+      <div>
+        <label
+          style={{ display: 'block', marginBottom: '4px' }}
+          htmlFor="nocss-shipping-country"
+        >
+          Country
+        </label>
+        <Select
+          id="nocss-shipping-country"
           name="country"
           value={country}
-          onChange={(event) = style={{ width: '100%' }}> setCountry(event.target.value)}
+          onChange={(value) => setCountry(value)}
           required
+          style={{ width: '100%' }}
         >
           {COUNTRIES.map(({ value, label }) => (
-            <option key={value} value={value}>
+            <Select.Option key={value} value={value}>
               {label}
-            </option>
+            </Select.Option>
           ))}
         </Select>
       </div>
-      <div style={{ marginBottom: '12px' }}>
-        <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-shipping-region">
+      <div>
+        <label
+          style={{ display: 'block', marginBottom: '4px' }}
+          htmlFor="nocss-shipping-region"
+        >
           State / Province / Territory
         </label>
-        <Select id="nocss-shipping-region" name="region" required style={{ width: '100%' }}>
-        <Select.Option value="">Select an option</Select.Option>
+        <Select
+          id="nocss-shipping-region"
+          name="region"
+          required
+          style={{ width: '100%' }}
+        >
+          <Select.Option value="">Select an option</Select.Option>
         </Select>
       </div>
-      <div style={{ marginBottom: '12px' }}>
-        <label style={{ display: 'block', marginBottom: '4px' }} htmlFor="nocss-shipping-postal">Postal code</label>
-        <Input id="nocss-shipping-postal"
+      <div>
+        <label
+          style={{ display: 'block', marginBottom: '4px' }}
+          htmlFor="nocss-shipping-postal"
+        >
+          Postal code
+        </label>
+        <Input
+          id="nocss-shipping-postal"
           name="postalCode"
           type="text"
           pattern={postalPattern}
           inputMode="text"
           required
-         style={{ width: '100%' }} />
+          style={{ width: '100%' }}
+        />
       </div>
-      <div style={{ marginBottom: '12px' }}>
+      <div>
         <label style={{ display: 'block', marginBottom: '4px' }}>
-          <Checkbox name="default">
-          Use as default shipping address
-        </Checkbox>
+          <Checkbox name="default">Use as default shipping address</Checkbox>
         </label>
       </div>
-      <Button type="primary" htmlType="submit">Save address</Button>
-      </div>
+      <Button type="primary" htmlType="submit">
+        Save address
+      </Button>
+    </Space>
     </form>
   )
 }
