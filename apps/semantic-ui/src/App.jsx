@@ -1,8 +1,7 @@
 import 'semantic-ui-css/semantic.min.css'
-
+import './dark-mode.css'
 
 import { useState, useEffect } from 'react'
-
 
 // Import all form components
 import AdvancedSearchForm from './forms/AdvancedSearchForm'
@@ -102,10 +101,11 @@ function App() {
 
   // Get the form component based on the form ID
   const FormComponent = FORM_COMPONENTS[formId]
+  const isDark = theme === 'dark'
 
   return (
     <div style={{ padding: '20px', maxWidth: '500px', margin: '0 auto' }}>
-      <FormComponent />
+      <FormComponent inverted={isDark} />
     </div>
   )
 }

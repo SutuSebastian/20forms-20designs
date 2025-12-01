@@ -1,0 +1,211 @@
+/* Dark mode overrides for Semantic UI React */
+
+/* Dropdown menus in dark mode */
+body.dark .ui.selection.dropdown,
+body.dark .ui.selection.dropdown .menu {
+  background: #2d2d44 !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+body.dark .ui.selection.dropdown .menu > .item {
+  color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark .ui.selection.dropdown .menu > .item:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark .ui.selection.dropdown .menu > .item.selected {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+body.dark .ui.dropdown > .text,
+body.dark .ui.dropdown > .default.text {
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+body.dark .ui.dropdown > .dropdown.icon {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Search dropdown input */
+body.dark .ui.search.dropdown > input.search {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Checkbox styling in dark mode */
+body.dark .ui.checkbox label,
+body.dark .ui.checkbox + label {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+body.dark .ui.checkbox input:checked ~ .box:before,
+body.dark .ui.checkbox input:checked ~ label:before {
+  background: #2d2d44 !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+body.dark .ui.checkbox .box:before,
+body.dark .ui.checkbox label:before {
+  background: #2d2d44 !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Radio button styling in dark mode */
+body.dark .ui.radio.checkbox label:before {
+  background: #2d2d44 !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Basic button in dark mode */
+body.dark .ui.basic.button {
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35) inset !important;
+}
+
+body.dark .ui.basic.button:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+}
+
+/* Segment in dark mode */
+body.dark .ui.segment {
+  background: #2d2d44 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Header in dark mode */
+body.dark .ui.header {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Message in dark mode */
+body.dark .ui.message {
+  background: #2d2d44 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset !important;
+}
+
+body.dark .ui.message .header {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Input placeholder color in dark mode */
+body.dark .ui.form input::placeholder,
+body.dark .ui.form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Label styling in dark mode (for form labels not handled by inverted) */
+body.dark .ui.form .field > label {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Divider in dark mode */
+body.dark .ui.divider {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+body.dark .ui.divider:not(.vertical):not(.horizontal) {
+  border-top-color: rgba(255, 255, 255, 0.15) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Table in dark mode */
+body.dark .ui.table {
+  background: #2d2d44 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark .ui.table thead th {
+  background: #1a1a2e !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark .ui.table td {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Progress bar in dark mode */
+body.dark .ui.progress {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+body.dark .ui.progress .bar {
+  background: #2185d0 !important;
+}
+
+/* Accordion in dark mode */
+body.dark .ui.accordion .title {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+body.dark .ui.accordion .content {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Modal in dark mode */
+body.dark .ui.modal {
+  background: #2d2d44 !important;
+}
+
+body.dark .ui.modal > .header {
+  background: #1a1a2e !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark .ui.modal > .content {
+  background: #2d2d44 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+body.dark .ui.modal > .actions {
+  background: #1a1a2e !important;
+  border-top-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Card in dark mode */
+body.dark .ui.card,
+body.dark .ui.cards > .card {
+  background: #2d2d44 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark .ui.card > .content,
+body.dark .ui.cards > .card > .content {
+  border-top-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark .ui.card > .content > .header,
+body.dark .ui.cards > .card > .content > .header {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+body.dark .ui.card > .content > .description,
+body.dark .ui.cards > .card > .content > .description {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Menu in dark mode */
+body.dark .ui.menu {
+  background: #2d2d44 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark .ui.menu .item {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+body.dark .ui.menu .item:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark .ui.menu .active.item {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
