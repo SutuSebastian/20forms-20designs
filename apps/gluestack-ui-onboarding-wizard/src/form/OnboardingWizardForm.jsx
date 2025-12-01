@@ -40,7 +40,9 @@ function OnboardingWizardForm() {
     <Box as="form" onSubmit={handleSubmit}>
       <VStack space="lg">
         <Box>
-          <Heading size="sm" mb="$2">Step 1: Account</Heading>
+          <Heading size="sm" mb="$2">
+            Step 1: Account
+          </Heading>
           <VStack space="md">
             <FormControl isRequired>
               <FormControlLabel>
@@ -73,7 +75,9 @@ function OnboardingWizardForm() {
         </Box>
 
         <Box>
-          <Heading size="sm" mb="$2">Step 2: Team</Heading>
+          <Heading size="sm" mb="$2">
+            Step 2: Team
+          </Heading>
           <VStack space="md">
             <FormControl isRequired>
               <FormControlLabel>
@@ -116,7 +120,9 @@ function OnboardingWizardForm() {
         </Box>
 
         <Box>
-          <Heading size="sm" mb="$2">Step 3: Preferences</Heading>
+          <Heading size="sm" mb="$2">
+            Step 3: Preferences
+          </Heading>
           <VStack space="md">
             <FormControl isRequired>
               <FormControlLabel>

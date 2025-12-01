@@ -18,7 +18,11 @@ function App() {
 
   return (
     <GluestackUIProvider config={config} colorMode={theme}>
-      <Box p="$4" bg={theme === 'dark' ? '$backgroundDark900' : '$backgroundLight0'} minHeight="100vh">
+      <Box
+        p="$4"
+        bg={theme === 'dark' ? '$backgroundDark900' : '$backgroundLight0'}
+        minHeight="100vh"
+      >
         <FormComponent theme={theme} />
       </Box>
     </GluestackUIProvider>

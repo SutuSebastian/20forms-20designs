@@ -47,7 +47,9 @@ function SupportTicketForm() {
         </FormControl>
 
         <FormControl isRequired>
-          <Text fontWeight="$medium" mb="$2">Priority</Text>
+          <Text fontWeight="$medium" mb="$2">
+            Priority
+          </Text>
           <RadioGroup value={priority} onChange={setPriority}>
             <VStack space="sm">
               <Radio value="low">
