@@ -1,8 +1,6 @@
 import '@awesome.me/webawesome/dist/styles/webawesome.css'
 
-
 import { useState, useEffect } from 'react'
-
 
 // Import all form components
 import AdvancedSearchForm from './forms/AdvancedSearchForm'
@@ -66,13 +64,18 @@ function App() {
     // Check URL for theme parameter
     const params = new URLSearchParams(window.location.search)
     const urlTheme = params.get('theme')
+    const isDark = urlTheme === 'dark' || theme === 'dark'
 
-    if (urlTheme === 'dark' || theme === 'dark') {
-      document.body.classList.add('dark')
+    // Web Awesome uses .wa-light and .wa-dark classes on the html element
+    const htmlElement = document.documentElement
+    if (isDark) {
+      htmlElement.classList.remove('wa-light')
+      htmlElement.classList.add('wa-dark')
       document.body.style.backgroundColor = '#1a1a2e'
       document.body.style.color = '#ffffff'
     } else {
-      document.body.classList.remove('dark')
+      htmlElement.classList.remove('wa-dark')
+      htmlElement.classList.add('wa-light')
       document.body.style.backgroundColor = ''
       document.body.style.color = ''
     }
