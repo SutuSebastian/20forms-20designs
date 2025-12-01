@@ -1,9 +1,10 @@
 import './styles.css'
 
-
+import AppProvider from '@atlaskit/app-provider'
+import { token } from '@atlaskit/tokens'
 
 import { useState, useEffect } from 'react'
-import { Box } from '@atlaskit/primitives'
+import { Box, xcss } from '@atlaskit/primitives'
 
 // Import all form components
 import AdvancedSearchForm from './forms/AdvancedSearchForm'
@@ -51,6 +52,13 @@ const FORM_COMPONENTS = {
   'user-registration': UserRegistrationForm,
 }
 
+const containerStyles = xcss({
+  maxWidth: '500px',
+  margin: '0 auto',
+  padding: 'space.300',
+  minHeight: '100vh',
+})
+
 function App() {
   const [formId, setFormId] = useState(() => {
     const params = new URLSearchParams(window.location.search)
@@ -62,21 +70,10 @@ function App() {
     return params.get('theme') === 'dark' ? 'dark' : 'light'
   })
 
-  // Apply theme on mount and when it changes
+  // Apply background color to body when theme changes
   useEffect(() => {
-    // Check URL for theme parameter
-    const params = new URLSearchParams(window.location.search)
-    const urlTheme = params.get('theme')
-
-    if (urlTheme === 'dark' || theme === 'dark') {
-      document.body.classList.add('dark')
-      document.body.style.backgroundColor = '#1a1a2e'
-      document.body.style.color = '#ffffff'
-    } else {
-      document.body.classList.remove('dark')
-      document.body.style.backgroundColor = ''
-      document.body.style.color = ''
-    }
+    document.body.style.backgroundColor = token('elevation.surface')
+    document.body.style.color = token('color.text')
   }, [theme])
 
   // Listen for theme changes from parent
@@ -105,9 +102,11 @@ function App() {
   const FormComponent = FORM_COMPONENTS[formId]
 
   return (
-    <div style={{ padding: '20px', maxWidth: '500px', margin: '0 auto' }}>
-      <FormComponent />
-    </div>
+    <AppProvider colorMode={theme}>
+      <Box xcss={containerStyles}>
+        <FormComponent />
+      </Box>
+    </AppProvider>
   )
 }
 
