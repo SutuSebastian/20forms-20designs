@@ -84,7 +84,10 @@ function ShippingAddressForm({ inverted }) {
   }
 
   const regionOptions = country === 'US' ? usStates : caProvinces
-  const postalPattern = country === 'US' ? '[0-9]{5}(-[0-9]{4})?' : '[A-Za-z][0-9][A-Za-z] ?[0-9][A-Za-z][0-9]'
+  const postalPattern =
+    country === 'US'
+      ? '[0-9]{5}(-[0-9]{4})?'
+      : '[A-Za-z][0-9][A-Za-z] ?[0-9][A-Za-z][0-9]'
 
   return (
     <Form onSubmit={handleSubmit} inverted={inverted}>
@@ -143,10 +146,7 @@ function ShippingAddressForm({ inverted }) {
         pattern={postalPattern}
       />
       <Form.Field>
-        <Checkbox
-          name="default"
-          label="Use as default shipping address"
-        />
+        <Checkbox name="default" label="Use as default shipping address" />
       </Form.Field>
       <Button type="submit" primary>
         Save address

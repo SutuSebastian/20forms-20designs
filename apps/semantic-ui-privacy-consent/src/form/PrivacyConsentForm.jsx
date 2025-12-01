@@ -24,40 +24,29 @@ function PrivacyConsentForm({ inverted }) {
       />
 
       <Segment inverted={inverted}>
-        <Header as="h4" inverted={inverted}>Communication channels</Header>
+        <Header as="h4" inverted={inverted}>
+          Communication channels
+        </Header>
         <Form.Field>
-          <Checkbox
-            name="emailOptIn"
-            label="Email updates"
-          />
+          <Checkbox name="emailOptIn" label="Email updates" />
         </Form.Field>
         <Form.Field>
-          <Checkbox
-            name="smsOptIn"
-            label="SMS notifications"
-          />
+          <Checkbox name="smsOptIn" label="SMS notifications" />
         </Form.Field>
         <Form.Field>
-          <Checkbox
-            name="phoneOptIn"
-            label="Phone calls"
-          />
+          <Checkbox name="phoneOptIn" label="Phone calls" />
         </Form.Field>
       </Segment>
 
       <Segment inverted={inverted}>
-        <Header as="h4" inverted={inverted}>Privacy options</Header>
+        <Header as="h4" inverted={inverted}>
+          Privacy options
+        </Header>
         <Form.Field>
-          <Checkbox
-            name="analytics"
-            label="Allow analytics cookies"
-          />
+          <Checkbox name="analytics" label="Allow analytics cookies" />
         </Form.Field>
         <Form.Field>
-          <Checkbox
-            name="personalization"
-            label="Allow personalized content"
-          />
+          <Checkbox name="personalization" label="Allow personalized content" />
         </Form.Field>
       </Segment>
 
