@@ -51,10 +51,7 @@ function AdvancedSearchForm() {
           ]}
           required
         />
-        <Checkbox
-          name="includeArchived"
-          label="Include archived"
-        />
+        <Checkbox name="includeArchived" label="Include archived" />
         <Button type="submit">Search</Button>
       </Stack>
     </form>

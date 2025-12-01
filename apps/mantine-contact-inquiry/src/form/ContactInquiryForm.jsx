@@ -1,4 +1,11 @@
-import { Button, Checkbox, Stack, TextInput, Textarea, Select } from '@mantine/core'
+import {
+  Button,
+  Checkbox,
+  Stack,
+  TextInput,
+  Textarea,
+  Select,
+} from '@mantine/core'
 
 function ContactInquiryForm() {
   const handleSubmit = (event) => {
@@ -43,10 +50,7 @@ function ContactInquiryForm() {
           rows={4}
           required
         />
-        <Checkbox
-          name="consent"
-          label="Allow follow-up communication"
-        />
+        <Checkbox name="consent" label="Allow follow-up communication" />
         <Button type="submit">Submit inquiry</Button>
       </Stack>
     </form>

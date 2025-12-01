@@ -1,4 +1,15 @@
-import { Button, Checkbox, Stack, TextInput, Textarea, Select, Title, Group, Box, PasswordInput } from '@mantine/core'
+import {
+  Button,
+  Checkbox,
+  Stack,
+  TextInput,
+  Textarea,
+  Select,
+  Title,
+  Group,
+  Box,
+  PasswordInput,
+} from '@mantine/core'
 
 function OnboardingWizardForm() {
   const handleSubmit = (event) => {
@@ -10,7 +21,9 @@ function OnboardingWizardForm() {
     <form onSubmit={handleSubmit}>
       <Stack gap="lg">
         <Box>
-          <Title order={4} mb="sm">Step 1: Account</Title>
+          <Title order={4} mb="sm">
+            Step 1: Account
+          </Title>
           <Stack gap="md">
             <TextInput
               id="mantine-onboarding-email"
@@ -29,7 +42,9 @@ function OnboardingWizardForm() {
           </Stack>
         </Box>
         <Box>
-          <Title order={4} mb="sm">Step 2: Team</Title>
+          <Title order={4} mb="sm">
+            Step 2: Team
+          </Title>
           <Stack gap="md">
             <TextInput
               id="mantine-onboarding-team-name"
@@ -54,7 +69,9 @@ function OnboardingWizardForm() {
           </Stack>
         </Box>
         <Box>
-          <Title order={4} mb="sm">Step 3: Preferences</Title>
+          <Title order={4} mb="sm">
+            Step 3: Preferences
+          </Title>
           <Stack gap="md">
             <Textarea
               id="mantine-onboarding-goal"
@@ -63,14 +80,15 @@ function OnboardingWizardForm() {
               rows={3}
               required
             />
-            <Checkbox
-              name="updates"
-              label="Send me product tips"
-            />
+            <Checkbox name="updates" label="Send me product tips" />
           </Stack>
         </Box>
         <Group>
-          <Button variant="outline" type="button" onClick={() => alert('Back action placeholder')}>
+          <Button
+            variant="outline"
+            type="button"
+            onClick={() => alert('Back action placeholder')}
+          >
             Back
           </Button>
           <Button type="submit">Finish setup</Button>

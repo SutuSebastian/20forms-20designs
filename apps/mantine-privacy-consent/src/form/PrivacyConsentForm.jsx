@@ -1,4 +1,11 @@
-import { Button, Checkbox, Stack, TextInput, Textarea, Fieldset } from '@mantine/core'
+import {
+  Button,
+  Checkbox,
+  Stack,
+  TextInput,
+  Textarea,
+  Fieldset,
+} from '@mantine/core'
 
 function PrivacyConsentForm() {
   const handleSubmit = (event) => {
@@ -33,7 +40,10 @@ function PrivacyConsentForm() {
         <Fieldset legend="Privacy options">
           <Stack gap="xs">
             <Checkbox name="analytics" label="Allow analytics cookies" />
-            <Checkbox name="personalization" label="Allow personalized content" />
+            <Checkbox
+              name="personalization"
+              label="Allow personalized content"
+            />
           </Stack>
         </Fieldset>
         <Textarea

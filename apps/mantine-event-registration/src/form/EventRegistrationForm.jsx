@@ -1,4 +1,11 @@
-import { Button, Checkbox, Stack, TextInput, NumberInput, Select } from '@mantine/core'
+import {
+  Button,
+  Checkbox,
+  Stack,
+  TextInput,
+  NumberInput,
+  Select,
+} from '@mantine/core'
 
 function EventRegistrationForm() {
   const handleSubmit = (event) => {
@@ -43,10 +50,7 @@ function EventRegistrationForm() {
           max={20}
           required
         />
-        <Checkbox
-          name="newsletter"
-          label="Notify me about future events"
-        />
+        <Checkbox name="newsletter" label="Notify me about future events" />
         <Button type="submit">Register</Button>
       </Stack>
     </form>

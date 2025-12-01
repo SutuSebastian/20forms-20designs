@@ -1,4 +1,12 @@
-import { Button, Stack, TextInput, Textarea, Radio, Group, FileInput } from '@mantine/core'
+import {
+  Button,
+  Stack,
+  TextInput,
+  Textarea,
+  Radio,
+  Group,
+  FileInput,
+} from '@mantine/core'
 
 function SupportTicketForm() {
   const handleSubmit = (event) => {
@@ -16,11 +24,7 @@ function SupportTicketForm() {
           type="text"
           required
         />
-        <Radio.Group
-          name="priority"
-          label="Priority"
-          required
-        >
+        <Radio.Group name="priority" label="Priority" required>
           <Group mt="xs">
             <Radio value="low" label="Low" />
             <Radio value="medium" label="Medium" />

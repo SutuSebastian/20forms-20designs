@@ -1,4 +1,10 @@
-import { Button, Checkbox, Stack, TextInput, PasswordInput } from '@mantine/core'
+import {
+  Button,
+  Checkbox,
+  Stack,
+  TextInput,
+  PasswordInput,
+} from '@mantine/core'
 
 function UserLoginForm() {
   const handleSubmit = (event) => {
@@ -22,10 +28,7 @@ function UserLoginForm() {
           label="Password"
           required
         />
-        <Checkbox
-          name="remember"
-          label="Keep me signed in"
-        />
+        <Checkbox name="remember" label="Keep me signed in" />
         <Button type="submit">Sign in</Button>
         <Button
           variant="subtle"

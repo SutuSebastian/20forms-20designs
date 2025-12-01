@@ -28,10 +28,7 @@ function NewsletterSubscriptionForm() {
           ]}
           required
         />
-        <Checkbox
-          name="agree"
-          label="Receive product updates"
-        />
+        <Checkbox name="agree" label="Receive product updates" />
         <Button type="submit">Subscribe</Button>
       </Stack>
     </form>

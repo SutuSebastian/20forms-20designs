@@ -52,10 +52,7 @@ function JobApplicationForm() {
           rows={4}
           required
         />
-        <Checkbox
-          name="updates"
-          label="Keep me informed about future roles"
-        />
+        <Checkbox name="updates" label="Keep me informed about future roles" />
         <Button type="submit">Submit application</Button>
       </Stack>
     </form>

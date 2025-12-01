@@ -1,4 +1,10 @@
-import { Button, Checkbox, Stack, TextInput, PasswordInput } from '@mantine/core'
+import {
+  Button,
+  Checkbox,
+  Stack,
+  TextInput,
+  PasswordInput,
+} from '@mantine/core'
 
 function UserRegistrationForm() {
   const handleSubmit = (event) => {

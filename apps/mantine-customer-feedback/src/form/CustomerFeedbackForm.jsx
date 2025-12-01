@@ -1,4 +1,11 @@
-import { Button, Checkbox, Stack, TextInput, Textarea, Select } from '@mantine/core'
+import {
+  Button,
+  Checkbox,
+  Stack,
+  TextInput,
+  Textarea,
+  Select,
+} from '@mantine/core'
 
 function CustomerFeedbackForm() {
   const handleSubmit = (event) => {
@@ -43,10 +50,7 @@ function CustomerFeedbackForm() {
           rows={4}
           required
         />
-        <Checkbox
-          name="followUp"
-          label="I would like a follow-up"
-        />
+        <Checkbox name="followUp" label="I would like a follow-up" />
         <Button type="submit">Send feedback</Button>
       </Stack>
     </form>

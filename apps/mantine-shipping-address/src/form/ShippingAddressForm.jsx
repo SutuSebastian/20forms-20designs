@@ -56,7 +56,10 @@ function ShippingAddressForm() {
           name="region"
           label="State / Province / Territory"
           placeholder="Select an option"
-          data={regionOptions.map((region) => ({ value: region, label: region }))}
+          data={regionOptions.map((region) => ({
+            value: region,
+            label: region,
+          }))}
           required
         />
         <TextInput
@@ -66,10 +69,7 @@ function ShippingAddressForm() {
           type="text"
           required
         />
-        <Checkbox
-          name="default"
-          label="Use as default shipping address"
-        />
+        <Checkbox name="default" label="Use as default shipping address" />
         <Button type="submit">Save address</Button>
       </Stack>
     </form>
