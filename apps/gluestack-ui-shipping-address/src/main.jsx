@@ -14,7 +14,11 @@ function reportHeight() {
   }
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<React.StrictMode><App /></React.StrictMode>)
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
 setTimeout(reportHeight, 200)
 setTimeout(reportHeight, 500)
 setTimeout(reportHeight, 1000)
