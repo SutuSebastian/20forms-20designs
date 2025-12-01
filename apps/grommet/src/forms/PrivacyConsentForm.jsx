@@ -1,4 +1,13 @@
-import { Box, Button, CheckBox, Form, FormField, Text, TextArea, TextInput } from 'grommet'
+import {
+  Box,
+  Button,
+  CheckBox,
+  Form,
+  FormField,
+  Text,
+  TextArea,
+  TextInput,
+} from 'grommet'
 
 function PrivacyConsentForm() {
   const handleSubmit = (event) => {
@@ -14,10 +23,7 @@ function PrivacyConsentForm() {
         htmlFor="grommet-privacy-name"
         required
       >
-        <TextInput
-          id="grommet-privacy-name"
-          name="fullName"
-        />
+        <TextInput id="grommet-privacy-name" name="fullName" />
       </FormField>
 
       <FormField
@@ -26,42 +32,27 @@ function PrivacyConsentForm() {
         htmlFor="grommet-privacy-email"
         required
       >
-        <TextInput
-          id="grommet-privacy-email"
-          name="email"
-          type="email"
-        />
+        <TextInput id="grommet-privacy-email" name="email" type="email" />
       </FormField>
 
       <Box margin={{ vertical: 'small' }}>
-        <Text weight="bold" margin={{ bottom: 'small' }}>Communication channels</Text>
+        <Text weight="bold" margin={{ bottom: 'small' }}>
+          Communication channels
+        </Text>
         <Box gap="small">
-          <CheckBox
-            name="emailOptIn"
-            label="Email updates"
-          />
-          <CheckBox
-            name="smsOptIn"
-            label="SMS notifications"
-          />
-          <CheckBox
-            name="phoneOptIn"
-            label="Phone calls"
-          />
+          <CheckBox name="emailOptIn" label="Email updates" />
+          <CheckBox name="smsOptIn" label="SMS notifications" />
+          <CheckBox name="phoneOptIn" label="Phone calls" />
         </Box>
       </Box>
 
       <Box margin={{ vertical: 'small' }}>
-        <Text weight="bold" margin={{ bottom: 'small' }}>Privacy options</Text>
+        <Text weight="bold" margin={{ bottom: 'small' }}>
+          Privacy options
+        </Text>
         <Box gap="small">
-          <CheckBox
-            name="analytics"
-            label="Allow analytics cookies"
-          />
-          <CheckBox
-            name="personalization"
-            label="Allow personalized content"
-          />
+          <CheckBox name="analytics" label="Allow analytics cookies" />
+          <CheckBox name="personalization" label="Allow personalized content" />
         </Box>
       </Box>
 
@@ -70,11 +61,7 @@ function PrivacyConsentForm() {
         name="notes"
         htmlFor="grommet-privacy-notes"
       >
-        <TextArea
-          id="grommet-privacy-notes"
-          name="notes"
-          rows={3}
-        />
+        <TextArea id="grommet-privacy-notes" name="notes" rows={3} />
       </FormField>
 
       <Box margin={{ top: 'medium' }}>

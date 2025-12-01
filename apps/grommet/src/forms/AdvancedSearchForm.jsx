@@ -23,10 +23,7 @@ function AdvancedSearchForm() {
         htmlFor="grommet-search-query"
         required
       >
-        <TextInput
-          id="grommet-search-query"
-          name="query"
-        />
+        <TextInput id="grommet-search-query" name="query" />
       </FormField>
 
       <FormField
@@ -63,15 +60,16 @@ function AdvancedSearchForm() {
         />
       </FormField>
 
-      <FormField label="Sort by" name="sortBy" htmlFor="grommet-search-sort" required>
+      <FormField
+        label="Sort by"
+        name="sortBy"
+        htmlFor="grommet-search-sort"
+        required
+      >
         <Select
           id="grommet-search-sort"
           name="sortBy"
-          options={[
-            'Relevance',
-            'Newest',
-            'Oldest',
-          ]}
+          options={['Relevance', 'Newest', 'Oldest']}
           placeholder="Select sort order"
         />
       </FormField>

@@ -1,5 +1,13 @@
 import { useState, useCallback } from 'react'
-import { FormLayout, TextField, Select, Checkbox, Button, Text, InlineStack } from '@shopify/polaris'
+import {
+  FormLayout,
+  TextField,
+  Select,
+  Checkbox,
+  Button,
+  Text,
+  InlineStack,
+} from '@shopify/polaris'
 
 function OnboardingWizardForm() {
   const [email, setEmail] = useState('')
@@ -84,7 +92,9 @@ function OnboardingWizardForm() {
 
         <InlineStack gap="300">
           <Button onClick={() => alert('Back action placeholder')}>Back</Button>
-          <Button submit variant="primary">Finish setup</Button>
+          <Button submit variant="primary">
+            Finish setup
+          </Button>
         </InlineStack>
       </FormLayout>
     </form>
