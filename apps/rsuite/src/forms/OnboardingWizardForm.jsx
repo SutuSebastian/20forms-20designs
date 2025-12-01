@@ -62,12 +62,7 @@ function OnboardingWizardForm() {
       <Panel header="Step 3: Preferences" bordered style={{ marginBottom: 16 }}>
         <Form.Group controlId="goal">
           <Form.ControlLabel>Primary goal</Form.ControlLabel>
-          <Form.Control
-            name="goal"
-            accepter={Textarea}
-            rows={3}
-            required
-          />
+          <Form.Control name="goal" accepter={Textarea} rows={3} required />
         </Form.Group>
 
         <Form.Group controlId="updates">

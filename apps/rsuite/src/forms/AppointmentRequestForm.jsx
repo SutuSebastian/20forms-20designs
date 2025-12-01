@@ -44,12 +44,7 @@ function AppointmentRequestForm() {
 
       <Form.Group controlId="reason">
         <Form.ControlLabel>Reason for visit</Form.ControlLabel>
-        <Form.Control
-          name="reason"
-          accepter={Textarea}
-          rows={3}
-          required
-        />
+        <Form.Control name="reason" accepter={Textarea} rows={3} required />
       </Form.Group>
 
       <Form.Group>

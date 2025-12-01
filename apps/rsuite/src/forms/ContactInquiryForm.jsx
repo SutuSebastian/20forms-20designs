@@ -40,12 +40,7 @@ function ContactInquiryForm() {
 
       <Form.Group controlId="message">
         <Form.ControlLabel>Message</Form.ControlLabel>
-        <Form.Control
-          name="message"
-          accepter={Textarea}
-          rows={4}
-          required
-        />
+        <Form.Control name="message" accepter={Textarea} rows={4} required />
       </Form.Group>
 
       <Form.Group controlId="consent">
