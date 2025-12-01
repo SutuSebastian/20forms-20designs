@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig(({ mode }) => ({
   plugins: [react()],
-  base: '/20forms-20designs/gluestack-ui-contact-inquiry/',
+  base: '/20forms-20designs/gluestack-ui-appointment-request/',
   define: {
     'process.env.NODE_ENV': JSON.stringify(mode),
     global: 'globalThis',

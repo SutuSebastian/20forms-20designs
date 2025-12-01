@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { GluestackUIProvider, Box, config } from '@gluestack-ui/themed'
-import FormComponent from './form/ShippingAddressForm'
+import { GluestackUIProvider, Box } from '@gluestack-ui/themed'
+import FormComponent from './form/locationOptions.js'
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -10,18 +10,20 @@ function App() {
 
   useEffect(() => {
     const handleMessage = (event) => {
-      if (event.data?.type === 'SET_THEME') setTheme(event.data.theme)
+      if (event.data?.type === 'SET_THEME') {
+        setTheme(event.data.theme)
+      }
     }
     window.addEventListener('message', handleMessage)
     return () => window.removeEventListener('message', handleMessage)
   }, [])
 
   return (
-    <GluestackUIProvider config={config} colorMode={theme}>
+    <GluestackUIProvider colorMode={theme}>
       <Box
         p="$4"
         bg={theme === 'dark' ? '$backgroundDark900' : '$backgroundLight0'}
-        minHeight="100vh"
+        sx={{ minHeight: '100vh' }}
       >
         <FormComponent theme={theme} />
       </Box>
