@@ -69,22 +69,24 @@ function App() {
     return () => window.removeEventListener('message', handleMessage)
   }, [])
 
+  // Apply dark/light theme by dynamically loading the appropriate theme CSS
   useEffect(() => {
-    const themeLink = document.getElementById('theme-link')
+    const themeId = 'primereact-theme-link'
+    let themeLink = document.getElementById(themeId)
+
+    const themeUrl =
+      theme === 'dark'
+        ? 'https://cdn.jsdelivr.net/npm/primereact@10.9.7/resources/themes/lara-dark-indigo/theme.css'
+        : 'https://cdn.jsdelivr.net/npm/primereact@10.9.7/resources/themes/lara-light-indigo/theme.css'
+
     if (themeLink) {
-      themeLink.href =
-        theme === 'dark'
-          ? 'https://unpkg.com/primereact/resources/themes/lara-dark-indigo/theme.css'
-          : 'https://unpkg.com/primereact/resources/themes/lara-light-indigo/theme.css'
+      themeLink.href = themeUrl
     } else {
-      const link = document.createElement('link')
-      link.id = 'theme-link'
-      link.rel = 'stylesheet'
-      link.href =
-        theme === 'dark'
-          ? 'https://unpkg.com/primereact/resources/themes/lara-dark-indigo/theme.css'
-          : 'https://unpkg.com/primereact/resources/themes/lara-light-indigo/theme.css'
-      document.head.appendChild(link)
+      themeLink = document.createElement('link')
+      themeLink.id = themeId
+      themeLink.rel = 'stylesheet'
+      themeLink.href = themeUrl
+      document.head.appendChild(themeLink)
     }
   }, [theme])
 
