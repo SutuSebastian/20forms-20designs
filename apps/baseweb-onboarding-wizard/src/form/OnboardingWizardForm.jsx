@@ -84,7 +84,9 @@ function OnboardingWizardForm() {
         </Block>
 
         <Block as="section">
-          <HeadingSmall marginBottom="scale400">Step 3: Preferences</HeadingSmall>
+          <HeadingSmall marginBottom="scale400">
+            Step 3: Preferences
+          </HeadingSmall>
           <Block display="flex" flexDirection="column" gridGap="scale400">
             <FormControl label="Primary goal">
               <Textarea

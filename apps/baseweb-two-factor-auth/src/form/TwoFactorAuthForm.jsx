@@ -17,7 +17,9 @@ function TwoFactorAuthForm() {
   return (
     <form onSubmit={handleSubmit}>
       <Block display="flex" flexDirection="column" gridGap="scale600">
-        <ParagraphSmall>Enter the code from your authenticator app or SMS.</ParagraphSmall>
+        <ParagraphSmall>
+          Enter the code from your authenticator app or SMS.
+        </ParagraphSmall>
         <FormControl label="Verification code">
           <Input
             id="baseweb-two-factor-code"

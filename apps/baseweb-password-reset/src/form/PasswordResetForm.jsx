@@ -16,7 +16,9 @@ function PasswordResetForm() {
   return (
     <form onSubmit={handleSubmit}>
       <Block display="flex" flexDirection="column" gridGap="scale600">
-        <ParagraphSmall>Request a password reset link via email.</ParagraphSmall>
+        <ParagraphSmall>
+          Request a password reset link via email.
+        </ParagraphSmall>
         <FormControl label="Email address">
           <Input
             id="baseweb-password-reset-email"

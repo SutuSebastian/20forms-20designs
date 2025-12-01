@@ -70,7 +70,9 @@ function PrivacyConsentForm() {
         </Block>
 
         <Block as="section">
-          <HeadingSmall marginBottom="scale400">Terms & Conditions</HeadingSmall>
+          <HeadingSmall marginBottom="scale400">
+            Terms & Conditions
+          </HeadingSmall>
           <Checkbox
             checked={termsAccepted}
             onChange={(e) => setTermsAccepted(e.target.checked)}

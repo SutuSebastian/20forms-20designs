@@ -45,10 +45,7 @@ function NewsletterSubscriptionForm() {
             required
           />
         </FormControl>
-        <Checkbox
-          checked={agree}
-          onChange={(e) => setAgree(e.target.checked)}
-        >
+        <Checkbox checked={agree} onChange={(e) => setAgree(e.target.checked)}>
           Receive product updates
         </Checkbox>
         <Button type="submit">Subscribe</Button>
