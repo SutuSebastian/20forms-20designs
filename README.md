@@ -156,7 +156,7 @@ All libraries implement the same 20 forms with identical content, labels, and fi
 ### Prerequisites
 
 - Node.js 18 or higher
-- npm
+- pnpm 9 or higher (`npm install -g pnpm`)
 
 ### Installation
 
@@ -165,15 +165,15 @@ All libraries implement the same 20 forms with identical content, labels, and fi
 git clone https://github.com/evgenyvinnik/20forms-20designs.git
 cd 20forms-20designs
 
-# Install dependencies (use --legacy-peer-deps due to conflicting peer dependencies)
-npm install --legacy-peer-deps
+# Install dependencies
+pnpm install
 ```
 
 ### Development
 
 ```bash
 # Run the shell app in development mode
-npm run dev:shell
+pnpm run dev:shell
 ```
 
 This runs the shell application in development mode.
@@ -181,11 +181,11 @@ This runs the shell application in development mode.
 ### Production Build (CSS Isolation)
 
 ```bash
-# Build all 42 apps (shell + 41 library apps) for GitHub Pages
-npm run build
+# Build all 43 apps (shell + 42 library apps) for GitHub Pages
+pnpm run build
 
 # Preview the production build locally
-npm run preview
+pnpm run preview
 # Then open: http://localhost:5000/20forms-20designs/
 ```
 
@@ -215,12 +215,12 @@ Each library app is a standalone Vite + React application that:
 
 | Script                      | Description                                       |
 | --------------------------- | ------------------------------------------------- |
-| `npm run build`             | Build shell + all library apps + copy to dist     |
-| `npm run build:shell`       | Build only the shell app                          |
-| `npm run clean`             | Remove all build artifacts                        |
-| `npm run dev:shell`         | Run shell app in development mode                 |
-| `npm run preview`           | Preview the production build locally              |
-| `npm run lint`              | Lint all apps (may take a while)                  |
+| `pnpm run build`            | Build shell + all library apps + copy to dist     |
+| `pnpm run build:shell`      | Build only the shell app                          |
+| `pnpm run clean`            | Remove all build artifacts                        |
+| `pnpm run dev:shell`        | Run shell app in development mode                 |
+| `pnpm run preview`          | Preview the production build locally              |
+| `pnpm run lint`             | Lint all apps (may take a while)                  |
 
 ## 🔧 Adding a New Library
 
@@ -228,14 +228,14 @@ Each library app is a standalone Vite + React application that:
 2. Implement all 20 forms in `src/forms/` following the pattern from existing libraries
 3. Create the App.jsx with form routing via URL parameter
 4. Update `apps/shell/src/config.ts` with the new library (add to LibraryId type, LIBRARY_NAME_TO_ID, LIBRARIES array, and CONSOLIDATED_LIBRARIES set)
-5. Run `npm run build`
+5. Run `pnpm run build`
 
 ## 🔧 Adding a New Form
 
 1. Add the new form component to each library's `src/forms/` directory
 2. Update the form routing in each library's App.jsx
 3. Update `apps/shell/src/config.ts` with the new form (add to FormId type, FORM_NAME_TO_ID, and FORMS array)
-4. Run `npm run build`
+4. Run `pnpm run build`
 
 ## 🌐 Deployment
 
@@ -248,8 +248,8 @@ This project is configured for automatic deployment to GitHub Pages via GitHub A
 
 The workflow:
 
-- Installs dependencies with `--legacy-peer-deps`
-- Builds all 42 apps (shell + 41 library apps)
+- Installs dependencies with pnpm (with caching for faster builds)
+- Builds all 43 apps (shell + 42 library apps)
 - Deploys to GitHub Pages
 
 **Live URL:** `https://<username>.github.io/20forms-20designs/`
@@ -258,7 +258,7 @@ The workflow:
 
 ```bash
 # Build for production
-npm run build
+pnpm run build
 
 # The dist/ folder contains all static assets
 # Upload dist/ to any static hosting provider
@@ -277,7 +277,7 @@ The project is configured with `/20forms-20designs/` as the base path. If deploy
 - **Vite** — Fast build tool and dev server
 - **React 18** — UI library
 - **TypeScript** — Type-safe shell app
-- **npm Workspaces** — Monorepo management
+- **pnpm Workspaces** — Fast, disk-efficient monorepo management
 - **GitHub Actions** — CI/CD pipeline
 - **GitHub Pages** — Static hosting
 
