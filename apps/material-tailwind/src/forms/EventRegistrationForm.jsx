@@ -1,5 +1,12 @@
 import { useState } from 'react'
-import { Input, Button, Checkbox, Select, Option, Typography } from '@material-tailwind/react'
+import {
+  Input,
+  Button,
+  Checkbox,
+  Select,
+  Option,
+  Typography,
+} from '@material-tailwind/react'
 
 function EventRegistrationForm() {
   const [ticketType, setTicketType] = useState('')

@@ -94,7 +94,10 @@ function PrivacyConsentForm() {
               name={form.names.personalization}
               className="checkbox"
             />
-            <Ariakit.FormLabel name={form.names.personalization} className="label">
+            <Ariakit.FormLabel
+              name={form.names.personalization}
+              className="label"
+            >
               Allow personalized content
             </Ariakit.FormLabel>
           </div>
