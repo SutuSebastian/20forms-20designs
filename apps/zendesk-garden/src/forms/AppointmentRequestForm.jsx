@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react'
-import { Field, Label, Input, Textarea } from '@zendeskgarden/react-forms'
+import { Field, Input, Textarea } from '@zendeskgarden/react-forms'
 import { Button } from '@zendeskgarden/react-buttons'
-import { Grid, Row, Col } from '@zendeskgarden/react-grid'
+import { Grid } from '@zendeskgarden/react-grid'
 
 function AppointmentRequestForm() {
   const [fullName, setFullName] = useState('')
@@ -18,23 +18,23 @@ function AppointmentRequestForm() {
   return (
     <form onSubmit={handleSubmit}>
       <Grid>
-        <Row>
-          <Col>
+        <Grid.Row>
+          <Grid.Col>
             <Field>
-              <Label>Full name</Label>
+              <Field.Label>Full name</Field.Label>
               <Input
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 required
               />
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col>
             <Field>
-              <Label>Email address</Label>
+              <Field.Label>Email address</Field.Label>
               <Input
                 type="email"
                 value={email}
@@ -42,13 +42,13 @@ function AppointmentRequestForm() {
                 required
               />
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col sm={6}>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col sm={6}>
             <Field>
-              <Label>Preferred date</Label>
+              <Field.Label>Preferred date</Field.Label>
               <Input
                 type="date"
                 value={date}
@@ -56,10 +56,10 @@ function AppointmentRequestForm() {
                 required
               />
             </Field>
-          </Col>
-          <Col sm={6}>
+          </Grid.Col>
+          <Grid.Col sm={6}>
             <Field>
-              <Label>Preferred time</Label>
+              <Field.Label>Preferred time</Field.Label>
               <Input
                 type="time"
                 value={time}
@@ -67,13 +67,13 @@ function AppointmentRequestForm() {
                 required
               />
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col>
             <Field>
-              <Label>Reason for visit</Label>
+              <Field.Label>Reason for visit</Field.Label>
               <Textarea
                 value={reason}
                 onChange={(e) => setReason(e.target.value)}
@@ -81,16 +81,16 @@ function AppointmentRequestForm() {
                 required
               />
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '24px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '24px' }}>
+          <Grid.Col>
             <Button type="submit" isPrimary>
               Request appointment
             </Button>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
       </Grid>
     </form>
   )

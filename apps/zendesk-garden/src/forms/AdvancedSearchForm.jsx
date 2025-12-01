@@ -1,13 +1,7 @@
 import { useState, useCallback } from 'react'
-import {
-  Field,
-  Label,
-  Input,
-  Checkbox,
-  Select,
-} from '@zendeskgarden/react-forms'
+import { Field, Input, Checkbox, Select } from '@zendeskgarden/react-forms'
 import { Button } from '@zendeskgarden/react-buttons'
-import { Grid, Row, Col } from '@zendeskgarden/react-grid'
+import { Grid } from '@zendeskgarden/react-grid'
 
 function AdvancedSearchForm() {
   const [query, setQuery] = useState('')
@@ -25,23 +19,23 @@ function AdvancedSearchForm() {
   return (
     <form onSubmit={handleSubmit}>
       <Grid>
-        <Row>
-          <Col>
+        <Grid.Row>
+          <Grid.Col>
             <Field>
-              <Label>Search query</Label>
+              <Field.Label>Search query</Field.Label>
               <Input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 required
               />
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col>
             <Field>
-              <Label>Category</Label>
+              <Field.Label>Category</Field.Label>
               <Select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
@@ -53,36 +47,36 @@ function AdvancedSearchForm() {
                 <option value="people">People</option>
               </Select>
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col sm={6}>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col sm={6}>
             <Field>
-              <Label>Date from</Label>
+              <Field.Label>Date from</Field.Label>
               <Input
                 type="date"
                 value={dateFrom}
                 onChange={(e) => setDateFrom(e.target.value)}
               />
             </Field>
-          </Col>
-          <Col sm={6}>
+          </Grid.Col>
+          <Grid.Col sm={6}>
             <Field>
-              <Label>Date to</Label>
+              <Field.Label>Date to</Field.Label>
               <Input
                 type="date"
                 value={dateTo}
                 onChange={(e) => setDateTo(e.target.value)}
               />
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col>
             <Field>
-              <Label>Sort by</Label>
+              <Field.Label>Sort by</Field.Label>
               <Select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
@@ -93,29 +87,29 @@ function AdvancedSearchForm() {
                 <option value="oldest">Oldest</option>
               </Select>
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col>
             <Field>
               <Checkbox
                 checked={includeArchived}
                 onChange={(e) => setIncludeArchived(e.target.checked)}
               >
-                <Label>Include archived</Label>
+                <Field.Label>Include archived</Field.Label>
               </Checkbox>
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '24px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '24px' }}>
+          <Grid.Col>
             <Button type="submit" isPrimary>
               Search
             </Button>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
       </Grid>
     </form>
   )

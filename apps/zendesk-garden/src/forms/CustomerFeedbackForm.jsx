@@ -1,14 +1,7 @@
 import { useState, useCallback } from 'react'
-import {
-  Field,
-  Label,
-  Input,
-  Textarea,
-  Checkbox,
-  Select,
-} from '@zendeskgarden/react-forms'
+import { Field, Input, Textarea, Checkbox, Select } from '@zendeskgarden/react-forms'
 import { Button } from '@zendeskgarden/react-buttons'
-import { Grid, Row, Col } from '@zendeskgarden/react-grid'
+import { Grid } from '@zendeskgarden/react-grid'
 
 function CustomerFeedbackForm() {
   const [name, setName] = useState('')
@@ -25,23 +18,23 @@ function CustomerFeedbackForm() {
   return (
     <form onSubmit={handleSubmit}>
       <Grid>
-        <Row>
-          <Col>
+        <Grid.Row>
+          <Grid.Col>
             <Field>
-              <Label>Name</Label>
+              <Field.Label>Name</Field.Label>
               <Input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
               />
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col>
             <Field>
-              <Label>Email address</Label>
+              <Field.Label>Email address</Field.Label>
               <Input
                 type="email"
                 value={email}
@@ -49,13 +42,13 @@ function CustomerFeedbackForm() {
                 required
               />
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col>
             <Field>
-              <Label>Overall rating</Label>
+              <Field.Label>Overall rating</Field.Label>
               <Select
                 value={rating}
                 onChange={(e) => setRating(e.target.value)}
@@ -68,13 +61,13 @@ function CustomerFeedbackForm() {
                 <option value="poor">Poor</option>
               </Select>
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col>
             <Field>
-              <Label>Comments</Label>
+              <Field.Label>Comments</Field.Label>
               <Textarea
                 value={comments}
                 onChange={(e) => setComments(e.target.value)}
@@ -82,29 +75,29 @@ function CustomerFeedbackForm() {
                 required
               />
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col>
             <Field>
               <Checkbox
                 checked={followUp}
                 onChange={(e) => setFollowUp(e.target.checked)}
               >
-                <Label>I would like a follow-up</Label>
+                <Field.Label>I would like a follow-up</Field.Label>
               </Checkbox>
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '24px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '24px' }}>
+          <Grid.Col>
             <Button type="submit" isPrimary>
               Send feedback
             </Button>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
       </Grid>
     </form>
   )

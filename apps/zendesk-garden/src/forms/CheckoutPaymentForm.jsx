@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react'
-import { Field, Label, Input, Select } from '@zendeskgarden/react-forms'
+import { Field, Input, Select } from '@zendeskgarden/react-forms'
 import { Button } from '@zendeskgarden/react-buttons'
-import { Grid, Row, Col } from '@zendeskgarden/react-grid'
+import { Grid } from '@zendeskgarden/react-grid'
 
 function CheckoutPaymentForm() {
   const [email, setEmail] = useState('')
@@ -19,10 +19,10 @@ function CheckoutPaymentForm() {
   return (
     <form onSubmit={handleSubmit}>
       <Grid>
-        <Row>
-          <Col>
+        <Grid.Row>
+          <Grid.Col>
             <Field>
-              <Label>Email for receipt</Label>
+              <Field.Label>Email for receipt</Field.Label>
               <Input
                 type="email"
                 value={email}
@@ -30,13 +30,13 @@ function CheckoutPaymentForm() {
                 required
               />
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col>
             <Field>
-              <Label>Shipping method</Label>
+              <Field.Label>Shipping method</Field.Label>
               <Select
                 value={shippingMethod}
                 onChange={(e) => setShippingMethod(e.target.value)}
@@ -48,13 +48,13 @@ function CheckoutPaymentForm() {
                 <option value="overnight">Overnight</option>
               </Select>
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col>
             <Field>
-              <Label>Card number</Label>
+              <Field.Label>Card number</Field.Label>
               <Input
                 value={cardNumber}
                 onChange={(e) => setCardNumber(e.target.value)}
@@ -63,13 +63,13 @@ function CheckoutPaymentForm() {
                 required
               />
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col sm={6}>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col sm={6}>
             <Field>
-              <Label>Expiration</Label>
+              <Field.Label>Expiration</Field.Label>
               <Input
                 value={expiration}
                 onChange={(e) => setExpiration(e.target.value)}
@@ -78,10 +78,10 @@ function CheckoutPaymentForm() {
                 required
               />
             </Field>
-          </Col>
-          <Col sm={6}>
+          </Grid.Col>
+          <Grid.Col sm={6}>
             <Field>
-              <Label>CVC</Label>
+              <Field.Label>CVC</Field.Label>
               <Input
                 value={cvc}
                 onChange={(e) => setCvc(e.target.value)}
@@ -90,28 +90,28 @@ function CheckoutPaymentForm() {
                 required
               />
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col>
             <Field>
-              <Label>Promo code</Label>
+              <Field.Label>Promo code</Field.Label>
               <Input
                 value={promoCode}
                 onChange={(e) => setPromoCode(e.target.value)}
               />
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '24px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '24px' }}>
+          <Grid.Col>
             <Button type="submit" isPrimary>
               Place order
             </Button>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
       </Grid>
     </form>
   )

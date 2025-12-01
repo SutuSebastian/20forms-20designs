@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react'
-import { Field, Label, Input, Select } from '@zendeskgarden/react-forms'
+import { Field, Input, Select } from '@zendeskgarden/react-forms'
 import { Button } from '@zendeskgarden/react-buttons'
-import { Grid, Row, Col } from '@zendeskgarden/react-grid'
+import { Grid } from '@zendeskgarden/react-grid'
 
 function BillingInfoForm() {
   const [cardName, setCardName] = useState('')
@@ -19,23 +19,23 @@ function BillingInfoForm() {
   return (
     <form onSubmit={handleSubmit}>
       <Grid>
-        <Row>
-          <Col>
+        <Grid.Row>
+          <Grid.Col>
             <Field>
-              <Label>Name on card</Label>
+              <Field.Label>Name on card</Field.Label>
               <Input
                 value={cardName}
                 onChange={(e) => setCardName(e.target.value)}
                 required
               />
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col>
             <Field>
-              <Label>Card number</Label>
+              <Field.Label>Card number</Field.Label>
               <Input
                 value={cardNumber}
                 onChange={(e) => setCardNumber(e.target.value)}
@@ -44,13 +44,13 @@ function BillingInfoForm() {
                 required
               />
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col sm={6}>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col sm={6}>
             <Field>
-              <Label>Expiration date</Label>
+              <Field.Label>Expiration date</Field.Label>
               <Input
                 value={expiration}
                 onChange={(e) => setExpiration(e.target.value)}
@@ -59,10 +59,10 @@ function BillingInfoForm() {
                 required
               />
             </Field>
-          </Col>
-          <Col sm={6}>
+          </Grid.Col>
+          <Grid.Col sm={6}>
             <Field>
-              <Label>Security code</Label>
+              <Field.Label>Security code</Field.Label>
               <Input
                 value={cvc}
                 onChange={(e) => setCvc(e.target.value)}
@@ -71,26 +71,26 @@ function BillingInfoForm() {
                 required
               />
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col>
             <Field>
-              <Label>Billing address</Label>
+              <Field.Label>Billing address</Field.Label>
               <Input
                 value={billingAddress}
                 onChange={(e) => setBillingAddress(e.target.value)}
                 required
               />
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '16px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '16px' }}>
+          <Grid.Col>
             <Field>
-              <Label>Country</Label>
+              <Field.Label>Country</Field.Label>
               <Select
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
@@ -101,16 +101,16 @@ function BillingInfoForm() {
                 <option value="CA">Canada</option>
               </Select>
             </Field>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
 
-        <Row style={{ marginTop: '24px' }}>
-          <Col>
+        <Grid.Row style={{ marginTop: '24px' }}>
+          <Grid.Col>
             <Button type="submit" isPrimary>
               Save billing details
             </Button>
-          </Col>
-        </Row>
+          </Grid.Col>
+        </Grid.Row>
       </Grid>
     </form>
   )
