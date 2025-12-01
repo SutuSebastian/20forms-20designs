@@ -88,9 +88,11 @@ function App() {
 
   return (
     <div
-      className={`p-4 min-h-screen ${theme === 'dark' ? 'bg-gray-900' : 'bg-white'}`}
+      className={`p-5 min-h-screen ${theme === 'dark' ? 'bg-gray-900' : 'bg-white'}`}
     >
-      <FormComponent />
+      <div className="max-w-md mx-auto">
+        <FormComponent />
+      </div>
     </div>
   )
 }
