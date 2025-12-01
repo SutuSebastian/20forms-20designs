@@ -1,5 +1,12 @@
 import { useState, useCallback } from 'react'
-import { Box, Stack, TextField, Textarea, Checkbox, Button } from 'braid-design-system'
+import {
+  Box,
+  Stack,
+  TextField,
+  Textarea,
+  Checkbox,
+  Button,
+} from 'braid-design-system'
 
 function JobApplicationForm() {
   const [fullName, setFullName] = useState('')

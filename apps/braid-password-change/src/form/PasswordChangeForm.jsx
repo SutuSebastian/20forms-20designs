@@ -1,5 +1,11 @@
 import { useState, useCallback } from 'react'
-import { Box, Stack, PasswordField, Checkbox, Button } from 'braid-design-system'
+import {
+  Box,
+  Stack,
+  PasswordField,
+  Checkbox,
+  Button,
+} from 'braid-design-system'
 
 function PasswordChangeForm() {
   const [currentPassword, setCurrentPassword] = useState('')

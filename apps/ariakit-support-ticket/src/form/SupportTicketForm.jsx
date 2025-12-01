@@ -26,7 +26,9 @@ function SupportTicketForm() {
         />
       </Ariakit.FormGroup>
       <Ariakit.FormRadioGroup name={form.names.priority} className="fieldset">
-        <Ariakit.FormGroupLabel className="legend">Priority</Ariakit.FormGroupLabel>
+        <Ariakit.FormGroupLabel className="legend">
+          Priority
+        </Ariakit.FormGroupLabel>
         <div className="radio-group">
           <label className="radio-wrapper">
             <Ariakit.FormRadio value="low" className="radio" required />

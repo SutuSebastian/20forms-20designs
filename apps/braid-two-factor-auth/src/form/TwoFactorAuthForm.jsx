@@ -1,5 +1,12 @@
 import { useState, useCallback } from 'react'
-import { Box, Stack, TextField, Button, Text, Inline } from 'braid-design-system'
+import {
+  Box,
+  Stack,
+  TextField,
+  Button,
+  Text,
+  Inline,
+} from 'braid-design-system'
 
 function TwoFactorAuthForm() {
   const [code, setCode] = useState('')

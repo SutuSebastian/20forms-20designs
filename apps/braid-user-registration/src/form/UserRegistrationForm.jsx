@@ -1,11 +1,5 @@
 import { useState, useCallback } from 'react'
-import {
-  Box,
-  Stack,
-  TextField,
-  Checkbox,
-  Button,
-} from 'braid-design-system'
+import { Box, Stack, TextField, Checkbox, Button } from 'braid-design-system'
 
 function UserRegistrationForm() {
   const [fullName, setFullName] = useState('')

@@ -1,5 +1,12 @@
 import { useState, useCallback } from 'react'
-import { Box, Stack, TextField, Dropdown, Checkbox, Button } from 'braid-design-system'
+import {
+  Box,
+  Stack,
+  TextField,
+  Dropdown,
+  Checkbox,
+  Button,
+} from 'braid-design-system'
 
 function EventRegistrationForm() {
   const [fullName, setFullName] = useState('')

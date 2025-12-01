@@ -23,9 +23,13 @@ function SupportTicketForm() {
         />
 
         <fieldset style={{ border: 'none', padding: 0, margin: 0 }}>
-          <legend style={{ marginBottom: '8px', fontWeight: 500 }}>Priority</legend>
+          <legend style={{ marginBottom: '8px', fontWeight: 500 }}>
+            Priority
+          </legend>
           <Stack space="small">
-            <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <label
+              style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+            >
               <input
                 type="radio"
                 name="priority"
@@ -36,7 +40,9 @@ function SupportTicketForm() {
               />
               Low
             </label>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <label
+              style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+            >
               <input
                 type="radio"
                 name="priority"
@@ -46,7 +52,9 @@ function SupportTicketForm() {
               />
               Medium
             </label>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <label
+              style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+            >
               <input
                 type="radio"
                 name="priority"

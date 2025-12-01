@@ -69,7 +69,10 @@ function EventRegistrationForm() {
         />
       </Ariakit.FormGroup>
       <label className="checkbox-wrapper">
-        <Ariakit.FormCheckbox name={form.names.newsletter} className="checkbox" />
+        <Ariakit.FormCheckbox
+          name={form.names.newsletter}
+          className="checkbox"
+        />
         <span className="checkbox-label">Notify me about future events</span>
       </label>
       <Ariakit.FormSubmit className="button button-primary">

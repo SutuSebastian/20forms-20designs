@@ -53,20 +53,13 @@ function ShippingAddressForm() {
         <Ariakit.FormLabel name={form.names.street2} className="label">
           Apartment, suite, etc.
         </Ariakit.FormLabel>
-        <Ariakit.FormInput
-          name={form.names.street2}
-          className="input"
-        />
+        <Ariakit.FormInput name={form.names.street2} className="input" />
       </Ariakit.FormGroup>
       <Ariakit.FormGroup className="form-field">
         <Ariakit.FormLabel name={form.names.city} className="label">
           City
         </Ariakit.FormLabel>
-        <Ariakit.FormInput
-          name={form.names.city}
-          className="input"
-          required
-        />
+        <Ariakit.FormInput name={form.names.city} className="input" required />
       </Ariakit.FormGroup>
       <Ariakit.FormGroup className="form-field">
         <Ariakit.FormLabel name={form.names.country} className="label">
@@ -118,7 +111,10 @@ function ShippingAddressForm() {
         />
       </Ariakit.FormGroup>
       <label className="checkbox-wrapper">
-        <Ariakit.FormCheckbox name={form.names.defaultAddress} className="checkbox" />
+        <Ariakit.FormCheckbox
+          name={form.names.defaultAddress}
+          className="checkbox"
+        />
         <span className="checkbox-label">Use as default shipping address</span>
       </label>
       <Ariakit.FormSubmit className="button button-primary">

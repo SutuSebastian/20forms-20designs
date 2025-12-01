@@ -1,5 +1,12 @@
 import { useState, useCallback } from 'react'
-import { Box, Stack, TextField, Dropdown, Checkbox, Button } from 'braid-design-system'
+import {
+  Box,
+  Stack,
+  TextField,
+  Dropdown,
+  Checkbox,
+  Button,
+} from 'braid-design-system'
 import { CANADIAN_PROVINCES, COUNTRIES, US_STATES } from './locationOptions'
 
 function ShippingAddressForm() {

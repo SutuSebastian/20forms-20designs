@@ -57,11 +57,7 @@ function JobApplicationForm() {
         <Ariakit.FormLabel name={form.names.role} className="label">
           Role applied for
         </Ariakit.FormLabel>
-        <Ariakit.FormInput
-          name={form.names.role}
-          className="input"
-          required
-        />
+        <Ariakit.FormInput name={form.names.role} className="input" required />
       </Ariakit.FormGroup>
       <Ariakit.FormGroup className="form-field">
         <Ariakit.FormLabel name={form.names.resume} className="label">

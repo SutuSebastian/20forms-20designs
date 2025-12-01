@@ -17,7 +17,9 @@ function PrivacyConsentForm() {
   return (
     <Ariakit.Form store={form} className="form-stack">
       <Ariakit.FormGroup className="fieldset">
-        <Ariakit.FormGroupLabel className="legend">Essential cookies</Ariakit.FormGroupLabel>
+        <Ariakit.FormGroupLabel className="legend">
+          Essential cookies
+        </Ariakit.FormGroupLabel>
         <p className="description">
           Required for the website to function properly.
         </p>
@@ -31,32 +33,47 @@ function PrivacyConsentForm() {
         </div>
       </Ariakit.FormGroup>
       <Ariakit.FormGroup className="fieldset">
-        <Ariakit.FormGroupLabel className="legend">Analytics cookies</Ariakit.FormGroupLabel>
+        <Ariakit.FormGroupLabel className="legend">
+          Analytics cookies
+        </Ariakit.FormGroupLabel>
         <p className="description">
           Help us understand how visitors interact with our website.
         </p>
         <div className="checkbox-wrapper">
-          <Ariakit.FormCheckbox name={form.names.analytics} className="checkbox" />
+          <Ariakit.FormCheckbox
+            name={form.names.analytics}
+            className="checkbox"
+          />
           <label className="label">Enable analytics cookies</label>
         </div>
       </Ariakit.FormGroup>
       <Ariakit.FormGroup className="fieldset">
-        <Ariakit.FormGroupLabel className="legend">Marketing cookies</Ariakit.FormGroupLabel>
+        <Ariakit.FormGroupLabel className="legend">
+          Marketing cookies
+        </Ariakit.FormGroupLabel>
         <p className="description">
           Used to deliver personalized advertisements.
         </p>
         <div className="checkbox-wrapper">
-          <Ariakit.FormCheckbox name={form.names.marketing} className="checkbox" />
+          <Ariakit.FormCheckbox
+            name={form.names.marketing}
+            className="checkbox"
+          />
           <label className="label">Enable marketing cookies</label>
         </div>
       </Ariakit.FormGroup>
       <Ariakit.FormGroup className="fieldset">
-        <Ariakit.FormGroupLabel className="legend">Third-party cookies</Ariakit.FormGroupLabel>
+        <Ariakit.FormGroupLabel className="legend">
+          Third-party cookies
+        </Ariakit.FormGroupLabel>
         <p className="description">
           Allow third-party services to collect data.
         </p>
         <div className="checkbox-wrapper">
-          <Ariakit.FormCheckbox name={form.names.thirdParty} className="checkbox" />
+          <Ariakit.FormCheckbox
+            name={form.names.thirdParty}
+            className="checkbox"
+          />
           <label className="label">Enable third-party cookies</label>
         </div>
       </Ariakit.FormGroup>

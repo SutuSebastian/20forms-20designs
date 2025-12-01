@@ -52,7 +52,10 @@ function PasswordChangeForm() {
         />
       </Ariakit.FormGroup>
       <label className="checkbox-wrapper">
-        <Ariakit.FormCheckbox name={form.names.logoutOthers} className="checkbox" />
+        <Ariakit.FormCheckbox
+          name={form.names.logoutOthers}
+          className="checkbox"
+        />
         <span className="checkbox-label">Sign out of other devices</span>
       </label>
       <Ariakit.FormSubmit className="button button-primary">

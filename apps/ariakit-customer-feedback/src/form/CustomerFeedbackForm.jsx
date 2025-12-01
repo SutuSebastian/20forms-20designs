@@ -21,11 +21,7 @@ function CustomerFeedbackForm() {
         <Ariakit.FormLabel name={form.names.name} className="label">
           Name
         </Ariakit.FormLabel>
-        <Ariakit.FormInput
-          name={form.names.name}
-          className="input"
-          required
-        />
+        <Ariakit.FormInput name={form.names.name} className="input" required />
       </Ariakit.FormGroup>
       <Ariakit.FormGroup className="form-field">
         <Ariakit.FormLabel name={form.names.email} className="label">
