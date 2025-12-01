@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { GluestackUIProvider, Box, config } from '@gluestack-ui/themed'
-import FormComponent from './form/BillingInfoForm'
+import FormComponent from './form/JobApplicationForm'
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -10,7 +10,9 @@ function App() {
 
   useEffect(() => {
     const handleMessage = (event) => {
-      if (event.data?.type === 'SET_THEME') setTheme(event.data.theme)
+      if (event.data?.type === 'SET_THEME') {
+        setTheme(event.data.theme)
+      }
     }
     window.addEventListener('message', handleMessage)
     return () => window.removeEventListener('message', handleMessage)
