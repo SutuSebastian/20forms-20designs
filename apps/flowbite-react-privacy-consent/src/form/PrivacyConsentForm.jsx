@@ -53,22 +53,25 @@ function PrivacyConsentForm() {
         </legend>
         <div className="flex items-center gap-2">
           <Checkbox id="flowbite-privacy-analytics" name="analytics" />
-          <Label htmlFor="flowbite-privacy-analytics">Allow analytics cookies</Label>
+          <Label htmlFor="flowbite-privacy-analytics">
+            Allow analytics cookies
+          </Label>
         </div>
         <div className="flex items-center gap-2">
-          <Checkbox id="flowbite-privacy-personalization" name="personalization" />
-          <Label htmlFor="flowbite-privacy-personalization">Allow personalized content</Label>
+          <Checkbox
+            id="flowbite-privacy-personalization"
+            name="personalization"
+          />
+          <Label htmlFor="flowbite-privacy-personalization">
+            Allow personalized content
+          </Label>
         </div>
       </fieldset>
       <div>
         <div className="mb-2 block">
           <Label htmlFor="flowbite-privacy-notes" value="Additional notes" />
         </div>
-        <Textarea
-          id="flowbite-privacy-notes"
-          name="notes"
-          rows={3}
-        />
+        <Textarea id="flowbite-privacy-notes" name="notes" rows={3} />
       </div>
       <Button type="submit">Save preferences</Button>
     </form>

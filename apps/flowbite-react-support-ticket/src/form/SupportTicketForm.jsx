@@ -1,4 +1,11 @@
-import { Button, FileInput, Label, Radio, TextInput, Textarea } from 'flowbite-react'
+import {
+  Button,
+  FileInput,
+  Label,
+  Radio,
+  TextInput,
+  Textarea,
+} from 'flowbite-react'
 
 function SupportTicketForm() {
   const handleSubmit = (event) => {

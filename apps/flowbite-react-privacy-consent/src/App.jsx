@@ -28,7 +28,9 @@ function App() {
 
   return (
     <Flowbite>
-      <div className={`p-4 min-h-screen ${theme === 'dark' ? 'bg-gray-900' : 'bg-white'}`}>
+      <div
+        className={`p-4 min-h-screen ${theme === 'dark' ? 'bg-gray-900' : 'bg-white'}`}
+      >
         <FormComponent />
       </div>
     </Flowbite>

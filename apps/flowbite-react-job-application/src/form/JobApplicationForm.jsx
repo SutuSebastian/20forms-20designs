@@ -23,12 +23,7 @@ function JobApplicationForm() {
         <div className="mb-2 block">
           <Label htmlFor="flowbite-job-email" value="Email address" />
         </div>
-        <TextInput
-          id="flowbite-job-email"
-          name="email"
-          type="email"
-          required
-        />
+        <TextInput id="flowbite-job-email" name="email" type="email" required />
       </div>
       <div>
         <div className="mb-2 block">
@@ -46,23 +41,13 @@ function JobApplicationForm() {
         <div className="mb-2 block">
           <Label htmlFor="flowbite-job-role" value="Role applied for" />
         </div>
-        <TextInput
-          id="flowbite-job-role"
-          name="role"
-          type="text"
-          required
-        />
+        <TextInput id="flowbite-job-role" name="role" type="text" required />
       </div>
       <div>
         <div className="mb-2 block">
           <Label htmlFor="flowbite-job-resume" value="Resume link" />
         </div>
-        <TextInput
-          id="flowbite-job-resume"
-          name="resume"
-          type="url"
-          required
-        />
+        <TextInput id="flowbite-job-resume" name="resume" type="url" required />
       </div>
       <div>
         <div className="mb-2 block">
