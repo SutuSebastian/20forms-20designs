@@ -26,6 +26,21 @@ export type LibraryId =
   | 'baseweb'
   | 'atlaskit'
   | 'braid'
+  | 'fluent-ui'
+  | 'mantine'
+  | 'coreui'
+  | 'grommet'
+  | 'flowbite-react'
+  | 'semantic-ui'
+  | 'primer'
+  | 'rsuite'
+  | 'gluestack-ui'
+  | 'patternfly'
+  | 'theme-ui'
+  | 'slds'
+  | 'slds'
+  | 'theme-ui'
+  | 'material-tailwind'
 
 // Form ID for iframe URLs
 export type FormId =
@@ -93,6 +108,18 @@ export const LIBRARY_NAME_TO_ID: Record<string, LibraryId | undefined> = {
   'Base Web': 'baseweb',
   'Atlassian Atlaskit': 'atlaskit',
   'Braid Design System': 'braid',
+  Mantine: 'mantine',
+  'Fluent UI': 'fluent-ui',
+  CoreUI: 'coreui',
+  Grommet: 'grommet',
+  'Flowbite React': 'flowbite-react',
+  RSuite: 'rsuite',
+  'Primer React': 'primer',
+  'Gluestack UI': 'gluestack-ui',
+  'Theme UI': 'theme-ui',
+  'Salesforce Lightning Design System React': 'slds',
+  PatternFly: 'patternfly',
+  'Material Tailwind': 'material-tailwind',
 }
 
 // Map from form name to form ID (for iframe URLs)
@@ -174,8 +201,8 @@ export const LIBRARIES: Library[] = [
     directory: 'fluent-ui',
     website: 'https://developer.microsoft.com/en-us/fluentui',
     repo: 'https://github.com/microsoft/fluentui',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'React Bootstrap',
@@ -187,11 +214,11 @@ export const LIBRARIES: Library[] = [
   },
   {
     name: 'Semantic UI React',
-    directory: 'semantic-ui-react',
+    directory: 'semantic-ui',
     website: 'https://react.semantic-ui.com',
     repo: 'https://github.com/Semantic-Org/Semantic-UI-React',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Evergreen',
@@ -214,8 +241,8 @@ export const LIBRARIES: Library[] = [
     directory: 'grommet',
     website: 'https://v2.grommet.io',
     repo: 'https://github.com/grommet/grommet',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Carbon Design System',
@@ -230,8 +257,8 @@ export const LIBRARIES: Library[] = [
     directory: 'mantine',
     website: 'https://mantine.dev',
     repo: 'https://github.com/mantinedev/mantine',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'PrimeReact',
@@ -326,8 +353,8 @@ export const LIBRARIES: Library[] = [
     directory: 'patternfly',
     website: 'https://www.patternfly.org',
     repo: 'https://github.com/patternfly/patternfly-react',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Atlassian Atlaskit',
@@ -371,11 +398,11 @@ export const LIBRARIES: Library[] = [
   },
   {
     name: 'Salesforce Lightning Design System React',
-    directory: 'lightning-design-system-react',
+    directory: 'slds',
     website: 'https://react.lightningdesignsystem.com',
     repo: 'https://github.com/salesforce/design-system-react',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Orbit by Kiwi.com',
@@ -390,8 +417,8 @@ export const LIBRARIES: Library[] = [
     directory: 'rsuite',
     website: 'https://rsuitejs.com',
     repo: 'https://github.com/rsuite/rsuite',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Semi Design',
@@ -430,8 +457,8 @@ export const LIBRARIES: Library[] = [
     directory: 'primer-react',
     website: 'https://primer.style/react',
     repo: 'https://github.com/primer/react',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Web Awesome',
@@ -486,16 +513,16 @@ export const LIBRARIES: Library[] = [
     directory: 'flowbite-react',
     website: 'https://flowbite-react.com',
     repo: 'https://github.com/themesberg/flowbite-react',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Material Tailwind',
     directory: 'material-tailwind',
     website: 'https://www.material-tailwind.com',
     repo: 'https://github.com/creativetimofficial/material-tailwind',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Tamagui',
@@ -510,24 +537,24 @@ export const LIBRARIES: Library[] = [
     directory: 'coreui',
     website: 'https://coreui.io/react',
     repo: 'https://github.com/coreui/coreui-react',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Gluestack UI',
     directory: 'gluestack-ui',
     website: 'https://gluestack.io/ui/docs',
     repo: 'https://github.com/gluestack/gluestack-ui',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Theme UI',
     directory: 'theme-ui',
     website: 'https://theme-ui.com',
     repo: 'https://github.com/system-ui/theme-ui',
-    implemented: false,
-    supportsTheme: false,
+    implemented: true,
+    supportsTheme: true,
   },
   {
     name: 'Refine',
