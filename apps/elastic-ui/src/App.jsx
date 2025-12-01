@@ -1,6 +1,5 @@
-
 import { useState, useEffect } from 'react'
-
+import { useEuiTheme, EuiThemeProvider } from '@elastic/eui'
 
 // Import all form components
 import AdvancedSearchForm from './forms/AdvancedSearchForm'
@@ -59,22 +58,8 @@ function App() {
     return params.get('theme') === 'dark' ? 'dark' : 'light'
   })
 
-  // Apply theme on mount and when it changes
-  useEffect(() => {
-    // Check URL for theme parameter
-    const params = new URLSearchParams(window.location.search)
-    const urlTheme = params.get('theme')
-
-    if (urlTheme === 'dark' || theme === 'dark') {
-      document.body.classList.add('dark')
-      document.body.style.backgroundColor = '#1a1a2e'
-      document.body.style.color = '#ffffff'
-    } else {
-      document.body.classList.remove('dark')
-      document.body.style.backgroundColor = ''
-      document.body.style.color = ''
-    }
-  }, [theme])
+  // Convert theme to EUI colorMode format
+  const colorMode = theme === 'dark' ? 'dark' : 'light'
 
   // Listen for theme changes from parent
   useEffect(() => {
@@ -102,9 +87,11 @@ function App() {
   const FormComponent = FORM_COMPONENTS[formId]
 
   return (
-    <div style={{ padding: '20px', maxWidth: '500px', margin: '0 auto' }}>
-      <FormComponent />
-    </div>
+    <EuiThemeProvider colorMode={colorMode}>
+      <div style={{ padding: '20px', maxWidth: '500px', margin: '0 auto' }}>
+        <FormComponent />
+      </div>
+    </EuiThemeProvider>
   )
 }
 
