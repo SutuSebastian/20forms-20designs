@@ -119,6 +119,7 @@ All libraries implement the same 20 forms with identical content, labels, and fi
 | [daisyUI](https://daisyui.com/)                         | ✅ Light/Dark | [GitHub](https://github.com/saadeghi/daisyui)                     |
 | [Elastic UI (EUI)](https://eui.elastic.co/)             | ✅ Light/Dark | [GitHub](https://github.com/elastic/eui)                          |
 | [Evergreen](https://evergreen.segment.com/)             | ⚠️ Light only | [GitHub](https://github.com/segmentio/evergreen)                  |
+| [Fluent UI](https://developer.microsoft.com/en-us/fluentui) | ✅ Light/Dark | [GitHub](https://github.com/microsoft/fluentui)                   |
 | [Gravity UI](https://gravity-ui.com/)                   | ✅ Light/Dark | [GitHub](https://github.com/gravity-ui/uikit)                     |
 | [MUI](https://mui.com/)                                 | ✅ Light/Dark | [GitHub](https://github.com/mui/material-ui)                      |
 | [Pinterest Gestalt](https://gestalt.pinterest.systems/) | ✅ Light/Dark | [GitHub](https://github.com/pinterest/gestalt)                    |
@@ -141,7 +142,6 @@ All libraries implement the same 20 forms with identical content, labels, and fi
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
 | [CoreUI](https://coreui.io/react/)                                                   | [GitHub](https://github.com/coreui/coreui-react)                   |
 | [Flowbite React](https://flowbite-react.com/)                                        | [GitHub](https://github.com/themesberg/flowbite-react)             |
-| [Fluent UI](https://developer.microsoft.com/en-us/fluentui)                          | [GitHub](https://github.com/microsoft/fluentui)                    |
 | [Gluestack UI](https://gluestack.io/ui/docs)                                         | [GitHub](https://github.com/gluestack/gluestack-ui)                |
 | [Grommet](https://v2.grommet.io/)                                                    | [GitHub](https://github.com/grommet/grommet)                       |
 | [Headless UI](https://headlessui.com/)                                               | [GitHub](https://github.com/tailwindlabs/headlessui)               |
