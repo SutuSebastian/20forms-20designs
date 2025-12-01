@@ -1,8 +1,6 @@
 import '@coreui/coreui/dist/css/coreui.min.css'
 
-
 import { useState, useEffect } from 'react'
-
 
 // Import all form components
 import AdvancedSearchForm from './forms/AdvancedSearchForm'
@@ -67,14 +65,11 @@ function App() {
     const params = new URLSearchParams(window.location.search)
     const urlTheme = params.get('theme')
 
+    // CoreUI uses data-coreui-theme attribute for dark mode
     if (urlTheme === 'dark' || theme === 'dark') {
-      document.body.classList.add('dark')
-      document.body.style.backgroundColor = '#1a1a2e'
-      document.body.style.color = '#ffffff'
+      document.documentElement.setAttribute('data-coreui-theme', 'dark')
     } else {
-      document.body.classList.remove('dark')
-      document.body.style.backgroundColor = ''
-      document.body.style.color = ''
+      document.documentElement.setAttribute('data-coreui-theme', 'light')
     }
   }, [theme])
 

@@ -1,6 +1,5 @@
-
-import { useState, useEffect } from 'react'
-
+import { useState, useEffect, useMemo } from 'react'
+import { ConfigProvider, theme as antdTheme } from 'antd'
 
 // Import all form components
 import AdvancedSearchForm from './forms/AdvancedSearchForm'
@@ -59,23 +58,6 @@ function App() {
     return params.get('theme') === 'dark' ? 'dark' : 'light'
   })
 
-  // Apply theme on mount and when it changes
-  useEffect(() => {
-    // Check URL for theme parameter
-    const params = new URLSearchParams(window.location.search)
-    const urlTheme = params.get('theme')
-
-    if (urlTheme === 'dark' || theme === 'dark') {
-      document.body.classList.add('dark')
-      document.body.style.backgroundColor = '#1a1a2e'
-      document.body.style.color = '#ffffff'
-    } else {
-      document.body.classList.remove('dark')
-      document.body.style.backgroundColor = ''
-      document.body.style.color = ''
-    }
-  }, [theme])
-
   // Listen for theme changes from parent
   useEffect(() => {
     const handleMessage = (event) => {
@@ -101,10 +83,32 @@ function App() {
   // Get the form component based on the form ID
   const FormComponent = FORM_COMPONENTS[formId]
 
+  // Create Ant Design theme configuration
+  const themeConfig = useMemo(
+    () => ({
+      algorithm:
+        theme === 'dark' ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
+    }),
+    [theme]
+  )
+
+  // Apply background color based on theme
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.body.style.backgroundColor = '#141414'
+      document.body.style.color = '#ffffff'
+    } else {
+      document.body.style.backgroundColor = ''
+      document.body.style.color = ''
+    }
+  }, [theme])
+
   return (
-    <div style={{ padding: '20px', maxWidth: '500px', margin: '0 auto' }}>
-      <FormComponent />
-    </div>
+    <ConfigProvider theme={themeConfig}>
+      <div style={{ padding: '20px', maxWidth: '500px', margin: '0 auto' }}>
+        <FormComponent />
+      </div>
+    </ConfigProvider>
   )
 }
 

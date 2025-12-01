@@ -166,7 +166,7 @@ export function PreviewCard({
         src={iframeSrc}
         className="preview-iframe"
         style={{ height: `${iframeHeight}px` }}
-        sandbox="allow-scripts allow-forms allow-same-origin"
+        sandbox="allow-scripts allow-forms"
         onLoad={handleIframeLoad}
       />
     </div>

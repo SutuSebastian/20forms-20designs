@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Client as Styletron } from 'styletron-engine-monolithic'
 import { Provider as StyletronProvider } from 'styletron-react'
-import { LightTheme, DarkTheme, BaseProvider } from 'baseui'
+import { LightTheme, DarkTheme, BaseProvider, useStyletron } from 'baseui'
 
 // Import all form components
 import AdvancedSearchForm from './forms/AdvancedSearchForm'
@@ -86,11 +86,27 @@ function App() {
   return (
     <StyletronProvider value={engine}>
       <BaseProvider theme={theme === 'dark' ? DarkTheme : LightTheme}>
-        <div style={{ padding: '16px' }}>
+        <ThemedContainer>
           <FormComponent />
-        </div>
+        </ThemedContainer>
       </BaseProvider>
     </StyletronProvider>
+  )
+}
+
+function ThemedContainer({ children }) {
+  const [css, theme] = useStyletron()
+  return (
+    <div
+      className={css({
+        backgroundColor: theme.colors.backgroundPrimary,
+        color: theme.colors.contentPrimary,
+        minHeight: '100vh',
+        padding: '16px',
+      })}
+    >
+      {children}
+    </div>
   )
 }
 

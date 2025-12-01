@@ -57,6 +57,14 @@ function App() {
     return params.get('theme') === 'dark' ? 'dark' : 'light'
   })
 
+  // Apply theme data attributes to html element for Primer CSS variables
+  useEffect(() => {
+    const colorMode = theme === 'dark' ? 'dark' : 'light'
+    document.documentElement.setAttribute('data-color-mode', colorMode)
+    document.documentElement.setAttribute('data-light-theme', 'light')
+    document.documentElement.setAttribute('data-dark-theme', 'dark')
+  }, [theme])
+
   useEffect(() => {
     const handleMessage = (event) => {
       if (event.data?.type === 'SET_THEME') {

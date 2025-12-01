@@ -87,6 +87,7 @@ function OnboardingWizardForm() {
           <Button
             type="button"
             variant="outline"
+            colorPalette="gray"
             onClick={() => alert('Back action placeholder')}
           >
             Back

@@ -3,7 +3,6 @@ import '@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-s
 import { useState, useEffect } from 'react'
 import IconSettings from '@salesforce/design-system-react/components/icon-settings'
 
-
 // Import all form components
 import AdvancedSearchForm from './forms/AdvancedSearchForm'
 import AppointmentRequestForm from './forms/AppointmentRequestForm'
