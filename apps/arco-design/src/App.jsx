@@ -68,10 +68,14 @@ function App() {
     const urlTheme = params.get('theme')
 
     if (urlTheme === 'dark' || theme === 'dark') {
+      // Arco Design uses arco-theme attribute on body for dark mode
+      document.body.setAttribute('arco-theme', 'dark')
       document.body.classList.add('dark')
-      document.body.style.backgroundColor = '#1a1a2e'
-      document.body.style.color = '#ffffff'
+      // Use Arco's CSS variables for proper theming
+      document.body.style.backgroundColor = 'var(--color-bg-1)'
+      document.body.style.color = 'var(--color-text-1)'
     } else {
+      document.body.removeAttribute('arco-theme')
       document.body.classList.remove('dark')
       document.body.style.backgroundColor = ''
       document.body.style.color = ''
