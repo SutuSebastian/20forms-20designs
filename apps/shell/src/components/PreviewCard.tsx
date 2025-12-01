@@ -1,8 +1,50 @@
-import { useState, useEffect, useRef } from 'react'
-import { buildIframeSrc, LIBRARY_NAME_TO_ID, FORM_NAME_TO_ID } from '../config'
+import { useEffect, useRef } from 'react'
+import {
+  buildIframeSrc,
+  LIBRARY_NAME_TO_ID,
+  FORM_NAME_TO_ID,
+  FormId,
+} from '../config'
 import { ThemeMode } from '../store'
 
 const GITHUB_REPO_BASE = 'https://github.com/evgenyvinnik/20forms-20designs'
+
+// Hardcoded heights per form type based on form complexity
+// This eliminates the need for iframe-to-parent postMessage communication
+const FORM_HEIGHTS: Record<FormId, number> = {
+  // Short forms (simple, few fields)
+  'password-reset': 350,
+  'two-factor-auth': 350,
+  'newsletter-subscription': 350,
+  'order-tracking': 350,
+
+  // Medium forms (moderate complexity)
+  'user-login': 450,
+  'contact-inquiry': 550,
+  'profile-update': 600,
+  'password-change': 500,
+  'appointment-request': 600,
+  'advanced-search': 600,
+
+  // Standard forms (typical registration/checkout)
+  'user-registration': 700,
+  'billing-info': 700,
+  'shipping-address': 650,
+  'checkout-payment': 750,
+  'event-registration': 700,
+  'support-ticket': 650,
+
+  // Long forms (many fields, complex layouts)
+  'job-application': 900,
+  'customer-feedback': 800,
+  'privacy-consent': 800,
+
+  // Extra tall forms (multi-step, wizards)
+  'onboarding-wizard': 750,
+}
+
+// Default height if form is not in the map
+const DEFAULT_FORM_HEIGHT = 600
 
 interface PreviewCardProps {
   libraryName: string
@@ -22,38 +64,26 @@ function buildGitHubUrl(libraryName: string, formName: string): string {
   return `${GITHUB_REPO_BASE}/tree/main/apps/${libId}-${formId}`
 }
 
+function getFormHeight(formName: string): number {
+  const formId = FORM_NAME_TO_ID[formName]
+  if (formId && formId in FORM_HEIGHTS) {
+    return FORM_HEIGHTS[formId]
+  }
+  return DEFAULT_FORM_HEIGHT
+}
+
 export function PreviewCard({
   libraryName,
   formName,
   theme,
   supportsTheme,
 }: PreviewCardProps) {
-  const [iframeHeight, setIframeHeight] = useState(500)
   const iframeRef = useRef<HTMLIFrameElement>(null)
   const iframeSrc = buildIframeSrc(libraryName, formName, theme)
   const githubUrl = buildGitHubUrl(libraryName, formName)
 
-  // Listen for height messages from iframe
-  useEffect(() => {
-    const handleMessage = (event: MessageEvent) => {
-      if (event.data?.type === 'IFRAME_HEIGHT') {
-        // Check if this message is from our iframe
-        if (
-          iframeRef.current &&
-          event.source === iframeRef.current.contentWindow
-        ) {
-          const height = event.data.height
-          // Only accept reasonable heights (between 100 and 1200px)
-          if (height > 100 && height < 1200) {
-            setIframeHeight(height + 20) // Add some padding
-          }
-        }
-      }
-    }
-
-    window.addEventListener('message', handleMessage)
-    return () => window.removeEventListener('message', handleMessage)
-  }, [])
+  // Use hardcoded height based on form type
+  const iframeHeight = getFormHeight(formName)
 
   // Send theme updates to iframe when theme changes
   useEffect(() => {
@@ -69,23 +99,8 @@ export function PreviewCard({
     return null
   }
 
-  // Handle iframe load and resize to fit content (fallback for same-origin)
-  const handleIframeLoad = (e: React.SyntheticEvent<HTMLIFrameElement>) => {
-    try {
-      const iframe = e.currentTarget
-      const iframeDoc = iframe.contentDocument || iframe.contentWindow?.document
-      if (iframeDoc) {
-        const height = iframeDoc.body.scrollHeight
-        // Only accept reasonable heights (between 100 and 1200px)
-        if (height > 100 && height < 1200) {
-          setIframeHeight(height + 20)
-        }
-      }
-    } catch {
-      // Cross-origin restrictions - rely on postMessage instead
-    }
-
-    // Send theme to iframe when it loads
+  // Handle iframe load - send theme to iframe when it loads
+  const handleIframeLoad = () => {
     if (iframeRef.current?.contentWindow) {
       iframeRef.current.contentWindow.postMessage(
         { type: 'SET_THEME', theme },

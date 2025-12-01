@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react'
-import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming'
+import {
+  ThemeProvider,
+  DEFAULT_THEME,
+  getColor,
+} from '@zendeskgarden/react-theming'
+import styled from 'styled-components'
 
 // Import all form components
 import AdvancedSearchForm from './forms/AdvancedSearchForm'
@@ -46,6 +51,14 @@ const FORM_COMPONENTS = {
   'user-registration': UserRegistrationForm,
 }
 
+const StyledContainer = styled.div`
+  padding: 16px;
+  min-height: 100vh;
+  background-color: ${(p) =>
+    getColor({ theme: p.theme, variable: 'background.default' })};
+  color: ${(p) => getColor({ theme: p.theme, variable: 'foreground.default' })};
+`
+
 function App() {
   const [formId, setFormId] = useState(() => {
     const params = new URLSearchParams(window.location.search)
@@ -89,15 +102,9 @@ function App() {
 
   return (
     <ThemeProvider theme={customTheme}>
-      <div
-        style={{
-          padding: '16px',
-          background: theme === 'dark' ? '#1f1f1f' : '#fff',
-          minHeight: '100vh',
-        }}
-      >
+      <StyledContainer>
         <FormComponent />
-      </div>
+      </StyledContainer>
     </ThemeProvider>
   )
 }
