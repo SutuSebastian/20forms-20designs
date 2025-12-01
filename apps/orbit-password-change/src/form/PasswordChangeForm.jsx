@@ -20,7 +20,10 @@ function PasswordChangeForm() {
   }
 
   const handleCheckboxChange = () => {
-    setFormData((prev) => ({ ...prev, signOutOtherDevices: !prev.signOutOtherDevices }))
+    setFormData((prev) => ({
+      ...prev,
+      signOutOtherDevices: !prev.signOutOtherDevices,
+    }))
   }
 
   const handleSubmit = (e) => {

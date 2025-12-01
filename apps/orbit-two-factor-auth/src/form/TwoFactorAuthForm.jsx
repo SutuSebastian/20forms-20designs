@@ -1,4 +1,10 @@
-import { InputField, Button, Stack, Text, ButtonLink } from '@kiwicom/orbit-components'
+import {
+  InputField,
+  Button,
+  Stack,
+  Text,
+  ButtonLink,
+} from '@kiwicom/orbit-components'
 
 function TwoFactorAuthForm() {
   const handleSubmit = (event) => {
@@ -27,7 +33,10 @@ function TwoFactorAuthForm() {
           <Button type="primary" submit>
             Verify
           </Button>
-          <ButtonLink type="secondary" onClick={() => alert('A new code has been sent!')}>
+          <ButtonLink
+            type="secondary"
+            onClick={() => alert('A new code has been sent!')}
+          >
             Resend code
           </ButtonLink>
         </Stack>

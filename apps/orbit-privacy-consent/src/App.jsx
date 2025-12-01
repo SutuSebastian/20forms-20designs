@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { OrbitProvider, defaultTheme } from '@kiwicom/orbit-components'
-import FormComponent from './form/ProfileUpdateForm'
+import FormComponent from './form/PrivacyConsentForm'
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -22,14 +22,7 @@ function App() {
 
   return (
     <OrbitProvider theme={defaultTheme}>
-      <div
-        style={{
-          padding: '16px',
-          background: isDark ? '#1a1a1a' : '#fff',
-          color: isDark ? '#fff' : '#000',
-          minHeight: '100vh',
-        }}
-      >
+      <div style={{ padding: '16px', background: isDark ? '#1a1a1a' : '#fff', color: isDark ? '#fff' : '#000', minHeight: '100vh' }}>
         <FormComponent />
       </div>
     </OrbitProvider>

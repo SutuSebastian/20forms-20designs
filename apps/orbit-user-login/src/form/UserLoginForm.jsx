@@ -21,16 +21,8 @@ function UserLoginForm() {
           type="text"
           required
         />
-        <InputField
-          label="Password"
-          name="password"
-          type="password"
-          required
-        />
-        <Checkbox
-          label="Keep me signed in"
-          name="remember"
-        />
+        <InputField label="Password" name="password" type="password" required />
+        <Checkbox label="Keep me signed in" name="remember" />
         <Stack direction="row" spacing="small">
           <Button type="primary" submit>
             Sign in
