@@ -32,7 +32,10 @@ function App() {
 
   return (
     <div style={theme === 'dark' ? darkStyles : lightStyles}>
-      <div className={theme === 'dark' ? 'ui inverted segment' : 'ui segment'} style={{ margin: 0, borderRadius: 0, minHeight: '100vh' }}>
+      <div
+        className={theme === 'dark' ? 'ui inverted segment' : 'ui segment'}
+        style={{ margin: 0, borderRadius: 0, minHeight: '100vh' }}
+      >
         <div style={{ padding: '16px' }}>
           <FormComponent inverted={theme === 'dark'} />
         </div>

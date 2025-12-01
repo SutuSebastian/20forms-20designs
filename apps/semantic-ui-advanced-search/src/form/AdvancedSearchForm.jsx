@@ -59,10 +59,7 @@ function AdvancedSearchForm({ inverted }) {
         />
       </Form.Field>
       <Form.Field>
-        <Checkbox
-          name="includeArchived"
-          label="Include archived"
-        />
+        <Checkbox name="includeArchived" label="Include archived" />
       </Form.Field>
       <Button type="submit" primary>
         Search

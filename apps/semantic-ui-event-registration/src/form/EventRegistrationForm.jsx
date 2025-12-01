@@ -48,10 +48,7 @@ function EventRegistrationForm({ inverted }) {
         max={20}
       />
       <Form.Field>
-        <Checkbox
-          name="newsletter"
-          label="Notify me about future events"
-        />
+        <Checkbox name="newsletter" label="Notify me about future events" />
       </Form.Field>
       <Button type="submit" primary>
         Register

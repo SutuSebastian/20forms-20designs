@@ -47,10 +47,7 @@ function ContactInquiryForm({ inverted }) {
         required
       />
       <Form.Field>
-        <Checkbox
-          name="consent"
-          label="Allow follow-up communication"
-        />
+        <Checkbox name="consent" label="Allow follow-up communication" />
       </Form.Field>
       <Button type="submit" primary>
         Submit inquiry

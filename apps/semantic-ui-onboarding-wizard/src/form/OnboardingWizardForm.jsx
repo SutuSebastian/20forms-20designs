@@ -1,4 +1,11 @@
-import { Form, Button, Checkbox, Select, Segment, Header } from 'semantic-ui-react'
+import {
+  Form,
+  Button,
+  Checkbox,
+  Select,
+  Segment,
+  Header,
+} from 'semantic-ui-react'
 
 const teamSizeOptions = [
   { key: '', value: '', text: 'Select size' },
@@ -17,7 +24,9 @@ function OnboardingWizardForm({ inverted }) {
   return (
     <Form onSubmit={handleSubmit} inverted={inverted}>
       <Segment inverted={inverted}>
-        <Header as="h3" inverted={inverted}>Step 1: Account</Header>
+        <Header as="h3" inverted={inverted}>
+          Step 1: Account
+        </Header>
         <Form.Input
           id="semantic-ui-onboarding-wizard-email"
           name="email"
@@ -36,7 +45,9 @@ function OnboardingWizardForm({ inverted }) {
       </Segment>
 
       <Segment inverted={inverted}>
-        <Header as="h3" inverted={inverted}>Step 2: Team</Header>
+        <Header as="h3" inverted={inverted}>
+          Step 2: Team
+        </Header>
         <Form.Input
           id="semantic-ui-onboarding-wizard-team-name"
           name="teamName"
@@ -56,7 +67,9 @@ function OnboardingWizardForm({ inverted }) {
       </Segment>
 
       <Segment inverted={inverted}>
-        <Header as="h3" inverted={inverted}>Step 3: Preferences</Header>
+        <Header as="h3" inverted={inverted}>
+          Step 3: Preferences
+        </Header>
         <Form.TextArea
           id="semantic-ui-onboarding-wizard-goal"
           name="goal"
@@ -65,10 +78,7 @@ function OnboardingWizardForm({ inverted }) {
           required
         />
         <Form.Field>
-          <Checkbox
-            name="updates"
-            label="Send me product tips"
-          />
+          <Checkbox name="updates" label="Send me product tips" />
         </Form.Field>
       </Segment>
 

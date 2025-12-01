@@ -47,10 +47,7 @@ function CustomerFeedbackForm({ inverted }) {
         required
       />
       <Form.Field>
-        <Checkbox
-          name="followUp"
-          label="I would like a follow-up"
-        />
+        <Checkbox name="followUp" label="I would like a follow-up" />
       </Form.Field>
       <Button type="submit" primary>
         Send feedback

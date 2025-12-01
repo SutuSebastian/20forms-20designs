@@ -23,10 +23,7 @@ function UserLoginForm({ inverted }) {
         required
       />
       <Form.Field>
-        <Checkbox
-          name="remember"
-          label="Keep me signed in"
-        />
+        <Checkbox name="remember" label="Keep me signed in" />
       </Form.Field>
       <Button type="submit" primary>
         Sign in
