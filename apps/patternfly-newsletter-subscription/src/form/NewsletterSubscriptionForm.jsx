@@ -41,7 +41,9 @@ function NewsletterSubscriptionForm() {
         />
       </FormGroup>
       <ActionGroup>
-        <Button variant="primary" type="submit">Subscribe</Button>
+        <Button variant="primary" type="submit">
+          Subscribe
+        </Button>
       </ActionGroup>
     </Form>
   )

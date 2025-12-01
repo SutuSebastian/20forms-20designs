@@ -33,8 +33,13 @@ function SupportTicketForm() {
           name="subject"
         />
       </FormGroup>
-      
-      <FormGroup role="radiogroup" isRequired fieldId="pf-ticket-priority" label="Priority">
+
+      <FormGroup
+        role="radiogroup"
+        isRequired
+        fieldId="pf-ticket-priority"
+        label="Priority"
+      >
         <Radio
           name="priority"
           label="Low"
@@ -55,7 +60,11 @@ function SupportTicketForm() {
         />
       </FormGroup>
 
-      <FormGroup label="Issue description" isRequired fieldId="pf-ticket-description">
+      <FormGroup
+        label="Issue description"
+        isRequired
+        fieldId="pf-ticket-description"
+      >
         <TextArea
           isRequired
           id="pf-ticket-description"
@@ -76,7 +85,9 @@ function SupportTicketForm() {
       </FormGroup>
 
       <ActionGroup>
-        <Button variant="primary" type="submit">Submit ticket</Button>
+        <Button variant="primary" type="submit">
+          Submit ticket
+        </Button>
       </ActionGroup>
     </Form>
   )

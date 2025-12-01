@@ -15,7 +15,11 @@ function PasswordChangeForm() {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <FormGroup label="Current password" isRequired fieldId="pf-password-change-current">
+      <FormGroup
+        label="Current password"
+        isRequired
+        fieldId="pf-password-change-current"
+      >
         <TextInput
           isRequired
           type="password"
@@ -23,7 +27,11 @@ function PasswordChangeForm() {
           name="currentPassword"
         />
       </FormGroup>
-      <FormGroup label="New password" isRequired fieldId="pf-password-change-new">
+      <FormGroup
+        label="New password"
+        isRequired
+        fieldId="pf-password-change-new"
+      >
         <TextInput
           isRequired
           type="password"
@@ -31,7 +39,11 @@ function PasswordChangeForm() {
           name="newPassword"
         />
       </FormGroup>
-      <FormGroup label="Confirm new password" isRequired fieldId="pf-password-change-confirm">
+      <FormGroup
+        label="Confirm new password"
+        isRequired
+        fieldId="pf-password-change-confirm"
+      >
         <TextInput
           isRequired
           type="password"
@@ -47,7 +59,9 @@ function PasswordChangeForm() {
         />
       </FormGroup>
       <ActionGroup>
-        <Button variant="primary" type="submit">Update password</Button>
+        <Button variant="primary" type="submit">
+          Update password
+        </Button>
       </ActionGroup>
     </Form>
   )

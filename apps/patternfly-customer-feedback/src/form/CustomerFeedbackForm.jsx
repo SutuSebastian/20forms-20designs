@@ -19,12 +19,7 @@ function CustomerFeedbackForm() {
   return (
     <Form onSubmit={handleSubmit}>
       <FormGroup label="Name" isRequired fieldId="pf-feedback-name">
-        <TextInput
-          isRequired
-          type="text"
-          id="pf-feedback-name"
-          name="name"
-        />
+        <TextInput isRequired type="text" id="pf-feedback-name" name="name" />
       </FormGroup>
       <FormGroup label="Email address" isRequired fieldId="pf-feedback-email">
         <TextInput
@@ -59,7 +54,9 @@ function CustomerFeedbackForm() {
         />
       </FormGroup>
       <ActionGroup>
-        <Button variant="primary" type="submit">Send feedback</Button>
+        <Button variant="primary" type="submit">
+          Send feedback
+        </Button>
       </ActionGroup>
     </Form>
   )

@@ -24,7 +24,11 @@ function BillingInfoForm() {
           name="cardName"
         />
       </FormGroup>
-      <FormGroup label="Card number" isRequired fieldId="pf-billing-card-number">
+      <FormGroup
+        label="Card number"
+        isRequired
+        fieldId="pf-billing-card-number"
+      >
         <TextInput
           isRequired
           type="text"
@@ -33,7 +37,11 @@ function BillingInfoForm() {
           maxLength={19}
         />
       </FormGroup>
-      <FormGroup label="Expiration date" isRequired fieldId="pf-billing-expiration">
+      <FormGroup
+        label="Expiration date"
+        isRequired
+        fieldId="pf-billing-expiration"
+      >
         <TextInput
           isRequired
           type="text"
@@ -51,7 +59,11 @@ function BillingInfoForm() {
           maxLength={4}
         />
       </FormGroup>
-      <FormGroup label="Billing address" isRequired fieldId="pf-billing-address">
+      <FormGroup
+        label="Billing address"
+        isRequired
+        fieldId="pf-billing-address"
+      >
         <TextInput
           isRequired
           type="text"
@@ -67,7 +79,9 @@ function BillingInfoForm() {
         </FormSelect>
       </FormGroup>
       <ActionGroup>
-        <Button variant="primary" type="submit">Save billing details</Button>
+        <Button variant="primary" type="submit">
+          Save billing details
+        </Button>
       </ActionGroup>
     </Form>
   )
