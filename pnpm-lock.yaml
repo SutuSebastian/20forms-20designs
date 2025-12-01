@@ -104,6 +104,9 @@ importers:
 
   apps/atlaskit:
     dependencies:
+      '@atlaskit/app-provider':
+        specifier: ^3.2.7
+        version: 3.2.7(@types/react@18.3.27)(react@18.3.1)
       '@atlaskit/button':
         specifier: ^20.3.0
         version: 20.5.3(@babel/core@7.28.5)(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -231,6 +234,9 @@ importers:
       '@carbon/react':
         specifier: ^1.71.0
         version: 1.96.0(react-dom@18.3.1(react@18.3.1))(react-is@19.2.0)(react@18.3.1)(sass@1.94.2)
+      '@ibm/plex':
+        specifier: ^6.0.0-next.6
+        version: 6.0.0-next.6
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1199,6 +1205,11 @@ packages:
     resolution: {integrity: sha512-HJBiLmEnyXZeNYFAo0EDyi+r/33SbyrYK7VwTyFPWvXr/lPvg5RMiK72Tsu6jWsaqlTy1bQWvz0Azu30hmidKA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@atlaskit/app-provider@3.2.7':
+    resolution: {integrity: sha512-pfY91mPG195hDEgTO8sQwKL1yGp9KaYymbQuQZ5mTlvevTLfZaq6L69TCEJ/PvMb8hYQ3WJm05S7iFM2kVyN6w==}
+    peerDependencies:
+      react: ^18.2.0
 
   '@atlaskit/atlassian-context@0.6.0':
     resolution: {integrity: sha512-TjaV1OIjP8DaOyaqzPI5OkYvVckn3hYwE92v8RcdnpOiMKI0taedg1sLXD7x0nPx5MtXPmCJNNVJJprDN7pmxQ==}
@@ -12061,6 +12072,18 @@ snapshots:
     dependencies:
       '@atlaskit/platform-feature-flags': 1.1.2(react@18.3.1)
       '@atlaskit/tokens': 3.3.2(@types/react@18.3.27)(react@18.3.1)
+      '@babel/runtime': 7.28.4
+      bind-event-listener: 3.0.0
+      react: 18.3.1
+    transitivePeerDependencies:
+      - '@types/react'
+      - supports-color
+
+  '@atlaskit/app-provider@3.2.7(@types/react@18.3.27)(react@18.3.1)':
+    dependencies:
+      '@atlaskit/css': 0.17.0(@types/react@18.3.27)(react@18.3.1)
+      '@atlaskit/platform-feature-flags': 1.1.2(react@18.3.1)
+      '@atlaskit/tokens': 8.4.0(@types/react@18.3.27)(react@18.3.1)
       '@babel/runtime': 7.28.4
       bind-event-listener: 3.0.0
       react: 18.3.1
