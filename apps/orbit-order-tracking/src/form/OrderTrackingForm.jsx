@@ -9,10 +9,22 @@ function OrderTrackingForm() {
   return (
     <form onSubmit={handleSubmit}>
       <Stack direction="column" spacing="medium">
-        <InputField label="Order number" name="orderNumber" type="text" required />
+        <InputField
+          label="Order number"
+          name="orderNumber"
+          type="text"
+          required
+        />
         <InputField label="Email address" name="email" type="email" required />
-        <InputField label="Postal code" name="postalCode" type="text" required />
-        <Button type="primary" submit>Find order</Button>
+        <InputField
+          label="Postal code"
+          name="postalCode"
+          type="text"
+          required
+        />
+        <Button type="primary" submit>
+          Find order
+        </Button>
       </Stack>
     </form>
   )

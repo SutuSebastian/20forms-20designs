@@ -5,7 +5,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   base: '/20forms-20designs/orbit-contact-inquiry/',
   build: {
-    outDir: 'dist',
+    outDir: '../../dist/orbit-contact-inquiry',
     emptyOutDir: true,
     minify: 'esbuild',
     sourcemap: false,

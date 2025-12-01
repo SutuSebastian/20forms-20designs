@@ -5,7 +5,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   base: '/20forms-20designs/orbit-advanced-search/',
   build: {
-    outDir: 'dist',
+    outDir: '../../dist/orbit-advanced-search',
     emptyOutDir: true,
     minify: 'esbuild',
     sourcemap: false,

@@ -5,7 +5,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   base: '/20forms-20designs/orbit-event-registration/',
   build: {
-    outDir: 'dist',
+    outDir: '../../dist/orbit-event-registration',
     emptyOutDir: true,
     minify: 'esbuild',
     sourcemap: false,

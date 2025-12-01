@@ -5,7 +5,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   base: '/20forms-20designs/orbit-onboarding-wizard/',
   build: {
-    outDir: 'dist',
+    outDir: '../../dist/orbit-onboarding-wizard',
     emptyOutDir: true,
     minify: 'esbuild',
     sourcemap: false,

@@ -1,4 +1,10 @@
-import { InputField, Button, Stack, Select, Checkbox } from '@kiwicom/orbit-components'
+import {
+  InputField,
+  Button,
+  Stack,
+  Select,
+  Checkbox,
+} from '@kiwicom/orbit-components'
 
 function NewsletterSubscriptionForm() {
   const handleSubmit = (event) => {
@@ -17,7 +23,12 @@ function NewsletterSubscriptionForm() {
     <form onSubmit={handleSubmit}>
       <Stack direction="column" spacing="medium">
         <InputField label="Email address" name="email" type="email" required />
-        <Select label="Frequency" name="frequency" options={frequencyOptions} required />
+        <Select
+          label="Frequency"
+          name="frequency"
+          options={frequencyOptions}
+          required
+        />
         <Checkbox label="Receive product updates" name="agree" />
         <Button type="primary" submit>
           Subscribe

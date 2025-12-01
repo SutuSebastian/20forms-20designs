@@ -14,7 +14,9 @@ function AppointmentRequestForm() {
         <InputField label="Preferred date" name="date" type="date" required />
         <InputField label="Preferred time" name="time" type="time" required />
         <Textarea label="Reason for visit" name="reason" rows={3} required />
-        <Button type="primary" submit>Request appointment</Button>
+        <Button type="primary" submit>
+          Request appointment
+        </Button>
       </Stack>
     </form>
   )

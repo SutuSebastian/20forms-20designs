@@ -1,4 +1,11 @@
-import { InputField, Button, Stack, Select, Textarea, Checkbox } from '@kiwicom/orbit-components'
+import {
+  InputField,
+  Button,
+  Stack,
+  Select,
+  Textarea,
+  Checkbox,
+} from '@kiwicom/orbit-components'
 
 function CustomerFeedbackForm() {
   const handleSubmit = (event) => {
@@ -19,10 +26,17 @@ function CustomerFeedbackForm() {
       <Stack direction="column" spacing="medium">
         <InputField label="Name" name="name" type="text" required />
         <InputField label="Email address" name="email" type="email" required />
-        <Select label="Overall rating" name="rating" options={ratingOptions} required />
+        <Select
+          label="Overall rating"
+          name="rating"
+          options={ratingOptions}
+          required
+        />
         <Textarea label="Comments" name="comments" rows={4} required />
         <Checkbox label="I would like a follow-up" name="followUp" />
-        <Button type="primary" submit>Send feedback</Button>
+        <Button type="primary" submit>
+          Send feedback
+        </Button>
       </Stack>
     </form>
   )

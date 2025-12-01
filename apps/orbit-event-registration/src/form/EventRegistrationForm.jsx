@@ -1,4 +1,10 @@
-import { InputField, Button, Stack, Select, Checkbox } from '@kiwicom/orbit-components'
+import {
+  InputField,
+  Button,
+  Stack,
+  Select,
+  Checkbox,
+} from '@kiwicom/orbit-components'
 
 function EventRegistrationForm() {
   const handleSubmit = (event) => {
@@ -18,10 +24,24 @@ function EventRegistrationForm() {
       <Stack direction="column" spacing="medium">
         <InputField label="Full name" name="fullName" type="text" required />
         <InputField label="Email address" name="email" type="email" required />
-        <Select label="Ticket type" name="ticketType" options={ticketOptions} required />
-        <InputField label="Number of guests" name="guestCount" type="number" min={0} max={20} required />
+        <Select
+          label="Ticket type"
+          name="ticketType"
+          options={ticketOptions}
+          required
+        />
+        <InputField
+          label="Number of guests"
+          name="guestCount"
+          type="number"
+          min={0}
+          max={20}
+          required
+        />
         <Checkbox label="Notify me about future events" name="newsletter" />
-        <Button type="primary" submit>Register</Button>
+        <Button type="primary" submit>
+          Register
+        </Button>
       </Stack>
     </form>
   )

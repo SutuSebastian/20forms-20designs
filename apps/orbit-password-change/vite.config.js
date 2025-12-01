@@ -5,7 +5,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   base: '/20forms-20designs/orbit-password-change/',
   build: {
-    outDir: 'dist',
+    outDir: '../../dist/orbit-password-change',
     emptyOutDir: true,
     minify: 'esbuild',
     sourcemap: false,

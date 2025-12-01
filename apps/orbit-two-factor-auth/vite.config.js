@@ -5,7 +5,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   base: '/20forms-20designs/orbit-two-factor-auth/',
   build: {
-    outDir: 'dist',
+    outDir: '../../dist/orbit-two-factor-auth',
     emptyOutDir: true,
     minify: 'esbuild',
     sourcemap: false,

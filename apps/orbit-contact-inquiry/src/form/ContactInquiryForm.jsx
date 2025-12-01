@@ -1,4 +1,11 @@
-import { InputField, Button, Stack, Select, Textarea, Checkbox } from '@kiwicom/orbit-components'
+import {
+  InputField,
+  Button,
+  Stack,
+  Select,
+  Textarea,
+  Checkbox,
+} from '@kiwicom/orbit-components'
 
 function ContactInquiryForm() {
   const handleSubmit = (event) => {

@@ -5,7 +5,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   base: '/20forms-20designs/orbit-privacy-consent/',
   build: {
-    outDir: 'dist',
+    outDir: '../../dist/orbit-privacy-consent',
     emptyOutDir: true,
     minify: 'esbuild',
     sourcemap: false,

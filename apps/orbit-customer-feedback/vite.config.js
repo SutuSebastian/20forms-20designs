@@ -5,7 +5,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   base: '/20forms-20designs/orbit-customer-feedback/',
   build: {
-    outDir: 'dist',
+    outDir: '../../dist/orbit-customer-feedback',
     emptyOutDir: true,
     minify: 'esbuild',
     sourcemap: false,

@@ -5,7 +5,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   base: '/20forms-20designs/orbit-newsletter-subscription/',
   build: {
-    outDir: 'dist',
+    outDir: '../../dist/orbit-newsletter-subscription',
     emptyOutDir: true,
     minify: 'esbuild',
     sourcemap: false,

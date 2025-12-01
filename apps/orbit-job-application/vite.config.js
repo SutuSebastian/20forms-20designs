@@ -5,7 +5,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   base: '/20forms-20designs/orbit-job-application/',
   build: {
-    outDir: 'dist',
+    outDir: '../../dist/orbit-job-application',
     emptyOutDir: true,
     minify: 'esbuild',
     sourcemap: false,

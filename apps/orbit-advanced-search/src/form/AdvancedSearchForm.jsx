@@ -1,4 +1,10 @@
-import { InputField, Button, Stack, Select, Checkbox } from '@kiwicom/orbit-components'
+import {
+  InputField,
+  Button,
+  Stack,
+  Select,
+  Checkbox,
+} from '@kiwicom/orbit-components'
 
 function AdvancedSearchForm() {
   const handleSubmit = (event) => {
@@ -28,7 +34,9 @@ function AdvancedSearchForm() {
         <InputField label="Date to" name="dateTo" type="date" />
         <Select label="Sort by" name="sort" options={sortOptions} />
         <Checkbox label="Include archived" name="includeArchived" />
-        <Button type="primary" submit>Search</Button>
+        <Button type="primary" submit>
+          Search
+        </Button>
       </Stack>
     </form>
   )

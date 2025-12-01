@@ -5,7 +5,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   base: '/20forms-20designs/orbit-user-login/',
   build: {
-    outDir: 'dist',
+    outDir: '../../dist/orbit-user-login',
     emptyOutDir: true,
     minify: 'esbuild',
     sourcemap: false,

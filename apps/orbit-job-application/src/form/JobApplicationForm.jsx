@@ -1,4 +1,10 @@
-import { InputField, Button, Stack, Textarea, Checkbox } from '@kiwicom/orbit-components'
+import {
+  InputField,
+  Button,
+  Stack,
+  Textarea,
+  Checkbox,
+} from '@kiwicom/orbit-components'
 
 function JobApplicationForm() {
   const handleSubmit = (event) => {
@@ -16,7 +22,9 @@ function JobApplicationForm() {
         <InputField label="Resume link" name="resume" type="url" required />
         <Textarea label="Cover letter" name="coverLetter" rows={4} required />
         <Checkbox label="Keep me informed about future roles" name="updates" />
-        <Button type="primary" submit>Submit application</Button>
+        <Button type="primary" submit>
+          Submit application
+        </Button>
       </Stack>
     </form>
   )

@@ -5,7 +5,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   base: '/20forms-20designs/orbit-order-tracking/',
   build: {
-    outDir: 'dist',
+    outDir: '../../dist/orbit-order-tracking',
     emptyOutDir: true,
     minify: 'esbuild',
     sourcemap: false,

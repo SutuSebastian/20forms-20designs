@@ -5,7 +5,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [react()],
   base: '/20forms-20designs/orbit-shipping-address/',
   build: {
-    outDir: 'dist',
+    outDir: '../../dist/orbit-shipping-address',
     emptyOutDir: true,
     minify: 'esbuild',
     sourcemap: false,
