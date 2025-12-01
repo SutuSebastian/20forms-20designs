@@ -78,7 +78,9 @@ function UserLoginForm() {
         />
       </div>
       <div sx={{ marginBottom: 3 }}>
-        <label sx={{ display: 'flex', alignItems: 'center', gap: 2, color: 'text' }}>
+        <label
+          sx={{ display: 'flex', alignItems: 'center', gap: 2, color: 'text' }}
+        >
           <input name="remember" type="checkbox" />
           Keep me signed in
         </label>
