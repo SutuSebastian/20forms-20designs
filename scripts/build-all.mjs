@@ -85,7 +85,7 @@ async function buildApp(appName) {
   }
 
   try {
-    await runCommand('npm', ['run', 'build'], appDir);
+    await runCommand('pnpm', ['run', 'build'], appDir);
     console.log(`✅ Built ${appName}`);
     return { app: appName, success: true };
   } catch (error) {
