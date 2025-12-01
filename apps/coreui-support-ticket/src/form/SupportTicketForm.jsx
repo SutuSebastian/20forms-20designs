@@ -50,7 +50,9 @@ function SupportTicketForm() {
         />
       </fieldset>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-ticket-description">Issue description</CFormLabel>
+        <CFormLabel htmlFor="coreui-ticket-description">
+          Issue description
+        </CFormLabel>
         <CFormTextarea
           id="coreui-ticket-description"
           name="description"

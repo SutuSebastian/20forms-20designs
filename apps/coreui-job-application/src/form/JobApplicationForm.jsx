@@ -26,12 +26,7 @@ function JobApplicationForm() {
       </div>
       <div className="mb-3">
         <CFormLabel htmlFor="coreui-job-email">Email address</CFormLabel>
-        <CFormInput
-          id="coreui-job-email"
-          name="email"
-          type="email"
-          required
-        />
+        <CFormInput id="coreui-job-email" name="email" type="email" required />
       </div>
       <div className="mb-3">
         <CFormLabel htmlFor="coreui-job-phone">Phone number</CFormLabel>
@@ -46,21 +41,11 @@ function JobApplicationForm() {
       </div>
       <div className="mb-3">
         <CFormLabel htmlFor="coreui-job-role">Role applied for</CFormLabel>
-        <CFormInput
-          id="coreui-job-role"
-          name="role"
-          type="text"
-          required
-        />
+        <CFormInput id="coreui-job-role" name="role" type="text" required />
       </div>
       <div className="mb-3">
         <CFormLabel htmlFor="coreui-job-resume">Resume link</CFormLabel>
-        <CFormInput
-          id="coreui-job-resume"
-          name="resume"
-          type="url"
-          required
-        />
+        <CFormInput id="coreui-job-resume" name="resume" type="url" required />
       </div>
       <div className="mb-3">
         <CFormLabel htmlFor="coreui-job-cover-letter">Cover letter</CFormLabel>

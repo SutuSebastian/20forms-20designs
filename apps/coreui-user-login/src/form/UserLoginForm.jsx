@@ -15,7 +15,9 @@ function UserLoginForm() {
   return (
     <CForm onSubmit={handleSubmit}>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-user-login-email">Email or username</CFormLabel>
+        <CFormLabel htmlFor="coreui-user-login-email">
+          Email or username
+        </CFormLabel>
         <CFormInput
           id="coreui-user-login-email"
           name="identifier"

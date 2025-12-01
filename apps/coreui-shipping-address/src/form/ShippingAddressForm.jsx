@@ -26,7 +26,9 @@ function ShippingAddressForm() {
   return (
     <CForm onSubmit={handleSubmit}>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-shipping-full-name">Recipient name</CFormLabel>
+        <CFormLabel htmlFor="coreui-shipping-full-name">
+          Recipient name
+        </CFormLabel>
         <CFormInput
           id="coreui-shipping-full-name"
           name="fullName"
@@ -44,12 +46,10 @@ function ShippingAddressForm() {
         />
       </div>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-shipping-street-2">Apartment, suite, etc.</CFormLabel>
-        <CFormInput
-          id="coreui-shipping-street-2"
-          name="street2"
-          type="text"
-        />
+        <CFormLabel htmlFor="coreui-shipping-street-2">
+          Apartment, suite, etc.
+        </CFormLabel>
+        <CFormInput id="coreui-shipping-street-2" name="street2" type="text" />
       </div>
       <div className="mb-3">
         <CFormLabel htmlFor="coreui-shipping-city">City</CFormLabel>
@@ -77,7 +77,9 @@ function ShippingAddressForm() {
         </CFormSelect>
       </div>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-shipping-region">State / Province / Territory</CFormLabel>
+        <CFormLabel htmlFor="coreui-shipping-region">
+          State / Province / Territory
+        </CFormLabel>
         <CFormSelect id="coreui-shipping-region" name="region" required>
           <option value="">Select an option</option>
           {regionOptions.map((region) => (

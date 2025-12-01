@@ -15,7 +15,9 @@ function UserRegistrationForm() {
   return (
     <CForm onSubmit={handleSubmit}>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-user-registration-name">Full name</CFormLabel>
+        <CFormLabel htmlFor="coreui-user-registration-name">
+          Full name
+        </CFormLabel>
         <CFormInput
           id="coreui-user-registration-name"
           name="fullName"
@@ -24,7 +26,9 @@ function UserRegistrationForm() {
         />
       </div>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-user-registration-email">Email address</CFormLabel>
+        <CFormLabel htmlFor="coreui-user-registration-email">
+          Email address
+        </CFormLabel>
         <CFormInput
           id="coreui-user-registration-email"
           name="email"
@@ -33,7 +37,9 @@ function UserRegistrationForm() {
         />
       </div>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-user-registration-username">Username</CFormLabel>
+        <CFormLabel htmlFor="coreui-user-registration-username">
+          Username
+        </CFormLabel>
         <CFormInput
           id="coreui-user-registration-username"
           name="username"
@@ -43,7 +49,9 @@ function UserRegistrationForm() {
         />
       </div>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-user-registration-password">Password</CFormLabel>
+        <CFormLabel htmlFor="coreui-user-registration-password">
+          Password
+        </CFormLabel>
         <CFormInput
           id="coreui-user-registration-password"
           name="password"
@@ -53,7 +61,9 @@ function UserRegistrationForm() {
         />
       </div>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-user-registration-confirm">Confirm password</CFormLabel>
+        <CFormLabel htmlFor="coreui-user-registration-confirm">
+          Confirm password
+        </CFormLabel>
         <CFormInput
           id="coreui-user-registration-confirm"
           name="confirmPassword"

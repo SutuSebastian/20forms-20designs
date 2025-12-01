@@ -1,9 +1,4 @@
-import {
-  CForm,
-  CFormLabel,
-  CFormInput,
-  CButton,
-} from '@coreui/react'
+import { CForm, CFormLabel, CFormInput, CButton } from '@coreui/react'
 
 function TwoFactorAuthForm() {
   const handleSubmit = (event) => {
@@ -15,7 +10,9 @@ function TwoFactorAuthForm() {
     <CForm onSubmit={handleSubmit}>
       <p className="mb-3">Enter the code from your authenticator app or SMS.</p>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-two-factor-code">Verification code</CFormLabel>
+        <CFormLabel htmlFor="coreui-two-factor-code">
+          Verification code
+        </CFormLabel>
         <CFormInput
           id="coreui-two-factor-code"
           name="code"
@@ -27,7 +24,9 @@ function TwoFactorAuthForm() {
         />
       </div>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-two-factor-backup">Backup code (optional)</CFormLabel>
+        <CFormLabel htmlFor="coreui-two-factor-backup">
+          Backup code (optional)
+        </CFormLabel>
         <CFormInput
           id="coreui-two-factor-backup"
           name="backupCode"

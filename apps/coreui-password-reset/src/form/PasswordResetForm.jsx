@@ -1,9 +1,4 @@
-import {
-  CForm,
-  CFormLabel,
-  CFormInput,
-  CButton,
-} from '@coreui/react'
+import { CForm, CFormLabel, CFormInput, CButton } from '@coreui/react'
 
 function PasswordResetForm() {
   const handleSubmit = (event) => {
@@ -15,7 +10,9 @@ function PasswordResetForm() {
     <CForm onSubmit={handleSubmit}>
       <p className="mb-3">Request a password reset link via email.</p>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-password-reset-email">Email address</CFormLabel>
+        <CFormLabel htmlFor="coreui-password-reset-email">
+          Email address
+        </CFormLabel>
         <CFormInput
           id="coreui-password-reset-email"
           name="email"

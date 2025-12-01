@@ -24,7 +24,9 @@ function BillingInfoForm() {
         />
       </div>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-billing-card-number">Card number</CFormLabel>
+        <CFormLabel htmlFor="coreui-billing-card-number">
+          Card number
+        </CFormLabel>
         <CFormInput
           id="coreui-billing-card-number"
           name="cardNumber"
@@ -36,7 +38,9 @@ function BillingInfoForm() {
         />
       </div>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-billing-expiration">Expiration date</CFormLabel>
+        <CFormLabel htmlFor="coreui-billing-expiration">
+          Expiration date
+        </CFormLabel>
         <CFormInput
           id="coreui-billing-expiration"
           name="expiration"
@@ -60,7 +64,9 @@ function BillingInfoForm() {
         />
       </div>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-billing-address">Billing address</CFormLabel>
+        <CFormLabel htmlFor="coreui-billing-address">
+          Billing address
+        </CFormLabel>
         <CFormInput
           id="coreui-billing-address"
           name="address"

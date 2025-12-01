@@ -54,12 +54,7 @@ function ProfileUpdateForm() {
       </div>
       <div className="mb-3">
         <CFormLabel htmlFor="coreui-profile-bio">Short bio</CFormLabel>
-        <CFormTextarea
-          id="coreui-profile-bio"
-          name="bio"
-          rows={3}
-          required
-        />
+        <CFormTextarea id="coreui-profile-bio" name="bio" rows={3} required />
       </div>
       <div className="d-grid">
         <CButton type="submit" color="primary">

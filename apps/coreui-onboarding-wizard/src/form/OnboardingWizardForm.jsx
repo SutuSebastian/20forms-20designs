@@ -23,7 +23,9 @@ function OnboardingWizardForm() {
         <CCardHeader>Step 1: Account</CCardHeader>
         <CCardBody>
           <div className="mb-3">
-            <CFormLabel htmlFor="coreui-onboarding-email">Work email</CFormLabel>
+            <CFormLabel htmlFor="coreui-onboarding-email">
+              Work email
+            </CFormLabel>
             <CFormInput
               id="coreui-onboarding-email"
               name="email"
@@ -32,7 +34,9 @@ function OnboardingWizardForm() {
             />
           </div>
           <div className="mb-3">
-            <CFormLabel htmlFor="coreui-onboarding-password">Password</CFormLabel>
+            <CFormLabel htmlFor="coreui-onboarding-password">
+              Password
+            </CFormLabel>
             <CFormInput
               id="coreui-onboarding-password"
               name="password"
@@ -48,7 +52,9 @@ function OnboardingWizardForm() {
         <CCardHeader>Step 2: Team</CCardHeader>
         <CCardBody>
           <div className="mb-3">
-            <CFormLabel htmlFor="coreui-onboarding-team-name">Team name</CFormLabel>
+            <CFormLabel htmlFor="coreui-onboarding-team-name">
+              Team name
+            </CFormLabel>
             <CFormInput
               id="coreui-onboarding-team-name"
               name="teamName"
@@ -73,7 +79,9 @@ function OnboardingWizardForm() {
         <CCardHeader>Step 3: Preferences</CCardHeader>
         <CCardBody>
           <div className="mb-3">
-            <CFormLabel htmlFor="coreui-onboarding-goal">Primary goal</CFormLabel>
+            <CFormLabel htmlFor="coreui-onboarding-goal">
+              Primary goal
+            </CFormLabel>
             <CFormTextarea
               id="coreui-onboarding-goal"
               name="goal"

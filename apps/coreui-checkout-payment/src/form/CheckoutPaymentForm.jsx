@@ -15,7 +15,9 @@ function CheckoutPaymentForm() {
   return (
     <CForm onSubmit={handleSubmit}>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-checkout-email">Email for receipt</CFormLabel>
+        <CFormLabel htmlFor="coreui-checkout-email">
+          Email for receipt
+        </CFormLabel>
         <CFormInput
           id="coreui-checkout-email"
           name="email"
@@ -24,8 +26,14 @@ function CheckoutPaymentForm() {
         />
       </div>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-checkout-shipping-method">Shipping method</CFormLabel>
-        <CFormSelect id="coreui-checkout-shipping-method" name="shippingMethod" required>
+        <CFormLabel htmlFor="coreui-checkout-shipping-method">
+          Shipping method
+        </CFormLabel>
+        <CFormSelect
+          id="coreui-checkout-shipping-method"
+          name="shippingMethod"
+          required
+        >
           <option value="">Select shipping</option>
           <option value="standard">Standard</option>
           <option value="express">Express</option>
@@ -33,7 +41,9 @@ function CheckoutPaymentForm() {
         </CFormSelect>
       </div>
       <div className="mb-3">
-        <CFormLabel htmlFor="coreui-checkout-card-number">Card number</CFormLabel>
+        <CFormLabel htmlFor="coreui-checkout-card-number">
+          Card number
+        </CFormLabel>
         <CFormInput
           id="coreui-checkout-card-number"
           name="cardNumber"
