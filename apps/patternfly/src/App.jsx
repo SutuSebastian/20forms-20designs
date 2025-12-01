@@ -1,8 +1,6 @@
 import '@patternfly/react-core/dist/styles/base.css'
 
-
 import { useState, useEffect } from 'react'
-
 
 // Import all form components
 import AdvancedSearchForm from './forms/AdvancedSearchForm'
@@ -68,13 +66,12 @@ function App() {
     const urlTheme = params.get('theme')
 
     if (urlTheme === 'dark' || theme === 'dark') {
+      // PatternFly v6 uses pf-v6-theme-dark class on html element
+      document.documentElement.classList.add('pf-v6-theme-dark')
       document.body.classList.add('dark')
-      document.body.style.backgroundColor = '#1a1a2e'
-      document.body.style.color = '#ffffff'
     } else {
+      document.documentElement.classList.remove('pf-v6-theme-dark')
       document.body.classList.remove('dark')
-      document.body.style.backgroundColor = ''
-      document.body.style.color = ''
     }
   }, [theme])
 
