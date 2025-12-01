@@ -173,7 +173,7 @@ export default App
 
 function generateGluestackApp(library, form) {
   return `import { useState, useEffect } from 'react'
-import { GluestackUIProvider, Box, config } from '@gluestack-ui/themed'
+import { GluestackUIProvider, Box } from '@gluestack-ui/themed'
 import FormComponent from './form/${form.name}'
 
 function App() {
@@ -193,13 +193,13 @@ function App() {
   }, [])
 
   return (
-    <GluestackUIProvider config={config.theme} colorMode={theme}>
+    <GluestackUIProvider colorMode={theme}>
       <Box
         p="$4"
         bg={theme === 'dark' ? '$backgroundDark900' : '$backgroundLight0'}
-        minHeight="100vh"
+        sx={{ minHeight: '100vh' }}
       >
-        <FormComponent />
+        <FormComponent theme={theme} />
       </Box>
     </GluestackUIProvider>
   )
