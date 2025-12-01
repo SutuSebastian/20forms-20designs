@@ -1,4 +1,6 @@
-import { Form, Button, Input } from 'rsuite'
+import { Form, Button } from 'rsuite'
+
+const Textarea = (props) => <textarea className="rs-input" {...props} />
 
 function ProfileUpdateForm() {
   const handleSubmit = () => {
@@ -31,8 +33,7 @@ function ProfileUpdateForm() {
         <Form.ControlLabel>Short bio</Form.ControlLabel>
         <Form.Control
           name="bio"
-          accepter={Input}
-          as="textarea"
+          accepter={Textarea}
           rows={3}
           required
         />

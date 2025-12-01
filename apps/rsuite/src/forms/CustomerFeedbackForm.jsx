@@ -1,4 +1,6 @@
-import { Form, Button, SelectPicker, Input, Checkbox } from 'rsuite'
+import { Form, Button, SelectPicker, Checkbox } from 'rsuite'
+
+const Textarea = (props) => <textarea className="rs-input" {...props} />
 
 const ratingOptions = [
   { label: 'Excellent', value: 'excellent' },
@@ -40,8 +42,7 @@ function CustomerFeedbackForm() {
         <Form.ControlLabel>Comments</Form.ControlLabel>
         <Form.Control
           name="comments"
-          accepter={Input}
-          as="textarea"
+          accepter={Textarea}
           rows={4}
           required
         />

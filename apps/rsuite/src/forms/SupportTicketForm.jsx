@@ -1,4 +1,6 @@
-import { Form, Button, RadioGroup, Radio, Input, Uploader } from 'rsuite'
+import { Form, Button, RadioGroup, Radio, Uploader } from 'rsuite'
+
+const Textarea = (props) => <textarea className="rs-input" {...props} />
 
 function SupportTicketForm() {
   const handleSubmit = () => {
@@ -25,8 +27,7 @@ function SupportTicketForm() {
         <Form.ControlLabel>Issue description</Form.ControlLabel>
         <Form.Control
           name="description"
-          accepter={Input}
-          as="textarea"
+          accepter={Textarea}
           rows={4}
           required
         />

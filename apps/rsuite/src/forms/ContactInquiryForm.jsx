@@ -1,4 +1,6 @@
-import { Form, Button, SelectPicker, Input, Checkbox } from 'rsuite'
+import { Form, Button, SelectPicker, Checkbox } from 'rsuite'
+
+const Textarea = (props) => <textarea className="rs-input" {...props} />
 
 const topicOptions = [
   { label: 'Support', value: 'support' },
@@ -40,8 +42,7 @@ function ContactInquiryForm() {
         <Form.ControlLabel>Message</Form.ControlLabel>
         <Form.Control
           name="message"
-          accepter={Input}
-          as="textarea"
+          accepter={Textarea}
           rows={4}
           required
         />

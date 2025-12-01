@@ -1,4 +1,6 @@
-import { Form, Button, Input, Checkbox } from 'rsuite'
+import { Form, Button, Checkbox } from 'rsuite'
+
+const Textarea = (props) => <textarea className="rs-input" {...props} />
 
 function JobApplicationForm() {
   const handleSubmit = () => {
@@ -36,8 +38,7 @@ function JobApplicationForm() {
         <Form.ControlLabel>Cover letter</Form.ControlLabel>
         <Form.Control
           name="coverLetter"
-          accepter={Input}
-          as="textarea"
+          accepter={Textarea}
           rows={4}
           required
         />

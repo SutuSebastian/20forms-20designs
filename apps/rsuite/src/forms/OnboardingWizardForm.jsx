@@ -3,10 +3,11 @@ import {
   Button,
   ButtonToolbar,
   SelectPicker,
-  Input,
   Checkbox,
   Panel,
 } from 'rsuite'
+
+const Textarea = (props) => <textarea className="rs-input" {...props} />
 
 const teamSizeOptions = [
   { label: '1-5', value: '1-5' },
@@ -63,8 +64,7 @@ function OnboardingWizardForm() {
           <Form.ControlLabel>Primary goal</Form.ControlLabel>
           <Form.Control
             name="goal"
-            accepter={Input}
-            as="textarea"
+            accepter={Textarea}
             rows={3}
             required
           />

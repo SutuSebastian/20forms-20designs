@@ -1,4 +1,6 @@
-import { Form, Button, DatePicker, Input } from 'rsuite'
+import { Form, Button, DatePicker } from 'rsuite'
+
+const Textarea = (props) => <textarea className="rs-input" {...props} />
 
 function AppointmentRequestForm() {
   const handleSubmit = () => {
@@ -34,6 +36,7 @@ function AppointmentRequestForm() {
           name="time"
           accepter={DatePicker}
           format="HH:mm"
+          showMeridian={false}
           block
           required
         />
@@ -43,8 +46,7 @@ function AppointmentRequestForm() {
         <Form.ControlLabel>Reason for visit</Form.ControlLabel>
         <Form.Control
           name="reason"
-          accepter={Input}
-          as="textarea"
+          accepter={Textarea}
           rows={3}
           required
         />

@@ -1,4 +1,6 @@
-import { Form, Button, Checkbox, CheckboxGroup, Input } from 'rsuite'
+import { Form, Button, Checkbox, CheckboxGroup } from 'rsuite'
+
+const Textarea = (props) => <textarea className="rs-input" {...props} />
 
 function PrivacyConsentForm() {
   const handleSubmit = () => {
@@ -38,7 +40,7 @@ function PrivacyConsentForm() {
 
       <Form.Group controlId="notes">
         <Form.ControlLabel>Additional notes</Form.ControlLabel>
-        <Form.Control name="notes" accepter={Input} as="textarea" rows={3} />
+        <Form.Control name="notes" accepter={Textarea} rows={3} />
       </Form.Group>
 
       <Form.Group>
