@@ -281,6 +281,26 @@ The project is configured with `/20forms-20designs/` as the base path. If deploy
 - **GitHub Actions** — CI/CD pipeline
 - **GitHub Pages** — Static hosting
 
+## 📊 Source Lines of Code (SLOC)
+
+Total non-empty lines of code in the project:
+
+| Extension | Lines      |
+| --------- | ---------- |
+| `.jsx`    | 64,900     |
+| `.js`     | 6,671      |
+| `.mjs`    | 2,475      |
+| `.json`   | 1,022      |
+| `.css`    | 1,007      |
+| `.ts`     | 999        |
+| `.html`   | 910        |
+| `.md`     | 640        |
+| `.tsx`    | 490        |
+| `.scss`   | 7          |
+| **Total** | **79,121** |
+
+*Generated using `scripts/calc-sloc.mjs` — excludes `node_modules`, `dist`, lock files, and other build artifacts.*
+
 ## 📄 License
 
 MIT License — see [LICENSE](LICENSE) for details.
