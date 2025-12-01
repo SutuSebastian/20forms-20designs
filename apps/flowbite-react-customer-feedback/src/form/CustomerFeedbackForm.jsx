@@ -1,4 +1,11 @@
-import { Button, Checkbox, Label, Select, TextInput, Textarea } from 'flowbite-react'
+import {
+  Button,
+  Checkbox,
+  Label,
+  Select,
+  TextInput,
+  Textarea,
+} from 'flowbite-react'
 
 function CustomerFeedbackForm() {
   const handleSubmit = (event) => {
