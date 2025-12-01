@@ -12,7 +12,7 @@ This is how this project was born. It represents 20 extremely common forms that 
 
 ## ✨ Features
 
-- **440+ Mini-Apps** — Each form × library combination runs in its own isolated context
+- **520+ Mini-Apps** — Each form × library combination runs in its own isolated context
 - **CSS Isolation** — No style conflicts between design systems (iframe-based architecture)
 - **Theme Support** — Light/dark mode toggle for libraries that support theming
 - **Comparison Matrix** — Side-by-side comparison of forms across libraries
@@ -29,16 +29,16 @@ This project uses a **monorepo + iframe architecture** for complete CSS isolatio
 │   ├── mui-user-login/           # MUI Login Form
 │   ├── mui-user-registration/    # MUI Registration Form
 │   ├── radix-ui-user-login/      # Radix UI Login Form
-│   └── ... (440+ mini-apps total)
+│   └── ... (520+ mini-apps total)
 ├── scripts/
 │   ├── build-all.mjs             # Build orchestration
 │   └── copy-builds-to-dist.mjs   # Deployment bundler
 └── public/                       # Static assets
 ```
 
-### Why 440+ Separate Mini-Apps?
+### Why 520+ Separate Mini-Apps?
 
-You might wonder: *why build 460+ separate applications instead of one unified app?* The answer comes down to **CSS isolation** — the core technical challenge of this project.
+You might wonder: *why build 520+ separate applications instead of one unified app?* The answer comes down to **CSS isolation** — the core technical challenge of this project.
 
 **The Problem with a Single SPA:**
 
@@ -131,14 +131,14 @@ All libraries implement the same 20 forms with identical content, labels, and fi
 | [Tamagui](https://tamagui.dev/)                         | ✅ Light/Dark | [GitHub](https://github.com/tamagui/tamagui)                      |
 | [U.S. Web Design System](https://designsystem.digital.gov/) | ✅ Light/Dark | [GitHub](https://github.com/uswds/uswds)                      |
 | [Web Awesome](https://webawesome.com/)                  | ✅ Light/Dark | [GitHub](https://github.com/AmazeeLabs/webawesome)                |
+| [Base Web](https://baseweb.design/)                     | ✅ Light/Dark | [GitHub](https://github.com/uber/baseweb)                         |
+| [Braid Design System](https://seek-oss.github.io/braid-design-system/) | ✅ Light/Dark | [GitHub](https://github.com/seek-oss/braid-design-system) |
 | [Zendesk Garden](https://garden.zendesk.com/)           | ✅ Light/Dark | [GitHub](https://github.com/zendeskgarden/react-components)       |
 
 ### 📋 Planned Libraries
 
 | Library                                                                              | Repository                                                         |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| [Base Web](https://baseweb.design/)                                                  | [GitHub](https://github.com/uber/baseweb)                          |
-| [Braid Design System](https://seek-oss.github.io/braid-design-system/)               | [GitHub](https://github.com/seek-oss/braid-design-system)          |
 | [CoreUI](https://coreui.io/react/)                                                   | [GitHub](https://github.com/coreui/coreui-react)                   |
 | [Flowbite React](https://flowbite-react.com/)                                        | [GitHub](https://github.com/themesberg/flowbite-react)             |
 | [Fluent UI](https://developer.microsoft.com/en-us/fluentui)                          | [GitHub](https://github.com/microsoft/fluentui)                    |
@@ -188,7 +188,7 @@ This runs the shell application in development mode.
 ### Production Build (CSS Isolation)
 
 ```bash
-# Build all 441 apps (shell + 440 mini-apps) for GitHub Pages
+# Build all 521 apps (shell + 520 mini-apps) for GitHub Pages
 npm run build
 
 # Preview the production build locally
@@ -254,7 +254,7 @@ This project is configured for automatic deployment to GitHub Pages via GitHub A
 The workflow:
 
 - Installs dependencies with `--legacy-peer-deps`
-- Builds all 441 apps (shell + 440 mini-apps)
+- Builds all 521 apps (shell + 520 mini-apps)
 - Deploys to GitHub Pages
 
 **Live URL:** `https://<username>.github.io/20forms-20designs/`
