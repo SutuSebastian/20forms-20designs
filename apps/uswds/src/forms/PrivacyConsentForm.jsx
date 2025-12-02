@@ -9,52 +9,30 @@ import {
   Fieldset,
 } from '@trussworks/react-uswds'
 
-function PrivacyConsentForm({ theme }) {
+function PrivacyConsentForm() {
   const handleSubmit = (event) => {
     event.preventDefault()
     alert('Privacy preferences saved!')
   }
 
-  const darkStyles = {
-    label: { color: '#f0f0f0' },
-    input: {
-      backgroundColor: '#2d2d2d',
-      color: '#f0f0f0',
-      borderColor: '#565c65',
-    },
-    legend: { color: '#f0f0f0' },
-  }
-
   return (
     <Form onSubmit={handleSubmit}>
       <FormGroup>
-        <Label
-          htmlFor="uswds-privacy-name"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Full name
-        </Label>
+        <Label htmlFor="uswds-privacy-name">Full name</Label>
         <TextInput
           id="uswds-privacy-name"
           name="fullName"
           type="text"
           required
-          style={theme === 'dark' ? darkStyles.input : undefined}
         />
       </FormGroup>
       <FormGroup>
-        <Label
-          htmlFor="uswds-privacy-email"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Email address
-        </Label>
+        <Label htmlFor="uswds-privacy-email">Email address</Label>
         <TextInput
           id="uswds-privacy-email"
           name="email"
           type="email"
           required
-          style={theme === 'dark' ? darkStyles.input : undefined}
         />
       </FormGroup>
       <Fieldset legend="Communication channels">
@@ -87,17 +65,8 @@ function PrivacyConsentForm({ theme }) {
         />
       </Fieldset>
       <FormGroup>
-        <Label
-          htmlFor="uswds-privacy-notes"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Additional notes
-        </Label>
-        <Textarea
-          id="uswds-privacy-notes"
-          name="notes"
-          style={theme === 'dark' ? darkStyles.input : undefined}
-        />
+        <Label htmlFor="uswds-privacy-notes">Additional notes</Label>
+        <Textarea id="uswds-privacy-notes" name="notes" />
       </FormGroup>
       <Button type="submit">Save preferences</Button>
     </Form>

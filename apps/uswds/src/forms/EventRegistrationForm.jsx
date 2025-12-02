@@ -8,66 +8,25 @@ import {
   Button,
 } from '@trussworks/react-uswds'
 
-function EventRegistrationForm({ theme }) {
+function EventRegistrationForm() {
   const handleSubmit = (event) => {
     event.preventDefault()
     alert('Event registration submitted!')
   }
 
-  const darkStyles = {
-    label: { color: '#f0f0f0' },
-    input: {
-      backgroundColor: '#2d2d2d',
-      color: '#f0f0f0',
-      borderColor: '#565c65',
-    },
-  }
-
   return (
     <Form onSubmit={handleSubmit}>
       <FormGroup>
-        <Label
-          htmlFor="uswds-event-name"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Full name
-        </Label>
-        <TextInput
-          id="uswds-event-name"
-          name="fullName"
-          type="text"
-          required
-          style={theme === 'dark' ? darkStyles.input : undefined}
-        />
+        <Label htmlFor="uswds-event-name">Full name</Label>
+        <TextInput id="uswds-event-name" name="fullName" type="text" required />
       </FormGroup>
       <FormGroup>
-        <Label
-          htmlFor="uswds-event-email"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Email address
-        </Label>
-        <TextInput
-          id="uswds-event-email"
-          name="email"
-          type="email"
-          required
-          style={theme === 'dark' ? darkStyles.input : undefined}
-        />
+        <Label htmlFor="uswds-event-email">Email address</Label>
+        <TextInput id="uswds-event-email" name="email" type="email" required />
       </FormGroup>
       <FormGroup>
-        <Label
-          htmlFor="uswds-event-ticket"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Ticket type
-        </Label>
-        <Select
-          id="uswds-event-ticket"
-          name="ticketType"
-          required
-          style={theme === 'dark' ? darkStyles.input : undefined}
-        >
+        <Label htmlFor="uswds-event-ticket">Ticket type</Label>
+        <Select id="uswds-event-ticket" name="ticketType" required>
           <option value="">Select ticket</option>
           <option value="general">General admission</option>
           <option value="vip">VIP</option>
@@ -75,12 +34,7 @@ function EventRegistrationForm({ theme }) {
         </Select>
       </FormGroup>
       <FormGroup>
-        <Label
-          htmlFor="uswds-event-guests"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Number of guests
-        </Label>
+        <Label htmlFor="uswds-event-guests">Number of guests</Label>
         <TextInput
           id="uswds-event-guests"
           name="guestCount"
@@ -88,7 +42,6 @@ function EventRegistrationForm({ theme }) {
           min={0}
           max={20}
           required
-          style={theme === 'dark' ? darkStyles.input : undefined}
         />
       </FormGroup>
       <FormGroup>

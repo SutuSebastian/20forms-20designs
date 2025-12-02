@@ -9,66 +9,35 @@ import {
   Button,
 } from '@trussworks/react-uswds'
 
-function ContactInquiryForm({ theme }) {
+function ContactInquiryForm() {
   const handleSubmit = (event) => {
     event.preventDefault()
     alert('Inquiry submitted!')
   }
 
-  const darkStyles = {
-    label: { color: '#f0f0f0' },
-    input: {
-      backgroundColor: '#2d2d2d',
-      color: '#f0f0f0',
-      borderColor: '#565c65',
-    },
-  }
-
   return (
     <Form onSubmit={handleSubmit}>
       <FormGroup>
-        <Label
-          htmlFor="uswds-contact-name"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Full name
-        </Label>
+        <Label htmlFor="uswds-contact-name">Full name</Label>
         <TextInput
           id="uswds-contact-name"
           name="fullName"
           type="text"
           required
-          style={theme === 'dark' ? darkStyles.input : undefined}
         />
       </FormGroup>
       <FormGroup>
-        <Label
-          htmlFor="uswds-contact-email"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Email address
-        </Label>
+        <Label htmlFor="uswds-contact-email">Email address</Label>
         <TextInput
           id="uswds-contact-email"
           name="email"
           type="email"
           required
-          style={theme === 'dark' ? darkStyles.input : undefined}
         />
       </FormGroup>
       <FormGroup>
-        <Label
-          htmlFor="uswds-contact-topic"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Topic
-        </Label>
-        <Select
-          id="uswds-contact-topic"
-          name="topic"
-          required
-          style={theme === 'dark' ? darkStyles.input : undefined}
-        >
+        <Label htmlFor="uswds-contact-topic">Topic</Label>
+        <Select id="uswds-contact-topic" name="topic" required>
           <option value="">Select topic</option>
           <option value="support">Support</option>
           <option value="sales">Sales</option>
@@ -77,18 +46,8 @@ function ContactInquiryForm({ theme }) {
         </Select>
       </FormGroup>
       <FormGroup>
-        <Label
-          htmlFor="uswds-contact-message"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Message
-        </Label>
-        <Textarea
-          id="uswds-contact-message"
-          name="message"
-          required
-          style={theme === 'dark' ? darkStyles.input : undefined}
-        />
+        <Label htmlFor="uswds-contact-message">Message</Label>
+        <Textarea id="uswds-contact-message" name="message" required />
       </FormGroup>
       <FormGroup>
         <Checkbox

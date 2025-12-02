@@ -9,43 +9,24 @@ import {
   Fieldset,
 } from '@trussworks/react-uswds'
 
-function SupportTicketForm({ theme }) {
+function SupportTicketForm() {
   const handleSubmit = (event) => {
     event.preventDefault()
     alert('Support ticket submitted!')
   }
 
-  const darkStyles = {
-    label: { color: '#f0f0f0' },
-    input: {
-      backgroundColor: '#2d2d2d',
-      color: '#f0f0f0',
-      borderColor: '#565c65',
-    },
-    text: { color: '#f0f0f0' },
-  }
-
   return (
     <Form onSubmit={handleSubmit}>
       <FormGroup>
-        <Label
-          htmlFor="uswds-ticket-subject"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Subject
-        </Label>
+        <Label htmlFor="uswds-ticket-subject">Subject</Label>
         <TextInput
           id="uswds-ticket-subject"
           name="subject"
           type="text"
           required
-          style={theme === 'dark' ? darkStyles.input : undefined}
         />
       </FormGroup>
-      <Fieldset
-        legend="Priority"
-        legendStyle={theme === 'dark' ? 'large' : 'default'}
-      >
+      <Fieldset legend="Priority">
         <Radio
           id="uswds-ticket-priority-low"
           name="priority"
@@ -67,26 +48,11 @@ function SupportTicketForm({ theme }) {
         />
       </Fieldset>
       <FormGroup>
-        <Label
-          htmlFor="uswds-ticket-description"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Issue description
-        </Label>
-        <Textarea
-          id="uswds-ticket-description"
-          name="description"
-          required
-          style={theme === 'dark' ? darkStyles.input : undefined}
-        />
+        <Label htmlFor="uswds-ticket-description">Issue description</Label>
+        <Textarea id="uswds-ticket-description" name="description" required />
       </FormGroup>
       <FormGroup>
-        <Label
-          htmlFor="uswds-ticket-attachments"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Attachments
-        </Label>
+        <Label htmlFor="uswds-ticket-attachments">Attachments</Label>
         <input
           id="uswds-ticket-attachments"
           name="attachments"

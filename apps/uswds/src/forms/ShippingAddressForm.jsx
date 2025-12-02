@@ -10,7 +10,7 @@ import {
 } from '@trussworks/react-uswds'
 import { CANADIAN_PROVINCES, COUNTRIES, US_STATES } from './locationOptions'
 
-function ShippingAddressForm({ theme }) {
+function ShippingAddressForm() {
   const [country, setCountry] = useState('US')
 
   const handleSubmit = (event) => {
@@ -20,90 +20,42 @@ function ShippingAddressForm({ theme }) {
 
   const regionOptions = country === 'CA' ? CANADIAN_PROVINCES : US_STATES
 
-  const darkStyles = {
-    label: { color: '#f0f0f0' },
-    input: {
-      backgroundColor: '#2d2d2d',
-      color: '#f0f0f0',
-      borderColor: '#565c65',
-    },
-  }
-
   return (
     <Form onSubmit={handleSubmit}>
       <FormGroup>
-        <Label
-          htmlFor="uswds-shipping-full-name"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Recipient name
-        </Label>
+        <Label htmlFor="uswds-shipping-full-name">Recipient name</Label>
         <TextInput
           id="uswds-shipping-full-name"
           name="fullName"
           type="text"
           required
-          style={theme === 'dark' ? darkStyles.input : undefined}
         />
       </FormGroup>
       <FormGroup>
-        <Label
-          htmlFor="uswds-shipping-street"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Street address
-        </Label>
+        <Label htmlFor="uswds-shipping-street">Street address</Label>
         <TextInput
           id="uswds-shipping-street"
           name="street"
           type="text"
           required
-          style={theme === 'dark' ? darkStyles.input : undefined}
         />
       </FormGroup>
       <FormGroup>
-        <Label
-          htmlFor="uswds-shipping-street-2"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Apartment, suite, etc.
-        </Label>
-        <TextInput
-          id="uswds-shipping-street-2"
-          name="street2"
-          type="text"
-          style={theme === 'dark' ? darkStyles.input : undefined}
-        />
+        <Label htmlFor="uswds-shipping-street-2">Apartment, suite, etc.</Label>
+        <TextInput id="uswds-shipping-street-2" name="street2" type="text" />
       </FormGroup>
       <FormGroup>
-        <Label
-          htmlFor="uswds-shipping-city"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          City
-        </Label>
-        <TextInput
-          id="uswds-shipping-city"
-          name="city"
-          type="text"
-          required
-          style={theme === 'dark' ? darkStyles.input : undefined}
-        />
+        <Label htmlFor="uswds-shipping-city">City</Label>
+        <TextInput id="uswds-shipping-city" name="city" type="text" required />
       </FormGroup>
       <FormGroup>
-        <Label
-          htmlFor="uswds-shipping-country"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Country
-        </Label>
+        <Label htmlFor="uswds-shipping-country">Country</Label>
         <Select
           id="uswds-shipping-country"
           name="country"
           value={country}
           onChange={(e) => setCountry(e.target.value)}
           required
-          style={theme === 'dark' ? darkStyles.input : undefined}
         >
           {COUNTRIES.map(({ value, label }) => (
             <option key={value} value={value}>
@@ -113,18 +65,10 @@ function ShippingAddressForm({ theme }) {
         </Select>
       </FormGroup>
       <FormGroup>
-        <Label
-          htmlFor="uswds-shipping-region"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
+        <Label htmlFor="uswds-shipping-region">
           State / Province / Territory
         </Label>
-        <Select
-          id="uswds-shipping-region"
-          name="region"
-          required
-          style={theme === 'dark' ? darkStyles.input : undefined}
-        >
+        <Select id="uswds-shipping-region" name="region" required>
           <option value="">Select an option</option>
           {regionOptions.map((region) => (
             <option key={region} value={region}>
@@ -134,18 +78,12 @@ function ShippingAddressForm({ theme }) {
         </Select>
       </FormGroup>
       <FormGroup>
-        <Label
-          htmlFor="uswds-shipping-postal"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Postal code
-        </Label>
+        <Label htmlFor="uswds-shipping-postal">Postal code</Label>
         <TextInput
           id="uswds-shipping-postal"
           name="postalCode"
           type="text"
           required
-          style={theme === 'dark' ? darkStyles.input : undefined}
         />
       </FormGroup>
       <FormGroup>

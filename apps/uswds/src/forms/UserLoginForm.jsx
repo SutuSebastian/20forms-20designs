@@ -7,51 +7,30 @@ import {
   Button,
 } from '@trussworks/react-uswds'
 
-function UserLoginForm({ theme }) {
+function UserLoginForm() {
   const handleSubmit = (event) => {
     event.preventDefault()
     alert('Login submitted!')
   }
 
-  const darkStyles = {
-    label: { color: '#f0f0f0' },
-    input: {
-      backgroundColor: '#2d2d2d',
-      color: '#f0f0f0',
-      borderColor: '#565c65',
-    },
-  }
-
   return (
     <Form onSubmit={handleSubmit}>
       <FormGroup>
-        <Label
-          htmlFor="uswds-user-login-email"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Email or username
-        </Label>
+        <Label htmlFor="uswds-user-login-email">Email or username</Label>
         <TextInput
           id="uswds-user-login-email"
           name="identifier"
           type="text"
           required
-          style={theme === 'dark' ? darkStyles.input : undefined}
         />
       </FormGroup>
       <FormGroup>
-        <Label
-          htmlFor="uswds-user-login-password"
-          style={theme === 'dark' ? darkStyles.label : undefined}
-        >
-          Password
-        </Label>
+        <Label htmlFor="uswds-user-login-password">Password</Label>
         <TextInput
           id="uswds-user-login-password"
           name="password"
           type="password"
           required
-          style={theme === 'dark' ? darkStyles.input : undefined}
         />
       </FormGroup>
       <FormGroup>
