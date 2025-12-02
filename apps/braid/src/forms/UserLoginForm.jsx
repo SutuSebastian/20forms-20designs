@@ -40,11 +40,10 @@ function UserLoginForm() {
 
         <Checkbox
           id="braid-user-login-remember"
+          label="Keep me signed in"
           checked={rememberMe}
           onChange={(e) => setRememberMe(e.target.checked)}
-        >
-          Keep me signed in
-        </Checkbox>
+        />
 
         <Inline space="small">
           <Button type="submit">Sign in</Button>

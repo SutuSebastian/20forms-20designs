@@ -1,5 +1,13 @@
 import { useState, useCallback } from 'react'
-import { Box, Stack, TextField, Dropdown, Textarea, Checkbox, Button } from 'braid-design-system'
+import {
+  Box,
+  Stack,
+  TextField,
+  Dropdown,
+  Textarea,
+  Checkbox,
+  Button,
+} from 'braid-design-system'
 
 function ContactInquiryForm() {
   const [fullName, setFullName] = useState('')
@@ -57,11 +65,10 @@ function ContactInquiryForm() {
 
         <Checkbox
           id="braid-contact-consent"
+          label="Allow follow-up communication"
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
-        >
-          Allow follow-up communication
-        </Checkbox>
+        />
 
         <Box>
           <Button type="submit">Submit inquiry</Button>

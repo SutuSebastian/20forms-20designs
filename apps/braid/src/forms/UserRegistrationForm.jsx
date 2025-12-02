@@ -62,11 +62,10 @@ function UserRegistrationForm() {
 
         <Checkbox
           id="braid-user-registration-terms"
+          label="I agree to the terms and conditions"
           checked={terms}
           onChange={(e) => setTerms(e.target.checked)}
-        >
-          I agree to the terms and conditions
-        </Checkbox>
+        />
 
         <Box>
           <Button type="submit">Create account</Button>

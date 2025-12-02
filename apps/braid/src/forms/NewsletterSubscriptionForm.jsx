@@ -44,11 +44,10 @@ function NewsletterSubscriptionForm() {
 
         <Checkbox
           id="braid-newsletter-agree"
+          label="Receive product updates"
           checked={agree}
           onChange={(e) => setAgree(e.target.checked)}
-        >
-          Receive product updates
-        </Checkbox>
+        />
 
         <Box>
           <Button type="submit">Subscribe</Button>

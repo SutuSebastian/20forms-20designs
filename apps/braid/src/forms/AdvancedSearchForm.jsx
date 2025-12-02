@@ -73,11 +73,10 @@ function AdvancedSearchForm() {
 
         <Checkbox
           id="braid-search-archived"
+          label="Include archived"
           checked={includeArchived}
           onChange={(e) => setIncludeArchived(e.target.checked)}
-        >
-          Include archived
-        </Checkbox>
+        />
 
         <Box>
           <Button type="submit">Search</Button>

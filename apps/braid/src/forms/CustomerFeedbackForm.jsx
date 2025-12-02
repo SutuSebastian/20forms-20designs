@@ -65,11 +65,10 @@ function CustomerFeedbackForm() {
 
         <Checkbox
           id="braid-feedback-followup"
+          label="I would like a follow-up"
           checked={followUp}
           onChange={(e) => setFollowUp(e.target.checked)}
-        >
-          I would like a follow-up
-        </Checkbox>
+        />
 
         <Box>
           <Button type="submit">Send feedback</Button>
