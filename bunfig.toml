@@ -1,0 +1,6 @@
+# Bun configuration for 20forms-20designs monorepo
+# Bun automatically reads pnpm-workspace.yaml for workspace configuration
+
+[install]
+# Automatically install peer dependencies (equivalent to pnpm's auto-install-peers)
+peer = true
