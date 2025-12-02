@@ -58,7 +58,7 @@ jobs:
         run: pnpm --filter @forms-comparison/shell exec playwright install --with-deps chromium
 
       - name: Run Playwright tests
-        run: pnpm --filter @forms-comparison/shell test --project=chromium
+        run: pnpm --filter @forms-comparison/shell test -- --project=chromium
 
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4
@@ -67,6 +67,7 @@ jobs:
           name: playwright-report
           path: apps/shell/playwright-report/
           retention-days: 30
+          if-no-files-found: ignore
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
