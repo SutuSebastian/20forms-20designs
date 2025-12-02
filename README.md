@@ -228,6 +228,49 @@ Each library app is a standalone Vite + React application that:
 | `pnpm run preview`          | Preview the production build locally              |
 | `pnpm run lint`             | Lint all apps (may take a while)                  |
 
+## 🧪 Testing
+
+The shell app includes a comprehensive Playwright test suite to ensure UI functionality works correctly.
+
+### Running Tests
+
+```bash
+cd apps/shell
+
+# Run all tests headlessly
+pnpm test
+
+# Run tests with Playwright UI (interactive mode)
+pnpm test:ui
+
+# Run tests with browser visible
+pnpm test:headed
+
+# Run tests in debug mode
+pnpm test:debug
+
+# Run tests for a specific browser
+pnpm test -- --project=chromium
+pnpm test -- --project=firefox
+pnpm test -- --project=webkit
+```
+
+### Test Coverage
+
+The test suite covers:
+
+- **Header** — Title and subtitle display
+- **Form Selection** — Display, toggle, select all/none functionality
+- **Library Selection** — Display, toggle, select all/none, external links
+- **Theme Toggle** — Light/dark theme switching
+- **Group By Toggle** — Grouping by design system or form name
+- **Preview Section** — Cards, iframes, GitHub links, empty states
+- **Grouping Behavior** — Different section layouts based on grouping mode
+- **Persistence** — localStorage persistence across page reloads
+- **Dark Theme Badge** — Warning for libraries without dark theme support
+- **Responsive Layout** — Two-column and single-column layouts
+- **External Links** — Correct attributes on website/repo links
+
 ## 🔧 Adding a New Library
 
 1. Create a new directory: `apps/<library>/`
@@ -293,17 +336,17 @@ Total non-empty lines of code in the project:
 
 | Extension | Lines      |
 | --------- | ---------- |
-| `.jsx`    | 62,593     |
+| `.jsx`    | 62,591     |
 | `.js`     | 6,742      |
 | `.mjs`    | 2,484      |
-| `.json`   | 1,401      |
+| `.ts`     | 1,434      |
+| `.json`   | 1,410      |
 | `.css`    | 1,213      |
-| `.ts`     | 988        |
-| `.html`   | 911        |
-| `.md`     | 659        |
+| `.html`   | 993        |
+| `.md`     | 690        |
 | `.tsx`    | 545        |
 | `.scss`   | 7          |
-| **Total** | **77,543** |
+| **Total** | **78,109** |
 
 *Generated using `scripts/calc-sloc.mjs` — excludes `node_modules`, `dist`, lock files, and other build artifacts.*
 
