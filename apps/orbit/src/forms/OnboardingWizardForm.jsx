@@ -1,6 +1,7 @@
 import {
   InputField,
   Button,
+  ButtonLink,
   Stack,
   Select,
   Textarea,
@@ -53,13 +54,13 @@ function OnboardingWizardForm() {
         <Textarea label="Primary goal" name="goal" rows={3} required />
         <Checkbox label="Send me product tips" name="updates" />
 
-        <Stack direction="row" spacing="small">
-          <Button
+        <Stack direction="row" spacing="small" justify="end">
+          <ButtonLink
             type="secondary"
             onClick={() => alert('Back action placeholder')}
           >
             Back
-          </Button>
+          </ButtonLink>
           <Button type="primary" submit>
             Finish setup
           </Button>

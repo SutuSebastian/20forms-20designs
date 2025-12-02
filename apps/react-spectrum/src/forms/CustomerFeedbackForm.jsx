@@ -16,7 +16,7 @@ function CustomerFeedbackForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} width="100%">
       <Flex direction="column" gap="size-200">
         <TextField label="Name" name="name" type="text" isRequired />
         <TextField label="Email address" name="email" type="email" isRequired />

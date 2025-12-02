@@ -89,7 +89,7 @@ function ShippingAddressForm() {
   const regions = country === 'US' ? US_STATES : CA_PROVINCES
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} width="100%">
       <Flex direction="column" gap="size-200">
         <TextField
           label="Recipient name"

@@ -1,4 +1,11 @@
-import { Button, Checkbox, Label, Select, TextInput } from 'flowbite-react'
+import {
+  Button,
+  Card,
+  Checkbox,
+  Label,
+  Select,
+  TextInput,
+} from 'flowbite-react'
 
 function NewsletterSubscriptionForm() {
   const handleSubmit = (event) => {
@@ -7,37 +14,39 @@ function NewsletterSubscriptionForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-newsletter-email" value="Email address" />
+    <Card className="w-full">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-newsletter-email" value="Email address" />
+          </div>
+          <TextInput
+            id="flowbite-newsletter-email"
+            name="email"
+            type="email"
+            required
+          />
         </div>
-        <TextInput
-          id="flowbite-newsletter-email"
-          name="email"
-          type="email"
-          required
-        />
-      </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-newsletter-frequency" value="Frequency" />
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-newsletter-frequency" value="Frequency" />
+          </div>
+          <Select id="flowbite-newsletter-frequency" name="frequency" required>
+            <option value="">Select frequency</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="quarterly">Quarterly</option>
+          </Select>
         </div>
-        <Select id="flowbite-newsletter-frequency" name="frequency" required>
-          <option value="">Select frequency</option>
-          <option value="weekly">Weekly</option>
-          <option value="monthly">Monthly</option>
-          <option value="quarterly">Quarterly</option>
-        </Select>
-      </div>
-      <div className="flex items-center gap-2">
-        <Checkbox id="flowbite-newsletter-agree" name="agree" />
-        <Label htmlFor="flowbite-newsletter-agree">
-          Receive product updates
-        </Label>
-      </div>
-      <Button type="submit">Subscribe</Button>
-    </form>
+        <div className="flex items-center gap-2">
+          <Checkbox id="flowbite-newsletter-agree" name="agree" />
+          <Label htmlFor="flowbite-newsletter-agree">
+            Receive product updates
+          </Label>
+        </div>
+        <Button type="submit">Subscribe</Button>
+      </form>
+    </Card>
   )
 }
 

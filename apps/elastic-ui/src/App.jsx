@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useEuiTheme, EuiThemeProvider } from '@elastic/eui'
+import { EuiProvider } from '@elastic/eui'
 
 // Import all form components
 import AdvancedSearchForm from './forms/AdvancedSearchForm'
@@ -87,11 +87,20 @@ function App() {
   const FormComponent = FORM_COMPONENTS[formId]
 
   return (
-    <EuiThemeProvider colorMode={colorMode}>
-      <div style={{ padding: '20px', maxWidth: '500px', margin: '0 auto' }}>
+    <EuiProvider colorMode={colorMode}>
+      <div
+        style={{
+          padding: '20px',
+          maxWidth: '500px',
+          margin: '0 auto',
+          minHeight: '100vh',
+          backgroundColor: colorMode === 'dark' ? '#1D1E24' : '#ffffff',
+          color: colorMode === 'dark' ? '#DFE5EF' : '#343741',
+        }}
+      >
         <FormComponent />
       </div>
-    </EuiThemeProvider>
+    </EuiProvider>
   )
 }
 

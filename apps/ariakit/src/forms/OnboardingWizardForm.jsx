@@ -105,10 +105,18 @@ function OnboardingWizardForm() {
           </div>
         </Ariakit.FormGroup>
       </Ariakit.FormGroup>
-      <div className="button-group">
+      <div
+        className="button-group"
+        style={{
+          display: 'flex',
+          gap: '12px',
+          justifyContent: 'flex-end',
+          marginTop: '16px',
+        }}
+      >
         <button
           type="button"
-          className="button"
+          className="button button-secondary"
           onClick={() => alert('Back action placeholder')}
         >
           Back

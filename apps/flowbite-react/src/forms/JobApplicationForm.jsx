@@ -1,4 +1,11 @@
-import { Button, Checkbox, Label, TextInput, Textarea } from 'flowbite-react'
+import {
+  Button,
+  Card,
+  Checkbox,
+  Label,
+  TextInput,
+  Textarea,
+} from 'flowbite-react'
 
 function JobApplicationForm() {
   const handleSubmit = (event) => {
@@ -7,67 +14,79 @@ function JobApplicationForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-job-full-name" value="Full name" />
+    <Card className="w-full">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-job-full-name" value="Full name" />
+          </div>
+          <TextInput
+            id="flowbite-job-full-name"
+            name="fullName"
+            type="text"
+            required
+          />
         </div>
-        <TextInput
-          id="flowbite-job-full-name"
-          name="fullName"
-          type="text"
-          required
-        />
-      </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-job-email" value="Email address" />
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-job-email" value="Email address" />
+          </div>
+          <TextInput
+            id="flowbite-job-email"
+            name="email"
+            type="email"
+            required
+          />
         </div>
-        <TextInput id="flowbite-job-email" name="email" type="email" required />
-      </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-job-phone" value="Phone number" />
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-job-phone" value="Phone number" />
+          </div>
+          <TextInput
+            id="flowbite-job-phone"
+            name="phone"
+            type="tel"
+            pattern="[+0-9\s-]{7,20}"
+            required
+          />
         </div>
-        <TextInput
-          id="flowbite-job-phone"
-          name="phone"
-          type="tel"
-          pattern="[+0-9\s-]{7,20}"
-          required
-        />
-      </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-job-role" value="Role applied for" />
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-job-role" value="Role applied for" />
+          </div>
+          <TextInput id="flowbite-job-role" name="role" type="text" required />
         </div>
-        <TextInput id="flowbite-job-role" name="role" type="text" required />
-      </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-job-resume" value="Resume link" />
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-job-resume" value="Resume link" />
+          </div>
+          <TextInput
+            id="flowbite-job-resume"
+            name="resume"
+            type="url"
+            required
+          />
         </div>
-        <TextInput id="flowbite-job-resume" name="resume" type="url" required />
-      </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-job-cover-letter" value="Cover letter" />
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-job-cover-letter" value="Cover letter" />
+          </div>
+          <Textarea
+            id="flowbite-job-cover-letter"
+            name="coverLetter"
+            rows={4}
+            required
+          />
         </div>
-        <Textarea
-          id="flowbite-job-cover-letter"
-          name="coverLetter"
-          rows={4}
-          required
-        />
-      </div>
-      <div className="flex items-center gap-2">
-        <Checkbox id="flowbite-job-updates" name="updates" />
-        <Label htmlFor="flowbite-job-updates">
-          Keep me informed about future roles
-        </Label>
-      </div>
-      <Button type="submit">Submit application</Button>
-    </form>
+        <div className="flex items-center gap-2">
+          <Checkbox id="flowbite-job-updates" name="updates" />
+          <Label htmlFor="flowbite-job-updates">
+            Keep me informed about future roles
+          </Label>
+        </div>
+        <Button type="submit">Submit application</Button>
+      </form>
+    </Card>
   )
 }
 

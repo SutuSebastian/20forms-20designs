@@ -1,4 +1,11 @@
-import { Button, Checkbox, Label, Select, TextInput } from 'flowbite-react'
+import {
+  Button,
+  Card,
+  Checkbox,
+  Label,
+  Select,
+  TextInput,
+} from 'flowbite-react'
 
 function EventRegistrationForm() {
   const handleSubmit = (event) => {
@@ -7,61 +14,63 @@ function EventRegistrationForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-event-name" value="Full name" />
+    <Card className="w-full">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-event-name" value="Full name" />
+          </div>
+          <TextInput
+            id="flowbite-event-name"
+            name="fullName"
+            type="text"
+            required
+          />
         </div>
-        <TextInput
-          id="flowbite-event-name"
-          name="fullName"
-          type="text"
-          required
-        />
-      </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-event-email" value="Email address" />
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-event-email" value="Email address" />
+          </div>
+          <TextInput
+            id="flowbite-event-email"
+            name="email"
+            type="email"
+            required
+          />
         </div>
-        <TextInput
-          id="flowbite-event-email"
-          name="email"
-          type="email"
-          required
-        />
-      </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-event-ticket" value="Ticket type" />
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-event-ticket" value="Ticket type" />
+          </div>
+          <Select id="flowbite-event-ticket" name="ticketType" required>
+            <option value="">Select ticket</option>
+            <option value="general">General admission</option>
+            <option value="vip">VIP</option>
+            <option value="student">Student</option>
+          </Select>
         </div>
-        <Select id="flowbite-event-ticket" name="ticketType" required>
-          <option value="">Select ticket</option>
-          <option value="general">General admission</option>
-          <option value="vip">VIP</option>
-          <option value="student">Student</option>
-        </Select>
-      </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-event-guests" value="Number of guests" />
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-event-guests" value="Number of guests" />
+          </div>
+          <TextInput
+            id="flowbite-event-guests"
+            name="guestCount"
+            type="number"
+            min={0}
+            max={20}
+            required
+          />
         </div>
-        <TextInput
-          id="flowbite-event-guests"
-          name="guestCount"
-          type="number"
-          min={0}
-          max={20}
-          required
-        />
-      </div>
-      <div className="flex items-center gap-2">
-        <Checkbox id="flowbite-event-newsletter" name="newsletter" />
-        <Label htmlFor="flowbite-event-newsletter">
-          Notify me about future events
-        </Label>
-      </div>
-      <Button type="submit">Register</Button>
-    </form>
+        <div className="flex items-center gap-2">
+          <Checkbox id="flowbite-event-newsletter" name="newsletter" />
+          <Label htmlFor="flowbite-event-newsletter">
+            Notify me about future events
+          </Label>
+        </div>
+        <Button type="submit">Register</Button>
+      </form>
+    </Card>
   )
 }
 

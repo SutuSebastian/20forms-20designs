@@ -17,7 +17,7 @@ function OnboardingWizardForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} width="100%">
       <Flex direction="column" gap="size-200">
         <Heading level={3}>Step 1: Account</Heading>
         <TextField label="Work email" name="email" type="email" isRequired />

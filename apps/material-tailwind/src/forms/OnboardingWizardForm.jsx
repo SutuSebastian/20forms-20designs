@@ -163,6 +163,7 @@ function OnboardingWizardForm() {
             type="button"
             variant="outlined"
             onClick={() => setStep(step - 1)}
+            className="dark:text-white dark:border-white"
           >
             Back
           </Button>

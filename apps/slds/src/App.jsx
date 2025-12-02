@@ -103,10 +103,67 @@ function App() {
   const FormComponent = FORM_COMPONENTS[formId]
   const isDark = theme === 'dark'
 
+  // SLDS doesn't have native dark mode support - we need custom CSS overrides
+  // The slds-theme_inverse class only sets container colors, not form elements
+  const darkModeStyles = isDark
+    ? `
+    .slds-form-element__label,
+    .slds-form-element__legend,
+    .slds-checkbox__label .slds-form-element__label,
+    .slds-radio__label .slds-form-element__label,
+    .slds-text-heading_small,
+    .slds-text-heading--small,
+    .slds-progress__marker,
+    .slds-progress__item .slds-button,
+    .slds-progress__item .slds-progress__marker_icon,
+    .slds-combobox__input-value,
+    label,
+    legend {
+      color: #ffffff !important;
+    }
+    .slds-input,
+    .slds-textarea,
+    .slds-combobox__input,
+    .slds-input_faux {
+      background-color: #1e3a5f !important;
+      border-color: #5a8aba !important;
+      color: #ffffff !important;
+    }
+    .slds-input::placeholder,
+    .slds-textarea::placeholder {
+      color: #a0b5cc !important;
+    }
+    .slds-checkbox_faux,
+    .slds-checkbox--faux {
+      background-color: #1e3a5f !important;
+      border-color: #5a8aba !important;
+    }
+    .slds-progress__item.slds-is-completed .slds-progress__marker,
+    .slds-progress__item.slds-is-active .slds-progress__marker {
+      background-color: #1b96ff !important;
+      border-color: #1b96ff !important;
+    }
+    .slds-progress__item .slds-progress__marker {
+      background-color: #1e3a5f !important;
+      border-color: #5a8aba !important;
+    }
+    .slds-progress__bar {
+      background-color: #1e3a5f !important;
+    }
+    .slds-progress__bar span {
+      background-color: #1b96ff !important;
+    }
+    .slds-listbox__option {
+      color: #181818 !important;
+    }
+  `
+    : ''
+
   return (
     <IconSettings iconPath="/assets/icons">
+      {isDark && <style>{darkModeStyles}</style>}
       <div
-        className={isDark ? 'slds-theme_dark' : ''}
+        className={isDark ? 'slds-theme_inverse' : ''}
         style={{
           padding: '20px',
           maxWidth: '500px',

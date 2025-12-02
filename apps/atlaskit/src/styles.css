@@ -1,4 +1,15 @@
 /* Atlaskit uses design tokens and CSS-in-JS, minimal custom CSS needed */
+html,
+body,
+#root {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--ds-surface, #ffffff);
+  color: var(--ds-text, #172b4d);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
 .app-container {
   min-height: 100vh;
 }

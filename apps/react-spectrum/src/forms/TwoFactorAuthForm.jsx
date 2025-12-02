@@ -7,7 +7,7 @@ function TwoFactorAuthForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} width="100%">
       <Flex direction="column" gap="size-200">
         <Text>Enter the code from your authenticator app or SMS.</Text>
         <TextField

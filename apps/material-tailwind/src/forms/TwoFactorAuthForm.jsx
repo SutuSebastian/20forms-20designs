@@ -61,6 +61,7 @@ function TwoFactorAuthForm() {
         <Button
           type="button"
           variant="text"
+          className="dark:text-white"
           onClick={() => alert('Resend code placeholder')}
         >
           Resend code

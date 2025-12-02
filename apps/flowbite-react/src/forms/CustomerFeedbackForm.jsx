@@ -1,5 +1,6 @@
 import {
   Button,
+  Card,
   Checkbox,
   Label,
   Select,
@@ -14,60 +15,62 @@ function CustomerFeedbackForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-feedback-name" value="Name" />
+    <Card className="w-full">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-feedback-name" value="Name" />
+          </div>
+          <TextInput
+            id="flowbite-feedback-name"
+            name="name"
+            type="text"
+            required
+          />
         </div>
-        <TextInput
-          id="flowbite-feedback-name"
-          name="name"
-          type="text"
-          required
-        />
-      </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-feedback-email" value="Email address" />
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-feedback-email" value="Email address" />
+          </div>
+          <TextInput
+            id="flowbite-feedback-email"
+            name="email"
+            type="email"
+            required
+          />
         </div>
-        <TextInput
-          id="flowbite-feedback-email"
-          name="email"
-          type="email"
-          required
-        />
-      </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-feedback-rating" value="Overall rating" />
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-feedback-rating" value="Overall rating" />
+          </div>
+          <Select id="flowbite-feedback-rating" name="rating" required>
+            <option value="">Select rating</option>
+            <option value="excellent">Excellent</option>
+            <option value="good">Good</option>
+            <option value="average">Average</option>
+            <option value="poor">Poor</option>
+          </Select>
         </div>
-        <Select id="flowbite-feedback-rating" name="rating" required>
-          <option value="">Select rating</option>
-          <option value="excellent">Excellent</option>
-          <option value="good">Good</option>
-          <option value="average">Average</option>
-          <option value="poor">Poor</option>
-        </Select>
-      </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-feedback-comments" value="Comments" />
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-feedback-comments" value="Comments" />
+          </div>
+          <Textarea
+            id="flowbite-feedback-comments"
+            name="comments"
+            rows={4}
+            required
+          />
         </div>
-        <Textarea
-          id="flowbite-feedback-comments"
-          name="comments"
-          rows={4}
-          required
-        />
-      </div>
-      <div className="flex items-center gap-2">
-        <Checkbox id="flowbite-feedback-followup" name="followUp" />
-        <Label htmlFor="flowbite-feedback-followup">
-          I would like a follow-up
-        </Label>
-      </div>
-      <Button type="submit">Send feedback</Button>
-    </form>
+        <div className="flex items-center gap-2">
+          <Checkbox id="flowbite-feedback-followup" name="followUp" />
+          <Label htmlFor="flowbite-feedback-followup">
+            I would like a follow-up
+          </Label>
+        </div>
+        <Button type="submit">Send feedback</Button>
+      </form>
+    </Card>
   )
 }
 

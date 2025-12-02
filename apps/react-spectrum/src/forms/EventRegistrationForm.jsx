@@ -7,7 +7,7 @@ function EventRegistrationForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} width="100%">
       <Flex direction="column" gap="size-200">
         <TextField
           label="Full name"

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ThemeProvider, BaseStyles } from '@primer/react'
+import { ThemeProvider, BaseStyles, Box } from '@primer/react'
 
 // Import all form components
 import AdvancedSearchForm from './forms/AdvancedSearchForm'
@@ -90,9 +90,16 @@ function App() {
   return (
     <ThemeProvider colorMode={theme === 'dark' ? 'night' : 'day'}>
       <BaseStyles>
-        <div style={{ padding: '16px' }}>
+        <Box
+          sx={{
+            padding: 3,
+            minHeight: '100vh',
+            backgroundColor: 'canvas.default',
+            color: 'fg.default',
+          }}
+        >
           <FormComponent />
-        </div>
+        </Box>
       </BaseStyles>
     </ThemeProvider>
   )

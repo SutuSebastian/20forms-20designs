@@ -1,7 +1,6 @@
 import './styles.css'
 
 import AppProvider from '@atlaskit/app-provider'
-import { token } from '@atlaskit/tokens'
 
 import { useState, useEffect } from 'react'
 import { Box, xcss } from '@atlaskit/primitives'
@@ -57,6 +56,8 @@ const containerStyles = xcss({
   margin: '0 auto',
   padding: 'space.300',
   minHeight: '100vh',
+  backgroundColor: 'elevation.surface',
+  color: 'color.text',
 })
 
 function App() {
@@ -69,12 +70,6 @@ function App() {
     const params = new URLSearchParams(window.location.search)
     return params.get('theme') === 'dark' ? 'dark' : 'light'
   })
-
-  // Apply background color to body when theme changes
-  useEffect(() => {
-    document.body.style.backgroundColor = token('elevation.surface')
-    document.body.style.color = token('color.text')
-  }, [theme])
 
   // Listen for theme changes from parent
   useEffect(() => {

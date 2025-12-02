@@ -8,18 +8,31 @@ body.dark .usa-checkbox__label {
 /* Checkbox box styling */
 body.dark .usa-checkbox__label::before {
   background-color: #2d2d2d;
-  border-color: #565c65;
+  border-color: #a9aeb1;
+  box-shadow: 0 0 0 1px #a9aeb1;
 }
 
 /* Checkbox checked state */
 body.dark .usa-checkbox__input:checked + .usa-checkbox__label::before {
   background-color: #005ea2;
-  border-color: #005ea2;
+  border-color: #73b3e7;
+  box-shadow: none;
+}
+
+/* Checkbox checkmark visibility in dark mode */
+body.dark .usa-checkbox__input:checked + .usa-checkbox__label::after {
+  border-color: #ffffff;
+}
+
+/* Checkbox hover state */
+body.dark .usa-checkbox__label:hover::before {
+  border-color: #73b3e7;
 }
 
 /* Checkbox focus state */
 body.dark .usa-checkbox__input:focus + .usa-checkbox__label::before {
-  outline-color: #a9aeb1;
+  outline: 2px solid #73b3e7;
+  outline-offset: 2px;
 }
 
 /* Radio button label text */

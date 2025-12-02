@@ -7,7 +7,7 @@ function ProfileUpdateForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} width="100%">
       <Flex direction="column" gap="size-200">
         <TextField label="First name" name="firstName" type="text" isRequired />
         <TextField label="Last name" name="lastName" type="text" isRequired />

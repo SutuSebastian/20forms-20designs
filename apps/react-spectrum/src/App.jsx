@@ -81,7 +81,14 @@ function App() {
 
   return (
     <Provider theme={defaultTheme} colorScheme={theme}>
-      <div style={{ padding: '16px' }}>
+      <div
+        style={{
+          padding: '20px',
+          maxWidth: '500px',
+          margin: '0 auto',
+          minHeight: '100vh',
+        }}
+      >
         <FormComponent />
       </div>
     </Provider>

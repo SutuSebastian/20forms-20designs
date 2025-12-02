@@ -1,4 +1,12 @@
-import { Button, Checkbox, Label, Select, TextInput, Textarea } from 'flowbite-react'
+import {
+  Button,
+  Card,
+  Checkbox,
+  Label,
+  Select,
+  TextInput,
+  Textarea,
+} from 'flowbite-react'
 
 function ContactInquiryForm() {
   const handleSubmit = (event) => {
@@ -7,60 +15,62 @@ function ContactInquiryForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-contact-name" value="Full name" />
+    <Card className="w-full">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-contact-name" value="Full name" />
+          </div>
+          <TextInput
+            id="flowbite-contact-name"
+            name="fullName"
+            type="text"
+            required
+          />
         </div>
-        <TextInput
-          id="flowbite-contact-name"
-          name="fullName"
-          type="text"
-          required
-        />
-      </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-contact-email" value="Email address" />
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-contact-email" value="Email address" />
+          </div>
+          <TextInput
+            id="flowbite-contact-email"
+            name="email"
+            type="email"
+            required
+          />
         </div>
-        <TextInput
-          id="flowbite-contact-email"
-          name="email"
-          type="email"
-          required
-        />
-      </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-contact-topic" value="Topic" />
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-contact-topic" value="Topic" />
+          </div>
+          <Select id="flowbite-contact-topic" name="topic" required>
+            <option value="">Select topic</option>
+            <option value="support">Support</option>
+            <option value="sales">Sales</option>
+            <option value="feedback">Feedback</option>
+            <option value="other">Other</option>
+          </Select>
         </div>
-        <Select id="flowbite-contact-topic" name="topic" required>
-          <option value="">Select topic</option>
-          <option value="support">Support</option>
-          <option value="sales">Sales</option>
-          <option value="feedback">Feedback</option>
-          <option value="other">Other</option>
-        </Select>
-      </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-contact-message" value="Message" />
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="flowbite-contact-message" value="Message" />
+          </div>
+          <Textarea
+            id="flowbite-contact-message"
+            name="message"
+            rows={4}
+            required
+          />
         </div>
-        <Textarea
-          id="flowbite-contact-message"
-          name="message"
-          rows={4}
-          required
-        />
-      </div>
-      <div className="flex items-center gap-2">
-        <Checkbox id="flowbite-contact-consent" name="consent" />
-        <Label htmlFor="flowbite-contact-consent">
-          Allow follow-up communication
-        </Label>
-      </div>
-      <Button type="submit">Submit inquiry</Button>
-    </form>
+        <div className="flex items-center gap-2">
+          <Checkbox id="flowbite-contact-consent" name="consent" />
+          <Label htmlFor="flowbite-contact-consent">
+            Allow follow-up communication
+          </Label>
+        </div>
+        <Button type="submit">Submit inquiry</Button>
+      </form>
+    </Card>
   )
 }
 

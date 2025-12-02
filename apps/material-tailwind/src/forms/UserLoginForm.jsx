@@ -68,6 +68,7 @@ function UserLoginForm() {
         <Button
           type="button"
           variant="text"
+          className="dark:text-white"
           onClick={() => alert('Password reset link flow placeholder')}
         >
           Forgot password?

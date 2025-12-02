@@ -1,4 +1,4 @@
-import { Button, Label, TextInput } from 'flowbite-react'
+import { Button, Card, Label, TextInput } from 'flowbite-react'
 
 function OrderTrackingForm() {
   const handleSubmit = (event) => {
@@ -7,49 +7,54 @@ function OrderTrackingForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-      <div>
-        <div className="mb-2 block">
-          <Label
-            htmlFor="flowbite-order-tracking-number"
-            value="Order number"
+    <Card className="w-full">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <div>
+          <div className="mb-2 block">
+            <Label
+              htmlFor="flowbite-order-tracking-number"
+              value="Order number"
+            />
+          </div>
+          <TextInput
+            id="flowbite-order-tracking-number"
+            name="orderNumber"
+            type="text"
+            pattern="[A-Za-z0-9-]{6,20}"
+            required
           />
         </div>
-        <TextInput
-          id="flowbite-order-tracking-number"
-          name="orderNumber"
-          type="text"
-          pattern="[A-Za-z0-9-]{6,20}"
-          required
-        />
-      </div>
-      <div>
-        <div className="mb-2 block">
-          <Label
-            htmlFor="flowbite-order-tracking-email"
-            value="Email address"
+        <div>
+          <div className="mb-2 block">
+            <Label
+              htmlFor="flowbite-order-tracking-email"
+              value="Email address"
+            />
+          </div>
+          <TextInput
+            id="flowbite-order-tracking-email"
+            name="email"
+            type="email"
+            required
           />
         </div>
-        <TextInput
-          id="flowbite-order-tracking-email"
-          name="email"
-          type="email"
-          required
-        />
-      </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="flowbite-order-tracking-postal" value="Postal code" />
+        <div>
+          <div className="mb-2 block">
+            <Label
+              htmlFor="flowbite-order-tracking-postal"
+              value="Postal code"
+            />
+          </div>
+          <TextInput
+            id="flowbite-order-tracking-postal"
+            name="postalCode"
+            type="text"
+            required
+          />
         </div>
-        <TextInput
-          id="flowbite-order-tracking-postal"
-          name="postalCode"
-          type="text"
-          required
-        />
-      </div>
-      <Button type="submit">Find order</Button>
-    </form>
+        <Button type="submit">Find order</Button>
+      </form>
+    </Card>
   )
 }
 

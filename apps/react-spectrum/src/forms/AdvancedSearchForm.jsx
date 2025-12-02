@@ -16,7 +16,7 @@ function AdvancedSearchForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} width="100%">
       <Flex direction="column" gap="size-200">
         <TextField label="Search query" name="query" type="text" isRequired />
         <Picker label="Category" name="category" isRequired>

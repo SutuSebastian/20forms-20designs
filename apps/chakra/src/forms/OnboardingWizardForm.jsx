@@ -83,11 +83,10 @@ function OnboardingWizardForm() {
             </Checkbox.Root>
           </Stack>
         </Box>
-        <Stack direction="row" gap={3}>
+        <Stack direction="row" gap={3} justifyContent="flex-end">
           <Button
             type="button"
-            variant="outline"
-            colorPalette="gray"
+            variant="surface"
             onClick={() => alert('Back action placeholder')}
           >
             Back

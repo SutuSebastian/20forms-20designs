@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { EuiProvider } from '@elastic/eui'
 import { appendIconComponentCache } from '@elastic/eui/es/components/icon/icon'
 
 // Pre-cache commonly used icons to avoid dynamic import issues with Vite base path
@@ -38,8 +37,6 @@ import App from './App'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <EuiProvider>
-      <App />
-    </EuiProvider>
+    <App />
   </React.StrictMode>
 )

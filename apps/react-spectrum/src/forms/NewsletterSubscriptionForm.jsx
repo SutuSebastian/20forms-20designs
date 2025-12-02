@@ -15,7 +15,7 @@ function NewsletterSubscriptionForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} width="100%">
       <Flex direction="column" gap="size-200">
         <TextField label="Email address" name="email" type="email" isRequired />
         <Picker label="Frequency" name="frequency" isRequired>
