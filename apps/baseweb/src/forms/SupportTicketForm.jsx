@@ -20,7 +20,7 @@ function SupportTicketForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Block display="flex" flexDirection="column" gridGap="scale200">
+      <Block display="flex" flexDirection="column" gridGap="scale100">
         <FormControl label="Subject">
           <Input
             id="baseweb-ticket-subject"
@@ -37,7 +37,7 @@ function SupportTicketForm() {
             value={priority}
             onChange={(e) => setPriority(e.currentTarget.value)}
             name="priority"
-            align={ALIGN.vertical}
+            align={ALIGN.horizontal}
           >
             <Radio value="low">Low</Radio>
             <Radio value="medium">Medium</Radio>

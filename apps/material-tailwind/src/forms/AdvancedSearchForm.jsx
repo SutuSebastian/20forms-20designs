@@ -51,41 +51,39 @@ function AdvancedSearchForm() {
           <option value="people">People</option>
         </select>
       </div>
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <Typography
-            variant="small"
-            className="mb-1 font-medium text-gray-900 dark:text-white"
-          >
-            Date from
-          </Typography>
-          <Input
-            id="material-tailwind-advanced-search-dateFrom"
-            name="dateFrom"
-            type="date"
-            size="lg"
-            className="!border-gray-300 dark:!border-gray-700 dark:bg-gray-800 dark:text-white"
-            labelProps={{ className: 'hidden' }}
-            containerProps={{ className: 'min-w-0' }}
-          />
-        </div>
-        <div>
-          <Typography
-            variant="small"
-            className="mb-1 font-medium text-gray-900 dark:text-white"
-          >
-            Date to
-          </Typography>
-          <Input
-            id="material-tailwind-advanced-search-dateTo"
-            name="dateTo"
-            type="date"
-            size="lg"
-            className="!border-gray-300 dark:!border-gray-700 dark:bg-gray-800 dark:text-white"
-            labelProps={{ className: 'hidden' }}
-            containerProps={{ className: 'min-w-0' }}
-          />
-        </div>
+      <div>
+        <Typography
+          variant="small"
+          className="mb-1 font-medium text-gray-900 dark:text-white"
+        >
+          Date from
+        </Typography>
+        <Input
+          id="material-tailwind-advanced-search-dateFrom"
+          name="dateFrom"
+          type="date"
+          size="lg"
+          className="!border-gray-300 dark:!border-gray-700 dark:bg-gray-800 dark:text-white"
+          labelProps={{ className: 'hidden' }}
+          containerProps={{ className: 'min-w-0' }}
+        />
+      </div>
+      <div>
+        <Typography
+          variant="small"
+          className="mb-1 font-medium text-gray-900 dark:text-white"
+        >
+          Date to
+        </Typography>
+        <Input
+          id="material-tailwind-advanced-search-dateTo"
+          name="dateTo"
+          type="date"
+          size="lg"
+          className="!border-gray-300 dark:!border-gray-700 dark:bg-gray-800 dark:text-white"
+          labelProps={{ className: 'hidden' }}
+          containerProps={{ className: 'min-w-0' }}
+        />
       </div>
       <div>
         <Typography

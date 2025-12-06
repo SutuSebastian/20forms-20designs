@@ -2,64 +2,62 @@ import { useState, useCallback } from 'react'
 import {
   FormLayout,
   TextField,
-  Select,
   ChoiceList,
+  DropZone,
   Button,
+  BlockStack,
+  Text,
+  InlineStack,
+  Thumbnail,
 } from '@shopify/polaris'
 
 function SupportTicketForm() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [category, setCategory] = useState('')
-  const [priority, setPriority] = useState(['medium'])
   const [subject, setSubject] = useState('')
+  const [priority, setPriority] = useState(['medium'])
   const [description, setDescription] = useState('')
-
-  const categoryOptions = [
-    { label: 'Select category', value: '' },
-    { label: 'Technical issue', value: 'technical' },
-    { label: 'Billing', value: 'billing' },
-    { label: 'Account', value: 'account' },
-    { label: 'Feature request', value: 'feature' },
-    { label: 'Other', value: 'other' },
-  ]
+  const [files, setFiles] = useState([])
 
   const priorityOptions = [
     { label: 'Low', value: 'low' },
     { label: 'Medium', value: 'medium' },
     { label: 'High', value: 'high' },
-    { label: 'Critical', value: 'critical' },
   ]
+
+  const handleDropZoneDrop = useCallback(
+    (_dropFiles, acceptedFiles) => setFiles((files) => [...files, ...acceptedFiles]),
+    []
+  )
 
   const handleSubmit = useCallback((event) => {
     event.preventDefault()
     alert('Support ticket submitted!')
   }, [])
 
+  const fileUpload = !files.length && <DropZone.FileUpload />
+  const uploadedFiles = files.length > 0 && (
+    <BlockStack gap="200">
+      {files.map((file, index) => (
+        <InlineStack gap="200" align="center" key={index}>
+          <Thumbnail
+            size="small"
+            alt={file.name}
+            source={window.URL.createObjectURL(file)}
+          />
+          <Text variant="bodyMd" as="p">{file.name}</Text>
+        </InlineStack>
+      ))}
+    </BlockStack>
+  )
+
   return (
     <form onSubmit={handleSubmit}>
       <FormLayout>
         <TextField
-          label="Name"
+          label="Subject"
           type="text"
-          value={name}
-          onChange={setName}
-          autoComplete="name"
-          requiredIndicator
-        />
-        <TextField
-          label="Email address"
-          type="email"
-          value={email}
-          onChange={setEmail}
-          autoComplete="email"
-          requiredIndicator
-        />
-        <Select
-          label="Category"
-          options={categoryOptions}
-          value={category}
-          onChange={setCategory}
+          value={subject}
+          onChange={setSubject}
+          autoComplete="off"
           requiredIndicator
         />
         <ChoiceList
@@ -69,21 +67,20 @@ function SupportTicketForm() {
           onChange={setPriority}
         />
         <TextField
-          label="Subject"
-          type="text"
-          value={subject}
-          onChange={setSubject}
-          autoComplete="off"
-          requiredIndicator
-        />
-        <TextField
-          label="Description"
+          label="Issue description"
           value={description}
           onChange={setDescription}
           multiline={4}
           autoComplete="off"
           requiredIndicator
         />
+        <BlockStack gap="200">
+          <Text as="span">Attachments</Text>
+          <DropZone onDrop={handleDropZoneDrop} allowMultiple>
+            {uploadedFiles}
+            {fileUpload}
+          </DropZone>
+        </BlockStack>
         <Button submit variant="primary">
           Submit ticket
         </Button>
